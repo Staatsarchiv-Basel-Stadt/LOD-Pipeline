@@ -1,0 +1,12 @@
+default:
+  image: ghcr.io/zazuko/deploy-image:v1.4
+
+stages:
+  - fetch
+
+# fetch file
+fetch:
+  stage: fetch
+  script:
+    - mkdir -p input
+    - cp "${INPUT_FILE}" input/input.json
