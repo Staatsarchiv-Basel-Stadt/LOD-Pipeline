@@ -1,0 +1,50 @@
+/* Base URI templates for RiC-O
+ * ============================
+ * Subject URIS grundsätzlich gebildet anhand der sieben second level
+ * entities von RiC-CM (RiC-O umfasst aber 12 second level!)
+ * (@todo: klären, ob alle Entities verwendet werden sollen)
+ * thURI ist eine Möglichkeit zur radikalen Vereinfachung (@todo, prüfen)
+ */
+
+/* Thing URI basierend nur auf ID, Fallback für nicht näher definierte Instanzen (aktuell "Deskriptoren" */
+template thURI "https://ld.staatsarchiv.bs.ch/Thing/{0}" // oder ohne '/Thing/'
+
+/* Subject URIs für Record Resources (Verzeichnungseinheiten) */
+template rrURI "https://ld.staatsarchiv.bs.ch/Record/{0}"
+template oldrefURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Old-Reference/{1}"
+template frmrefURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Former-Reference/{1}"
+template frmstabsrefURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Former-StABS-Reference/{1}"
+template dateURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Date"
+
+template agURI "https://ld.staatsarchiv.bs.ch/Agent/{0}"
+template evURI "https://ld.staatsarchiv.bs.ch/Event/{0}"
+
+/* Extent URI Templates */
+template exURI "https://ld.staatsarchiv.bs.ch/Extent/{0}"
+template exlmURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Extent/linear-meters"
+template exnumURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Extent/number-of-units"
+template exnumfileURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Extent/number-of-files"
+template exapproxURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Extent/extent-approximative"
+template exdvURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Extent/volume-of-data"
+
+template ruURI "https://ld.staatsarchiv.bs.ch/Rule/{0}"
+template plURI "https://ld.staatsarchiv.bs.ch/Place/{0}"
+template daURI "https://ld.staatsarchiv.bs.ch/Date/{0}"
+
+template dlsURI "https://dls.staatsarchiv.bs.ch/records/{0}"
+
+/* 12 Subklassen von rico:Thing
+ * ----------------------------
+ * rico:Agent
+ * rico:Concept
+ * rico:Coordinates
+ * rico:Date
+ * rico:Event
+ * rico:Extent
+ * rico:Instantiation
+ * rico:PhysicalLocation
+ * rico:Place
+ * rico:RecordResource
+ * rico:Relation
+ * rico:Rule
+ */

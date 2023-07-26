@@ -1,0 +1,400 @@
+output carml
+
+/* Basis-Maps for RecordResouces
+ * -----------------------------
+ * - for all instances of rico:RecordResource
+ * - two maps give two subject uris (DB ID and Reference) and declares them as same
+ */
+map rr_stabs from SdReg {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.title from TITEL with language-tag ger;
+    rico.identifier from SIGNATUR;
+    rico.scopeAndContent from DARIN with language-tag ger; // Hervorzuhebende Inhalte von 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
+    rico.scopeAndContent from ENTHAELT with language-tag ger; // Hauptgegenstand von isadg 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
+    rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
+    rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
+    rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
+    rico.isAssociatedWithDate template dateURI with ID_NR;
+    rico.descriptiveNote from ANMERKUNGEN with language-tag ger;
+    // rico.hasRecordSetType template rstypeURI with STUFE;
+    dct.isReferencedBy template dlsURI with ID_NR;
+    stabsdata.ID_NR from ID_NR with datatype xsd.string;
+    stabsdata.PHYSISCHE_BESCHAFFENHEIT from PHYSISCHE_BESCHAFFENHEIT with datatype xsd.string;
+}
+
+/* Description Level Classes
+ * -------------------------
+ * - builds the main RecordResource Relations (include)
+ * - sets the RecordSetType
+ */
+map level_archive from SdReg {
+  subject template rrURI with ID_NR;
+
+  types
+    rico.RecordSet
+
+  properties
+    rico.history from ARCHIVGESCHICHTE with language-tag ger; // @todo: use rico.Event class later
+    rico.hasRecordSetType constant "https://ld.bs.ch/vocabularies/recordSetTypes/Archiv";
+}
+
+map level_abt from SdReg {
+  subject template rrURI with ID_NR;
+
+  types
+    rico.RecordSet
+
+  properties
+    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+    rico.hasRecordSetType constant "https://ld.bs.ch/vocabularies/recordSetTypes/Abteilung";
+}
+
+map level_fonds from SdReg {
+  subject template rrURI with ID_NR;
+
+  types
+    rico.RecordSet
+
+  properties
+    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+    rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
+    rico.hasRecordSetType constant "https://ld.bs.ch/vocabularies/recordSetTypes/Fonds";
+}
+
+map level_best from SdReg {
+  subject template rrURI with ID_NR;
+
+  types
+    rico.RecordSet
+
+  properties
+    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+    rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
+    rico.hasRecordSetType constant "https://ld.bs.ch/vocabularies/recordSetTypes/Bestand";
+    // rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
+}
+
+map level_series from SdReg {
+  subject template rrURI with ID_NR;
+
+  types
+    rico.RecordSet
+
+  properties
+    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+    rico.hasRecordSetType constant "https://ld.bs.ch/vocabularies/recordSetTypes/Serie";
+    // rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
+}
+
+map level_dossier from SdReg {
+  subject template rrURI with ID_NR;
+
+  types
+    rico.RecordSet
+
+  properties
+    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+    rico.hasRecordSetType constant "https://ld.bs.ch/vocabularies/recordSetTypes/Dossier";
+    // rico.hasContentOfType template ctURI with ID_NR;// ARCHIVALIENART (3.1.5) @todo: sollte auf eigene Klasse gemappt werden
+}
+
+map level_dokument from SdReg {
+  subject template rrURI with ID_NR;
+
+  types
+    rico.Record
+
+  properties
+    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+    // rico.hasContentOfType // ARCHIVALIENART (3.1.5) @todo s.o.
+}
+
+/* Date Maps
+ * ---------
+ * - Entstehungszeitraum
+ */
+map date_01 from SdReg {
+  subject template dateURI with ID_NR;
+
+  types
+    rico.Date
+
+  properties
+    rico.expressedDate from ENTSTEHUNGSZEITRAUM;
+}
+
+/* Identity Maps
+ * -------------
+ * - Alte Signaturen
+ * - Frühere Signaturen
+ * - Frühere StABS-Signatur
+ */
+
+map ident_01 from SdReg {
+  subject template oldrefURI with ID_NR ALTE_SIGNATUREN;
+
+  types
+    rico.Identifier
+
+  properties
+    rico.isOrWasIdentifierOf template rrURI with ID_NR;
+    rico.hasIdentifierType constant "https://ld.bs.ch/vocabularies/identifierTypes/Alte-Signatur";
+    rico.textualValue from ALTE_SIGNATUREN;
+    rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
+}
+
+map ident_02 from SdReg {
+  subject template frmrefURI with ID_NR FRUEHERE_SIGNATUR;
+
+  types
+    rico.Identifier
+
+  properties
+    rico.isOrWasIdentifierOf template rrURI with ID_NR;
+    rico.hasIdentifierType constant "https://ld.bs.ch/vocabularies/identifierTypes/Fruehere-Signatur";
+    rico.textualValue from FRUEHERE_SIGNATUR;
+    rico.descriptiveNote constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung";
+}
+
+map ident_03 from SdReg {
+  subject template frmstabsrefURI with ID_NR FRUEHERE_STABS_SIGNATUR;
+
+  types
+    rico.Identifier
+
+  properties
+    rico.isOrWasIdentifierOf template rrURI with ID_NR;
+    rico.hasIdentifierType constant "https://ld.bs.ch/vocabularies/identifierTypes/Fruehere-StABS-Signatur";
+    rico.textualValue from FRUEHERE_STABS_SIGNATUR;
+    rico.descriptiveNote constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
+}
+/* Extent Maps
+ * -----------
+ * DE: LAUFMETER, ANZAHL, ANZAHL_DATEIEN, UMFANG_GESCHAETZT, KOMMENTAR_ZUM_UMFANG, DATENVOLUMEN_MB
+ */
+
+map extent_lm from SdReg {
+  subject template exlmURI with ID_NR;
+
+  types
+    rico.RecordResourceExtent
+
+  properties
+    rico.isExtentOf template rrURI with ID_NR;
+    rico.hasExtentType constant "https://ld.bs.ch/vocabularies/extentTypes/Laufmeter";
+    rico.quantity from LAUFMETER with datatype xsd.decimal;
+    rico.hasUnitOfMeasurement constant "http://qudt.org/vocab/unit/M"; // @todo: als rico:UnitOfMeasurement
+    rico.descriptiveNote constant "Laufmeter";
+}
+
+map extent_num from SdReg {
+  subject template exnumURI with ID_NR;
+
+  types
+    rico.RecordResourceExtent
+
+  properties
+    rico.isExtentOf template rrURI with ID_NR;
+    rico.hasExtentType constant "https://ld.bs.ch/vocabularies/extentTypes/Anzahl";
+    rico.quantity from ANZAHL with datatype xsd.integer;
+    // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
+    rico.descriptiveNote constant "Anzahl Einheiten oder Behältnisse";
+}
+
+map extent_num_files from SdReg {
+  subject template exnumfileURI with ID_NR;
+
+  types
+    rico.RecordResourceExtent
+
+  properties
+    rico.isExtentOf template rrURI with ID_NR;
+    rico.hasExtentType constant "https://ld.bs.ch/vocabularies/extentTypes/Anzahl-Dateien";
+    rico.quantity from ANZAHL_DATEIEN with datatype xsd.integer;
+    // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
+    rico.descriptiveNote constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht.";
+}
+
+map extent_data_vol from SdReg {
+  subject template exdvURI with ID_NR;
+
+  types
+    rico.RecordResourceExtent
+
+  properties
+    rico.isExtentOf template rrURI with ID_NR;
+    rico.hasExtentType constant "https://ld.bs.ch/vocabularies/extentTypes/Datenvolumen-MB";
+    rico.quantity from DATENVOLUMEN_MB with datatype xsd.decimal;
+    // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
+    rico.descriptiveNote constant "Angabe des enthaltenen Datenvolumens in Megabyte (MB)";
+
+}
+
+map extent_approx from SdReg {
+  subject template exapproxURI with ID_NR;
+
+  types
+    rico.RecordResourceExtent
+
+  properties
+    rico.isExtentOf template rrURI with ID_NR;
+    rico.hasExtentType constant "https://ld.bs.ch/vocabularies/extentTypes/Umfang-approximativ";
+    rico.textualValue from UMFANG_GESCHAETZT;
+    rico.descriptiveNote constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen.";
+}
+
+// /* Provenienz
+//  * ----------
+//  * * erster Versuch
+//  */
+// map prov_1 from dls2ogd.PROV_1 {
+//   subject template agURI with PR_ID;
+
+//   types
+//     rico.Agent
+
+//   properties
+//     rico.name from PR_NAME;
+//     rico.isProvenanceOf template rrURI with VE_ID;
+// }
+
+/* Verwaltungsgeschichte / Biografische Angaben
+ * --------------------------------------------
+ * (prüfen, ob als Event/1234 rico:isEventAssociatedWith Record/1234)
+ */
+
+map bioghist_1 from SdReg {
+  subject template rrURI with ID_NR;
+
+  types
+    rico.RecordResource
+
+  properties
+    rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
+}
+
+// map bioghist_2 from SdReg {
+//   subject template agURI with PR_ID;
+
+//   types
+//     rico.Agent
+
+//   properties
+//     rico.history from GESCHICHTE with language-tag ger;
+//     rico.hasOrHadLocation from ORT; // ORT als subject URI
+//     rico.isOrWasPartOf from ORGANISATIONSZUGEHOERIGKEIT; // @todo als subject URI
+// }
+
+/* Historisches Grundbuch (HBG)
+* -----------------------------
+*/
+map hbg_records from SdReg {
+  subject template rrURI with ID_NR;
+
+  types
+    stabsrico.RecordHBG
+
+  properties
+    stabsrico.houseNameBS from HAUSNAME with language-tag ger;
+    stabsrico.oldHousenumber from ALTE_HAUSNUMMER with language-tag ger;
+    stabsrico.owner1862 from EIGENTUEMER_1862 with language-tag ger;
+}
+
+/* Descriptors (scope Concept)
+ * --------------------------
+ * * Erstelle Auth-Records / Thesaurus-Records in skos
+ * * Erstelle Agent-/ und Place-Subjects (optional)
+ * * Verbinde mit RiC-R020
+ */
+// map thes_pers from dls2ogd.TH_PERS {
+//   subject template agURI with ID_NR;
+
+//   types
+//     rico.Agent
+//     skos.Concept
+
+//   properties
+//     rico.name from BEZEICHNUNG with language-tag ger;
+//     rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
+//     skos.prefLabel from BEZEICHNUNG with language-tag ger;
+//     skos.note from BESCHREIBUNG with language-tag ger;
+//     skos.inScheme constant "https://ld.bs.ch/vocabularies/thesaurusTypes/Personenbegriffe";
+// }
+
+// map thes_ort from dls2ogd.TH_ORT {
+//   subject template plURI with ID_NR;
+
+//   types
+//     rico.Place
+//     skos.Concept
+
+//   properties
+//     rico.name from BEZEICHNUNG with language-tag ger;
+//     rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
+//     skos.prefLabel from BEZEICHNUNG with language-tag ger;
+//     skos.note from BESCHREIBUNG with language-tag ger;
+//     skos.inScheme constant "https://ld.bs.ch/vocabularies/thesaurusTypes/Ortsbegriffe";
+// }
+
+// //map thes_rel from dls2ogd.TH_REL {
+// //	subject template rrURI with ID_NR_1;
+// //
+// //	types
+// //		rico.Record
+// //		skos.Concept
+// //
+// //	properties
+// //		rico.isRecordResourceAssociatedWithRecordResource template rrURI with ID_NR_2;
+// //		skos.related template rrURI with ID_NR_2;
+// //}
+
+// map rr2thes_pers from dls2ogd.TH_PERS_VE_LINK {
+//   subject template rrURI with ID_VE;
+
+//   types
+//     rico.RecordResource
+
+//   properties
+//     rico.hasOrHadMainSubject template agURI with ID_DS;
+// }
+
+// map rr2thes_ort from dls2ogd.TH_ORT_VE_LINK {
+//   subject template rrURI with ID_VE;
+
+//   types
+//     rico.RecordResource
+
+//   properties
+//     rico.hasOrHadMainSubject template plURI with ID_DS;
+// }
+
+/* Ablieferungen
+ * ------------
+ * sind rico:Activity-Instanzen
+ * @todo: Activity-Types als Klasse (rico:Activity) mit rico:hasActivityType
+ */
+
+// map abl from dls2ogd.ABL {
+//   subject template evURI with ID_NR;
+
+//   types
+//     rico.Activity
+
+//   properties
+//     rico.name template "Ablieferung Nr. {0}" with JAHR_LAUF_NR as Literal;
+//     rico.identifier from ID_NR with datatype xsd.string;
+//     rico.hasActivityType constant "https://ld.bs.ch/vocabularies/activityTypes/Ablieferung";
+//     rico.^type template "Typ {0} / Subtyp {1}" with TYP SUBTYP as Literal;
+//     rico.agentOrActivityIsTargetOfProvenanceRelation from AKTENBILDENDE_STELLE; // @sicher falsch
+//     rico.date from ZEITRAUM_PERIODE; // @todo: falsch, da nicht Zeitraum der Aktivität, sondern des Bestands
+//     // rico.isAssociatedWithDate from ZEITRAUM_PERIODE;
+// }
+
+// map abl2ve from dls2ogd.VE_ABL_LINK {
+//   subject template rrURI with ID_NR_VRZNG_ENHT;
+
+//   properties
+//     rico.resultsOrResultedFrom template evURI with ID_NR_ABLFR;
+// }
