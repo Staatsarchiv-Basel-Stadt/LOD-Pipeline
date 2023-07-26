@@ -1,12 +1,27 @@
 default:
-  image: ghcr.io/zazuko/deploy-image:v1.4
+  image: docker.io/zazukoians/node-java-jena:v4
 
 stages:
   - fetch
+  - process
 
 # fetch file
 fetch:
   stage: fetch
+  artifacts:
+    untracked: true
   script:
     - mkdir -p input
     - cp "${INPUT_FILE}" input/input.json
+
+# run the pipeline
+process:
+  stage: process
+  dependencies:
+    - fetch
+  artifacts:
+    paths:
+      - output/
+  script:
+    - npm ci
+    - npm run start
