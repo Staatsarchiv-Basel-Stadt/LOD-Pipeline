@@ -4,6 +4,7 @@ default:
 stages:
   - fetch
   - process
+  - store
 
 # fetch files from S3 bucket and merge them
 fetch:
@@ -36,3 +37,5 @@ process:
   script:
     - npm ci
     - npm run start
+# store triples in the triplestore
+# TODO
