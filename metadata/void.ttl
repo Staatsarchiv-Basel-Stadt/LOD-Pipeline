@@ -1,0 +1,92 @@
+BASE <https://ld.bs.ch/> 
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX doap: <http://usefulinc.com/ns/doap#>
+PREFIX duv: <http://www.w3.org/ns/duv#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+##
+## Dataset Description
+##
+
+<.well-known/void> a void:DatasetDescription ;
+    dcterms:subject <set/archival-catalog>
+    .
+
+##
+## Organizations
+##
+
+<org/staatsarchiv> a schema:GovernmentOrganization, schema:ArchiveOrganization ;
+    schema:name "Staatsarchiv Basel-Stadt"@de , "State Archives of Basel-Stadt"@en ;
+    schema:alternateName "StABS" ;
+    schema:url <https://www.staatsarchiv.bs.ch> , <https://staatskalender.bs.ch/organization/regierung-und-verwaltung/praesidialdepartement/abteilung-kultur/staatsarchiv> ;
+    schema:identifier <https://culture.ld.admin.ch/isil/CH-000027-1> ;
+    rdfs:seeAlso wd:Q56219654
+    .
+
+##
+## Information systems (Software)
+##
+
+<sys/scopeArchiv> a schema:SoftwareApplication ;
+    schema:name "scopeArchiv" ;
+    schema:description "scopeArchiv™ ist eine umfassende Archivsoftware für öffentliche und private Archive."@de ;
+    schema:url <https://www.scope.ch> ;
+    rdfs:seeAlso wd:Q2260520
+    .
+
+<sys/RDF-Pipeline> a doap:GitRepository ;
+    schema:name "RDF-Pipeline" ;
+    schema:description "Die RDF-Pipeline des Staatsarchivs Basel-Stadt transformiert Daten des Archivinformationssystem aus einer relationalen Datenbank (Oracle) nach RDF."@de ;
+    doap:browse <https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline> ;
+    doap:location "https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline.git" 
+    .
+
+##
+## Time span (Temporal Coverage)
+##
+
+<Date/1098/2022> a dcterms:PeriodOfTime ;
+    schema:startDate "1098"^^xsd:gYear ;
+    schema:endDate "2022"^^xsd:gYear
+    .
+
+##
+## Dataset
+## 
+
+<set/archival-catalog> a void:Dataset ;
+    dcterms:isReferencedBy <https://www.staatsarchiv.bs.ch/kataloge/archivkatalog.html> ;
+    dcterms:title "Offene Daten des Archivkatalogs des Staatsarchivs Basel-Stadt" @de ;
+    dcterms:description "Dieser Datensatz enthält die frei zugänglichen Inhalte des Archivkatalogs des Staatsarchiv Basel-Stadt in RDF (Vokabular: Records in Context)"@de ;
+    dcterms:contributor <https://register.ld.admin.ch/zefix/company/1198554> ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:publisher <org/fachstelle-ogd> ;
+    dcterms:source <sys/scopeArchiv> ;
+    dcterms:licence <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dcterms:created "1999"^^xsd:gYear ;
+    dcterms:temporal <Date/1098/2022> ;
+    dcterms:accrualPeriodicity <http://purl.org/cld/freq/daily> ;
+    dcterms:subject wd:Q30216914, wd:Q178376, wd:Q5146094, wd:Q180160 ; 
+    doap:repository <sys/RDF-Pipeline> ;
+    void:sparqlEndpoint <https://ld.staatsarchiv.bs.ch/sparql> ;
+    void:vocabulary 
+        <https://www.ica.org/standards/RiC/ontology>,
+        <http://www.w3.org/2004/02/skos/core> ;
+    void:uriSpace 
+        "https://ld.staatsarchiv.bs.ch/Record/", 
+        "https://ld.staatsarchiv.bs.ch/Agent/", 
+        "https://ld.staatsarchiv.bs.ch/Event/", 
+        "https://ld.staatsarchiv.bs.ch/Place/" ;
+    void:triples "15000000"^^xsd:integer ;
+    void:distinctSubjects "3000000"^^xsd:integer ;
+    void:properties "120"^^xsd:integer
+    .
+#    dcterms:created "%%DATECREATED%%"^^xsd:date;
+#    dcterms:modified "%%DATEMODIFIED%%"^^xsd:date;
