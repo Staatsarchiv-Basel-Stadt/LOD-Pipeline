@@ -21,7 +21,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}"
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 	];
 	
 	rr:predicateObjectMap [
@@ -82,7 +82,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:isAssociatedWithDate;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Date"
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date"
 		]
 	];
 	
@@ -130,7 +130,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
 		rr:class rico:RecordSet
 	];
 	
@@ -162,14 +162,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
 		rr:class rico:RecordSet
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
 	];
 	
@@ -193,14 +193,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
 		rr:class rico:RecordSet
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
 	];
 	
@@ -232,14 +232,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
 		rr:class rico:RecordSet
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
 	];
 	
@@ -271,14 +271,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
 		rr:class rico:RecordSet
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
 	];
 	
@@ -302,14 +302,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
 		rr:class rico:RecordSet
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
 	];
 	
@@ -333,14 +333,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
 		rr:class rico:Record
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
 	].
 	
@@ -357,7 +357,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Date";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date";
 		rr:class rico:Date
 	];
 	
@@ -381,14 +381,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Old-Reference/{ALTE_SIGNATUREN}";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Old-Reference/{ALTE_SIGNATUREN}";
 		rr:class rico:Identifier
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIdentifierOf;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	];
 	
@@ -426,14 +426,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Former-Reference/{FRUEHERE_SIGNATUR}";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Former-Reference/{FRUEHERE_SIGNATUR}";
 		rr:class rico:Identifier
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIdentifierOf;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	];
 	
@@ -471,14 +471,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Former-StABS-Reference/{FRUEHERE_STABS_SIGNATUR}";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Former-StABS-Reference/{FRUEHERE_STABS_SIGNATUR}";
 		rr:class rico:Identifier
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIdentifierOf;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	];
 	
@@ -516,14 +516,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/linear-meters";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/linear-meters";
 		rr:class rico:RecordResourceExtent
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isExtentOf;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	];
 	
@@ -569,14 +569,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/number-of-units";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/number-of-units";
 		rr:class rico:RecordResourceExtent
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isExtentOf;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	];
 	
@@ -615,14 +615,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/number-of-files";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/number-of-files";
 		rr:class rico:RecordResourceExtent
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isExtentOf;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	];
 	
@@ -661,14 +661,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/volume-of-data";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/volume-of-data";
 		rr:class rico:RecordResourceExtent
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isExtentOf;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	];
 	
@@ -707,14 +707,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/extent-approximative";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/extent-approximative";
 		rr:class rico:RecordResourceExtent
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isExtentOf;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	];
 	
@@ -752,7 +752,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
 		rr:class rico:RecordResource
 	];
 	
@@ -777,7 +777,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
 		rr:class stabs-rico:RecordHBG
 	];
 	
