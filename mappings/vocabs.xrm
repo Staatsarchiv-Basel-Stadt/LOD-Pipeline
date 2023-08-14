@@ -650,7 +650,7 @@ vocabulary ricrst {
 }
 
 vocabulary stabslevels {
-	prefix "stabs-rst" "https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#"
+	prefix "stabs-rst" "https://ld.bs.ch/ais/vocabularies/recordSetTypes#"
 
 	classes
 		Abteilung
@@ -676,7 +676,7 @@ vocabulary stabsdata {
 }
 
 vocabulary stabsrico {
-	prefix "stabs-rico" "https://ld.staatsarchiv.bs.ch/ontologies/StABS-RiC/"
+	prefix "stabs-rico" "https://ld.bs.ch/ontologies/StABS-RiC/"
 
 	classes
 		RecordHBG

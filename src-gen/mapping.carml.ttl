@@ -5,7 +5,7 @@ PREFIX carml: <http://carml.taxonic.com/carml/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX stabs-d: <stabs:scope:data/>
-PREFIX stabs-rico: <https://ld.staatsarchiv.bs.ch/ontologies/StABS-RiC/>
+PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <#rr_stabs>
