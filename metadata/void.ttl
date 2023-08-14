@@ -75,15 +75,15 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:accrualPeriodicity <http://purl.org/cld/freq/daily> ;
     dcterms:subject wd:Q30216914, wd:Q178376, wd:Q5146094, wd:Q180160 ; 
     doap:repository <sys/RDF-Pipeline> ;
-    void:sparqlEndpoint <https://ld.staatsarchiv.bs.ch/sparql> ;
+    void:sparqlEndpoint <https://ld.bs.ch/sparql> ;
     void:vocabulary 
         <https://www.ica.org/standards/RiC/ontology>,
         <http://www.w3.org/2004/02/skos/core> ;
     void:uriSpace 
-        "https://ld.staatsarchiv.bs.ch/Record/", 
-        "https://ld.staatsarchiv.bs.ch/Agent/", 
-        "https://ld.staatsarchiv.bs.ch/Event/", 
-        "https://ld.staatsarchiv.bs.ch/Place/" ;
+        "https://ld.bs.ch/ais/Record/", 
+        "https://ld.bs.ch/ais/Agent/", 
+        "https://ld.bs.ch/ais/Event/", 
+        "https://ld.bs.ch/ais/Place/" ;
     void:triples "15000000"^^xsd:integer ;
     void:distinctSubjects "3000000"^^xsd:integer ;
     void:properties "120"^^xsd:integer
