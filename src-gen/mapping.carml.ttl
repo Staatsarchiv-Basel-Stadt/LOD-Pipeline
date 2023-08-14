@@ -145,7 +145,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/recordSetTypes/Archiv>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/recordSetTypes/Archiv>
 		]
 	].
 	
@@ -176,7 +176,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/recordSetTypes/Abteilung>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/recordSetTypes/Abteilung>
 		]
 	].
 	
@@ -215,7 +215,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/recordSetTypes/Fonds>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/recordSetTypes/Fonds>
 		]
 	].
 	
@@ -254,7 +254,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/recordSetTypes/Bestand>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/recordSetTypes/Bestand>
 		]
 	].
 	
@@ -285,7 +285,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/recordSetTypes/Serie>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/recordSetTypes/Serie>
 		]
 	].
 	
@@ -316,7 +316,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/recordSetTypes/Dossier>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/recordSetTypes/Dossier>
 		]
 	].
 	
@@ -395,7 +395,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/identifierTypes/Alte-Signatur>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/identifierTypes/Alte-Signatur>
 		]
 	];
 	
@@ -440,7 +440,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/identifierTypes/Fruehere-Signatur>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/identifierTypes/Fruehere-Signatur>
 		]
 	];
 	
@@ -485,7 +485,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/identifierTypes/Fruehere-StABS-Signatur>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/identifierTypes/Fruehere-StABS-Signatur>
 		]
 	];
 	
@@ -530,7 +530,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/extentTypes/Laufmeter>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Laufmeter>
 		]
 	];
 	
@@ -583,7 +583,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/extentTypes/Anzahl>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Anzahl>
 		]
 	];
 	
@@ -629,7 +629,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/extentTypes/Anzahl-Dateien>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Anzahl-Dateien>
 		]
 	];
 	
@@ -675,7 +675,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/extentTypes/Datenvolumen-MB>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Datenvolumen-MB>
 		]
 	];
 	
@@ -721,7 +721,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/vocabularies/extentTypes/Umfang-approximativ>
+			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Umfang-approximativ>
 		]
 	];
 	
