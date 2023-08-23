@@ -76,11 +76,22 @@ map date_01 from stabs_ogd.rr_base {
   subject template dateURI with ID_NR;
 
   types
-    rico.Date
+    rico.DateRange
 
   properties
     rico.expressedDate from ENTSTEHUNGSZEITRAUM;
+    //created_start created_end
 }
+
+// map date_02 from stabs_ogd.rr_base {
+//   subject template daURI with created_start;
+
+//   types
+//     rico.SingleDate
+
+//   properties
+//     rico.hasBeginningDate from created_start;
+// }
 
 /* Identity Maps
  * -------------

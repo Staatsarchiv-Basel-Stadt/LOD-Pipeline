@@ -226,7 +226,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	
 	rr:subjectMap [
 		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date";
-		rr:class rico:Date
+		rr:class rico:DateRange
 	];
 	
 	rr:predicateObjectMap [
