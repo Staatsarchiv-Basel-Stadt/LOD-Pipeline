@@ -153,4 +153,20 @@ source-group stabs_ogd {
       REVISIONSDATUM
       WEBLINK
   }
+
+  logical-source rr_fonds {
+    iterator "$..[?(@.STUFE == 'Fonds')]"
+
+    referenceables
+      ID_NR
+      STUFE
+  }
+
+  // logical-source rr_at_akte {
+  //     iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
+
+  //     referenceables
+  //       ID_NR
+  //       ARCHIVALIENART
+  // }
 }

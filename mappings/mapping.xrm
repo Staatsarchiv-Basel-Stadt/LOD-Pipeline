@@ -63,6 +63,13 @@ map level_fonds from stabs_ogd.rr_base {
     rico.hasRecordSetType constant "https://ld.bs.ch/ais/vocabularies/recordSetTypes/Fonds";
 }
 
+map rr_fonds from stabs_ogd.rr_fonds {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasRecordSetType from STUFE with language-tag ger ;
+}
+
 map level_best from stabs_ogd.rr_base {
   subject template rrURI with ID_NR;
 

@@ -219,6 +219,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
+<#rr_fonds>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE == 'Fonds')]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType;
+		rr:objectMap [
+			rml:reference "STUFE";
+			rr:language "ger"
+		]
+	].
+	
 <#level_best>
 	a rr:TriplesMap;
 	
