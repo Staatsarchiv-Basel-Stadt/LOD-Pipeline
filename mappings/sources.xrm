@@ -154,12 +154,37 @@ source-group stabs_ogd {
       WEBLINK
   }
 
-  logical-source rr_fonds {
-    iterator "$..[?(@.STUFE == 'Fonds')]"
+  logical-source rr_arc {
+    iterator "$..[?(@.ID_NR == '548575')]"
 
     referenceables
       ID_NR
-      STUFE
+      ARCHIVGESCHICHTE
+  }
+
+logical-source rr_abt_ser_dos {
+  iterator "$..[?(@.STUFE =~ /^Abteilung$|^Serie$|^Dossier$/)]"
+
+  referenceables
+    ID_NR
+    PARENT_ID_NR
+}  
+
+  logical-source rr_fon_bes {
+    iterator "$..[?(@.STUFE =~ /Fonds|Bestand/)]"
+
+    referenceables
+      ID_NR
+      AKTENBILDNER_PROVENIENZ_TEXT
+      PARENT_ID_NR
+  }
+
+  logical-source rr_dok {
+    iterator "$..[?(@.STUFE =~ /^Dokument$/)]"
+
+    referenceables
+      ID_NR
+      PARENT_ID_NR
   }
 
   // logical-source rr_at_akte {

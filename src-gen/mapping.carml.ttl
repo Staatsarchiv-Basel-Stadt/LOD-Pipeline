@@ -4,7 +4,6 @@ PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
 PREFIX carml: <http://carml.taxonic.com/carml/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
-PREFIX stabs-d: <stabs:scope:data/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
@@ -95,25 +94,16 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/vocabularies/recordSetTypes/{STUFE}"
+		]
+	];
+	
+	rr:predicateObjectMap [
 		rr:predicate dcterms:isReferencedBy;
 		rr:objectMap [
 			rr:template "https://dls.staatsarchiv.bs.ch/records/{ID_NR}"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate stabs-d:ID_NR;
-		rr:objectMap [
-			rml:reference "ID_NR";
-			rr:datatype xsd:string
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate stabs-d:PHYSISCHE_BESCHAFFENHEIT;
-		rr:objectMap [
-			rml:reference "PHYSISCHE_BESCHAFFENHEIT";
-			rr:datatype xsd:string
 		]
 	].
 	
@@ -126,7 +116,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.ID_NR == '548575')]"
 	];
 	
 	rr:subjectMap [
@@ -140,13 +130,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			rml:reference "ARCHIVGESCHICHTE";
 			rr:language "ger"
 		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType;
-		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/recordSetTypes/Archiv>
-		]
 	].
 	
 <#level_abt>
@@ -158,7 +141,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.STUFE =~ /^Abteilung$|^Serie$|^Dossier$/)]"
 	];
 	
 	rr:subjectMap [
@@ -170,13 +153,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:isOrWasIncludedIn;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType;
-		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/recordSetTypes/Abteilung>
 		]
 	].
 	
@@ -189,7 +165,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.STUFE =~ /Fonds|Bestand/)]"
 	];
 	
 	rr:subjectMap [
@@ -209,138 +185,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rml:reference "AKTENBILDNER_PROVENIENZ_TEXT";
 			rr:language "ger"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType;
-		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/recordSetTypes/Fonds>
-		]
-	].
-	
-<#rr_fonds>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.STUFE == 'Fonds')]"
-	];
-	
-	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType;
-		rr:objectMap [
-			rml:reference "STUFE";
-			rr:language "ger"
-		]
-	].
-	
-<#level_best>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
-	];
-	
-	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
-		rr:class rico:RecordSet
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasProvenance;
-		rr:objectMap [
-			rml:reference "AKTENBILDNER_PROVENIENZ_TEXT";
-			rr:language "ger"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType;
-		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/recordSetTypes/Bestand>
-		]
-	].
-	
-<#level_series>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
-	];
-	
-	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
-		rr:class rico:RecordSet
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType;
-		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/recordSetTypes/Serie>
-		]
-	].
-	
-<#level_dossier>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
-	];
-	
-	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
-		rr:class rico:RecordSet
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType;
-		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/recordSetTypes/Dossier>
 		]
 	].
 	
@@ -353,7 +197,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.STUFE =~ /^Dokument$/)]"
 	];
 	
 	rr:subjectMap [

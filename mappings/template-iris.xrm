@@ -33,6 +33,8 @@ template daURI "https://ld.bs.ch/ais/Date/{0}"
 
 template dlsURI "https://dls.staatsarchiv.bs.ch/records/{0}"
 
+template rstypeURI "https://ld.bs.ch/ais/vocabularies/recordSetTypes/{0}"
+
 /* 12 Subklassen von rico:Thing
  * ----------------------------
  * rico:Agent

@@ -653,6 +653,7 @@ vocabulary stabslevels {
 	prefix "stabs-rst" "https://ld.bs.ch/ais/vocabularies/recordSetTypes/"
 
 	classes
+		Archiv
 		Abteilung
 		Fonds
 		Bestand

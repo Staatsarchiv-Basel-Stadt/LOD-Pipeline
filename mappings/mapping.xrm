@@ -3,7 +3,6 @@ output carml
 /* Basis-Maps for RecordResouces
  * -----------------------------
  * - for all instances of rico:RecordResource
- * - two maps give two subject uris (DB ID and Reference) and declares them as same
  */
 map rr_stabs from stabs_ogd.rr_base {
   subject template rrURI with ID_NR;
@@ -18,18 +17,17 @@ map rr_stabs from stabs_ogd.rr_base {
     rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
     rico.isAssociatedWithDate template dateURI with ID_NR;
     rico.descriptiveNote from ANMERKUNGEN with language-tag ger;
-    // rico.hasRecordSetType template rstypeURI with STUFE;
+    rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15
     dct.isReferencedBy template dlsURI with ID_NR;
-    stabsdata.ID_NR from ID_NR with datatype xsd.string;
-    stabsdata.PHYSISCHE_BESCHAFFENHEIT from PHYSISCHE_BESCHAFFENHEIT with datatype xsd.string;
+    // stabsdata.ID_NR from ID_NR with datatype xsd.string;
+    // stabsdata.PHYSISCHE_BESCHAFFENHEIT from PHYSISCHE_BESCHAFFENHEIT with datatype xsd.string;
 }
 
 /* Description Level Classes
  * -------------------------
  * - builds the main RecordResource Relations (include)
- * - sets the RecordSetType
  */
-map level_archive from stabs_ogd.rr_base {
+map level_archive from stabs_ogd.rr_arc {
   subject template rrURI with ID_NR;
 
   types
@@ -37,10 +35,9 @@ map level_archive from stabs_ogd.rr_base {
 
   properties
     rico.history from ARCHIVGESCHICHTE with language-tag ger; // @todo: use rico.Event class later
-    rico.hasRecordSetType constant "https://ld.bs.ch/ais/vocabularies/recordSetTypes/Archiv";
 }
 
-map level_abt from stabs_ogd.rr_base {
+map level_abt from stabs_ogd.rr_abt_ser_dos {
   subject template rrURI with ID_NR;
 
   types
@@ -48,29 +45,9 @@ map level_abt from stabs_ogd.rr_base {
 
   properties
     rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-    rico.hasRecordSetType constant "https://ld.bs.ch/ais/vocabularies/recordSetTypes/Abteilung";
 }
 
-map level_fonds from stabs_ogd.rr_base {
-  subject template rrURI with ID_NR;
-
-  types
-    rico.RecordSet
-
-  properties
-    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-    rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
-    rico.hasRecordSetType constant "https://ld.bs.ch/ais/vocabularies/recordSetTypes/Fonds";
-}
-
-map rr_fonds from stabs_ogd.rr_fonds {
-  subject template rrURI with ID_NR;
-
-  properties
-    rico.hasRecordSetType from STUFE with language-tag ger ;
-}
-
-map level_best from stabs_ogd.rr_base {
+map level_fonds from stabs_ogd.rr_fon_bes {
   subject template rrURI with ID_NR;
 
   types
@@ -79,35 +56,9 @@ map level_best from stabs_ogd.rr_base {
   properties
     rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
     rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
-    rico.hasRecordSetType constant "https://ld.bs.ch/ais/vocabularies/recordSetTypes/Bestand";
-    // rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
 }
 
-map level_series from stabs_ogd.rr_base {
-  subject template rrURI with ID_NR;
-
-  types
-    rico.RecordSet
-
-  properties
-    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-    rico.hasRecordSetType constant "https://ld.bs.ch/ais/vocabularies/recordSetTypes/Serie";
-    // rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
-}
-
-map level_dossier from stabs_ogd.rr_base {
-  subject template rrURI with ID_NR;
-
-  types
-    rico.RecordSet
-
-  properties
-    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-    rico.hasRecordSetType constant "https://ld.bs.ch/ais/vocabularies/recordSetTypes/Dossier";
-    // rico.hasContentOfType template ctURI with ID_NR;// ARCHIVALIENART (3.1.5) @todo: sollte auf eigene Klasse gemappt werden
-}
-
-map level_dokument from stabs_ogd.rr_base {
+map level_dokument from stabs_ogd.rr_dok {
   subject template rrURI with ID_NR;
 
   types
@@ -115,7 +66,6 @@ map level_dokument from stabs_ogd.rr_base {
 
   properties
     rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-    // rico.hasContentOfType // ARCHIVALIENART (3.1.5) @todo s.o.
 }
 
 /* Date Maps
