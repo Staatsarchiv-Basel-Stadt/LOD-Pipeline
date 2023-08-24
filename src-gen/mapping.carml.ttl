@@ -245,7 +245,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
 	];
 	
 	rr:subjectMap [
@@ -290,7 +290,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
 	];
 	
 	rr:subjectMap [
@@ -335,7 +335,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
 	];
 	
 	rr:subjectMap [

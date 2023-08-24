@@ -187,6 +187,16 @@ logical-source rr_abt_ser_dos {
       PARENT_ID_NR
   }
 
+  logical-source rr_signaturen {
+    iterator"$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
+
+    referenceables
+      ID_NR
+      ALTE_SIGNATUREN
+      FRUEHERE_SIGNATUR
+      FRUEHERE_STABS_SIGNATUR
+  }
+
   // logical-source rr_at_akte {
   //     iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
 

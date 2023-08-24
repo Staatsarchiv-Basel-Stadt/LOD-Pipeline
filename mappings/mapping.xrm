@@ -100,7 +100,7 @@ map date_01 from stabs_ogd.rr_base {
  * - Frühere StABS-Signatur
  */
 
-map ident_01 from stabs_ogd.rr_base {
+map ident_01 from stabs_ogd.rr_signaturen {
   subject template oldrefURI with ID_NR ALTE_SIGNATUREN;
 
   types
@@ -113,7 +113,7 @@ map ident_01 from stabs_ogd.rr_base {
     rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
 }
 
-map ident_02 from stabs_ogd.rr_base {
+map ident_02 from stabs_ogd.rr_signaturen {
   subject template frmrefURI with ID_NR FRUEHERE_SIGNATUR;
 
   types
@@ -126,7 +126,7 @@ map ident_02 from stabs_ogd.rr_base {
     rico.descriptiveNote constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung";
 }
 
-map ident_03 from stabs_ogd.rr_base {
+map ident_03 from stabs_ogd.rr_signaturen {
   subject template frmstabsrefURI with ID_NR FRUEHERE_STABS_SIGNATUR;
 
   types
