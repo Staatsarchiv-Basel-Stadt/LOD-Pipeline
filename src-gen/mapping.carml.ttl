@@ -380,7 +380,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.
+		  
+		  
+		   || @.ANZAHL || @.ANZAHL_DATEIEN || @.UMFANG_GESCHAETZT || @.KOMMENTAR_ZUM_UMFANG || @.DATENVOLUMEN_MB)]"
 	];
 	
 	rr:subjectMap [
@@ -433,7 +436,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.
+		  
+		  
+		   || @.ANZAHL || @.ANZAHL_DATEIEN || @.UMFANG_GESCHAETZT || @.KOMMENTAR_ZUM_UMFANG || @.DATENVOLUMEN_MB)]"
 	];
 	
 	rr:subjectMap [
@@ -479,7 +485,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.
+		  
+		  
+		   || @.ANZAHL || @.ANZAHL_DATEIEN || @.UMFANG_GESCHAETZT || @.KOMMENTAR_ZUM_UMFANG || @.DATENVOLUMEN_MB)]"
 	];
 	
 	rr:subjectMap [
@@ -525,7 +534,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.
+		  
+		  
+		   || @.ANZAHL || @.ANZAHL_DATEIEN || @.UMFANG_GESCHAETZT || @.KOMMENTAR_ZUM_UMFANG || @.DATENVOLUMEN_MB)]"
 	];
 	
 	rr:subjectMap [
@@ -571,7 +583,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.
+		  
+		  
+		   || @.ANZAHL || @.ANZAHL_DATEIEN || @.UMFANG_GESCHAETZT || @.KOMMENTAR_ZUM_UMFANG || @.DATENVOLUMEN_MB)]"
 	];
 	
 	rr:subjectMap [

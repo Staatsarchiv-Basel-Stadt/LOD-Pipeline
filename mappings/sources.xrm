@@ -197,6 +197,22 @@ logical-source rr_abt_ser_dos {
       FRUEHERE_STABS_SIGNATUR
   }
 
+logical-source rr_extent {
+  iterator"$..[?(@.
+  
+  
+   || @.ANZAHL || @.ANZAHL_DATEIEN || @.UMFANG_GESCHAETZT || @.KOMMENTAR_ZUM_UMFANG || @.DATENVOLUMEN_MB)]"
+
+  referenceables
+    ID_NR
+    ANZAHL
+    ANZAHL_DATEIEN
+    DATENVOLUMEN_MB
+    KOMMENTAR_ZUM_UMFANG
+    LAUFMETER
+    UMFANG_GESCHAETZT
+}
+
   // logical-source rr_at_akte {
   //     iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
 

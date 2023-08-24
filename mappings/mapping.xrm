@@ -143,7 +143,7 @@ map ident_03 from stabs_ogd.rr_signaturen {
  * DE: LAUFMETER, ANZAHL, ANZAHL_DATEIEN, UMFANG_GESCHAETZT, KOMMENTAR_ZUM_UMFANG, DATENVOLUMEN_MB
  */
 
-map extent_lm from stabs_ogd.rr_base {
+map extent_lm from stabs_ogd.rr_extent {
   subject template exlmURI with ID_NR;
 
   types
@@ -157,7 +157,7 @@ map extent_lm from stabs_ogd.rr_base {
     rico.descriptiveNote constant "Laufmeter";
 }
 
-map extent_num from stabs_ogd.rr_base {
+map extent_num from stabs_ogd.rr_extent {
   subject template exnumURI with ID_NR;
 
   types
@@ -171,7 +171,7 @@ map extent_num from stabs_ogd.rr_base {
     rico.descriptiveNote constant "Anzahl Einheiten oder Behältnisse";
 }
 
-map extent_num_files from stabs_ogd.rr_base {
+map extent_num_files from stabs_ogd.rr_extent {
   subject template exnumfileURI with ID_NR;
 
   types
@@ -185,7 +185,7 @@ map extent_num_files from stabs_ogd.rr_base {
     rico.descriptiveNote constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht.";
 }
 
-map extent_data_vol from stabs_ogd.rr_base {
+map extent_data_vol from stabs_ogd.rr_extent {
   subject template exdvURI with ID_NR;
 
   types
@@ -200,7 +200,7 @@ map extent_data_vol from stabs_ogd.rr_base {
 
 }
 
-map extent_approx from stabs_ogd.rr_base {
+map extent_approx from stabs_ogd.rr_extent {
   subject template exapproxURI with ID_NR;
 
   types
