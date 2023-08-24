@@ -56,6 +56,7 @@ map level_fonds from stabs_ogd.rr_fon_bes {
   properties
     rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
     rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
+    rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
 }
 
 map level_dokument from stabs_ogd.rr_dok {
@@ -232,17 +233,6 @@ map extent_approx from stabs_ogd.rr_extent {
  * --------------------------------------------
  * (prüfen, ob als Event/1234 rico:isEventAssociatedWith Record/1234)
  */
-
-map bioghist_1 from stabs_ogd.rr_base {
-  subject template rrURI with ID_NR;
-
-  types
-    rico.RecordResource
-
-  properties
-    rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
-}
-
 // map bioghist_2 from stabs_ogd.rr_base {
 //   subject template agURI with PR_ID;
 

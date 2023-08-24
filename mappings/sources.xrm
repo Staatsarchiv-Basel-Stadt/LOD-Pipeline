@@ -177,6 +177,7 @@ logical-source rr_abt_ser_dos {
       ID_NR
       AKTENBILDNER_PROVENIENZ_TEXT
       PARENT_ID_NR
+      VERWALTUNGSGESCHICHTE_BIOGRAFI
   }
 
   logical-source rr_dok {
@@ -198,10 +199,7 @@ logical-source rr_abt_ser_dos {
   }
 
 logical-source rr_extent {
-  iterator"$..[?(@.
-  
-  
-   || @.ANZAHL || @.ANZAHL_DATEIEN || @.UMFANG_GESCHAETZT || @.KOMMENTAR_ZUM_UMFANG || @.DATENVOLUMEN_MB)]"
+  iterator"$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
 
   referenceables
     ID_NR
