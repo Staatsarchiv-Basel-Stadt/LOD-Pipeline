@@ -248,7 +248,7 @@ map extent_approx from stabs_ogd.rr_extent {
 /* Historisches Grundbuch (HBG)
 * -----------------------------
 */
-map hbg_records from stabs_ogd.rr_base {
+map hgb_records from stabs_ogd.rr_hgb {
   subject template rrURI with ID_NR;
 
   types

@@ -615,7 +615,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#hbg_records>
+<#hgb_records>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -624,7 +624,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.ALTE_HAUSNUMMER || @.EIGENTUEMER_1862 || @.HAUSNAME)]"
 	];
 	
 	rr:subjectMap [

@@ -162,13 +162,13 @@ source-group stabs_ogd {
       ARCHIVGESCHICHTE
   }
 
-logical-source rr_abt_ser_dos {
-  iterator "$..[?(@.STUFE =~ /^Abteilung$|^Serie$|^Dossier$/)]"
+  logical-source rr_abt_ser_dos {
+    iterator "$..[?(@.STUFE =~ /^Abteilung$|^Serie$|^Dossier$/)]"
 
-  referenceables
-    ID_NR
-    PARENT_ID_NR
-}  
+    referenceables
+      ID_NR
+      PARENT_ID_NR
+  }
 
   logical-source rr_fon_bes {
     iterator "$..[?(@.STUFE =~ /Fonds|Bestand/)]"
@@ -189,7 +189,7 @@ logical-source rr_abt_ser_dos {
   }
 
   logical-source rr_signaturen {
-    iterator"$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
+    iterator "$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
 
     referenceables
       ID_NR
@@ -198,24 +198,33 @@ logical-source rr_abt_ser_dos {
       FRUEHERE_STABS_SIGNATUR
   }
 
-logical-source rr_extent {
-  iterator"$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+  logical-source rr_extent {
+    iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
 
-  referenceables
-    ID_NR
-    ANZAHL
-    ANZAHL_DATEIEN
-    DATENVOLUMEN_MB
-    KOMMENTAR_ZUM_UMFANG
-    LAUFMETER
-    UMFANG_GESCHAETZT
-}
+    referenceables
+      ID_NR
+      ANZAHL
+      ANZAHL_DATEIEN
+      DATENVOLUMEN_MB
+      KOMMENTAR_ZUM_UMFANG
+      LAUFMETER
+      UMFANG_GESCHAETZT
+  }
 
-  // logical-source rr_at_akte {
-  //     iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
+  logical-source rr_hgb {
+    iterator "$..[?(@.ALTE_HAUSNUMMER || @.EIGENTUEMER_1862 || @.HAUSNAME)]"
 
-  //     referenceables
-  //       ID_NR
-  //       ARCHIVALIENART
-  // }
+    referenceables
+      ID_NR
+      ALTE_HAUSNUMMER
+      EIGENTUEMER_1862
+      HAUSNAME
+  }
+
+// logical-source rr_at_akte {
+// iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
+// referenceables
+// ID_NR
+// ARCHIVALIENART
+// }
 }
