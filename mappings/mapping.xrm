@@ -77,22 +77,24 @@ map date_01 from stabs_ogd.rr_base {
   subject template dateURI with ID_NR;
 
   types
-    rico.DateRange
+    rico.Date
 
   properties
-    rico.expressedDate from ENTSTEHUNGSZEITRAUM;
-    //created_start created_end
+    rico.calendar constant "Gregorianischer Kalender"; // @todo: Sinnvoller Eintrag? Wäre besser als Klasse
+    rico.expressedDate from ENTSTEHUNGSZEITRAUM; // @todo: mit Datumsoperatoren könnte eine bessere Textrepräsentation erreicht werden.
+    rico.normalizedDateValue from ENTSTEHUNGSZEITRAUM;
+//    rico.hasDateType // @todo: Definition von rico:DateType abwarten    
+//    rico.dateQualifier constant "circa" // if 'ca' in ENTSTEHUNGSZEITRAUM
 }
 
-// map date_02 from stabs_ogd.rr_base {
-//   subject template daURI with created_start;
+//    created_start created_end
+//    :1999090 a rico:Date
+//    rico.isEndDateOf :rrUri/1234
+//    rico.isCreationDateOf rrUri/1324
+//    rico.dateStandard 
 
-//   types
-//     rico.SingleDate
-
-//   properties
-//     rico.hasBeginningDate from created_start;
-// }
+// ais_modified rico:isLastUpdateDateOf rrUri/1234
+// ais_created rico:
 
 /* Identity Maps
  * -------------

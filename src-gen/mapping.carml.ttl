@@ -234,11 +234,25 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	
 	rr:subjectMap [
 		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date";
-		rr:class rico:DateRange
+		rr:class rico:Date
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:calendar;
+		rr:objectMap [
+			rr:constant "Gregorianischer Kalender"
+		]
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:expressedDate;
+		rr:objectMap [
+			rml:reference "ENTSTEHUNGSZEITRAUM"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:normalizedDateValue;
 		rr:objectMap [
 			rml:reference "ENTSTEHUNGSZEITRAUM"
 		]
