@@ -37,7 +37,6 @@ process:
     CARML_SERVICE: "http://carml-service:8080/"
   script:
     - npm ci
-    - export CARML_SERVICE
     - ./scripts/generate_triples.sh
     - rm -f output/*.json
 # store triples in the triplestore
