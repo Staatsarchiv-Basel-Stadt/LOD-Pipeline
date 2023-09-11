@@ -31,7 +31,7 @@ process:
     paths:
       - output/
   services:
-    - name: ghcr.io/zazuko/carml-service:v0.0.4
+    - name: ghcr.io/zazuko/carml-service:v0.0.5
       alias: carml-service
   variables:
     CARML_SERVICE: "http://carml-service:8080/"
