@@ -13,8 +13,9 @@ fetch:
     name: docker.io/minio/mc:latest
     entrypoint: [""]
   artifacts:
+    expire_in: 1 day
     paths:
-      - output/
+      - output/split-*.json
   script:
     - mc alias set bucket "${S3_ENDPOINT}" "${S3_ACCESS_KEY}" "${S3_SECRET_KEY}"
     - mkdir -p input
@@ -28,8 +29,10 @@ metadata:
   dependencies:
     - fetch
   artifacts:
+    expire_in: 2 weeks
+    expose_as: Metadata
     paths:
-      - output/
+      - output/metadata.nt
   script:
     - mkdir -p output
     # ignore the exit code (as warnings are making the command fail)
@@ -45,8 +48,10 @@ process:
   dependencies:
     - fetch
   artifacts:
+    expire_in: 2 weeks
+    expose_as: Triples
     paths:
-      - output/
+      - output/*.nt
   services:
     - name: ghcr.io/zazuko/carml-service:v0.0.5
       alias: carml-service
@@ -55,7 +60,6 @@ process:
   script:
     - npm ci
     - ./scripts/generate_triples.sh
-    - rm -f output/*.json
 
 # store triples in the triplestore
 store:
@@ -64,5 +68,6 @@ store:
     - metadata
     - process
   script:
+    # display the list of all files that we will upload in the triplestore
     - ls -alh output
-    # TODO: upload to the triple store
+    # TODO: upload to the triplestore
