@@ -68,4 +68,5 @@ store:
   script:
     # display the list of all files that we will upload in the triplestore
     - ls -alh output
-    # TODO: upload to the triplestore
+    # upload them to the triplestore
+    - ./scripts/upload.sh
