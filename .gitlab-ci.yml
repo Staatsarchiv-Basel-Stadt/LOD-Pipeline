@@ -29,8 +29,7 @@ metadata:
   dependencies:
     - fetch
   artifacts:
-    expire_in: 2 weeks
-    expose_as: Metadata
+    expire_in: 1 week
     paths:
       - output/metadata.nt
   script:
@@ -48,8 +47,7 @@ process:
   dependencies:
     - fetch
   artifacts:
-    expire_in: 2 weeks
-    expose_as: Triples
+    expire_in: 1 week
     paths:
       - output/*.nt
   services:
