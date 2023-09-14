@@ -22,7 +22,7 @@
     p:value "output/transformed.nt"
   ], [ a p:Variable;
     p:name "destinationGraph";
-    p:value "https://example.org/graph/stabs"
+    p:value "https://ld.bs.ch/graph/ais-metadata"
   ], [ a p:Variable;
     p:name "inputFile";
     p:value "input/input.json"

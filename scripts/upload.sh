@@ -9,7 +9,7 @@ set -eu
 # - SPARQL_PASSWORD
 
 # Configuration
-GRAPH_NAME="https://ld.staatsarchiv.bs.ch/graph/ais-metadata"
+GRAPH_NAME="https://ld.bs.ch/graph/ais-metadata"
 
 # First upload will be done using PUT, then all other using POST (reset the graph)
 METHOD="PUT"
