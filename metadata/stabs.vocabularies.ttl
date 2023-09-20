@@ -17,24 +17,24 @@ PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 # -----------------------------------------
 #
 
-stabs-rico:RecordHBG a owl:Class ;
+stabs-rico:RecordHGB a owl:Class ;
 	rdfs:subClassOf rico:RecordSet, [
 		rdf:type owl:Restriction ;
 		owl:onProperty rico:hasRecordSetType ;
 		owl:hasValue stabs-rst:Dossier ;
 	] ;
-	rdfs:comment "Einer oder mehrere Records, die das Historische Grundbuch (HBG) beschreiben."@de ;
+	rdfs:comment "Einer oder mehrere Records, die das Historische Grundbuch (HGB) beschreiben."@de ;
 	rdfs:isDefinedBy <https://ld.bs.ch/ontologies/StABS-RiC/> ;
-	rdfs:label "HBG-Record"@en, "HBG-Record"@de ;
+	rdfs:label "HGB-Record"@en, "HGB-Record"@de ;
 	skos:changeNote [
 		dc11:date "2022-10-03" ;
 		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs."@de ;
 	] ;
-	skos:scopeNote "HBG-Record ist eine spezifische Subklasse von Record Set mit dem StABS-Recordset-Typen \"Dossier\". Entsprechende Instanzen beinhalten zusätzliche Eigenschaften, die aus den speziellen Inhalten des Historischen Grundbuchs herrühren und sonst in der Erschliessung nicht vorkommen."@de ;
+	skos:scopeNote "HGB-Record ist eine spezifische Subklasse von Record Set mit dem StABS-Recordset-Typen \"Dossier\". Entsprechende Instanzen beinhalten zusätzliche Eigenschaften, die aus den speziellen Inhalten des Historischen Grundbuchs herrühren und sonst in der Erschliessung nicht vorkommen."@de ;
 	.
 
 stabs-rico:oldHousenumber a owl:DatatypeProperty ;
-	rdfs:domain stabs-rico:RecordHBG ;
+	rdfs:domain stabs-rico:RecordHGB ;
 	rdfs:range rdfs:Literal ;
 	rdfs:comment "Old House Number"@en, "Alte Hausnummer"@de ;
 	rdfs:isDefinedBy <https://ld.bs.ch/ontologies/StABS-RiC/> ;
@@ -47,7 +47,7 @@ stabs-rico:oldHousenumber a owl:DatatypeProperty ;
 	.
 
 stabs-rico:houseNameBS a owl:DatatypeProperty ;
-	rdfs:domain stabs-rico:RecordHBG ;
+	rdfs:domain stabs-rico:RecordHGB ;
 	rdfs:range rdfs:Literal ;
 	rdfs:comment "Hausname Basel-Stadt"@de, "House Name Basel-Stadt"@en ;
 	rdfs:isDefinedBy <https://ld.bs.ch/ontologies/StABS-RiC/> ;
@@ -60,7 +60,7 @@ stabs-rico:houseNameBS a owl:DatatypeProperty ;
 	.
 
 stabs-rico:owner1862 a owl:DatatypeProperty ;
-	rdfs:domain stabs-rico:RecordHBG ;
+	rdfs:domain stabs-rico:RecordHGB ;
 	rdfs:range rdfs:Literal ;
 	rdfs:comment "Der Eigentümer der Liegenschaft im Jahr 1862"@de, "Owner of the house in the year 1862"@en ;
 	rdfs:isDefinedBy <https://ld.bs.ch/ontologies/StABS-RiC/> ;

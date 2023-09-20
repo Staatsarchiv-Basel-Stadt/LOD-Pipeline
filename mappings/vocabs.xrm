@@ -680,7 +680,7 @@ vocabulary stabsrico {
 	prefix "stabs-rico" "https://ld.bs.ch/ontologies/StABS-RiC/"
 
 	classes
-		RecordHBG
+		RecordHGB
 
 	properties
 		houseNameBS
