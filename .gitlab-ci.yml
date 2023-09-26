@@ -1,71 +1,72 @@
 default:
-  image: ghcr.io/zazuko/deploy-image:v1.4
+  image: docker.io/zazukoians/node-java-jena:v4
 
 stages:
-  - build
+  - fetch
+  - process
+  - store
 
-# PROD: build Docker image
-build-prod:
-  stage: build
+# fetch the latest full import from the S3 bucket and split it
+fetch:
+  stage: fetch
+  image:
+    name: docker.io/minio/mc:latest
+    entrypoint: [""]
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - output/split-*.json
   script:
-    # import all credentials
-    - mkdir -p credentials
-    - cp "${FILE_SCOPE_VIRTUAL_PROPERTIES}" credentials/scope-virtual.properties
-    - cp "${FILE_NETRC}" credentials/netrc
-    - cp "${FILE_ENVIRONMENT}" credentials/environment
-    - cp "${FILE_CRONTAB}" cron/crontab-docker
+    - mc alias set bucket "${S3_ENDPOINT}" "${S3_ACCESS_KEY}" "${S3_SECRET_KEY}"
+    - mkdir -p input
+    - mc ls "bucket/${S3_BUCKET}/${S3_PATH}/"
+    - ./scripts/fetch_input.sh
+    - ./scripts/splitter.sh
 
-    # login to the registry
-    - crane auth login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
-
-    # build Docker image
-    - |
-      executor \
-        --context="$CI_PROJECT_DIR" \
-        --dockerfile=Dockerfile \
-        --destination="$CI_REGISTRY_IMAGE" \
-        --build-arg="BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
-        --build-arg="COMMIT=$CI_COMMIT_SHA" \
-        --build-arg="VERSION=$CI_COMMIT_REF_SLUG" \
-        --no-push \
-        --tarPath="$CI_PROJECT_DIR/image.tar"
-
-    # push Docker image
-    - gitlab-docker-push image.tar "$CI_REGISTRY_IMAGE"
-
-  environment: prod
-  only:
-    - master
-
-# DEV: build Docker image
-build-dev:
-  stage: build
+# generate metadata as ntriples
+metadata:
+  stage: process
+  dependencies:
+    - fetch
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - output/metadata.nt
   script:
-    # import all credentials
-    - mkdir -p credentials
-    - cp "${FILE_SCOPE_VIRTUAL_PROPERTIES}" credentials/scope-virtual.properties
-    - cp "${FILE_NETRC}" credentials/netrc
-    - cp "${FILE_ENVIRONMENT}" credentials/environment
-    - cp "${FILE_CRONTAB}" cron/crontab-docker
+    - mkdir -p output
+    # ignore the exit code (as warnings are making the command fail)
+    - riot --output=ntriples metadata/*.ttl > output/metadata.nt || true
+    # check the existance of the file
+    - "[ -f output/metadata.nt ]"
+    # make sure it has more than one line
+    - '[ "$(wc -l output/metadata.nt | awk ''{ print $1 }'')" -gt 1 ]'
 
-    # login to the registry
-    - crane auth login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+# run the pipeline on each splitted part
+process:
+  stage: process
+  dependencies:
+    - fetch
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - output/*.nt
+  services:
+    - name: ghcr.io/zazuko/carml-service:v0.0.5
+      alias: carml-service
+  variables:
+    CARML_SERVICE: "http://carml-service:8080/"
+  script:
+    - npm ci
+    - ./scripts/generate_triples.sh
 
-    # build Docker image
-    - |
-      executor \
-        --context="$CI_PROJECT_DIR" \
-        --dockerfile=Dockerfile \
-        --destination="$CI_REGISTRY_IMAGE" \
-        --build-arg="BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
-        --build-arg="COMMIT=$CI_COMMIT_SHA" \
-        --build-arg="VERSION=$CI_COMMIT_REF_SLUG" \
-        --no-push \
-        --tarPath="$CI_PROJECT_DIR/image.tar"
-
-    # push Docker image
-    - gitlab-docker-push image.tar "$CI_REGISTRY_IMAGE"
-
-  environment: dev
-  only:
-    - develop
+# store triples in the triplestore
+store:
+  stage: store
+  dependencies:
+    - metadata
+    - process
+  script:
+    # display the list of all files that we will upload in the triplestore
+    - ls -alh output
+    # upload them to the triplestore
+    - ./scripts/upload.sh

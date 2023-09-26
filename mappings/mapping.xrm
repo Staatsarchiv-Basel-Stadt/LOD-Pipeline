@@ -1,0 +1,360 @@
+output carml
+
+/* Basis-Maps for RecordResouces
+ * -----------------------------
+ * - for all instances of rico:RecordResource
+ */
+map rr_stabs from stabs_ogd.rr_base {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.title from TITEL with language-tag ger;
+    rico.identifier from SIGNATUR;
+    rico.scopeAndContent from DARIN with language-tag ger; // Hervorzuhebende Inhalte von 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
+    rico.scopeAndContent from ENTHAELT with language-tag ger; // Hauptgegenstand von isadg 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
+    rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
+    rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
+    rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
+    rico.isAssociatedWithDate template dateURI with ID_NR;
+    rico.descriptiveNote from ANMERKUNGEN with language-tag ger;
+    rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15
+    dct.isReferencedBy template dlsURI with ID_NR;
+    // stabsdata.ID_NR from ID_NR with datatype xsd.string;
+    // stabsdata.PHYSISCHE_BESCHAFFENHEIT from PHYSISCHE_BESCHAFFENHEIT with datatype xsd.string;
+}
+
+/* Description Level Classes
+ * -------------------------
+ * - builds the main RecordResource Relations (include)
+ */
+map level_archive from stabs_ogd.rr_arc {
+  subject template rrURI with ID_NR;
+
+  types
+    rico.RecordSet
+
+  properties
+    rico.history from ARCHIVGESCHICHTE with language-tag ger; // @todo: use rico.Event class later
+}
+
+map level_abt from stabs_ogd.rr_abt_ser_dos {
+  subject template rrURI with ID_NR;
+
+  types
+    rico.RecordSet
+
+  properties
+    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+}
+
+map level_fonds from stabs_ogd.rr_fon_bes {
+  subject template rrURI with ID_NR;
+
+  types
+    rico.RecordSet
+
+  properties
+    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+    rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
+    rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
+}
+
+map level_dokument from stabs_ogd.rr_dok {
+  subject template rrURI with ID_NR;
+
+  types
+    rico.Record
+
+  properties
+    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+}
+
+/* Date Maps
+ * ---------
+ * - Entstehungszeitraum
+ */
+map date_01 from stabs_ogd.rr_base {
+  subject template dateURI with ID_NR;
+
+  types
+    rico.Date
+
+  properties
+    rico.calendar constant "Gregorianischer Kalender"; // @todo: Sinnvoller Eintrag? Wäre besser als Klasse
+    rico.expressedDate from ENTSTEHUNGSZEITRAUM; // @todo: mit Datumsoperatoren könnte eine bessere Textrepräsentation erreicht werden.
+    rico.normalizedDateValue from ENTSTEHUNGSZEITRAUM;
+//    rico.hasDateType // @todo: Definition von rico:DateType abwarten    
+//    rico.dateQualifier constant "circa" // if 'ca' in ENTSTEHUNGSZEITRAUM
+}
+
+//    created_start created_end
+//    :1999090 a rico:Date
+//    rico.isEndDateOf :rrUri/1234
+//    rico.isCreationDateOf rrUri/1324
+//    rico.dateStandard 
+
+// ais_modified rico:isLastUpdateDateOf rrUri/1234
+// ais_created rico:
+
+/* Identity Maps
+ * -------------
+ * - Alte Signaturen
+ * - Frühere Signaturen
+ * - Frühere StABS-Signatur
+ */
+
+map ident_01 from stabs_ogd.rr_signaturen {
+  subject template oldrefURI with ID_NR ALTE_SIGNATUREN;
+
+  types
+    rico.Identifier
+
+  properties
+    rico.isOrWasIdentifierOf template rrURI with ID_NR;
+    rico.hasIdentifierType constant "https://ld.bs.ch/ais/vocabularies/identifierTypes/Alte-Signatur";
+    rico.textualValue from ALTE_SIGNATUREN;
+    rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
+}
+
+map ident_02 from stabs_ogd.rr_signaturen {
+  subject template frmrefURI with ID_NR FRUEHERE_SIGNATUR;
+
+  types
+    rico.Identifier
+
+  properties
+    rico.isOrWasIdentifierOf template rrURI with ID_NR;
+    rico.hasIdentifierType constant "https://ld.bs.ch/ais/vocabularies/identifierTypes/Fruehere-Signatur";
+    rico.textualValue from FRUEHERE_SIGNATUR;
+    rico.descriptiveNote constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung";
+}
+
+map ident_03 from stabs_ogd.rr_signaturen {
+  subject template frmstabsrefURI with ID_NR FRUEHERE_STABS_SIGNATUR;
+
+  types
+    rico.Identifier
+
+  properties
+    rico.isOrWasIdentifierOf template rrURI with ID_NR;
+    rico.hasIdentifierType constant "https://ld.bs.ch/ais/vocabularies/identifierTypes/Fruehere-StABS-Signatur";
+    rico.textualValue from FRUEHERE_STABS_SIGNATUR;
+    rico.descriptiveNote constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
+}
+/* Extent Maps
+ * -----------
+ * DE: LAUFMETER, ANZAHL, ANZAHL_DATEIEN, UMFANG_GESCHAETZT, KOMMENTAR_ZUM_UMFANG, DATENVOLUMEN_MB
+ */
+
+map extent_lm from stabs_ogd.rr_extent {
+  subject template exlmURI with ID_NR;
+
+  types
+    rico.RecordResourceExtent
+
+  properties
+    rico.isExtentOf template rrURI with ID_NR;
+    rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Laufmeter";
+    rico.quantity from LAUFMETER with datatype xsd.decimal;
+    rico.hasUnitOfMeasurement constant "http://qudt.org/vocab/unit/M"; // @todo: als rico:UnitOfMeasurement
+    rico.descriptiveNote constant "Laufmeter";
+}
+
+map extent_num from stabs_ogd.rr_extent {
+  subject template exnumURI with ID_NR;
+
+  types
+    rico.RecordResourceExtent
+
+  properties
+    rico.isExtentOf template rrURI with ID_NR;
+    rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Anzahl";
+    rico.quantity from ANZAHL with datatype xsd.integer;
+    // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
+    rico.descriptiveNote constant "Anzahl Einheiten oder Behältnisse";
+}
+
+map extent_num_files from stabs_ogd.rr_extent {
+  subject template exnumfileURI with ID_NR;
+
+  types
+    rico.RecordResourceExtent
+
+  properties
+    rico.isExtentOf template rrURI with ID_NR;
+    rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Anzahl-Dateien";
+    rico.quantity from ANZAHL_DATEIEN with datatype xsd.integer;
+    // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
+    rico.descriptiveNote constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht.";
+}
+
+map extent_data_vol from stabs_ogd.rr_extent {
+  subject template exdvURI with ID_NR;
+
+  types
+    rico.RecordResourceExtent
+
+  properties
+    rico.isExtentOf template rrURI with ID_NR;
+    rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Datenvolumen-MB";
+    rico.quantity from DATENVOLUMEN_MB with datatype xsd.decimal;
+    // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
+    rico.descriptiveNote constant "Angabe des enthaltenen Datenvolumens in Megabyte (MB)";
+
+}
+
+map extent_approx from stabs_ogd.rr_extent {
+  subject template exapproxURI with ID_NR;
+
+  types
+    rico.RecordResourceExtent
+
+  properties
+    rico.isExtentOf template rrURI with ID_NR;
+    rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Umfang-approximativ";
+    rico.textualValue from UMFANG_GESCHAETZT;
+    rico.descriptiveNote constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen.";
+}
+
+// /* Provenienz
+//  * ----------
+//  * * erster Versuch
+//  */
+// map prov_1 from dls2ogd.PROV_1 {
+//   subject template agURI with PR_ID;
+
+//   types
+//     rico.Agent
+
+//   properties
+//     rico.name from PR_NAME;
+//     rico.isProvenanceOf template rrURI with VE_ID;
+// }
+
+/* Verwaltungsgeschichte / Biografische Angaben
+ * --------------------------------------------
+ * (prüfen, ob als Event/1234 rico:isEventAssociatedWith Record/1234)
+ */
+// map bioghist_2 from stabs_ogd.rr_base {
+//   subject template agURI with PR_ID;
+
+//   types
+//     rico.Agent
+
+//   properties
+//     rico.history from GESCHICHTE with language-tag ger;
+//     rico.hasOrHadLocation from ORT; // ORT als subject URI
+//     rico.isOrWasPartOf from ORGANISATIONSZUGEHOERIGKEIT; // @todo als subject URI
+// }
+
+/* Historisches Grundbuch (HGB)
+* -----------------------------
+*/
+map hgb_records from stabs_ogd.rr_hgb {
+  subject template rrURI with ID_NR;
+
+  types
+    stabsrico.RecordHGB
+
+  properties
+    stabsrico.houseNameBS from HAUSNAME with language-tag ger;
+    stabsrico.oldHousenumber from ALTE_HAUSNUMMER with language-tag ger;
+    stabsrico.owner1862 from EIGENTUEMER_1862 with language-tag ger;
+}
+
+/* Descriptors (scope Concept)
+ * --------------------------
+ * * Erstelle Auth-Records / Thesaurus-Records in skos
+ * * Erstelle Agent-/ und Place-Subjects (optional)
+ * * Verbinde mit RiC-R020
+ */
+// map thes_pers from dls2ogd.TH_PERS {
+//   subject template agURI with ID_NR;
+
+//   types
+//     rico.Agent
+//     skos.Concept
+
+//   properties
+//     rico.name from BEZEICHNUNG with language-tag ger;
+//     rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
+//     skos.prefLabel from BEZEICHNUNG with language-tag ger;
+//     skos.note from BESCHREIBUNG with language-tag ger;
+//     skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Personenbegriffe";
+// }
+
+// map thes_ort from dls2ogd.TH_ORT {
+//   subject template plURI with ID_NR;
+
+//   types
+//     rico.Place
+//     skos.Concept
+
+//   properties
+//     rico.name from BEZEICHNUNG with language-tag ger;
+//     rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
+//     skos.prefLabel from BEZEICHNUNG with language-tag ger;
+//     skos.note from BESCHREIBUNG with language-tag ger;
+//     skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Ortsbegriffe";
+// }
+
+// //map thes_rel from dls2ogd.TH_REL {
+// //	subject template rrURI with ID_NR_1;
+// //
+// //	types
+// //		rico.Record
+// //		skos.Concept
+// //
+// //	properties
+// //		rico.isRecordResourceAssociatedWithRecordResource template rrURI with ID_NR_2;
+// //		skos.related template rrURI with ID_NR_2;
+// //}
+
+// map rr2thes_pers from dls2ogd.TH_PERS_VE_LINK {
+//   subject template rrURI with ID_VE;
+
+//   types
+//     rico.RecordResource
+
+//   properties
+//     rico.hasOrHadMainSubject template agURI with ID_DS;
+// }
+
+// map rr2thes_ort from dls2ogd.TH_ORT_VE_LINK {
+//   subject template rrURI with ID_VE;
+
+//   types
+//     rico.RecordResource
+
+//   properties
+//     rico.hasOrHadMainSubject template plURI with ID_DS;
+// }
+
+/* Ablieferungen
+ * ------------
+ * sind rico:Activity-Instanzen
+ * @todo: Activity-Types als Klasse (rico:Activity) mit rico:hasActivityType
+ */
+
+// map abl from dls2ogd.ABL {
+//   subject template evURI with ID_NR;
+
+//   types
+//     rico.Activity
+
+//   properties
+//     rico.name template "Ablieferung Nr. {0}" with JAHR_LAUF_NR as Literal;
+//     rico.identifier from ID_NR with datatype xsd.string;
+//     rico.hasActivityType constant "https://ld.bs.ch/ais/vocabulariesries/activityTypes/Ablieferung";
+//     rico.^type template "Typ {0} / Subtyp {1}" with TYP SUBTYP as Literal;
+//     rico.agentOrActivityIsTargetOfProvenanceRelation from AKTENBILDENDE_STELLE; // @sicher falsch
+//     rico.date from ZEITRAUM_PERIODE; // @todo: falsch, da nicht Zeitraum der Aktivität, sondern des Bestands
+//     // rico.isAssociatedWithDate from ZEITRAUM_PERIODE;
+// }
+
+// map abl2ve from dls2ogd.VE_ABL_LINK {
+//   subject template rrURI with ID_NR_VRZNG_ENHT;
+
+//   properties
+//     rico.resultsOrResultedFrom template evURI with ID_NR_ABLFR;
+// }

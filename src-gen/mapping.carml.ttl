@@ -1,0 +1,672 @@
+PREFIX rr: <http://www.w3.org/ns/r2rml#>
+PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
+PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
+PREFIX carml: <http://carml.taxonic.com/carml/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<#rr_stabs>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$.*"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:title;
+		rr:objectMap [
+			rml:reference "TITEL";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:identifier;
+		rr:objectMap [
+			rml:reference "SIGNATUR"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:scopeAndContent;
+		rr:objectMap [
+			rml:reference "DARIN";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:scopeAndContent;
+		rr:objectMap [
+			rml:reference "ENTHAELT";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:type;
+		rr:objectMap [
+			rml:reference "ARCHIVALIENART";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:conditionsOfAccess;
+		rr:objectMap [
+			rml:reference "ZUGANGSBESTIMMUNGEN";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:conditionsOfUse;
+		rr:objectMap [
+			rml:reference "ZUGAENGLICHKEIT_NM";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isAssociatedWithDate;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote;
+		rr:objectMap [
+			rml:reference "ANMERKUNGEN";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/vocabularies/recordSetTypes/{STUFE}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate dcterms:isReferencedBy;
+		rr:objectMap [
+			rr:template "https://dls.staatsarchiv.bs.ch/records/{ID_NR}"
+		]
+	].
+	
+<#level_archive>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ID_NR == '548575')]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
+		rr:class rico:RecordSet
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:history;
+		rr:objectMap [
+			rml:reference "ARCHIVGESCHICHTE";
+			rr:language "ger"
+		]
+	].
+	
+<#level_abt>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Abteilung$|^Serie$|^Dossier$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
+		rr:class rico:RecordSet
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
+		]
+	].
+	
+<#level_fonds>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /Fonds|Bestand/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
+		rr:class rico:RecordSet
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasProvenance;
+		rr:objectMap [
+			rml:reference "AKTENBILDNER_PROVENIENZ_TEXT";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:history;
+		rr:objectMap [
+			rml:reference "VERWALTUNGSGESCHICHTE_BIOGRAFI";
+			rr:language "ger"
+		]
+	].
+	
+<#level_dokument>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Dokument$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
+		rr:class rico:Record
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
+		]
+	].
+	
+<#date_01>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$.*"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date";
+		rr:class rico:Date
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:calendar;
+		rr:objectMap [
+			rr:constant "Gregorianischer Kalender"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:expressedDate;
+		rr:objectMap [
+			rml:reference "ENTSTEHUNGSZEITRAUM"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:normalizedDateValue;
+		rr:objectMap [
+			rml:reference "ENTSTEHUNGSZEITRAUM"
+		]
+	].
+	
+<#ident_01>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Old-Reference/{ALTE_SIGNATUREN}";
+		rr:class rico:Identifier
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIdentifierOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasIdentifierType;
+		rr:objectMap [
+			rr:constant <https://ld.bs.ch/ais/vocabularies/identifierTypes/Alte-Signatur>
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:textualValue;
+		rr:objectMap [
+			rml:reference "ALTE_SIGNATUREN"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote;
+		rr:objectMap [
+			rr:constant "Wird verwendet zur Angabe allf�llig vorhandener alter Signaturen."
+		]
+	].
+	
+<#ident_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Former-Reference/{FRUEHERE_SIGNATUR}";
+		rr:class rico:Identifier
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIdentifierOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasIdentifierType;
+		rr:objectMap [
+			rr:constant <https://ld.bs.ch/ais/vocabularies/identifierTypes/Fruehere-Signatur>
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:textualValue;
+		rr:objectMap [
+			rml:reference "FRUEHERE_SIGNATUR"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote;
+		rr:objectMap [
+			rr:constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung"
+		]
+	].
+	
+<#ident_03>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Former-StABS-Reference/{FRUEHERE_STABS_SIGNATUR}";
+		rr:class rico:Identifier
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIdentifierOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasIdentifierType;
+		rr:objectMap [
+			rr:constant <https://ld.bs.ch/ais/vocabularies/identifierTypes/Fruehere-StABS-Signatur>
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:textualValue;
+		rr:objectMap [
+			rml:reference "FRUEHERE_STABS_SIGNATUR"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote;
+		rr:objectMap [
+			rr:constant "Signaturen, die fr�her in Gebrauch waren. Signaturen k�nnen bei einer Mutation automatisch in dieses Feld �bertragen werden."
+		]
+	].
+	
+<#extent_lm>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/linear-meters";
+		rr:class rico:RecordResourceExtent
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isExtentOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasExtentType;
+		rr:objectMap [
+			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Laufmeter>
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:quantity;
+		rr:objectMap [
+			rml:reference "LAUFMETER";
+			rr:datatype xsd:decimal
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasUnitOfMeasurement;
+		rr:objectMap [
+			rr:constant <http://qudt.org/vocab/unit/M>
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote;
+		rr:objectMap [
+			rr:constant "Laufmeter"
+		]
+	].
+	
+<#extent_num>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/number-of-units";
+		rr:class rico:RecordResourceExtent
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isExtentOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasExtentType;
+		rr:objectMap [
+			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Anzahl>
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:quantity;
+		rr:objectMap [
+			rml:reference "ANZAHL";
+			rr:datatype xsd:integer
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote;
+		rr:objectMap [
+			rr:constant "Anzahl Einheiten oder Beh�ltnisse"
+		]
+	].
+	
+<#extent_num_files>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/number-of-files";
+		rr:class rico:RecordResourceExtent
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isExtentOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasExtentType;
+		rr:objectMap [
+			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Anzahl-Dateien>
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:quantity;
+		rr:objectMap [
+			rml:reference "ANZAHL_DATEIEN";
+			rr:datatype xsd:integer
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote;
+		rr:objectMap [
+			rr:constant "Umfangangabe f�r Archivgut in digitaler Form, das aus Dateien besteht."
+		]
+	].
+	
+<#extent_data_vol>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/volume-of-data";
+		rr:class rico:RecordResourceExtent
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isExtentOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasExtentType;
+		rr:objectMap [
+			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Datenvolumen-MB>
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:quantity;
+		rr:objectMap [
+			rml:reference "DATENVOLUMEN_MB";
+			rr:datatype xsd:decimal
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote;
+		rr:objectMap [
+			rr:constant "Angabe des enthaltenen Datenvolumens in Megabyte (MB)"
+		]
+	].
+	
+<#extent_approx>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/extent-approximative";
+		rr:class rico:RecordResourceExtent
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isExtentOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasExtentType;
+		rr:objectMap [
+			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Umfang-approximativ>
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:textualValue;
+		rr:objectMap [
+			rml:reference "UMFANG_GESCHAETZT"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote;
+		rr:objectMap [
+			rr:constant "Wert f�r den Umfang, wenn keine pr�zisen Zahlen vorliegen."
+		]
+	].
+	
+<#hgb_records>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ALTE_HAUSNUMMER || @.EIGENTUEMER_1862 || @.HAUSNAME)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
+		rr:class stabs-rico:RecordHGB
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:houseNameBS;
+		rr:objectMap [
+			rml:reference "HAUSNAME";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:oldHousenumber;
+		rr:objectMap [
+			rml:reference "ALTE_HAUSNUMMER";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:owner1862;
+		rr:objectMap [
+			rml:reference "EIGENTUEMER_1862";
+			rr:language "ger"
+		]
+	].
+	
