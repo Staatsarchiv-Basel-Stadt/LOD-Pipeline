@@ -5,7 +5,7 @@ set -eu
 
 # Configuration
 INPUT_DEST_NAME="input/input.json"
-FILE_PREFIX="StABS_full"
+FILE_PREFIX="StABS_records"
 
 # Get the source name of the last full input file
 INPUT_SOURCE_NAME=$(mc ls "bucket/${S3_BUCKET}/${S3_PATH}/${FILE_PREFIX}" | awk '{ print $NF }' | sort | tail -n1)
