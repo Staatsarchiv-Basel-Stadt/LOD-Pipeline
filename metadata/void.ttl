@@ -41,9 +41,15 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     rdfs:seeAlso wd:Q2260520
     .
 
+<sys/DLS> a schema:SoftwareApplication ;
+    schema:name "Digitaler Lesesaal (DLS)"@de ;
+    schema:description "Der digitale Lesesaal DLS ermöglicht Archiven und Gedächtnisinstitutionen die moderne Präsentation von digitalen, digitalisierten und analogen Archivbeständen."@de
+    schema:url <https://www.4teamwork.ch/de/produkte/digitaler-lesesaal> 
+    .
+
 <sys/RDF-Pipeline> a doap:GitRepository ;
     schema:name "RDF-Pipeline" ;
-    schema:description "Die RDF-Pipeline des Staatsarchivs Basel-Stadt transformiert Daten des Archivinformationssystem aus einer relationalen Datenbank (Oracle) nach RDF."@de ;
+    schema:description "Die RDF-Pipeline des Staatsarchivs Basel-Stadt transformiert Daten des Archivinformationssystem nach RDF."@de ;
     doap:browse <https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline> ;
     doap:location "https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline.git" 
     .
@@ -54,7 +60,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <Date/1098/2022> a dcterms:PeriodOfTime ;
     schema:startDate "1098"^^xsd:gYear ;
-    schema:endDate "2022"^^xsd:gYear
+    schema:endDate "2023"^^xsd:gYear
     .
 
 ##
@@ -63,12 +69,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <set/archival-catalog> a void:Dataset ;
     dcterms:isReferencedBy <https://www.staatsarchiv.bs.ch/kataloge/archivkatalog.html> ;
-    dcterms:title "Offene Daten des Archivkatalogs des Staatsarchivs Basel-Stadt" @de ;
-    dcterms:description "Dieser Datensatz enthält die frei zugänglichen Inhalte des Archivkatalogs des Staatsarchiv Basel-Stadt in RDF (Vokabular: Records in Context)"@de ;
+    dcterms:title "Offene Daten des Archivkatalogs des Staatsarchivs Basel-Stadt" @de , "Open data of the archival catalog of the State Archives of Basel-Stadt"@en ;
+    dcterms:description "Dieser Datensatz enthält die frei zugänglichen Inhalte des Archivkatalogs des Staatsarchiv Basel-Stadt in RDF (Ontologie: Records in Context)"@de ;
     dcterms:contributor <https://register.ld.admin.ch/zefix/company/1198554> ;
     dcterms:creator <org/staatsarchiv> ;
     dcterms:publisher <org/fachstelle-ogd> ;
     dcterms:source <sys/scopeArchiv> ;
+    dcterms:source <sys/DLS> ;
     dcterms:licence <https://creativecommons.org/publicdomain/zero/1.0/> ;
     dcterms:created "1999"^^xsd:gYear ;
     dcterms:temporal <Date/1098/2022> ;
