@@ -299,7 +299,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote;
 		rr:objectMap [
-			rr:constant "Wird verwendet zur Angabe allf�llig vorhandener alter Signaturen."
+			rr:constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen."
 		]
 	].
 	
@@ -389,7 +389,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote;
 		rr:objectMap [
-			rr:constant "Signaturen, die fr�her in Gebrauch waren. Signaturen k�nnen bei einer Mutation automatisch in dieses Feld �bertragen werden."
+			rr:constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden."
 		]
 	].
 	
@@ -488,7 +488,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote;
 		rr:objectMap [
-			rr:constant "Anzahl Einheiten oder Beh�ltnisse"
+			rr:constant "Anzahl Einheiten oder Behältnisse"
 		]
 	].
 	
@@ -534,7 +534,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote;
 		rr:objectMap [
-			rr:constant "Umfangangabe f�r Archivgut in digitaler Form, das aus Dateien besteht."
+			rr:constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht."
 		]
 	].
 	
@@ -625,7 +625,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote;
 		rr:objectMap [
-			rr:constant "Wert f�r den Umfang, wenn keine pr�zisen Zahlen vorliegen."
+			rr:constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen."
 		]
 	].
 	
