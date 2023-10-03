@@ -4,6 +4,7 @@ PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
 PREFIX carml: <http://carml.taxonic.com/carml/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
@@ -667,6 +668,120 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rml:reference "EIGENTUEMER_1862";
 			rr:language "ger"
+		]
+	].
+	
+<#thes_pers>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.thesaurus == 'Personenbegriffe')]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Agent/{identifier}";
+		rr:class rico:Agent;
+		rr:class skos:Concept
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:name;
+		rr:objectMap [
+			rml:reference "title";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote;
+		rr:objectMap [
+			rml:reference "description";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:prefLabel;
+		rr:objectMap [
+			rml:reference "title";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:note;
+		rr:objectMap [
+			rml:reference "description";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme;
+		rr:objectMap [
+			rr:constant <https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Personenbegriffe>
+		]
+	].
+	
+<#thes_ort>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.thesaurus == 'Ortsbegriffe')]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Place/{identifier}";
+		rr:class rico:Place;
+		rr:class skos:Concept
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:name;
+		rr:objectMap [
+			rml:reference "title";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote;
+		rr:objectMap [
+			rml:reference "description";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:prefLabel;
+		rr:objectMap [
+			rml:reference "title";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:note;
+		rr:objectMap [
+			rml:reference "description";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme;
+		rr:objectMap [
+			rr:constant <https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Ortsbegriffe>
 		]
 	].
 	
