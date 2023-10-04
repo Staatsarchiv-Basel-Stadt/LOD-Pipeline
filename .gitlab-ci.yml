@@ -47,8 +47,6 @@ fetch-prod:
 # generate metadata as ntriples
 metadata:
   stage: process
-  dependencies:
-    - fetch-test
   artifacts:
     expire_in: 1 week
     paths:
