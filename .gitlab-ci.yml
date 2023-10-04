@@ -113,8 +113,8 @@ store-test:
     - ls -alh output
     # upload them to the triplestore
     - ./scripts/upload.sh
-  except:
-    - main
+  only:
+    - develop
 store-prod:
   stage: store
   dependencies:
