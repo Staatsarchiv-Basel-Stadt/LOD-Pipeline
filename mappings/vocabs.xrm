@@ -1,0 +1,773 @@
+vocabulary admin {
+	prefix "admin" "http://schema.ld.admin.ch/"
+
+	classes
+		Isil
+
+	properties
+		about
+		administrativeHistory
+		inventoryDescription
+		libraryMaterials
+		otherMaterials
+		termCode
+		valid
+}
+
+vocabulary dct {
+	prefix "dcterms" "http://purl.org/dc/terms/"
+
+	classes
+
+	properties
+		isReferencedBy
+}
+
+vocabulary owl {
+	prefix "owl" "http://www.w3.org/2002/07/owl#"
+
+	classes
+
+	properties
+		sameAs
+}
+
+vocabulary rico {
+	prefix "rico" "https://www.ica.org/standards/RiC/ontology#"
+
+	classes
+		AccumulationRelation
+		Activity
+		ActivityDocumentationRelation
+		ActivityType
+		Agent
+		AgentControlRelation
+		AgentHierarchicalRelation
+		AgentName
+		AgentOriginationRelation
+		AgentTemporalRelation
+		AgentToAgentRelation
+		Appellation
+		AppellationRelation
+		AuthorityRelation
+		AuthorshipRelation
+		CarrierExtent
+		CarrierType
+		ChildRelation
+		Concept
+		ContentType
+		Coordinates
+		CorporateBody
+		CorporateBodyType
+		CorrespondenceRelation
+		CreationRelation
+		Date
+		DateRange
+		DateSet
+		DemographicGroup
+		DerivationRelation
+		DescendanceRelation
+		DocumentaryFormType
+		Event
+		EventRelation
+		EventType
+		Extent
+		ExtentType
+		Family
+		FamilyRelation
+		FamilyType
+		FunctionalEquivalenceRelation
+		Group
+		GroupSubdivisionRelation
+		Identifier
+		IdentifierType
+		Instantiation
+		InstantiationExtent
+		InstantiationToInstantiationRelation
+		IntellectualPropertyRightsRelation
+		KnowingOfRelation
+		KnowingRelation
+		Language
+		LeadershipRelation
+		LegalStatus
+		ManagementRelation
+		Mandate
+		MandateRelation
+		Mechanism
+		MembershipRelation
+		MigrationRelation
+		Name
+		OccupationType
+		OwnershipRelation
+		PerformanceRelation
+		Person
+		PhysicalLocation
+		Place
+		PlaceName
+		PlaceRelation
+		PlaceType
+		Position
+		PositionHoldingRelation
+		PositionToGroupRelation
+		ProductionTechniqueType
+		ProvenanceRelation
+		Proxy
+		Record
+		RecordPart
+		RecordResource
+		RecordResourceExtent
+		RecordResourceGeneticRelation
+		RecordResourceHoldingRelation
+		RecordResourceToInstantiationRelation
+		RecordResourceToRecordResourceRelation
+		RecordSet
+		RecordSetType
+		RecordState
+		Relation
+		RepresentationType
+		RoleType
+		Rule
+		RuleRelation
+		RuleType
+		SequentialRelation
+		SiblingRelation
+		SingleDate
+		SpouseRelation
+		TeachingRelation
+		TemporalRelation
+		Thing
+		Title
+		Type
+		TypeRelation
+		UnitOfMeasurement
+		WholePartRelation
+		WorkRelation
+
+	properties
+		accrual
+		accrualStatus
+		accumulationRelationHasSource
+		accumulationRelationHasTarget
+		activityDocumentationRelationHasSource
+		activityDocumentationRelationHasTarget
+		activityIsContextOfRelation
+		activityIsSourceOfPerformanceRelation
+		activityIsTargetOfActivityDocumentationRelation
+		affectsOrAffected
+		agentControlRelationHasSource
+		agentControlRelationHasTarget
+		agentHasWorkRelation
+		agentHierarchicalRelationHasSource
+		agentHierarchicalRelationHasTarget
+		agentIsConnectedToAgentRelation
+		agentIsSourceOfAgentControlRelation
+		agentIsSourceOfAgentHierarchicalRelation
+		agentIsSourceOfAgentTemporalRelation
+		agentIsSourceOfAuthorityRelation
+		agentIsSourceOfIntellectualPropertyRightsRelation
+		agentIsSourceOfManagementRelation
+		agentIsSourceOfOwnershipRelation
+		agentIsSourceOfRecordResourceHoldingRelation
+		agentIsTargetOfAccumulationRelation
+		agentIsTargetOfAgentControlRelation
+		agentIsTargetOfAgentHierarchicalRelation
+		agentIsTargetOfAgentOriginationRelation
+		agentIsTargetOfAgentTemporalRelation
+		agentIsTargetOfAuthorshipRelation
+		agentIsTargetOfCreationRelation
+		agentIsTargetOfMandateRelation
+		agentIsTargetOfPerformanceRelation
+		agentOrActivityIsTargetOfProvenanceRelation
+		agentOriginationRelationHasSource
+		agentOriginationRelationHasTarget
+		agentRelationConnects
+		agentTemporalRelationHasSource
+		agentTemporalRelationHasTarget
+		altimetricSystem
+		altitude
+		appellationIsSourceOfAppellationRelation
+		appellationRelationHasSource
+		appellationRelationHasTarget
+		asConcernsActivity
+		authenticityNote
+		authorityRelationHasSource
+		authorityRelationHasTarget
+		authorizedBy
+		authorizes
+		authorizingAgent
+		authorizingMandate
+		authorshipRelationHasSource
+		authorshipRelationHasTarget
+		beginningDate
+		birthDate
+		calendar
+		carrierExtent
+		certainty
+		childRelationHasSource
+		childRelationHasTarget
+		classification
+		conditionsOfAccess
+		conditionsOfUse
+		containsOrContained
+		correspondenceRelationConnects
+		creationDate
+		creationRelationHasSource
+		creationRelationHasTarget
+		creationWithRole
+		date
+		dateQualifier
+		dateStandard
+		deathDate
+		deletionDate
+		derivationRelationHasSource
+		derivationRelationHasTarget
+		descendanceRelationHasSource
+		descendanceRelationHasTarget
+		describesOrDescribed
+		descriptiveNote
+		documentedBy
+		documents
+		endDate
+		eventIsSourceOfEventRelation
+		eventRelationHasSource
+		eventRelationHasTarget
+		existsOrExistedIn
+		expressedDate
+		expressesOrExpressed
+		familyRelationConnects
+		followsInTime
+		followsOrFollowed
+		functionalEquivalenceRelationConnects
+		geodesicSystem
+		geographicalCoordinates
+		groupIsSourceOfGroupSubdivisionRelation
+		groupIsSourceOfMembershipRelation
+		groupIsTargetOfGroupSubdivisionRelation
+		groupIsTargetOfLeadershipRelation
+		groupIsTargetOfPositionToGroupRelation
+		groupSubdivisionRelationHasSource
+		groupSubdivisionRelationHasTarget
+		hasAccumulator
+		hasActivityType
+		hasAddressee
+		hasAncestor
+		hasAuthor
+		hasBeginningDate
+		hasBirthDate
+		hasCarrierType
+		hasChild
+		hasCollector
+		hasContentOfType
+		hasCopy
+		hasCreator
+		hasDeathDate
+		hasDerivedInstantiation
+		hasDescendant
+		hasDocumentaryFormType
+		hasDraft
+		hasEndDate
+		hasEventType
+		hasExtent
+		hasExtentType
+		hasFamilyAssociationWith
+		hasFamilyType
+		hasGeneticLinkToRecordResource
+		hasIdentifierType
+		hasInstantiation
+		hasModificationDate
+		hasOrHadAgentName
+		hasOrHadAllMembersWithCategory
+		hasOrHadAllMembersWithContentType
+		hasOrHadAllMembersWithDocumentaryFormType
+		hasOrHadAllMembersWithLanguage
+		hasOrHadAllMembersWithLegalStatus
+		hasOrHadAllMembersWithRecordState
+		hasOrHadAppellation
+		hasOrHadAuthorityOver
+		hasOrHadCategory
+		hasOrHadComponent
+		hasOrHadConstituent
+		hasOrHadController
+		hasOrHadCoordinates
+		hasOrHadCorporateBodyType
+		hasOrHadCorrespondent
+		hasOrHadDemographicGroup
+		hasOrHadHolder
+		hasOrHadIdentifier
+		hasOrHadIntellectualPropertyRightsHolder
+		hasOrHadJurisdiction
+		hasOrHadLanguage
+		hasOrHadLeader
+		hasOrHadLegalStatus
+		hasOrHadLocation
+		hasOrHadMainSubject
+		hasOrHadManager
+		hasOrHadMember
+		hasOrHadName
+		hasOrHadOccupationOfType
+		hasOrHadOwner
+		hasOrHadPart
+		hasOrHadParticipant
+		hasOrHadPhysicalLocation
+		hasOrHadPlaceName
+		hasOrHadPlaceType
+		hasOrHadPosition
+		hasOrHadRuleType
+		hasOrHadSomeMembersWithCategory
+		hasOrHadSomeMembersWithContentType
+		hasOrHadSomeMemberswithDocumentaryFormType
+		hasOrHadSomeMembersWithLanguage
+		hasOrHadSomeMembersWithLegalStatus
+		hasOrHadSomeMembersWithRecordState
+		hasOrHadSpouse
+		hasOrHadStudent
+		hasOrHadSubdivision
+		hasOrHadSubevent
+		hasOrHadSubject
+		hasOrHadSubordinate
+		hasOrHadTeacher
+		hasOrHadTitle
+		hasOrHadWorkRelationWith
+		hasOriginal
+		hasProductionTechniqueType
+		hasProvenance
+		hasPublisher
+		hasReceiver
+		hasRecordSetType
+		hasRecordState
+		hasReply
+		hasRepresentationType
+		hasSender
+		hasSibling
+		hasSource
+		hasSuccessor
+		hasUnitOfMeasurement
+		height
+		history
+		identifier
+		includesOrIncluded
+		instantiationExtent
+		instantiationIsConnectedToFunctionalEquivalenceRelation
+		instantiationIsConnectedToInstantiationRelation
+		instantiationIsSourceOfDerivationRelation
+		instantiationIsSourceOfMigrationRelation
+		instantiationIsTargetOfDerivationRelation
+		instantiationIsTargetOfMigrationRelation
+		instantiationIsTargetOfRecordResourceToInstantiationRelation
+		instantiationStructure
+		instantiationToInstantiationRelationConnects
+		integrity
+		intellectualPropertyRightsRelationHasSource
+		intellectualPropertyRightsRelationHasTarget
+		isAccumulatorOf
+		isActivityTypeOf
+		isAddresseeOf
+		isAgentAssociatedWithAgent
+		isAssociatedWithDate
+		isAssociatedWithEvent
+		isAssociatedWithPlace
+		isAssociatedWithRule
+		isAuthorizingAgentInMandateRelation
+		isAuthorOf
+		isBeginningDateOf
+		isBirthDateOf
+		isCarrierTypeOf
+		isChildOf
+		isCollectorOf
+		isContentTypeOf
+		isCopyOf
+		isCreatorOf
+		isDateAssociatedWith
+		isDeathDateOf
+		isDerivedFromInstantiation
+		isDocumentaryFormTypeOf
+		isDraftOf
+		isEndDateOf
+		isEquivalentTo
+		isEventAssociatedWith
+		isEventTypeOf
+		isExtentOf
+		isExtentTypeOf
+		isFamilyTypeOf
+		isFromUseDateOf
+		isFunctionallyEquivalentTo
+		isIdentifierTypeOf
+		isInstantiationAssociatedWithInstantiation
+		isInstantiationOf
+		isLastUpdateDateOf
+		isModificationDateOf
+		isOriginalOf
+		isOrWasAdjacentTo
+		isOrWasAffectedBy
+		isOrWasAgentNameOf
+		isOrWasAppellationOf
+		isOrWasCategoryOf
+		isOrWasCategoryOfAllMembersOf
+		isOrWasCategoryOfSomeMembersOf
+		isOrWasComponentOf
+		isOrWasConstituentOf
+		isOrWasContainedBy
+		isOrWasContentTypeOfAllMembersOf
+		isOrWasContentTypeOfSomeMembersOf
+		isOrWasControllerOf
+		isOrWasCoordinatesOf
+		isOrWasCorporateBodyTypeOf
+		isOrWasDemographicGroupOf
+		isOrWasDescribedBy
+		isOrWasDocumentaryFormTypeOfAllMembersOf
+		isOrWasDocumentaryFormTypeOfSomeMembersOf
+		isOrWasEnforcedBy
+		isOrWasExpressedBy
+		isOrWasHolderOf
+		isOrWasHolderOfIntellectualPropertyRightsOf
+		isOrWasIdentifierOf
+		isOrWasIncludedIn
+		isOrWasJurisdictionOf
+		isOrWasLanguageOf
+		isOrWasLanguageOfAllMembersOf
+		isOrWasLanguageOfSomeMembersOf
+		isOrWasLeaderOf
+		isOrWasLegalStatusOf
+		isOrWasLegalStatusOfAllMembersOf
+		isOrWasLegalStatusOfSomeMembersOf
+		isOrWasLocationOf
+		isOrWasMainSubjectOf
+		isOrWasManagerOf
+		isOrWasMemberOf
+		isOrWasNameOf
+		isOrWasOccupationTypeOf
+		isOrWasOccupiedBy
+		isOrWasOwnerOf
+		isOrWasParticipantIn
+		isOrWasPartOf
+		isOrWasPerformedBy
+		isOrWasPhysicalLocationOf
+		isOrWasPlaceNameOf
+		isOrWasPlaceTypeOf
+		isOrWasRecordStateOfAllMembersOf
+		isOrWasRecordStateOfSomeMembersOf
+		isOrWasRegulatedBy
+		isOrWasResponsibleForEnforcing
+		isOrWasRuleTypeOf
+		isOrWasSubdivisionOf
+		isOrWasSubeventOf
+		isOrWasSubjectOf
+		isOrWasSubordinateTo
+		isOrWasTitleOf
+		isOrWasUnderAuthorityOf
+		isPlaceAssociatedWith
+		isProductionTechniqueTypeOf
+		isProvenanceOf
+		isPublisherOf
+		isReceiverOf
+		isRecordResourceAssociatedWithRecordResource
+		isRecordSetTypeOf
+		isRecordStateOf
+		isRelatedTo
+		isReplyTo
+		isRepresentationTypeOf
+		isResponsibleForIssuing
+		isRuleAssociatedWith
+		isSenderOf
+		isSourceOf
+		isSuccessorOf
+		issuedBy
+		isToUseDateOf
+		isUnitOfMeasurementOf
+		knowingOfRelationHasSource
+		knowingOfRelationHasTarget
+		knowingRelationConnects
+		knownBy
+		knows
+		knowsOf
+		lastModificationDate
+		latitude
+		leadershipRelationHasSource
+		leadershipRelationHasTarget
+		leadershipWithPosition
+		location
+		longitude
+		managementRelationHasSource
+		managementRelationHasTarget
+		mandateIsSourceOfMandateRelation
+		mandateRelationHasSource
+		mandateRelationHasTarget
+		measure
+		membershipRelationHasSource
+		membershipRelationHasTarget
+		membershipWithPosition
+		migratedFrom
+		migratedInto
+		migrationRelationHasSource
+		migrationRelationHasTarget
+		modificationDate
+		name
+		normalizedDateValue
+		normalizedValue
+		occupiesOrOccupied
+		overlapsOrOverlapped
+		ownershipRelationHasSource
+		ownershipRelationHasTarget
+		performanceRelationHasSource
+		performanceRelationHasTarget
+		performsOrPerformed
+		personHasCorrespondenceRelation
+		personHasFamilyRelation
+		personHasKnowingRelation
+		personHasSiblingRelation
+		personHasSpouseRelation
+		personIsSourceOfChildRelation
+		personIsSourceOfDescendanceRelation
+		personIsSourceOfKnowingOfRelation
+		personIsSourceOfLeadershipRelation
+		personIsSourceOfPositionHoldingRelation
+		personIsSourceOfTeachingRelation
+		personIsTargetOfChildRelation
+		personIsTargetOfDescendanceRelation
+		personIsTargetOfKnowingOfRelation
+		personIsTargetOfMembershipRelation
+		personIsTargetOfTeachingRelation
+		physicalCharacteristics
+		physicalOrLogicalExtent
+		placeIsSourceOfPlaceRelation
+		placeRelationHasSource
+		placeRelationHasTarget
+		positionHoldingRelationHasSource
+		positionHoldingRelationHasTarget
+		positionIsContextOfLeadershipRelation
+		positionIsContextOfMembershipRelation
+		positionIsSourceOfPositionToGroupRelation
+		positionIsTargetOfPositionHoldingRelation
+		positionToGroupRelationHasSource
+		positionToGroupRelationHasTarget
+		precedesInTime
+		precedesOrPreceded
+		productionTechnique
+		provenanceRelationHasSource
+		provenanceRelationHasTarget
+		proxyFor
+		proxyIn
+		publicationDate
+		qualityOfRepresentation
+		quantity
+		recordIsSourceOfAuthorshipRelation
+		recordResourceExtent
+		recordResourceGeneticRelationConnects
+		recordResourceHoldingRelationHasSource
+		recordResourceHoldingRelationHasTarget
+		recordResourceIsConnectedToRecordResourceGeneticRelation
+		recordResourceIsConnectedToRecordResourceRelation
+		recordResourceIsSourceOfRecordResourceToInstantiationRelation
+		recordResourceOrInstantiationIsSourceOfAccumulationRelation
+		recordResourceOrInstantiationIsSourceOfActivityDocumentationRelation
+		recordResourceOrInstantiationIsSourceOfAgentOriginationRelation
+		recordResourceOrInstantiationIsSourceOfCreationRelation
+		recordResourceOrInstantiationIsSourceOfProvenanceRelation
+		recordResourceOrInstantiationIsTargetOfIntellectualPropertyRightsRelation
+		recordResourceOrInstantiationIsTargetOfManagementRelation
+		recordResourceOrInstantiationIsTargetOfRecordResourceHoldingRelation
+		recordResourceRelationConnects
+		recordResourceStructure
+		recordResourceToInstantiationRelationHasSource
+		recordResourceToInstantiationRelationHasTarget
+		referenceSystem
+		regulatesOrRegulated
+		relationConnects
+		relationHasContext
+		relationHasSource
+		relationHasTarget
+		relationState
+		resultsOrResultedFrom
+		resultsOrResultedIn
+		roleIsContextOfCreationRelation
+		ruleFollowed
+		ruleIsSourceOfRuleRelation
+		ruleRelationHasSource
+		ruleRelationHasTarget
+		scopeAndContent
+		sequentialRelationHasSource
+		sequentialRelationHasTarget
+		siblingRelationConnects
+		^source
+		spouseRelationConnects
+		structure
+		teachingRelationHasSource
+		teachingRelationHasTarget
+		technicalCharacteristics
+		temporalRelationHasSource
+		temporalRelationHasTarget
+		textualValue
+		thingIsConnectedToRelation
+		thingIsContextOfRelation
+		thingIsSourceOfRelation
+		thingIsSourceOfSequentialRelation
+		thingIsSourceOfTemporalRelation
+		thingIsSourceOfWholePartRelation
+		thingIsTargetOfAppellationRelation
+		thingIsTargetOfAuthorityRelation
+		thingIsTargetOfEventRelation
+		thingIsTargetOfOwnershipRelation
+		thingIsTargetOfPlaceRelation
+		thingIsTargetOfRelation
+		thingIsTargetOfRuleRelation
+		thingIsTargetOfSequentialRelation
+		thingIsTargetOfTemporalRelation
+		thingIsTargetOfTypeRelation
+		thingIsTargetOfWholePartRelation
+		title
+		^type
+		typeIsSourceOfTypeRelation
+		typeRelationHasSource
+		typeRelationHasTarget
+		unitOfMeasurement
+		usedFromDate
+		usedToDate
+		wasLastUpdatedAtDate
+		wasUsedFromDate
+		wasUsedToDate
+		wholePartRelationHasSource
+		wholePartRelationHasTarget
+		width
+		workRelationConnects
+}
+
+vocabulary ricdft {
+	prefix "ric-dft" "https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#"
+
+	classes
+		AuthorityRecord
+		FindingAid
+}
+
+vocabulary ricrst {
+	prefix "ric-rst" "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#"
+
+	classes
+		Collection
+		File
+		Fonds
+		Series
+}
+
+vocabulary stabslevels {
+	prefix "stabs-rst" "https://ld.bs.ch/ais/vocabularies/recordSetTypes/"
+
+	classes
+		Archiv
+		Abteilung
+		Fonds
+		Bestand
+		Serie
+		Dossier
+		Dokument
+}
+
+vocabulary stabsdata {
+	prefix "stabs-d" "stabs:scope:data/"
+
+	classes
+		Verzeichnungseinheiten
+		Deskriptoren
+		Partner
+		Ablieferungen
+
+	properties
+		ID_NR
+		PHYSISCHE_BESCHAFFENHEIT
+}
+
+vocabulary stabsrico {
+	prefix "stabs-rico" "https://ld.bs.ch/ontologies/StABS-RiC/"
+
+	classes
+		RecordHGB
+
+	properties
+		houseNameBS
+		oldHousenumber
+		owner1862
+}
+
+vocabulary schema {
+	prefix "schema" "http://schema.org/"
+
+	classes
+		ArchiveOrganization
+		Organization
+		Thing
+
+	properties
+		address
+		email
+		foundingDate
+		foundingLocation
+		funder
+		identifier
+		location
+		sameAs
+		telephone
+		url
+}
+
+vocabulary skos {
+	prefix "skos" "http://www.w3.org/2004/02/skos/core#"
+
+	classes
+		Concept
+		ConceptScheme
+		Collection
+
+	properties
+		prefLabel
+		altLabel
+		hiddenLabel
+		broader
+		narrower
+		related
+		note
+		scopeNote
+		definition
+		example
+		historyNote
+		editorialNote
+		changeNote
+		inScheme
+		hasTopConcept
+}
+
+// === Codes and Datatypes ===
+/* Language Codes
+ * ==============
+ * small subset of ISO 639-2/5
+ * see Library of Congres (https://www.loc.gov/standards/iso639-2/)
+ */
+language-tags {
+	ara
+	eng
+	fre
+	ger
+	gsw // Swiss German
+	ita
+	lat
+	mul // Multiple languages
+	und // Undetermined
+	zxx // No linguistic content; Not applicable
+}
+
+/* Datatypes
+ * =========
+ * small subset of XSD datatypes
+ * see "XML Schema Part 2: Datatypes Second Edition" (https://www.w3.org/TR/xmlschema-2/)
+ */
+
+vocabulary xsd {
+	prefix "xsd" "http://www.w3.org/2001/XMLSchema#"
+
+	datatypes
+		anyURI
+		boolean
+		decimal
+		integer
+		string
+}
+

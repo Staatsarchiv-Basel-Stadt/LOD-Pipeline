@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  carml-service:
+    image: ghcr.io/zazuko/carml-service:v0.0.3
+    platform: linux/amd64
+    ports:
+      - 8080:8080

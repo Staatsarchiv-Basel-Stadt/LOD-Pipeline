@@ -1,0 +1,230 @@
+source-group stabs_ogd {
+  type json
+  source "stdin"
+
+  logical-source rr_base {
+    iterator "$.*"
+
+    referenceables
+      ID_NR
+      PARENT_ID_NR
+      ZWEIG_POSITION
+      ais_created
+      ais_modified
+      protection_period_end
+      ANZEIGE_INTERNET
+      files_are_public
+      is_orderable
+      is_orderable_for_administrative_lending
+      is_orderable_for_exposition_lending
+      is_orderable_for_inspection
+      is_orderable_for_reproduction
+      is_approval_required
+      usability_accessibility_type
+      TITEL
+      SIGNATUR
+      STUFE
+      ENTSTEHUNGSZEITRAUM
+      created_start
+      created_end
+      ARCHIVALIENART
+      VERFERTIGERIN
+      BEARBEITER_IN
+      RECHTSSTATUS
+      AKTENBILDNER_PROVENIENZ_TEXT
+      INHALT
+      ENTHAELT
+      DARIN
+      FORM_UND_INHALT
+      BASISDATUM_NM
+      SCHUTZFRISTDAUER
+      SCHUTZFRISTKATEGORIE_NM
+      BEWILLIGUNG_NM
+      ZUGAENGLICHKEIT_NM
+      COPYRIGHT_REPORDUKTIONSBESTIMM
+      PHYSISCHE_BENUETZBARKEIT_NM
+      ANMERKUNGEN
+      ARCHIVGESCHICHTE
+      FRUEHERE_STABS_SIGNATUR
+      ALTE_SIGNATUREN
+      FRUEHERE_SIGNATUR
+      ARCHIVSIGEL
+      ORIGINALBEZEICHNUNG
+      HAUSNAME
+      ALTE_HAUSNUMMER
+      EIGENTUEMER_1862
+      ENTSTEHUNGSZEIT_SCHWERGEWICHT_
+      ENTSTEHUNGSZEITRAUM_STREUDATEN
+      GEBURTSDATUM
+      TODESDATUM
+      ORIGINALDATIERUNG
+      AUSSTELLUNGSDATUM
+      LAUFMETER
+      ANZAHL
+      ANZAHL_DATEIEN
+      DATENVOLUMEN_MB
+      ABSPIELDAUER
+      UMFANG_GESCHAETZT
+      KOMMENTAR_ZUM_UMFANG
+      BEHAELTNISTYP_HOEFLINGER
+      EINGANGSNUMMER_PLANARCHIV
+      EINGANGSNUMMER_PLANARCHIV_ZUSA
+      AUFTRAGGEBERIN
+      VERFERTIGER_ERSCHLOSSEN
+      ALLGEMEINER_KONTEXT
+      ORGANISATIONSZUGEHOERIGKEIT
+      VERWALTUNGSGESCHICHTE_BIOGRAFI
+      BESTANDSGESCHICHTE
+      ZEITRAUM_DER_MATERIALZUSAMMENS
+      GESCHICHTE
+      DIREKTUEBERNAHME_VON_PROVENIEN
+      AKTEN_ZUM_AUFTRAG
+      FUNKTION_UND_AKTIVITAET
+      AUFNAHMERICHTUNG
+      AUFNAHMEHOEHE
+      BEWERTUNG_UND_KASSATION
+      NEUZUGAENGE
+      ORDNUNG_UND_KLASSIFIKATION
+      AV_MEDIUM
+      ABSPIELGESCHWINDIGKEIT
+      CODIERUNG
+      BILDFORMAT_FILM
+      FORMAT_FOTO_BILD
+      FORMAT_TON
+      FORMAT_VIDEO
+      FORMAT_FILM
+      FORMAT_FOTONEGATIV
+      FORMAT_DER_UNTERLAGE
+      FORMAT_BILD_PLAN
+      FORMAT_NEGATIV_HOEFLINGER
+      FILMELEMENT
+      TRAEGERMATERIAL
+      UNTERZEICHNERIN
+      VERTRAGSPARTNER
+      ENTSTEHUNGSSTUFE_AUSWAHLLISTE
+      VERMERK
+      SIEGEL
+      BESCHREIBSTOFF
+      VERTRAGSGEGENSTAND
+      FORMALBEGRIFF_HOEFLINGER
+      ORIGINALTITEL_AUF_HUELLE
+      ENTSTEHUNGSSTUFE
+      FORM_DER_DARSTELLUNG_AUSWAHLLI
+      MASSSTAB
+      SCHLAGWORT
+      AUTOR
+      EMPFAENGER
+      ORT
+      DOKUMENTART
+      GATTUNG
+      TYPENBEZEICHNUNG_FLUGZEUG
+      IMMATRIKULATIONSNUMMER_FLUGZEU
+      TECHNIK
+      TECHNIK_PLANARCHIV
+      FARBE_BILDBEARBEITUNG
+      REPRO
+      REPRODUKTION
+      VE_IM_ARCHIV_VORHANDEN
+      VE_BEI_PROVENIENZSTELLE_VORHAN
+      ZUGANGSBESTIMMUNGEN
+      SCHUTZFRISTNOTIZ
+      BENUTZUNGSHINWEIS
+      WEITERE_BENUTZUNGSHINWEISE
+      NICHT_UNTERSCHREITBAR
+      FINDHILFSMITTEL
+      PHYSISCHE_BESCHAFFENHEIT
+      SPRACHE
+      AUFBEWAHRUNGSORT_DER_ORIGINALE
+      KOPIEN_BZW_REPRODUKTIONEN
+      POSITIV_IN_SCHACHTEL
+      REPRO_HOEFLINGER
+      POSITIV_IN_ZEIGBUCH_NR
+      REPRO_NR_HOEFLINGER_
+      REPRO_NR_ANDERE
+      VEROEFFENTLICHUNGEN
+      LITERATUR_BEST_INSG
+      BIBLIOTHEKSKATALOG
+      VERWEISE
+      VERWANDTE_VE_NICHT_IN_SCOPEARC
+      VERWANDTES_MATERIAL
+      NICHT_IDENTIFIZIERT
+      WIRKUNGSFELD
+      PRIORITAETSKLASSE
+      REVISIONSDATUM
+      WEBLINK
+  }
+
+  logical-source rr_arc {
+    iterator "$..[?(@.ID_NR == '548575')]"
+
+    referenceables
+      ID_NR
+      ARCHIVGESCHICHTE
+  }
+
+  logical-source rr_abt_ser_dos {
+    iterator "$..[?(@.STUFE =~ /^Abteilung$|^Serie$|^Dossier$/)]"
+
+    referenceables
+      ID_NR
+      PARENT_ID_NR
+  }
+
+  logical-source rr_fon_bes {
+    iterator "$..[?(@.STUFE =~ /Fonds|Bestand/)]"
+
+    referenceables
+      ID_NR
+      AKTENBILDNER_PROVENIENZ_TEXT
+      PARENT_ID_NR
+      VERWALTUNGSGESCHICHTE_BIOGRAFI
+  }
+
+  logical-source rr_dok {
+    iterator "$..[?(@.STUFE =~ /^Dokument$/)]"
+
+    referenceables
+      ID_NR
+      PARENT_ID_NR
+  }
+
+  logical-source rr_signaturen {
+    iterator "$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
+
+    referenceables
+      ID_NR
+      ALTE_SIGNATUREN
+      FRUEHERE_SIGNATUR
+      FRUEHERE_STABS_SIGNATUR
+  }
+
+  logical-source rr_extent {
+    iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+
+    referenceables
+      ID_NR
+      ANZAHL
+      ANZAHL_DATEIEN
+      DATENVOLUMEN_MB
+      KOMMENTAR_ZUM_UMFANG
+      LAUFMETER
+      UMFANG_GESCHAETZT
+  }
+
+  logical-source rr_hgb {
+    iterator "$..[?(@.ALTE_HAUSNUMMER || @.EIGENTUEMER_1862 || @.HAUSNAME)]"
+
+    referenceables
+      ID_NR
+      ALTE_HAUSNUMMER
+      EIGENTUEMER_1862
+      HAUSNAME
+  }
+
+// logical-source rr_at_akte {
+// iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
+// referenceables
+// ID_NR
+// ARCHIVALIENART
+// }
+}
