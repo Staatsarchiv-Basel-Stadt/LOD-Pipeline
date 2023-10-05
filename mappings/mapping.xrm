@@ -268,36 +268,45 @@ map hgb_records from stabs_ogd.rr_hgb {
  * * Erstelle Agent-/ und Place-Subjects (optional)
  * * Verbinde mit RiC-R020
  */
-// map thes_pers from dls2ogd.TH_PERS {
-//   subject template agURI with ID_NR;
+ map thes_pers from stabs_ogd.ag_desc {
+   subject template agURI with identifier;
+
+   types
+     rico.Agent
+     skos.Concept
+
+   properties
+     rico.name from title with language-tag ger;
+     rico.descriptiveNote from description with language-tag ger;
+     skos.prefLabel from title with language-tag ger;
+     skos.note from description with language-tag ger;
+     skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Personenbegriffe";
+  }
+
+ map thes_ort from stabs_ogd.pl_desc {
+   subject template plURI with identifier;
+
+   types
+     rico.Place
+     skos.Concept
+
+   properties
+     rico.name from title with language-tag ger;
+     rico.descriptiveNote from description with language-tag ger;
+     skos.prefLabel from title with language-tag ger;
+     skos.note from description with language-tag ger;
+     skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Ortsbegriffe";
+  }
+
+// map rr_desc from stabs_ogd.rl_rr_desc {
+//   subject template rrURI with id;
 
 //   types
-//     rico.Agent
-//     skos.Concept
+//     rico.RecordResource
 
 //   properties
-//     rico.name from BEZEICHNUNG with language-tag ger;
-//     rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
-//     skos.prefLabel from BEZEICHNUNG with language-tag ger;
-//     skos.note from BESCHREIBUNG with language-tag ger;
-//     skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Personenbegriffe";
-// }
-
-// map thes_ort from dls2ogd.TH_ORT {
-//   subject template plURI with ID_NR;
-
-//   types
-//     rico.Place
-//     skos.Concept
-
-//   properties
-//     rico.name from BEZEICHNUNG with language-tag ger;
-//     rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
-//     skos.prefLabel from BEZEICHNUNG with language-tag ger;
-//     skos.note from BESCHREIBUNG with language-tag ger;
-//     skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Ortsbegriffe";
-// }
-
+//     rico.hasOrHadMainSubject template agURI with identifier;
+//   }
 // //map thes_rel from dls2ogd.TH_REL {
 // //	subject template rrURI with ID_NR_1;
 // //

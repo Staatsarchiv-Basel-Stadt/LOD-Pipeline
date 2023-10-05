@@ -221,6 +221,31 @@ source-group stabs_ogd {
       HAUSNAME
   }
 
+  logical-source ag_desc {
+    iterator "$..[?(@.thesaurus == 'Personenbegriffe')]"
+
+    referenceables
+      identifier
+      title
+      description
+  }
+
+  logical-source pl_desc {
+    iterator "$..[?(@.thesaurus == 'Ortsbegriffe')]"
+
+    referenceables
+      identifier
+      title
+      description
+  }
+
+//  logical-source rl_rr_desc {
+//    iterator "$..descriptor_record_relations..[record,descriptor]" // related_descriptor_set.*."   //$.*.related_descriptor_set.*.to_descriptor.identifier
+
+//    referenceables
+//      id  // interne PK (ändern, umbenennen)
+//      identifier
+//  }
 // logical-source rr_at_akte {
 // iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
 // referenceables
