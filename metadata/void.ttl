@@ -43,7 +43,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <sys/DLS> a schema:SoftwareApplication ;
     schema:name "Digitaler Lesesaal (DLS)"@de ;
-    schema:description "Der digitale Lesesaal DLS ermöglicht Archiven und Gedächtnisinstitutionen die moderne Präsentation von digitalen, digitalisierten und analogen Archivbeständen."@de
+    schema:description "Der digitale Lesesaal DLS ermöglicht Archiven und Gedächtnisinstitutionen die moderne Präsentation von digitalen, digitalisierten und analogen Archivbeständen."@de ;
     schema:url <https://www.4teamwork.ch/de/produkte/digitaler-lesesaal> 
     .
 
