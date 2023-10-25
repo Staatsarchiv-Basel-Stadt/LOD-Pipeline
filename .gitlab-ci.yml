@@ -13,14 +13,22 @@ github:
   image:
     name: docker.io/bitnami/git:2
   script:
+    # Some SSH configuration
     - mkdir -p /root/.ssh
     - ssh-keyscan -H github.com >> /root/.ssh/known_hosts
     - cp "${GITHUB_REPO_PRIVATE_KEY}" /root/.ssh/id_ed25519
-    - git checkout -b main
+    - chmod 400 /root/.ssh/id_ed25519
+
+    # Create a new temporary branch out of the current one for the CI job
+    - git checkout -b ci-main
+
+    # Inspect the current Git state
     - git branch --list
     - git log --oneline
+
+    # Add the remote GitHub repository, and push the current branch to it
     - git remote add github "${GITHUB_REPO}"
-    - git push --follow-tags --force github main
+    - git push --follow-tags --force github ci-main
 
 # fetch the latest full import from the S3 bucket and split it
 fetch-test:
