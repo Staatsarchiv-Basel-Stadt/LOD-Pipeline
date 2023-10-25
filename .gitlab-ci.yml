@@ -32,7 +32,7 @@ github:
   only:
     - main
 
-# fetch the latest full import from the S3 bucket and split it
+# fetch the latest full import from the S3 bucket
 fetch-test:
   stage: fetch
   image:
@@ -62,7 +62,6 @@ fetch-prod:
     - mkdir -p input
     - mc ls "bucket/${S3_BUCKET}/${S3_PATH}/"
     - ./scripts/fetch_input.sh
-    - ./scripts/splitter.sh
   environment:
     name: prod
   only:
@@ -71,8 +70,6 @@ fetch-prod:
 # generate metadata as ntriples
 metadata:
   stage: process
-  dependencies:
-    - fetch-test
   artifacts:
     expire_in: 1 week
     paths:
@@ -86,7 +83,7 @@ metadata:
     # make sure it has more than one line
     - '[ "$(wc -l output/metadata.nt | awk ''{ print $1 }'')" -gt 1 ]'
 
-# run the pipeline on each splitted part
+# run the pipeline on each splitted part that are generated within this step
 process-test:
   stage: process
   dependencies:
@@ -101,6 +98,7 @@ process-test:
   variables:
     CARML_SERVICE: "http://carml-service:8080/"
   script:
+    - ./scripts/splitter.sh
     - npm ci
     - ./scripts/generate_triples.sh
   except:
@@ -119,6 +117,7 @@ process-prod:
   variables:
     CARML_SERVICE: "http://carml-service:8080/"
   script:
+    - ./scripts/splitter.sh
     - npm ci
     - ./scripts/generate_triples.sh
   environment:
