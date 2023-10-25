@@ -29,6 +29,8 @@ github:
     # Add the remote GitHub repository, and push the current branch to it
     - git remote add github "${GITHUB_REPO}"
     - git push --follow-tags --force github main
+  only:
+    - main
 
 # fetch the latest full import from the S3 bucket and split it
 fetch-test:
