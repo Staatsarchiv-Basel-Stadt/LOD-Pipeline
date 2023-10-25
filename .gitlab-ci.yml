@@ -2,9 +2,21 @@ default:
   image: docker.io/zazukoians/node-java-jena:v4
 
 stages:
+  - github
   - fetch
   - process
   - store
+
+# Push `main` branch to GitHub
+github:
+  stage: github
+  image:
+    name: docker.io/bitnami/git:2
+  script:
+    - mkdir -p /root/.ssh
+    - cp "${GITHUB_REPO_PRIVATE_KEY}" /root/.ssh/id_ed25519
+    - git remote add github "${GITHUB_REPO}"
+    - git push --follow-tags --force github main
 
 # fetch the latest full import from the S3 bucket and split it
 fetch-test:
