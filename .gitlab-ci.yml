@@ -46,7 +46,6 @@ fetch-test:
     - mkdir -p input
     - mc ls "bucket/${S3_BUCKET}/${S3_PATH}/"
     - ./scripts/fetch_input.sh
-    - ./scripts/splitter.sh
   except:
     - main
 fetch-prod:
