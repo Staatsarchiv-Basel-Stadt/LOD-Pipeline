@@ -36,8 +36,7 @@ github:
 fetch-test:
   stage: fetch
   image:
-    name: docker.io/minio/mc:latest
-    entrypoint: [""]
+    name: docker.io/bitnami/minio-client:latest
   artifacts:
     expire_in: 1 day
     paths:
@@ -53,8 +52,7 @@ fetch-test:
 fetch-prod:
   stage: fetch
   image:
-    name: docker.io/minio/mc:latest
-    entrypoint: [""]
+    name: docker.io/bitnami/minio-client:latest
   artifacts:
     expire_in: 1 day
     paths:
