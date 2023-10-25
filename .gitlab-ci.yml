@@ -40,7 +40,7 @@ fetch-test:
   artifacts:
     expire_in: 1 day
     paths:
-      - output/split-*.json
+      - input/input.json
   script:
     - mc alias set bucket "${S3_ENDPOINT}" "${S3_ACCESS_KEY}" "${S3_SECRET_KEY}"
     - mkdir -p input
@@ -56,7 +56,7 @@ fetch-prod:
   artifacts:
     expire_in: 1 day
     paths:
-      - output/split-*.json
+      - input/input.json
   script:
     - mc alias set bucket "${S3_ENDPOINT}" "${S3_ACCESS_KEY}" "${S3_SECRET_KEY}"
     - mkdir -p input
