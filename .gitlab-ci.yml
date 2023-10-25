@@ -2,20 +2,45 @@ default:
   image: docker.io/zazukoians/node-java-jena:v4
 
 stages:
+  - github
   - fetch
   - process
   - store
 
-# fetch the latest full import from the S3 bucket and split it
+# Push `main` branch to GitHub
+github:
+  stage: github
+  image:
+    name: docker.io/bitnami/git:2
+  script:
+    # Some SSH configuration
+    - mkdir -p /root/.ssh
+    - ssh-keyscan -H github.com >> /root/.ssh/known_hosts
+    - cp "${GITHUB_REPO_PRIVATE_KEY}" /root/.ssh/id_ed25519
+    - chmod 400 /root/.ssh/id_ed25519
+
+    # Create the main branch locally out of the detached HEAD
+    - git checkout -b main
+
+    # Inspect the current Git state
+    - git branch --list
+    - git log --oneline
+
+    # Add the remote GitHub repository, and push the current branch to it
+    - git remote add github "${GITHUB_REPO}"
+    - git push --follow-tags --force github main
+  only:
+    - main
+
+# fetch the latest full import from the S3 bucket
 fetch-test:
   stage: fetch
   image:
-    name: docker.io/minio/mc:latest
-    entrypoint: [""]
+    name: docker.io/bitnami/minio-client:latest
   artifacts:
     expire_in: 1 day
     paths:
-      - output/split-*.json
+      - input/input.json
   script:
     - mc alias set bucket "${S3_ENDPOINT}" "${S3_ACCESS_KEY}" "${S3_SECRET_KEY}"
     - mkdir -p input
@@ -27,18 +52,16 @@ fetch-test:
 fetch-prod:
   stage: fetch
   image:
-    name: docker.io/minio/mc:latest
-    entrypoint: [""]
+    name: docker.io/bitnami/minio-client:latest
   artifacts:
     expire_in: 1 day
     paths:
-      - output/split-*.json
+      - input/input.json
   script:
     - mc alias set bucket "${S3_ENDPOINT}" "${S3_ACCESS_KEY}" "${S3_SECRET_KEY}"
     - mkdir -p input
     - mc ls "bucket/${S3_BUCKET}/${S3_PATH}/"
     - ./scripts/fetch_input.sh
-    - ./scripts/splitter.sh
   environment:
     name: prod
   only:
@@ -60,7 +83,7 @@ metadata:
     # make sure it has more than one line
     - '[ "$(wc -l output/metadata.nt | awk ''{ print $1 }'')" -gt 1 ]'
 
-# run the pipeline on each splitted part
+# run the pipeline on each splitted part that are generated within this step
 process-test:
   stage: process
   dependencies:
@@ -75,6 +98,7 @@ process-test:
   variables:
     CARML_SERVICE: "http://carml-service:8080/"
   script:
+    - ./scripts/splitter.sh
     - npm ci
     - ./scripts/generate_triples.sh
   except:
@@ -93,6 +117,7 @@ process-prod:
   variables:
     CARML_SERVICE: "http://carml-service:8080/"
   script:
+    - ./scripts/splitter.sh
     - npm ci
     - ./scripts/generate_triples.sh
   environment:
