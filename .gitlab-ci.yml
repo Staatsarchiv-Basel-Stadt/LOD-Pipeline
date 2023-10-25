@@ -14,6 +14,7 @@ github:
     name: docker.io/bitnami/git:2
   script:
     - mkdir -p /root/.ssh
+    - ssh-keyscan -H github.com >> /root/.ssh/known_hosts
     - cp "${GITHUB_REPO_PRIVATE_KEY}" /root/.ssh/id_ed25519
     - git checkout -b main
     - git branch --list
