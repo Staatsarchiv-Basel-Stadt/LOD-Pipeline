@@ -19,8 +19,8 @@ github:
     - cp "${GITHUB_REPO_PRIVATE_KEY}" /root/.ssh/id_ed25519
     - chmod 400 /root/.ssh/id_ed25519
 
-    # Create a new temporary branch out of the current one for the CI job
-    - git checkout -b ci-main
+    # Create the main branch locally out of the detached HEAD
+    - git checkout -b main
 
     # Inspect the current Git state
     - git branch --list
