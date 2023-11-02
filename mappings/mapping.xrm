@@ -298,15 +298,16 @@ map hgb_records from stabs_ogd.rr_hgb {
      skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Ortsbegriffe";
   }
 
-// map rr_desc from stabs_ogd.rl_rr_desc {
-//   subject template rrURI with id;
+ map rr_desc from stabs_ogd.rl_rr_desc {
+   subject template rrURI with identifier;
 
-//   types
-//     rico.RecordResource
+   types
+     rico.RecordResource
 
-//   properties
-//     rico.hasOrHadMainSubject template agURI with identifier;
-//   }
+    properties
+      rico.hasOrHadMainSubject template agURI with signature;
+  }
+
 // //map thes_rel from dls2ogd.TH_REL {
 // //	subject template rrURI with ID_NR_1;
 // //

@@ -237,15 +237,17 @@ source-group stabs_ogd {
       identifier
       title
       description
+      records
   }
 
-//  logical-source rl_rr_desc {
-//    iterator "$..descriptor_record_relations..[record,descriptor]" // related_descriptor_set.*."   //$.*.related_descriptor_set.*.to_descriptor.identifier
+  logical-source rl_rr_desc {
+    iterator "$..[?(@.thesaurus == 'Personenbegriffe')].records[*]"
 
-//    referenceables
-//      id  // interne PK (ändern, umbenennen)
-//      identifier
-//  }
+    referenceables
+        identifier
+        title
+        signature
+  }
 // logical-source rr_at_akte {
 // iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
 // referenceables

@@ -785,3 +785,27 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
+<#rr_desc>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.thesaurus == 'Personenbegriffe')].records[*]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{identifier}";
+		rr:class rico:RecordResource
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadMainSubject;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Agent/{signature}"
+		]
+	].
+	
