@@ -726,6 +726,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rr:constant <https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Personenbegriffe>
 		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasMainSubjectOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{descriptor_record_relations[*].record.identifier}"
+		]
 	].
 	
 <#thes_ort>
@@ -783,29 +790,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rr:constant <https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Ortsbegriffe>
 		]
-	].
-	
-<#rr_desc>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.thesaurus == 'Personenbegriffe')].records[*]"
-	];
-	
-	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Record/{identifier}";
-		rr:class rico:RecordResource
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:hasOrHadMainSubject;
+		rr:predicate rico:isOrWasMainSubjectOf;
 		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Agent/{signature}"
+			rr:template "https://ld.bs.ch/ais/Record/{descriptor_record_relations[*].record.identifier}"
 		]
 	].
 	

@@ -281,6 +281,7 @@ map hgb_records from stabs_ogd.rr_hgb {
      skos.prefLabel from title with language-tag ger;
      skos.note from description with language-tag ger;
      skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Personenbegriffe";
+     rico.isOrWasMainSubjectOf template rrURI with related_record_id;
   }
 
  map thes_ort from stabs_ogd.pl_desc {
@@ -296,49 +297,8 @@ map hgb_records from stabs_ogd.rr_hgb {
      skos.prefLabel from title with language-tag ger;
      skos.note from description with language-tag ger;
      skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Ortsbegriffe";
+     rico.isOrWasMainSubjectOf template rrURI with related_record_id;
   }
-
- map rr_desc from stabs_ogd.rl_rr_desc {
-   subject template rrURI with identifier;
-
-   types
-     rico.RecordResource
-
-    properties
-      rico.hasOrHadMainSubject template agURI with signature;
-  }
-
-// //map thes_rel from dls2ogd.TH_REL {
-// //	subject template rrURI with ID_NR_1;
-// //
-// //	types
-// //		rico.Record
-// //		skos.Concept
-// //
-// //	properties
-// //		rico.isRecordResourceAssociatedWithRecordResource template rrURI with ID_NR_2;
-// //		skos.related template rrURI with ID_NR_2;
-// //}
-
-// map rr2thes_pers from dls2ogd.TH_PERS_VE_LINK {
-//   subject template rrURI with ID_VE;
-
-//   types
-//     rico.RecordResource
-
-//   properties
-//     rico.hasOrHadMainSubject template agURI with ID_DS;
-// }
-
-// map rr2thes_ort from dls2ogd.TH_ORT_VE_LINK {
-//   subject template rrURI with ID_VE;
-
-//   types
-//     rico.RecordResource
-
-//   properties
-//     rico.hasOrHadMainSubject template plURI with ID_DS;
-// }
 
 /* Ablieferungen
  * ------------

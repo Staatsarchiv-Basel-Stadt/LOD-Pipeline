@@ -228,6 +228,7 @@ source-group stabs_ogd {
       identifier
       title
       description
+      related_record_id "descriptor_record_relations[*].record.identifier"
   }
 
   logical-source pl_desc {
@@ -237,17 +238,9 @@ source-group stabs_ogd {
       identifier
       title
       description
-      records
+      related_record_id "descriptor_record_relations[*].record.identifier"
   }
 
-  logical-source rl_rr_desc {
-    iterator "$..[?(@.thesaurus == 'Personenbegriffe')].records[*]"
-
-    referenceables
-        identifier
-        title
-        signature
-  }
 // logical-source rr_at_akte {
 // iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
 // referenceables
