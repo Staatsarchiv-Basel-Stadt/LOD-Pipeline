@@ -47,11 +47,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     schema:url <https://www.4teamwork.ch/de/produkte/digitaler-lesesaal> 
     .
 
-<sys/RDF-Pipeline> a doap:GitRepository ;
-    schema:name "RDF-Pipeline" ;
-    schema:description "Die RDF-Pipeline des Staatsarchivs Basel-Stadt transformiert Daten des Archivinformationssystem nach RDF."@de ;
-    doap:browse <https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline> ;
-    doap:location "https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline.git" 
+<sys/LOD-Pipeline> a doap:GitRepository ;
+    schema:name "LOD-Pipeline" ;
+    schema:description "Die LOD-Pipeline des Staatsarchivs Basel-Stadt transformiert öffentliche Daten des Archivinformationssystem nach RDF und erstellt damit die Grundlage für archivische Linked Open Data."@de ;
+    doap:browse <https://github.com/Staatsarchiv-Basel-Stadt/LOD-Pipeline> ;
+    doap:location "https://github.com/Staatsarchiv-Basel-Stadt/LOD-Pipeline.git" 
     .
 
 ##
@@ -81,7 +81,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:temporal <Date/1098/2022> ;
     dcterms:accrualPeriodicity <http://purl.org/cld/freq/daily> ;
     dcterms:subject wd:Q30216914, wd:Q178376, wd:Q5146094, wd:Q180160 ; 
-    doap:repository <sys/RDF-Pipeline> ;
+    doap:repository <sys/LOD-Pipeline> ;
     void:sparqlEndpoint <https://ld.bs.ch/sparql> ;
     void:vocabulary 
         <https://www.ica.org/standards/RiC/ontology>,
