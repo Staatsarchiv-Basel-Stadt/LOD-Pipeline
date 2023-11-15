@@ -167,6 +167,7 @@ source-group stabs_ogd {
 
     referenceables
       ID_NR
+      BESTANDSGESCHICHTE
       PARENT_ID_NR
   }
 

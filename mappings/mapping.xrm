@@ -45,6 +45,7 @@ map level_abt from stabs_ogd.rr_abt_ser_dos {
 
   properties
     rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+    rico.history from BESTANDSGESCHICHTE with language-tag ger;
 }
 
 map level_fonds from stabs_ogd.rr_fon_bes {

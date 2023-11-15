@@ -155,6 +155,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:history;
+		rr:objectMap [
+			rml:reference "BESTANDSGESCHICHTE";
+			rr:language "ger"
+		]
 	].
 	
 <#level_fonds>
