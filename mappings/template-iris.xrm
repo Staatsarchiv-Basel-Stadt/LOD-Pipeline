@@ -1,7 +1,7 @@
 /* Base URI templates for RiC-O
  * ============================
- * Subject URIS grundsätzlich gebildet anhand der sieben second level 
- * entities von RiC-CM (RiC-O umfasst aber 12 second level!) 
+ * Subject URIS grundsätzlich gebildet anhand der sieben second level
+ * entities von RiC-CM (RiC-O umfasst aber 12 second level!)
  * (@todo: klären, ob alle Entities verwendet werden sollen)
  * thURI ist eine Möglichkeit zur radikalen Vereinfachung (@todo, prüfen)
  */
@@ -48,5 +48,5 @@ template rstypeURI "https://ld.bs.ch/ais/vocabularies/recordSetTypes/{0}"
  * rico:Place
  * rico:RecordResource
  * rico:Relation
- * rico:Rule 
+ * rico:Rule
  */

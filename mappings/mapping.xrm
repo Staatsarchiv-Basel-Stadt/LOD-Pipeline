@@ -20,7 +20,7 @@ map rr_stabs from stabs_ogd.rr_base {
     rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15
     dct.isReferencedBy template dlsURI with ID_NR;
     // stabsdata.ID_NR from ID_NR with datatype xsd.string;
-    // stabsdata.PHYSISCHE_BESCHAFFENHEIT from PHYSISCHE_BESCHAFFENHEIT with datatype xsd.string;
+// stabsdata.PHYSISCHE_BESCHAFFENHEIT from PHYSISCHE_BESCHAFFENHEIT with datatype xsd.string;
 }
 
 /* Description Level Classes
@@ -83,7 +83,7 @@ map date_01 from stabs_ogd.rr_base {
     rico.calendar constant "Gregorianischer Kalender"; // @todo: Sinnvoller Eintrag? Wäre besser als Klasse
     rico.expressedDate from ENTSTEHUNGSZEITRAUM; // @todo: mit Datumsoperatoren könnte eine bessere Textrepräsentation erreicht werden.
     rico.normalizedDateValue from ENTSTEHUNGSZEITRAUM;
-//    rico.hasDateType // @todo: Definition von rico:DateType abwarten    
+//    rico.hasDateType // @todo: Definition von rico:DateType abwarten
 //    rico.dateQualifier constant "circa" // if 'ca' in ENTSTEHUNGSZEITRAUM
 }
 
@@ -91,7 +91,7 @@ map date_01 from stabs_ogd.rr_base {
 //    :1999090 a rico:Date
 //    rico.isEndDateOf :rrUri/1234
 //    rico.isCreationDateOf rrUri/1324
-//    rico.dateStandard 
+//    rico.dateStandard
 
 // ais_modified rico:isLastUpdateDateOf rrUri/1234
 // ais_created rico:
@@ -269,35 +269,35 @@ map hgb_records from stabs_ogd.rr_hgb {
  * * Verbinde mit RiC-R020
  */
  map thes_pers from stabs_ogd.ag_desc {
-   subject template agURI with identifier;
+  subject template agURI with identifier;
 
-   types
-     rico.Agent
-     skos.Concept
+  types
+    rico.Agent
+    skos.Concept
 
-   properties
-     rico.name from title with language-tag ger;
-     rico.descriptiveNote from description with language-tag ger;
-     skos.prefLabel from title with language-tag ger;
-     skos.note from description with language-tag ger;
-     skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Personenbegriffe";
-     rico.isOrWasMainSubjectOf template rrURI with related_record_id;
+  properties
+    rico.name from title with language-tag ger;
+    rico.descriptiveNote from description with language-tag ger;
+    skos.prefLabel from title with language-tag ger;
+    skos.note from description with language-tag ger;
+    skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Personenbegriffe";
+    rico.isOrWasMainSubjectOf template rrURI with related_record_id;
   }
 
  map thes_ort from stabs_ogd.pl_desc {
-   subject template plURI with identifier;
+  subject template plURI with identifier;
 
-   types
-     rico.Place
-     skos.Concept
+  types
+    rico.Place
+    skos.Concept
 
-   properties
-     rico.name from title with language-tag ger;
-     rico.descriptiveNote from description with language-tag ger;
-     skos.prefLabel from title with language-tag ger;
-     skos.note from description with language-tag ger;
-     skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Ortsbegriffe";
-     rico.isOrWasMainSubjectOf template rrURI with related_record_id;
+  properties
+    rico.name from title with language-tag ger;
+    rico.descriptiveNote from description with language-tag ger;
+    skos.prefLabel from title with language-tag ger;
+    skos.note from description with language-tag ger;
+    skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Ortsbegriffe";
+    rico.isOrWasMainSubjectOf template rrURI with related_record_id;
   }
 
 /* Ablieferungen

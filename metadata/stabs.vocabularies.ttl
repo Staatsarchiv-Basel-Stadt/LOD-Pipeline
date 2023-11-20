@@ -97,7 +97,7 @@ stabs-rst:Abteilung a rico:RecordSetType , skos:Concept , owl:NamedIndividual ;
 	skos:prefLabel "Abteilung"@de ;
 	skos:definition  "Die Stufe Abteilung dient der archivinternen Grobgliederung und wird verwendet, die obersten Gruppen wie Haupt-, Neben- oder Privatarchive zu bilden. Innerhalb dieser obersten Gliederung werden weiteren Abteilungen angesetzt, wie beispielsweise das Ältere Hauptarchiv oder das Neue Hauptarchiv. (Def. sinngemäss nach StABS, Handbuch Erschliessung) "@de ;
 	skos:inScheme <https://ld.bs.ch/RiC/vocabularies/recordSetTypes>
-	.	
+	.
 
 stabs-rst:Fonds a rico:RecordSetType , skos:Concept , owl:NamedIndividual ;
 	rdfs:label "Fonds"@de ;
