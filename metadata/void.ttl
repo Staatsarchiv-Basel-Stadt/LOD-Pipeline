@@ -1,4 +1,4 @@
-BASE <https://ld.bs.ch/> 
+BASE <https://ld.bs.ch/>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
@@ -44,14 +44,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <sys/DLS> a schema:SoftwareApplication ;
     schema:name "Digitaler Lesesaal (DLS)"@de ;
     schema:description "Der digitale Lesesaal DLS ermöglicht Archiven und Gedächtnisinstitutionen die moderne Präsentation von digitalen, digitalisierten und analogen Archivbeständen."@de ;
-    schema:url <https://www.4teamwork.ch/de/produkte/digitaler-lesesaal> 
+    schema:url <https://www.4teamwork.ch/de/produkte/digitaler-lesesaal>
     .
 
 <sys/LOD-Pipeline> a doap:GitRepository ;
     schema:name "LOD-Pipeline" ;
     schema:description "Die LOD-Pipeline des Staatsarchivs Basel-Stadt transformiert öffentliche Daten des Archivinformationssystem nach RDF und erstellt damit die Grundlage für archivische Linked Open Data."@de ;
     doap:browse <https://github.com/Staatsarchiv-Basel-Stadt/LOD-Pipeline> ;
-    doap:location "https://github.com/Staatsarchiv-Basel-Stadt/LOD-Pipeline.git" 
+    doap:location "https://github.com/Staatsarchiv-Basel-Stadt/LOD-Pipeline.git"
     .
 
 ##
@@ -65,7 +65,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 ##
 ## Dataset
-## 
+##
 
 <set/archival-catalog> a void:Dataset ;
     dcterms:isReferencedBy <https://www.staatsarchiv.bs.ch/kataloge/archivkatalog.html> ;
@@ -80,16 +80,16 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:created "1999"^^xsd:gYear ;
     dcterms:temporal <Date/1098/2022> ;
     dcterms:accrualPeriodicity <http://purl.org/cld/freq/daily> ;
-    dcterms:subject wd:Q30216914, wd:Q178376, wd:Q5146094, wd:Q180160 ; 
+    dcterms:subject wd:Q30216914, wd:Q178376, wd:Q5146094, wd:Q180160 ;
     doap:repository <sys/LOD-Pipeline> ;
     void:sparqlEndpoint <https://ld.bs.ch/sparql> ;
-    void:vocabulary 
+    void:vocabulary
         <https://www.ica.org/standards/RiC/ontology>,
         <http://www.w3.org/2004/02/skos/core> ;
-    void:uriSpace 
-        "https://ld.bs.ch/ais/Record/", 
-        "https://ld.bs.ch/ais/Agent/", 
-        "https://ld.bs.ch/ais/Event/", 
+    void:uriSpace
+        "https://ld.bs.ch/ais/Record/",
+        "https://ld.bs.ch/ais/Agent/",
+        "https://ld.bs.ch/ais/Event/",
         "https://ld.bs.ch/ais/Place/" ;
     void:triples "15000000"^^xsd:integer ;
     void:distinctSubjects "3000000"^^xsd:integer ;
