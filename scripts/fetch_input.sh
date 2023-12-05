@@ -12,7 +12,7 @@ DST_DIR="input"
 # Get the last file matching a prefix
 get_file_by_prefix () {
   local prefix="$1"
-  echo "Get the last file matching the prefix '${prefix}'…"
+  echo "[$(date)] Get the last file matching the prefix '${prefix}'…"
 
   local file_name=$(mc ls "bucket/${S3_BUCKET}/${S3_PATH}/${prefix}" | awk '{ print $NF }' | sort | tail -n1)
   if [ -z "${file_name}" ]; then
@@ -22,7 +22,8 @@ get_file_by_prefix () {
 
   echo "Copy the file '${file_name}' to '${DST_DIR}/${prefix}.json'…"
   mc cp "bucket/${S3_BUCKET}/${S3_PATH}/${file_name}" "${DST_DIR}/${prefix}.json"
-  echo "Done!\n"
+  echo "Done!"
+  echo ""
 }
 
 # Iterator over each file prefix (defined in `file_prefix.sh`)
