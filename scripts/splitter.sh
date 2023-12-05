@@ -23,8 +23,7 @@ split_file () {
 
   # Extract the filename and extension
   local name=$(basename "$file_name")
-  local extension="${file_name##*.}"
-  local name="${filename%.*}"
+  local name="${name%.*}"
 
   split -d -a 4 -l 10000 "$file_name" "${DST}/SPLITTED-${name}."
 }
@@ -44,10 +43,10 @@ done
 # Iterate over each splitted file to generate a new file with fixed JSON
 echo "$(date) - Generating the new files…"
 for file in $DST_DIR/SPLITTED-*.json | sort -u; do
-  NEW_NAME=$(echo "${file}" | sed 's/SPLITTED-//')
+  NEW_NAME=$(echo "${file}" | sed 's/SPLITTED-/split-/')
   rm -f "${NEW_NAME}"
-  echo "- $file -> ${NEW_NAME}"
-  jq -csM '.' "${file}" > "${NEW_NAME}"
+  echo "- $file -> ${NEW_NAME}.json"
+  jq -csM '.' "${file}" > "${NEW_NAME}.json"
   rm -f "${file}"
 done
 

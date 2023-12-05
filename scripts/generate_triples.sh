@@ -9,15 +9,14 @@ if [ -z "${CARML_SERVICE}" ]; then
 fi
 export CARML_SERVICE
 
+# Make sure the output directory exists
 mkdir -p output
 
-date
-echo "Some cleanup…"
-for file in output/split-*.json; do
-  echo ""
-  date
-  echo "- Running the pipeline for ${file}…"
+echo "$(date) - Run the pipeline…"
 
+# Iterate over each splitted file
+for file in output/split-*.json; do
+  echo "$(date) - Running the pipeline for ${file}…"
 
   inputFile="${file}"
   outputFile=$(echo "${file}" | sed 's/\.json$/.nt/')
@@ -26,8 +25,6 @@ for file in output/split-*.json; do
   npx barnard59 run -v --pipeline=http://example.org/pipeline/toFile pipelines/main.ttl --variable=CARML_SERVICE --variable=inputFile --variable=outputFile
 done
 
-echo ""
-date
-echo "Done!"
+echo "$(date) - Done!"
 
 exit 0
