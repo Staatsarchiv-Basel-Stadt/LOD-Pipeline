@@ -25,7 +25,7 @@ split_file () {
   local name=$(basename "$file_name")
   local name="${name%.*}"
 
-  split -d -a 4 -l 10000 "$file_name" "${DST}/SPLITTED-${name}."
+  split -d -a 4 -l 10000 "$file_name" "${DST_DIR}/SPLITTED-${name}."
 }
 
 # Remove the destination directory and create it again
