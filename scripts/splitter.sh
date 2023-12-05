@@ -42,7 +42,7 @@ done
 
 # Iterate over each splitted file to generate a new file with fixed JSON
 echo "$(date) - Generating the new files…"
-for file in $DST_DIR/SPLITTED-*.json; do
+for file in $DST_DIR/SPLITTED-*; do
   NEW_NAME=$(echo "${file}" | sed 's/SPLITTED-/split-/')
   rm -f "${NEW_NAME}"
   echo "- $file -> ${NEW_NAME}.json"
