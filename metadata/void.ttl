@@ -3,6 +3,7 @@ PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX doap: <http://usefulinc.com/ns/doap#>
 PREFIX duv: <http://www.w3.org/ns/duv#>
+PREFIX freq: <http://purl.org/cld/freq/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <http://schema.org/>
@@ -78,8 +79,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:source <sys/DLS> ;
     dcterms:licence <https://creativecommons.org/publicdomain/zero/1.0/> ;
     dcterms:created "1999"^^xsd:gYear ;
-    dcterms:temporal <Date/1098/2022> ;
-    dcterms:accrualPeriodicity <http://purl.org/cld/freq/daily> ;
+    dcterms:temporal <Date/1098/2023> ;
+    dcterms:accrualPeriodicity freq:irregular ;
     dcterms:subject wd:Q30216914, wd:Q178376, wd:Q5146094, wd:Q180160 ;
     doap:repository <sys/LOD-Pipeline> ;
     void:sparqlEndpoint <https://ld.bs.ch/sparql> ;
