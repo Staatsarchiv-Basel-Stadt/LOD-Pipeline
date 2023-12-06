@@ -37,6 +37,6 @@ The GitLab CI pipeline is doing the following:
 1. `github`: this step is only run on a push on the `main` branch. It pushes the content of the repository we have on GitLab to GitHub.
 2. `fetch`: this step fetches the latest JSON file for all prefixes defined in the `scripts/file_prefix.sh` file and will store them in the `input` directory.
 3. `process`: there are two main jobs for that step:
-   a. `metadata`: this job generates the triples from the Turtle files (extension `.ttl`) that are stored in the `metadata` directory into a `output/metadata.nt` file. That way everything is converted into the right format and is stored into a single file.
-   b. `process`: this job splits the JSON files into smaller chunks and run the pipeline on each of them.
+   - `metadata`: this job generates the triples from the Turtle files (extension `.ttl`) that are stored in the `metadata` directory into a `output/metadata.nt` file. That way everything is converted into the right format and is stored into a single file.
+   - `process`: this job splits the JSON files into smaller chunks and run the pipeline on each of them.
 4. `store`: this step publishes the generated triples from the previous step (every file with `.nt` extension from the `output` directory) to the triple store.
