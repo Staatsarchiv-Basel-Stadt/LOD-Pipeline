@@ -7,6 +7,7 @@ PREFIX freq: <http://purl.org/cld/freq/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <http://schema.org/>
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
 PREFIX void: <http://rdfs.org/ns/void#>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -17,6 +18,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <.well-known/void> a void:DatasetDescription ;
     dcterms:subject <set/archival-catalog>
+    .
+
+##
+## Service description
+##
+
+<sparql> a sd:Service ;
+    sd:endpoint <https://ld.bs.ch/sparql> ;
+    sd:supportedLanguage sd:SPARQL11Query ;
+    sd:availableGraphs <set/archival-catalog> ;
+    sd:resultFormat <https://www.w3.org/ns/formats/data/Turtle> , <https://www.w3.org/ns/formats/data/JSON-LD> , <https://www.w3.org/ns/formats/data/N3> , <https://www.w3.org/ns/formats/data/RDF_XML> , <https://www.w3.org/ns/formats/data/SPARQL_Results_JSON> , <https://www.w3.org/ns/formats/data/SPARQL_Results_CSV> ;
     .
 
 ##
@@ -68,7 +80,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 ## Dataset
 ##
 
-<set/archival-catalog> a void:Dataset ;
+<set/archival-catalog> a void:Dataset , sd:Dataset ;
     dcterms:isReferencedBy <https://www.staatsarchiv.bs.ch/kataloge/archivkatalog.html> ;
     dcterms:title "Offene Daten des Archivkatalogs des Staatsarchivs Basel-Stadt" @de , "Open data of the archival catalog of the State Archives of Basel-Stadt"@en ;
     dcterms:description "Dieser Datensatz enthält die frei zugänglichen Inhalte des Archivkatalogs des Staatsarchiv Basel-Stadt in RDF (Ontologie: Records in Context)"@de ;
@@ -83,6 +95,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:accrualPeriodicity freq:irregular ;
     dcterms:subject wd:Q30216914, wd:Q178376, wd:Q5146094, wd:Q180160 ;
     doap:repository <sys/LOD-Pipeline> ;
+    sd:name <https://ld.bs.ch/graph/ais-metadata> ;
     void:sparqlEndpoint <https://ld.bs.ch/sparql> ;
     void:vocabulary
         <https://www.ica.org/standards/RiC/ontology>,
