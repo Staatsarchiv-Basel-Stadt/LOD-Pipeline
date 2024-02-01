@@ -1,5 +1,5 @@
 default:
-  image: docker.io/zazukoians/node-java-jena:v4
+  image: docker.io/zazukoians/node-java-jena:v5
 
 stages:
   - github
