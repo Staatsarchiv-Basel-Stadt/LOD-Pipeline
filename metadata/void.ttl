@@ -34,27 +34,27 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     .
 
 <graphs> a sd:Dataset ;
-    sd:namedGraph <rhein-ues-weil-raw> , <ogd-weekly> , <ogd-monthly> , <ogd-daily> , <ais-metadata> ;
+    sd:namedGraph <graph/rhein-ues-weil-raw> , <graph/ogd-weekly> , <graph/ogd-monthly> , <graph/ogd-daily> , <graph/ais-metadata> ;
     sd:defaultGraph <>
     .
 
-<rhein-ues-weil-raw> a sd:NamedGraph ;
+<graph/rhein-ues-weil-raw> a sd:NamedGraph ;
     sd:name <graph/rhein-ues-weil-raw>
     .
 
-<ogd-weekly> a sd:NamedGraph ;
+<graph/ogd-weekly> a sd:NamedGraph ;
     sd:name <graph/ogd-weekly>
     .
 
-<ogd-monthly> a sd:NamedGraph ;
+<graph/ogd-monthly> a sd:NamedGraph ;
     sd:name <graph/ogd-monthly>
     .
 
-<ogd-daily> a sd:NamedGraph ;
+<graph/ogd-daily> a sd:NamedGraph ;
     sd:name <graph/ogd-daily>
     .
 
-<ais-metadata> a sd:NamedGraph ;
+<graph/ais-metadata> a sd:NamedGraph ;
     sd:name <graph/ais-metadata> ;
     sd:graph <set/archival-catalog>
     .
@@ -123,7 +123,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:accrualPeriodicity freq:irregular ;
     dcterms:subject wd:Q30216914, wd:Q178376, wd:Q5146094, wd:Q180160 ;
     doap:repository <sys/LOD-Pipeline> ;
-    sd:name <graph/ais-metadata> ;
     void:sparqlEndpoint <sparql> ;
     void:vocabulary
         <https://www.ica.org/standards/RiC/ontology>,
