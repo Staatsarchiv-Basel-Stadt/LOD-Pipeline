@@ -16,7 +16,7 @@ map rr_stabs from stabs_ogd.rr_base {
     rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
     rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
     rico.isAssociatedWithDate template dateURI with ID_NR;
-    rico.descriptiveNote from ANMERKUNGEN with language-tag ger;
+    rico.generalDescription from ANMERKUNGEN with language-tag ger;
     rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15
     dct.isReferencedBy template dlsURI with ID_NR;
     // stabsdata.ID_NR from ID_NR with datatype xsd.string;
@@ -113,7 +113,7 @@ map ident_01 from stabs_ogd.rr_signaturen {
     rico.isOrWasIdentifierOf template rrURI with ID_NR;
     rico.hasIdentifierType constant "https://ld.bs.ch/ais/vocabularies/identifierTypes/Alte-Signatur";
     rico.textualValue from ALTE_SIGNATUREN;
-    rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
+    rico.generalDescription constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
 }
 
 map ident_02 from stabs_ogd.rr_signaturen {
@@ -126,7 +126,7 @@ map ident_02 from stabs_ogd.rr_signaturen {
     rico.isOrWasIdentifierOf template rrURI with ID_NR;
     rico.hasIdentifierType constant "https://ld.bs.ch/ais/vocabularies/identifierTypes/Fruehere-Signatur";
     rico.textualValue from FRUEHERE_SIGNATUR;
-    rico.descriptiveNote constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung";
+    rico.generalDescription constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung";
 }
 
 map ident_03 from stabs_ogd.rr_signaturen {
@@ -139,7 +139,7 @@ map ident_03 from stabs_ogd.rr_signaturen {
     rico.isOrWasIdentifierOf template rrURI with ID_NR;
     rico.hasIdentifierType constant "https://ld.bs.ch/ais/vocabularies/identifierTypes/Fruehere-StABS-Signatur";
     rico.textualValue from FRUEHERE_STABS_SIGNATUR;
-    rico.descriptiveNote constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
+    rico.generalDescription constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
 }
 /* Extent Maps
  * -----------
@@ -157,7 +157,7 @@ map extent_lm from stabs_ogd.rr_extent {
     rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Laufmeter";
     rico.quantity from LAUFMETER with datatype xsd.decimal;
     rico.hasUnitOfMeasurement constant "http://qudt.org/vocab/unit/M"; // @todo: als rico:UnitOfMeasurement
-    rico.descriptiveNote constant "Laufmeter";
+    rico.generalDescription constant "Laufmeter";
 }
 
 map extent_num from stabs_ogd.rr_extent {
@@ -171,7 +171,7 @@ map extent_num from stabs_ogd.rr_extent {
     rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Anzahl";
     rico.quantity from ANZAHL with datatype xsd.integer;
     // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
-    rico.descriptiveNote constant "Anzahl Einheiten oder Behältnisse";
+    rico.generalDescription constant "Anzahl Einheiten oder Behältnisse";
 }
 
 map extent_num_files from stabs_ogd.rr_extent {
@@ -185,7 +185,7 @@ map extent_num_files from stabs_ogd.rr_extent {
     rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Anzahl-Dateien";
     rico.quantity from ANZAHL_DATEIEN with datatype xsd.integer;
     // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
-    rico.descriptiveNote constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht.";
+    rico.generalDescription constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht.";
 }
 
 map extent_data_vol from stabs_ogd.rr_extent {
@@ -199,7 +199,7 @@ map extent_data_vol from stabs_ogd.rr_extent {
     rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Datenvolumen-MB";
     rico.quantity from DATENVOLUMEN_MB with datatype xsd.decimal;
     // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
-    rico.descriptiveNote constant "Angabe des enthaltenen Datenvolumens in Megabyte (MB)";
+    rico.generalDescription constant "Angabe des enthaltenen Datenvolumens in Megabyte (MB)";
 
 }
 
@@ -213,7 +213,7 @@ map extent_approx from stabs_ogd.rr_extent {
     rico.isExtentOf template rrURI with ID_NR;
     rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Umfang-approximativ";
     rico.textualValue from UMFANG_GESCHAETZT;
-    rico.descriptiveNote constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen.";
+    rico.generalDescription constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen.";
 }
 
 // /* Provenienz
@@ -277,7 +277,7 @@ map hgb_records from stabs_ogd.rr_hgb {
 
   properties
     rico.name from title with language-tag ger;
-    rico.descriptiveNote from description with language-tag ger;
+    rico.generalDescription from description with language-tag ger;
     skos.prefLabel from title with language-tag ger;
     skos.note from description with language-tag ger;
     skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Personenbegriffe";
@@ -293,7 +293,7 @@ map hgb_records from stabs_ogd.rr_hgb {
 
   properties
     rico.name from title with language-tag ger;
-    rico.descriptiveNote from description with language-tag ger;
+    rico.generalDescription from description with language-tag ger;
     skos.prefLabel from title with language-tag ger;
     skos.note from description with language-tag ger;
     skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Ortsbegriffe";
