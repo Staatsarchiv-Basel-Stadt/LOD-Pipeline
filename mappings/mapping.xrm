@@ -81,11 +81,10 @@ map date_01 from stabs_ogd.rr_base {
     rico.Date
 
   properties
-    rico.calendar constant "Gregorianischer Kalender"; // @todo: Sinnvoller Eintrag? Wäre besser als Klasse
     rico.expressedDate from ENTSTEHUNGSZEITRAUM; // @todo: mit Datumsoperatoren könnte eine bessere Textrepräsentation erreicht werden.
-    rico.normalizedDateValue from ENTSTEHUNGSZEITRAUM;
-//    rico.hasDateType // @todo: Definition von rico:DateType abwarten
-//    rico.dateQualifier constant "circa" // if 'ca' in ENTSTEHUNGSZEITRAUM
+    rico.normalizedDateValue from ENTSTEHUNGSZEITRAUM; // @todo: XML Date types für Typisierung
+//    rico.hasDateType // Definiert in RiC-O 1.0 für Klassen `DateSet`, `DateRange` oder `SingleDate`, oder Subklassen. Bei Bedarf implementieren
+//    rico.qualifier kann für "certainty" und "precision" verwendet werden, Implementierung bei Bedarf
 }
 
 //    created_start created_end
