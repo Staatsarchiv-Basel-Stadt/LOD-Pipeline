@@ -44,7 +44,6 @@ vocabulary rico {
 		AgentControlRelation
 		AgentHierarchicalRelation
 		AgentName
-		AgentOriginationRelation
 		AgentTemporalRelation
 		AgentToAgentRelation
 		Appellation
@@ -62,8 +61,7 @@ vocabulary rico {
 		CorrespondenceRelation
 		CreationRelation
 		Date
-		DateRange
-		DateSet
+		DateType
 		DemographicGroup
 		DerivationRelation
 		DescendanceRelation
@@ -93,11 +91,14 @@ vocabulary rico {
 		ManagementRelation
 		Mandate
 		MandateRelation
+		MandateType
 		Mechanism
 		MembershipRelation
 		MigrationRelation
 		Name
 		OccupationType
+		OrganicOrFunctionalProvenanceRelation
+		OrganicProvenanceRelation
 		OwnershipRelation
 		PerformanceRelation
 		Person
@@ -110,7 +111,6 @@ vocabulary rico {
 		PositionHoldingRelation
 		PositionToGroupRelation
 		ProductionTechniqueType
-		ProvenanceRelation
 		Proxy
 		Record
 		RecordPart
@@ -131,7 +131,6 @@ vocabulary rico {
 		RuleType
 		SequentialRelation
 		SiblingRelation
-		SingleDate
 		SpouseRelation
 		TeachingRelation
 		TemporalRelation
@@ -144,109 +143,77 @@ vocabulary rico {
 		WorkRelation
 
 	properties
-		accrual
-		accrualStatus
-		accumulationRelationHasSource
-		accumulationRelationHasTarget
-		activityDocumentationRelationHasSource
-		activityDocumentationRelationHasTarget
+		accruals
+		accrualsStatus
+		accumulationRelation_role
+		activityDocumentationRelation_role
 		activityIsContextOfRelation
-		activityIsSourceOfPerformanceRelation
-		activityIsTargetOfActivityDocumentationRelation
 		affectsOrAffected
-		agentControlRelationHasSource
-		agentControlRelationHasTarget
-		agentHasWorkRelation
-		agentHierarchicalRelationHasSource
-		agentHierarchicalRelationHasTarget
-		agentIsConnectedToAgentRelation
-		agentIsSourceOfAgentControlRelation
-		agentIsSourceOfAgentHierarchicalRelation
-		agentIsSourceOfAgentTemporalRelation
-		agentIsSourceOfAuthorityRelation
-		agentIsSourceOfIntellectualPropertyRightsRelation
-		agentIsSourceOfManagementRelation
-		agentIsSourceOfOwnershipRelation
-		agentIsSourceOfRecordResourceHoldingRelation
-		agentIsTargetOfAccumulationRelation
-		agentIsTargetOfAgentControlRelation
-		agentIsTargetOfAgentHierarchicalRelation
-		agentIsTargetOfAgentOriginationRelation
-		agentIsTargetOfAgentTemporalRelation
-		agentIsTargetOfAuthorshipRelation
-		agentIsTargetOfCreationRelation
-		agentIsTargetOfMandateRelation
-		agentIsTargetOfPerformanceRelation
-		agentOrActivityIsTargetOfProvenanceRelation
-		agentOriginationRelationHasSource
-		agentOriginationRelationHasTarget
-		agentRelationConnects
-		agentTemporalRelationHasSource
-		agentTemporalRelationHasTarget
+		agentControlRelation_role
+		agentHasOrHadLocation
+		agentHierarchicalRelation_role
+		agentTemporalRelation_role
+		agentToAgentRelation_role
 		altimetricSystem
 		altitude
-		appellationIsSourceOfAppellationRelation
-		appellationRelationHasSource
-		appellationRelationHasTarget
+		appellationRelation_role
 		asConcernsActivity
 		authenticityNote
-		authorityRelationHasSource
-		authorityRelationHasTarget
+		authorityRelation_role
 		authorizedBy
 		authorizes
 		authorizingAgent
 		authorizingMandate
-		authorshipRelationHasSource
-		authorshipRelationHasTarget
+		authorshipRelation_role
 		beginningDate
 		birthDate
-		calendar
 		carrierExtent
-		certainty
-		childRelationHasSource
-		childRelationHasTarget
+		childRelation_role
 		classification
 		conditionsOfAccess
 		conditionsOfUse
+		contained
 		containsOrContained
-		correspondenceRelationConnects
+		containsTransitive
+		correspondenceRelation_role
 		creationDate
-		creationRelationHasSource
-		creationRelationHasTarget
+		creationRelation_role
 		creationWithRole
 		date
 		dateQualifier
-		dateStandard
 		deathDate
-		deletionDate
-		derivationRelationHasSource
-		derivationRelationHasTarget
-		descendanceRelationHasSource
-		descendanceRelationHasTarget
+		derivationRelation_role
+		descendanceRelation_role
 		describesOrDescribed
-		descriptiveNote
+		destructionDate
+		directlyContains
+		directlyFollowsInSequence
+		directlyIncludes
+		directlyPrecedesInSequence
 		documentedBy
 		documents
 		endDate
-		eventIsSourceOfEventRelation
-		eventRelationHasSource
-		eventRelationHasTarget
+		eventRelation_role
+		evidences
 		existsOrExistedIn
 		expressedDate
 		expressesOrExpressed
-		familyRelationConnects
+		familyRelation_role
+		followedInSequence
+		followsInSequenceTransitive
 		followsInTime
 		followsOrFollowed
-		functionalEquivalenceRelationConnects
+		functionalEquivalenceRelation_role
+		generalDescription
 		geodesicSystem
 		geographicalCoordinates
-		groupIsSourceOfGroupSubdivisionRelation
-		groupIsSourceOfMembershipRelation
-		groupIsTargetOfGroupSubdivisionRelation
-		groupIsTargetOfLeadershipRelation
-		groupIsTargetOfPositionToGroupRelation
-		groupSubdivisionRelationHasSource
-		groupSubdivisionRelationHasTarget
+		groupSubdivisionRelation_role
+		hadComponent
+		hadConstituent
+		hadPart
+		hadSubdivision
+		hadSubevent
+		hadSubordinate
 		hasAccumulator
 		hasActivityType
 		hasAddressee
@@ -254,15 +221,27 @@ vocabulary rico {
 		hasAuthor
 		hasBeginningDate
 		hasBirthDate
+		hasBirthPlace
 		hasCarrierType
 		hasChild
 		hasCollector
+		hasComponentTransitive
+		hasConstituentTransitive
 		hasContentOfType
 		hasCopy
+		hasCreationDate
 		hasCreator
+		hasDateType
 		hasDeathDate
-		hasDerivedInstantiation
+		hasDeathPlace
 		hasDescendant
+		hasDestructionDate
+		hasDirectComponent
+		hasDirectConstituent
+		hasDirectPart
+		hasDirectSubdivision
+		hasDirectSubevent
+		hasDirectSubordinate
 		hasDocumentaryFormType
 		hasDraft
 		hasEndDate
@@ -273,15 +252,18 @@ vocabulary rico {
 		hasFamilyType
 		hasGeneticLinkToRecordResource
 		hasIdentifierType
-		hasInstantiation
 		hasModificationDate
+		hasOrganicOrFunctionalProvenance
+		hasOrganicProvenance
 		hasOrHadAgentName
 		hasOrHadAllMembersWithCategory
 		hasOrHadAllMembersWithContentType
+		hasOrHadAllMembersWithCreationDate
 		hasOrHadAllMembersWithDocumentaryFormType
 		hasOrHadAllMembersWithLanguage
 		hasOrHadAllMembersWithLegalStatus
 		hasOrHadAllMembersWithRecordState
+		hasOrHadAnalogueInstantiation
 		hasOrHadAppellation
 		hasOrHadAuthorityOver
 		hasOrHadCategory
@@ -292,8 +274,12 @@ vocabulary rico {
 		hasOrHadCorporateBodyType
 		hasOrHadCorrespondent
 		hasOrHadDemographicGroup
+		hasOrHadDerivedInstantiation
+		hasOrHadDigitalInstantiation
+		hasOrHadEmployer
 		hasOrHadHolder
 		hasOrHadIdentifier
+		hasOrHadInstantiation
 		hasOrHadIntellectualPropertyRightsHolder
 		hasOrHadJurisdiction
 		hasOrHadLanguage
@@ -302,7 +288,9 @@ vocabulary rico {
 		hasOrHadLocation
 		hasOrHadMainSubject
 		hasOrHadManager
+		hasOrHadMandateType
 		hasOrHadMember
+		hasOrHadMostMembersWithCreationDate
 		hasOrHadName
 		hasOrHadOccupationOfType
 		hasOrHadOwner
@@ -315,7 +303,8 @@ vocabulary rico {
 		hasOrHadRuleType
 		hasOrHadSomeMembersWithCategory
 		hasOrHadSomeMembersWithContentType
-		hasOrHadSomeMemberswithDocumentaryFormType
+		hasOrHadSomeMembersWithCreationDate
+		hasOrHadSomeMembersWithDocumentaryFormType
 		hasOrHadSomeMembersWithLanguage
 		hasOrHadSomeMembersWithLegalStatus
 		hasOrHadSomeMembersWithRecordState
@@ -329,8 +318,9 @@ vocabulary rico {
 		hasOrHadTitle
 		hasOrHadWorkRelationWith
 		hasOriginal
+		hasPartTransitive
 		hasProductionTechniqueType
-		hasProvenance
+		hasPublicationDate
 		hasPublisher
 		hasReceiver
 		hasRecordSetType
@@ -339,30 +329,29 @@ vocabulary rico {
 		hasRepresentationType
 		hasSender
 		hasSibling
-		hasSource
+		hasSubdivisionTransitive
+		hasSubeventTransitive
+		hasSubordinateTransitive
 		hasSuccessor
 		hasUnitOfMeasurement
+		hasWithin
 		height
 		history
 		identifier
+		included
 		includesOrIncluded
+		includesTransitive
 		instantiationExtent
-		instantiationIsConnectedToFunctionalEquivalenceRelation
-		instantiationIsConnectedToInstantiationRelation
-		instantiationIsSourceOfDerivationRelation
-		instantiationIsSourceOfMigrationRelation
-		instantiationIsTargetOfDerivationRelation
-		instantiationIsTargetOfMigrationRelation
-		instantiationIsTargetOfRecordResourceToInstantiationRelation
 		instantiationStructure
-		instantiationToInstantiationRelationConnects
-		integrity
-		intellectualPropertyRightsRelationHasSource
-		intellectualPropertyRightsRelationHasTarget
+		instantiationToInstantiationRelation_role
+		integrityNote
+		intellectualPropertyRightsRelation_role
+		intersects
 		isAccumulatorOf
 		isActivityTypeOf
 		isAddresseeOf
 		isAgentAssociatedWithAgent
+		isAgentAssociatedWithPlace
 		isAssociatedWithDate
 		isAssociatedWithEvent
 		isAssociatedWithPlace
@@ -371,35 +360,55 @@ vocabulary rico {
 		isAuthorOf
 		isBeginningDateOf
 		isBirthDateOf
+		isBirthPlaceOf
 		isCarrierTypeOf
 		isChildOf
 		isCollectorOf
+		isComponentOfTransitive
+		isConstituentOfTransitive
+		isContainedByTransitive
 		isContentTypeOf
 		isCopyOf
+		isCreationDateOf
 		isCreatorOf
 		isDateAssociatedWith
+		isDateOfOccurrenceOf
+		isDateTypeOf
 		isDeathDateOf
-		isDerivedFromInstantiation
+		isDeathPlaceOf
+		isDestructionDateOf
+		isDirectComponentOf
+		isDirectConstituentOf
+		isDirectlyContainedBy
+		isDirectlyIncludedIn
+		isDirectPartOf
+		isDirectSubdivisionOf
+		isDirectSubeventOf
+		isDirectSubordinateTo
 		isDocumentaryFormTypeOf
 		isDraftOf
 		isEndDateOf
 		isEquivalentTo
 		isEventAssociatedWith
 		isEventTypeOf
+		isEvidencedBy
 		isExtentOf
 		isExtentTypeOf
 		isFamilyTypeOf
 		isFromUseDateOf
 		isFunctionallyEquivalentTo
 		isIdentifierTypeOf
+		isIncludedInTransitive
 		isInstantiationAssociatedWithInstantiation
-		isInstantiationOf
 		isLastUpdateDateOf
 		isModificationDateOf
+		isOrganicOrFunctionalProvenanceOf
+		isOrganicProvenanceOf
 		isOriginalOf
 		isOrWasAdjacentTo
 		isOrWasAffectedBy
 		isOrWasAgentNameOf
+		isOrWasAnalogueInstantiationOf
 		isOrWasAppellationOf
 		isOrWasCategoryOf
 		isOrWasCategoryOfAllMembersOf
@@ -412,16 +421,23 @@ vocabulary rico {
 		isOrWasControllerOf
 		isOrWasCoordinatesOf
 		isOrWasCorporateBodyTypeOf
+		isOrWasCreationDateOfAllMembersOf
+		isOrWasCreationDateOfMostMembersOf
+		isOrWasCreationDateOfSomeMembersOf
 		isOrWasDemographicGroupOf
+		isOrWasDerivedFromInstantiation
 		isOrWasDescribedBy
+		isOrWasDigitalInstantiationOf
 		isOrWasDocumentaryFormTypeOfAllMembersOf
 		isOrWasDocumentaryFormTypeOfSomeMembersOf
+		isOrWasEmployerOf
 		isOrWasEnforcedBy
 		isOrWasExpressedBy
 		isOrWasHolderOf
 		isOrWasHolderOfIntellectualPropertyRightsOf
 		isOrWasIdentifierOf
 		isOrWasIncludedIn
+		isOrWasInstantiationOf
 		isOrWasJurisdictionOf
 		isOrWasLanguageOf
 		isOrWasLanguageOfAllMembersOf
@@ -431,8 +447,10 @@ vocabulary rico {
 		isOrWasLegalStatusOfAllMembersOf
 		isOrWasLegalStatusOfSomeMembersOf
 		isOrWasLocationOf
+		isOrWasLocationOfAgent
 		isOrWasMainSubjectOf
 		isOrWasManagerOf
+		isOrWasMandateTypeOf
 		isOrWasMemberOf
 		isOrWasNameOf
 		isOrWasOccupationTypeOf
@@ -455,9 +473,11 @@ vocabulary rico {
 		isOrWasSubordinateTo
 		isOrWasTitleOf
 		isOrWasUnderAuthorityOf
+		isPartOfTransitive
 		isPlaceAssociatedWith
+		isPlaceAssociatedWithAgent
 		isProductionTechniqueTypeOf
-		isProvenanceOf
+		isPublicationDateOf
 		isPublisherOf
 		isReceiverOf
 		isRecordResourceAssociatedWithRecordResource
@@ -469,166 +489,121 @@ vocabulary rico {
 		isResponsibleForIssuing
 		isRuleAssociatedWith
 		isSenderOf
-		isSourceOf
+		isSubdivisionOfTransitive
+		isSubeventOfTransitive
+		isSubordinateToTransitive
 		isSuccessorOf
 		issuedBy
 		isToUseDateOf
 		isUnitOfMeasurementOf
-		knowingOfRelationHasSource
-		knowingOfRelationHasTarget
-		knowingRelationConnects
+		isWithin
+		knowingOfRelation_role
+		knowingRelation_role
 		knownBy
 		knows
 		knowsOf
 		lastModificationDate
 		latitude
-		leadershipRelationHasSource
-		leadershipRelationHasTarget
+		leadershipRelation_role
 		leadershipWithPosition
+		length
 		location
 		longitude
-		managementRelationHasSource
-		managementRelationHasTarget
-		mandateIsSourceOfMandateRelation
-		mandateRelationHasSource
-		mandateRelationHasTarget
+		managementRelation_role
+		mandateRelation_role
 		measure
-		membershipRelationHasSource
-		membershipRelationHasTarget
+		membershipRelation_role
 		membershipWithPosition
 		migratedFrom
 		migratedInto
-		migrationRelationHasSource
-		migrationRelationHasTarget
+		migrationRelation_role
 		modificationDate
 		name
 		normalizedDateValue
 		normalizedValue
 		occupiesOrOccupied
+		occurredAtDate
+		organicOrFunctionalProvenanceRelation_role
+		organicProvenanceRelation_role
 		overlapsOrOverlapped
-		ownershipRelationHasSource
-		ownershipRelationHasTarget
-		performanceRelationHasSource
-		performanceRelationHasTarget
+		ownershipRelation_role
+		performanceRelation_role
 		performsOrPerformed
-		personHasCorrespondenceRelation
-		personHasFamilyRelation
-		personHasKnowingRelation
-		personHasSiblingRelation
-		personHasSpouseRelation
-		personIsSourceOfChildRelation
-		personIsSourceOfDescendanceRelation
-		personIsSourceOfKnowingOfRelation
-		personIsSourceOfLeadershipRelation
-		personIsSourceOfPositionHoldingRelation
-		personIsSourceOfTeachingRelation
-		personIsTargetOfChildRelation
-		personIsTargetOfDescendanceRelation
-		personIsTargetOfKnowingOfRelation
-		personIsTargetOfMembershipRelation
-		personIsTargetOfTeachingRelation
-		physicalCharacteristics
+		physicalCharacteristicsNote
 		physicalOrLogicalExtent
-		placeIsSourceOfPlaceRelation
-		placeRelationHasSource
-		placeRelationHasTarget
-		positionHoldingRelationHasSource
-		positionHoldingRelationHasTarget
+		placeRelation_role
+		positionHoldingRelation_role
 		positionIsContextOfLeadershipRelation
 		positionIsContextOfMembershipRelation
-		positionIsSourceOfPositionToGroupRelation
-		positionIsTargetOfPositionHoldingRelation
-		positionToGroupRelationHasSource
-		positionToGroupRelationHasTarget
+		positionToGroupRelation_role
+		precededInSequence
+		precedesInSequenceTransitive
 		precedesInTime
 		precedesOrPreceded
 		productionTechnique
-		provenanceRelationHasSource
-		provenanceRelationHasTarget
 		proxyFor
 		proxyIn
 		publicationDate
-		qualityOfRepresentation
+		qualityOfRepresentationNote
 		quantity
-		recordIsSourceOfAuthorshipRelation
 		recordResourceExtent
-		recordResourceGeneticRelationConnects
-		recordResourceHoldingRelationHasSource
-		recordResourceHoldingRelationHasTarget
-		recordResourceIsConnectedToRecordResourceGeneticRelation
-		recordResourceIsConnectedToRecordResourceRelation
-		recordResourceIsSourceOfRecordResourceToInstantiationRelation
-		recordResourceOrInstantiationIsSourceOfAccumulationRelation
-		recordResourceOrInstantiationIsSourceOfActivityDocumentationRelation
-		recordResourceOrInstantiationIsSourceOfAgentOriginationRelation
-		recordResourceOrInstantiationIsSourceOfCreationRelation
-		recordResourceOrInstantiationIsSourceOfProvenanceRelation
-		recordResourceOrInstantiationIsTargetOfIntellectualPropertyRightsRelation
-		recordResourceOrInstantiationIsTargetOfManagementRelation
-		recordResourceOrInstantiationIsTargetOfRecordResourceHoldingRelation
-		recordResourceRelationConnects
+		recordResourceGeneticRelation_role
+		recordResourceHoldingRelation_role
 		recordResourceStructure
-		recordResourceToInstantiationRelationHasSource
-		recordResourceToInstantiationRelationHasTarget
+		recordResourceToInstantiationRelation_role
+		recordResourceToRecordResourceRelation_role
 		referenceSystem
 		regulatesOrRegulated
+		relation_role
+		relationCertainty
 		relationConnects
 		relationHasContext
 		relationHasSource
 		relationHasTarget
+		relationSource
 		relationState
+		resultedFromTheMergerOf
+		resultedFromTheSplitOf
 		resultsOrResultedFrom
 		resultsOrResultedIn
 		roleIsContextOfCreationRelation
 		ruleFollowed
-		ruleIsSourceOfRuleRelation
-		ruleRelationHasSource
-		ruleRelationHasTarget
+		ruleRelation_role
 		scopeAndContent
-		sequentialRelationHasSource
-		sequentialRelationHasTarget
-		siblingRelationConnects
-		^source
-		spouseRelationConnects
+		sequentialRelation_role
+		siblingRelation_role
+		spouseRelation_role
 		structure
-		teachingRelationHasSource
-		teachingRelationHasTarget
+		teachingRelation_role
 		technicalCharacteristics
-		temporalRelationHasSource
-		temporalRelationHasTarget
+		temporalRelation_role
 		textualValue
 		thingIsConnectedToRelation
 		thingIsContextOfRelation
 		thingIsSourceOfRelation
-		thingIsSourceOfSequentialRelation
-		thingIsSourceOfTemporalRelation
-		thingIsSourceOfWholePartRelation
-		thingIsTargetOfAppellationRelation
-		thingIsTargetOfAuthorityRelation
-		thingIsTargetOfEventRelation
-		thingIsTargetOfOwnershipRelation
-		thingIsTargetOfPlaceRelation
 		thingIsTargetOfRelation
-		thingIsTargetOfRuleRelation
-		thingIsTargetOfSequentialRelation
-		thingIsTargetOfTemporalRelation
-		thingIsTargetOfTypeRelation
-		thingIsTargetOfWholePartRelation
 		title
 		^type
-		typeIsSourceOfTypeRelation
-		typeRelationHasSource
-		typeRelationHasTarget
+		typeRelation_role
 		unitOfMeasurement
 		usedFromDate
 		usedToDate
+		wasComponentOf
+		wasConstituentOf
+		wasContainedBy
+		wasIncludedIn
 		wasLastUpdatedAtDate
+		wasMergedInto
+		wasPartOf
+		wasSplitInto
+		wasSubdivisionOf
+		wasSubeventOf
+		wasSubordinateTo
 		wasUsedFromDate
 		wasUsedToDate
-		wholePartRelationHasSource
-		wholePartRelationHasTarget
+		wholePartRelation_role
 		width
-		workRelationConnects
+		workRelation_role
 }
 
 vocabulary ricdft {
