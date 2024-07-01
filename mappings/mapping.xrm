@@ -15,7 +15,7 @@ map rr_stabs from stabs_ogd.rr_base {
     rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
     rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
     rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
-    rico.isAssociatedWithDate template dateURI with ID_NR;
+    rico.isAssociatedWithDate template dateURI with ID_NR; // @todo: Präzisere Object Properties verfügbar, jedoch kompliziert
     rico.generalDescription from ANMERKUNGEN with language-tag ger;
     rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15
     dct.isReferencedBy template dlsURI with ID_NR;
@@ -44,7 +44,7 @@ map level_abt from stabs_ogd.rr_abt_ser_dos {
     rico.RecordSet
 
   properties
-    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+    rico.isIncludedInTransitive template rrURI with PARENT_ID_NR;
     rico.history from BESTANDSGESCHICHTE with language-tag ger;
 }
 
@@ -55,8 +55,8 @@ map level_fonds from stabs_ogd.rr_fon_bes {
     rico.RecordSet
 
   properties
-    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-    rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
+    rico.isIncludedInTransitive template rrURI with PARENT_ID_NR;
+//    rico.hasOrganicProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger; kann nicht als datatype property verwendet werden
     rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
 }
 
@@ -67,7 +67,7 @@ map level_dokument from stabs_ogd.rr_dok {
     rico.Record
 
   properties
-    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+    rico.isIncludedInTransitive template rrURI with PARENT_ID_NR;
 }
 
 /* Date Maps
@@ -228,7 +228,7 @@ map extent_approx from stabs_ogd.rr_extent {
 
 //   properties
 //     rico.name from PR_NAME;
-//     rico.isProvenanceOf template rrURI with VE_ID;
+//     rico.isProvenanceOf template rrURI with VE_ID; // RiC-O 1.0 neu rico:hasOrganicOrFunctionalProvenance und verwandte Properties
 // }
 
 /* Verwaltungsgeschichte / Biografische Angaben

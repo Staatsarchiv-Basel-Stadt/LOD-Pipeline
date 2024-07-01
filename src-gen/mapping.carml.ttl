@@ -87,7 +87,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rml:reference "ANMERKUNGEN";
 			rr:language "ger"
@@ -151,7 +151,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn;
+		rr:predicate rico:isIncludedInTransitive;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
@@ -183,17 +183,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn;
+		rr:predicate rico:isIncludedInTransitive;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasProvenance;
-		rr:objectMap [
-			rml:reference "AKTENBILDNER_PROVENIENZ_TEXT";
-			rr:language "ger"
 		]
 	];
 	
@@ -223,7 +215,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn;
+		rr:predicate rico:isIncludedInTransitive;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
@@ -244,13 +236,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:subjectMap [
 		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date";
 		rr:class rico:Date
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:calendar;
-		rr:objectMap [
-			rr:constant "Gregorianischer Kalender"
-		]
 	];
 	
 	rr:predicateObjectMap [
@@ -306,7 +291,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rr:constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen."
 		]
@@ -351,7 +336,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rr:constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung"
 		]
@@ -396,7 +381,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rr:constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden."
 		]
@@ -449,7 +434,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rr:constant "Laufmeter"
 		]
@@ -495,7 +480,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rr:constant "Anzahl Einheiten oder Behältnisse"
 		]
@@ -541,7 +526,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rr:constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht."
 		]
@@ -587,7 +572,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rr:constant "Angabe des enthaltenen Datenvolumens in Megabyte (MB)"
 		]
@@ -632,7 +617,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rr:constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen."
 		]
@@ -706,7 +691,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rml:reference "description";
 			rr:language "ger"
@@ -770,7 +755,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rml:reference "description";
 			rr:language "ger"
