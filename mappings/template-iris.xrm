@@ -1,52 +1,29 @@
 /* Base URI templates for RiC-O
  * ============================
- * Subject URIS grundsätzlich gebildet anhand der sieben second level
- * entities von RiC-CM (RiC-O umfasst aber 12 second level!)
- * (@todo: klären, ob alle Entities verwendet werden sollen)
- * thURI ist eine Möglichkeit zur radikalen Vereinfachung (@todo, prüfen)
  */
 
-/* Thing URI basierend nur auf ID, Fallback für nicht näher definierte Instanzen (aktuell "Deskriptoren" */
+/* Thing URI basierend nur auf ID, Fallback für nicht näher definierte Instanzen */
 template thURI "https://ld.bs.ch/ais/Thing/{0}" // oder ohne '/Thing/'
 
-/* Subject URIs für Record Resources (Verzeichnungseinheiten) */
+/* Subject URIs für Record Resources (Verzeichnungseinheiten): Base, Ref-Numbers, Date, Extent, Backlink DLS */
 template rrURI "https://ld.bs.ch/ais/Record/{0}"
 template oldrefURI "https://ld.bs.ch/ais/Record/{0}/Old-Reference/{1}"
 template frmrefURI "https://ld.bs.ch/ais/Record/{0}/Former-Reference/{1}"
 template frmstabsrefURI "https://ld.bs.ch/ais/Record/{0}/Former-StABS-Reference/{1}"
 template dateURI "https://ld.bs.ch/ais/Record/{0}/Date"
-
-template agURI "https://ld.bs.ch/ais/Agent/{0}"
-template evURI "https://ld.bs.ch/ais/Event/{0}"
-
-/* Extent URI Templates */
 template exURI "https://ld.bs.ch/ais/Extent/{0}"
 template exlmURI "https://ld.bs.ch/ais/Record/{0}/Extent/linear-meters"
 template exnumURI "https://ld.bs.ch/ais/Record/{0}/Extent/number-of-units"
 template exnumfileURI "https://ld.bs.ch/ais/Record/{0}/Extent/number-of-files"
 template exapproxURI "https://ld.bs.ch/ais/Record/{0}/Extent/extent-approximative"
 template exdvURI "https://ld.bs.ch/ais/Record/{0}/Extent/volume-of-data"
+template dlsURI "https://dls.staatsarchiv.bs.ch/records/{0}"
 
+/* URI Template für Agent, Event, Rule, Place, Date (ohne Record) */
+template agURI "https://ld.bs.ch/ais/Agent/{0}"
+template evURI "https://ld.bs.ch/ais/Event/{0}"
 template ruURI "https://ld.bs.ch/ais/Rule/{0}"
 template plURI "https://ld.bs.ch/ais/Place/{0}"
 template daURI "https://ld.bs.ch/ais/Date/{0}"
 
-template dlsURI "https://dls.staatsarchiv.bs.ch/records/{0}"
-
 template rstypeURI "https://ld.bs.ch/ais/vocabularies/recordSetTypes/{0}"
-
-/* 12 Subklassen von rico:Thing
- * ----------------------------
- * rico:Agent
- * rico:Concept
- * rico:Coordinates
- * rico:Date
- * rico:Event
- * rico:Extent
- * rico:Instantiation
- * rico:PhysicalLocation
- * rico:Place
- * rico:RecordResource
- * rico:Relation
- * rico:Rule
- */
