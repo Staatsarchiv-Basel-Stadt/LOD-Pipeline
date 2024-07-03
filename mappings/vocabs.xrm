@@ -651,6 +651,50 @@ vocabulary stabsdata {
 		PHYSISCHE_BESCHAFFENHEIT
 }
 
+vocabulary stabsact {
+	prefix "stabs-act" "https://ld.bs.ch/RiC/vocabularies/activityTypes/"
+}
+
+vocabulary stabsext {
+	prefix "stabs-ext" "https://ld.bs.ch/RiC/vocabularies/extentTypes/"
+
+	classes
+		Laufmeter
+		Anzahl
+		Anzahl_Dateien
+		Datenvolumen_MB
+		Umfang_approximativ
+}
+
+vocabulary stabsidt {
+	prefix "stabs-idt" "https://ld.bs.ch/RiC/vocabularies/identifierTypes/"
+
+	classes
+		Alte_Signatur
+		Fruehere_Signatur
+		Fruehere_StABS_Signatur
+}
+
+vocabulary stabsrst {
+	prefix "stabs-rst" "https://ld.bs.ch/RiC/vocabularies/recordSetTypes/"
+
+	classes
+		Archiv
+		Abteilung
+		Fonds
+		Bestand
+		Serie
+		Dossier
+}
+
+vocabulary stabstht {
+	prefix "stabs-tht" "https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/"
+
+	classes
+		Personenbegriffe
+		Ortsbegriffe
+}
+
 vocabulary stabsrico {
 	prefix "stabs-rico" "https://ld.bs.ch/ontologies/StABS-RiC/"
 
