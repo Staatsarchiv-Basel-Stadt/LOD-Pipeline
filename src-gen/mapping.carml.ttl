@@ -5,7 +5,10 @@ PREFIX carml: <http://carml.taxonic.com/carml/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
+PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
+PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <#rr_stabs>
@@ -87,7 +90,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rml:reference "ANMERKUNGEN";
 			rr:language "ger"
@@ -151,7 +154,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn;
+		rr:predicate rico:isIncludedInTransitive;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
@@ -183,17 +186,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn;
+		rr:predicate rico:isIncludedInTransitive;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasProvenance;
-		rr:objectMap [
-			rml:reference "AKTENBILDNER_PROVENIENZ_TEXT";
-			rr:language "ger"
 		]
 	];
 	
@@ -223,7 +218,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn;
+		rr:predicate rico:isIncludedInTransitive;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
@@ -244,13 +239,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:subjectMap [
 		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date";
 		rr:class rico:Date
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:calendar;
-		rr:objectMap [
-			rr:constant "Gregorianischer Kalender"
-		]
 	];
 	
 	rr:predicateObjectMap [
@@ -294,7 +282,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/identifierTypes/Alte-Signatur>
+			rr:constant stabs-idt:Alte_Signatur
 		]
 	];
 	
@@ -302,13 +290,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:textualValue;
 		rr:objectMap [
 			rml:reference "ALTE_SIGNATUREN"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
-		rr:objectMap [
-			rr:constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen."
 		]
 	].
 	
@@ -339,7 +320,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/identifierTypes/Fruehere-Signatur>
+			rr:constant stabs-idt:Fruehere_Signatur
 		]
 	];
 	
@@ -347,13 +328,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:textualValue;
 		rr:objectMap [
 			rml:reference "FRUEHERE_SIGNATUR"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
-		rr:objectMap [
-			rr:constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung"
 		]
 	].
 	
@@ -384,7 +358,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/identifierTypes/Fruehere-StABS-Signatur>
+			rr:constant stabs-idt:Fruehere_StABS_Signatur
 		]
 	];
 	
@@ -392,13 +366,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:textualValue;
 		rr:objectMap [
 			rml:reference "FRUEHERE_STABS_SIGNATUR"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
-		rr:objectMap [
-			rr:constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden."
 		]
 	].
 	
@@ -429,7 +396,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Laufmeter>
+			rr:constant stabs-ext:Laufmeter
 		]
 	];
 	
@@ -445,13 +412,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:hasUnitOfMeasurement;
 		rr:objectMap [
 			rr:constant <http://qudt.org/vocab/unit/M>
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
-		rr:objectMap [
-			rr:constant "Laufmeter"
 		]
 	].
 	
@@ -482,7 +442,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Anzahl>
+			rr:constant stabs-ext:Anzahl
 		]
 	];
 	
@@ -491,13 +451,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rml:reference "ANZAHL";
 			rr:datatype xsd:integer
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
-		rr:objectMap [
-			rr:constant "Anzahl Einheiten oder Behältnisse"
 		]
 	].
 	
@@ -528,7 +481,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Anzahl-Dateien>
+			rr:constant stabs-ext:Anzahl_Dateien
 		]
 	];
 	
@@ -537,13 +490,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rml:reference "ANZAHL_DATEIEN";
 			rr:datatype xsd:integer
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
-		rr:objectMap [
-			rr:constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht."
 		]
 	].
 	
@@ -574,7 +520,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Datenvolumen-MB>
+			rr:constant stabs-ext:Datenvolumen_MB
 		]
 	];
 	
@@ -583,13 +529,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rml:reference "DATENVOLUMEN_MB";
 			rr:datatype xsd:decimal
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
-		rr:objectMap [
-			rr:constant "Angabe des enthaltenen Datenvolumens in Megabyte (MB)"
 		]
 	].
 	
@@ -620,7 +559,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/extentTypes/Umfang-approximativ>
+			rr:constant stabs-ext:Umfang_approximativ
 		]
 	];
 	
@@ -628,13 +567,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:textualValue;
 		rr:objectMap [
 			rml:reference "UMFANG_GESCHAETZT"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
-		rr:objectMap [
-			rr:constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen."
 		]
 	].
 	
@@ -706,7 +638,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rml:reference "description";
 			rr:language "ger"
@@ -732,7 +664,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate skos:inScheme;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Personenbegriffe>
+			rr:constant stabs-tht:Personenbegriffe
 		]
 	];
 	
@@ -770,7 +702,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote;
+		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rml:reference "description";
 			rr:language "ger"
@@ -796,7 +728,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate skos:inScheme;
 		rr:objectMap [
-			rr:constant <https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Ortsbegriffe>
+			rr:constant stabs-tht:Ortsbegriffe
 		]
 	];
 	

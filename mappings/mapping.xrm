@@ -15,9 +15,9 @@ map rr_stabs from stabs_ogd.rr_base {
     rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
     rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
     rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
-    rico.isAssociatedWithDate template dateURI with ID_NR;
-    rico.descriptiveNote from ANMERKUNGEN with language-tag ger;
-    rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15
+    rico.isAssociatedWithDate template dateURI with ID_NR; // @todo: Präzisere Object Properties verfügbar, jedoch kompliziert
+    rico.generalDescription from ANMERKUNGEN with language-tag ger;
+    rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15, geht aber nicht mit dynamischen Werten
     dct.isReferencedBy template dlsURI with ID_NR;
     // stabsdata.ID_NR from ID_NR with datatype xsd.string;
 // stabsdata.PHYSISCHE_BESCHAFFENHEIT from PHYSISCHE_BESCHAFFENHEIT with datatype xsd.string;
@@ -44,7 +44,7 @@ map level_abt from stabs_ogd.rr_abt_ser_dos {
     rico.RecordSet
 
   properties
-    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+    rico.isIncludedInTransitive template rrURI with PARENT_ID_NR;
     rico.history from BESTANDSGESCHICHTE with language-tag ger;
 }
 
@@ -55,8 +55,8 @@ map level_fonds from stabs_ogd.rr_fon_bes {
     rico.RecordSet
 
   properties
-    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-    rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
+    rico.isIncludedInTransitive template rrURI with PARENT_ID_NR;
+//    rico.hasOrganicProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger; kann nicht als datatype property verwendet werden
     rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
 }
 
@@ -67,7 +67,7 @@ map level_dokument from stabs_ogd.rr_dok {
     rico.Record
 
   properties
-    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+    rico.isIncludedInTransitive template rrURI with PARENT_ID_NR;
 }
 
 /* Date Maps
@@ -81,11 +81,10 @@ map date_01 from stabs_ogd.rr_base {
     rico.Date
 
   properties
-    rico.calendar constant "Gregorianischer Kalender"; // @todo: Sinnvoller Eintrag? Wäre besser als Klasse
     rico.expressedDate from ENTSTEHUNGSZEITRAUM; // @todo: mit Datumsoperatoren könnte eine bessere Textrepräsentation erreicht werden.
-    rico.normalizedDateValue from ENTSTEHUNGSZEITRAUM;
-//    rico.hasDateType // @todo: Definition von rico:DateType abwarten
-//    rico.dateQualifier constant "circa" // if 'ca' in ENTSTEHUNGSZEITRAUM
+    rico.normalizedDateValue from ENTSTEHUNGSZEITRAUM; // @todo: XML Date types für Typisierung
+//    rico.hasDateType // Definiert in RiC-O 1.0 für Klassen `DateSet`, `DateRange` oder `SingleDate`, oder Subklassen. Bei Bedarf implementieren
+//    rico.qualifier kann für "certainty" und "precision" verwendet werden, Implementierung bei Bedarf
 }
 
 //    created_start created_end
@@ -112,9 +111,8 @@ map ident_01 from stabs_ogd.rr_signaturen {
 
   properties
     rico.isOrWasIdentifierOf template rrURI with ID_NR;
-    rico.hasIdentifierType constant "https://ld.bs.ch/ais/vocabularies/identifierTypes/Alte-Signatur";
+    rico.hasIdentifierType constant stabsidt.Alte_Signatur;
     rico.textualValue from ALTE_SIGNATUREN;
-    rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
 }
 
 map ident_02 from stabs_ogd.rr_signaturen {
@@ -125,9 +123,8 @@ map ident_02 from stabs_ogd.rr_signaturen {
 
   properties
     rico.isOrWasIdentifierOf template rrURI with ID_NR;
-    rico.hasIdentifierType constant "https://ld.bs.ch/ais/vocabularies/identifierTypes/Fruehere-Signatur";
+    rico.hasIdentifierType constant stabsidt.Fruehere_Signatur;
     rico.textualValue from FRUEHERE_SIGNATUR;
-    rico.descriptiveNote constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung";
 }
 
 map ident_03 from stabs_ogd.rr_signaturen {
@@ -138,9 +135,8 @@ map ident_03 from stabs_ogd.rr_signaturen {
 
   properties
     rico.isOrWasIdentifierOf template rrURI with ID_NR;
-    rico.hasIdentifierType constant "https://ld.bs.ch/ais/vocabularies/identifierTypes/Fruehere-StABS-Signatur";
+    rico.hasIdentifierType constant stabsidt.Fruehere_StABS_Signatur;
     rico.textualValue from FRUEHERE_STABS_SIGNATUR;
-    rico.descriptiveNote constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
 }
 /* Extent Maps
  * -----------
@@ -155,10 +151,9 @@ map extent_lm from stabs_ogd.rr_extent {
 
   properties
     rico.isExtentOf template rrURI with ID_NR;
-    rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Laufmeter";
+    rico.hasExtentType constant stabsext.Laufmeter;
     rico.quantity from LAUFMETER with datatype xsd.decimal;
     rico.hasUnitOfMeasurement constant "http://qudt.org/vocab/unit/M"; // @todo: als rico:UnitOfMeasurement
-    rico.descriptiveNote constant "Laufmeter";
 }
 
 map extent_num from stabs_ogd.rr_extent {
@@ -169,10 +164,9 @@ map extent_num from stabs_ogd.rr_extent {
 
   properties
     rico.isExtentOf template rrURI with ID_NR;
-    rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Anzahl";
+    rico.hasExtentType constant stabsext.Anzahl;
     rico.quantity from ANZAHL with datatype xsd.integer;
     // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
-    rico.descriptiveNote constant "Anzahl Einheiten oder Behältnisse";
 }
 
 map extent_num_files from stabs_ogd.rr_extent {
@@ -183,10 +177,9 @@ map extent_num_files from stabs_ogd.rr_extent {
 
   properties
     rico.isExtentOf template rrURI with ID_NR;
-    rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Anzahl-Dateien";
+    rico.hasExtentType constant stabsext.Anzahl_Dateien;
     rico.quantity from ANZAHL_DATEIEN with datatype xsd.integer;
     // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
-    rico.descriptiveNote constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht.";
 }
 
 map extent_data_vol from stabs_ogd.rr_extent {
@@ -197,10 +190,9 @@ map extent_data_vol from stabs_ogd.rr_extent {
 
   properties
     rico.isExtentOf template rrURI with ID_NR;
-    rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Datenvolumen-MB";
+    rico.hasExtentType constant stabsext.Datenvolumen_MB;
     rico.quantity from DATENVOLUMEN_MB with datatype xsd.decimal;
     // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
-    rico.descriptiveNote constant "Angabe des enthaltenen Datenvolumens in Megabyte (MB)";
 
 }
 
@@ -212,9 +204,8 @@ map extent_approx from stabs_ogd.rr_extent {
 
   properties
     rico.isExtentOf template rrURI with ID_NR;
-    rico.hasExtentType constant "https://ld.bs.ch/ais/vocabularies/extentTypes/Umfang-approximativ";
+    rico.hasExtentType constant stabsext.Umfang_approximativ;
     rico.textualValue from UMFANG_GESCHAETZT;
-    rico.descriptiveNote constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen.";
 }
 
 // /* Provenienz
@@ -229,7 +220,7 @@ map extent_approx from stabs_ogd.rr_extent {
 
 //   properties
 //     rico.name from PR_NAME;
-//     rico.isProvenanceOf template rrURI with VE_ID;
+//     rico.isProvenanceOf template rrURI with VE_ID; // RiC-O 1.0 neu rico:hasOrganicOrFunctionalProvenance und verwandte Properties
 // }
 
 /* Verwaltungsgeschichte / Biografische Angaben
@@ -278,10 +269,10 @@ map hgb_records from stabs_ogd.rr_hgb {
 
   properties
     rico.name from title with language-tag ger;
-    rico.descriptiveNote from description with language-tag ger;
+    rico.generalDescription from description with language-tag ger;
     skos.prefLabel from title with language-tag ger;
     skos.note from description with language-tag ger;
-    skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Personenbegriffe";
+    skos.inScheme constant stabstht.Personenbegriffe;
     rico.isOrWasMainSubjectOf template rrURI with related_record_id;
   }
 
@@ -294,10 +285,10 @@ map hgb_records from stabs_ogd.rr_hgb {
 
   properties
     rico.name from title with language-tag ger;
-    rico.descriptiveNote from description with language-tag ger;
+    rico.generalDescription from description with language-tag ger;
     skos.prefLabel from title with language-tag ger;
     skos.note from description with language-tag ger;
-    skos.inScheme constant "https://ld.bs.ch/ais/vocabularies/thesaurusTypes/Ortsbegriffe";
+    skos.inScheme constant stabstht.Ortsbegriffe;
     rico.isOrWasMainSubjectOf template rrURI with related_record_id;
   }
 
@@ -316,7 +307,7 @@ map hgb_records from stabs_ogd.rr_hgb {
 //   properties
 //     rico.name template "Ablieferung Nr. {0}" with JAHR_LAUF_NR as Literal;
 //     rico.identifier from ID_NR with datatype xsd.string;
-//     rico.hasActivityType constant "https://ld.bs.ch/ais/vocabulariesries/activityTypes/Ablieferung";
+//     rico.hasActivityType constant "https://ld.bs.ch/RiC/vocabularies/activityTypes";
 //     rico.^type template "Typ {0} / Subtyp {1}" with TYP SUBTYP as Literal;
 //     rico.agentOrActivityIsTargetOfProvenanceRelation from AKTENBILDENDE_STELLE; // @sicher falsch
 //     rico.date from ZEITRAUM_PERIODE; // @todo: falsch, da nicht Zeitraum der Aktivität, sondern des Bestands
