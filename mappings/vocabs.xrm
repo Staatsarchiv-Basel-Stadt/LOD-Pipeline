@@ -624,19 +624,6 @@ vocabulary ricrst {
 		Series
 }
 
-vocabulary stabslevels {
-	prefix "stabs-rst" "https://ld.bs.ch/ais/vocabularies/recordSetTypes/"
-
-	classes
-		Archiv
-		Abteilung
-		Fonds
-		Bestand
-		Serie
-		Dossier
-		Dokument
-}
-
 vocabulary stabsdata {
 	prefix "stabs-d" "stabs:scope:data/"
 

@@ -162,6 +162,41 @@ source-group stabs_ogd {
       ARCHIVGESCHICHTE
   }
 
+  logical-source rr_abt {
+    iterator "$..[?(@.STUFE =~ /^Abteilung$/)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source rr_fon {
+    iterator "$..[?(@.STUFE =~ /^Fonds$/)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source rr_bes {
+    iterator "$..[?(@.STUFE =~ /^Bestand$/)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source rr_ser {
+    iterator "$..[?(@.STUFE =~ /^Serie$/)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source rr_dos {
+    iterator "$..[?(@.STUFE =~ /^Dossier$/)]"
+
+    referenceables
+      ID_NR
+  }
+
   logical-source rr_abt_ser_dos {
     iterator "$..[?(@.STUFE =~ /^Abteilung$|^Serie$|^Dossier$/)]"
 

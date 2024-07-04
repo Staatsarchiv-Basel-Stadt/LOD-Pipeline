@@ -1,11 +1,11 @@
-/* Base URI templates for RiC-O
- * ============================
+/* Base Subject URI templates für RDF StABS
+ * ========================================
  */
 
 /* Thing URI basierend nur auf ID, Fallback für nicht näher definierte Instanzen */
-template thURI "https://ld.bs.ch/ais/Thing/{0}" // oder ohne '/Thing/'
+template thURI "https://ld.bs.ch/ais/Thing/{0}"
 
-/* Subject URIs für Record Resources (Verzeichnungseinheiten): Base, Ref-Numbers, Date, Extent, Backlink DLS */
+/* Subject URIs für Record Resources (Verzeichnungseinheiten): Base, Signaturen, Datum, Umfang */
 template rrURI "https://ld.bs.ch/ais/Record/{0}"
 template oldrefURI "https://ld.bs.ch/ais/Record/{0}/Old-Reference/{1}"
 template frmrefURI "https://ld.bs.ch/ais/Record/{0}/Former-Reference/{1}"
@@ -17,13 +17,13 @@ template exnumURI "https://ld.bs.ch/ais/Record/{0}/Extent/number-of-units"
 template exnumfileURI "https://ld.bs.ch/ais/Record/{0}/Extent/number-of-files"
 template exapproxURI "https://ld.bs.ch/ais/Record/{0}/Extent/extent-approximative"
 template exdvURI "https://ld.bs.ch/ais/Record/{0}/Extent/volume-of-data"
+
+/* Backlink DLS */
 template dlsURI "https://dls.staatsarchiv.bs.ch/records/{0}"
 
-/* URI Template für Agent, Event, Rule, Place, Date (ohne Record) */
+/* URI templates für Agent, Event, Rule, Place, Date (ohne Record) */
 template agURI "https://ld.bs.ch/ais/Agent/{0}"
 template evURI "https://ld.bs.ch/ais/Event/{0}"
 template ruURI "https://ld.bs.ch/ais/Rule/{0}"
 template plURI "https://ld.bs.ch/ais/Place/{0}"
 template daURI "https://ld.bs.ch/ais/Date/{0}"
-
-template rstypeURI "https://ld.bs.ch/ais/vocabularies/recordSetTypes/{0}"

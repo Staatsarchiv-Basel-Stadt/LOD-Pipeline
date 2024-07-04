@@ -8,6 +8,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
+PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
@@ -98,13 +99,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/vocabularies/recordSetTypes/{STUFE}"
-		]
-	];
-	
-	rr:predicateObjectMap [
 		rr:predicate dcterms:isReferencedBy;
 		rr:objectMap [
 			rr:template "https://dls.staatsarchiv.bs.ch/records/{ID_NR}"
@@ -134,9 +128,131 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			rml:reference "ARCHIVGESCHICHTE";
 			rr:language "ger"
 		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType;
+		rr:objectMap [
+			rr:constant stabs-rst:Archiv
+		]
 	].
 	
 <#level_abt>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Abteilung$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType;
+		rr:objectMap [
+			rr:constant stabs-rst:Abteilung
+		]
+	].
+	
+<#level_fon>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Fonds$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType;
+		rr:objectMap [
+			rr:constant stabs-rst:Fonds
+		]
+	].
+	
+<#level_bes>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Bestand$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType;
+		rr:objectMap [
+			rr:constant stabs-rst:Bestand
+		]
+	].
+	
+<#level_ser>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Serie$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType;
+		rr:objectMap [
+			rr:constant stabs-rst:Serie
+		]
+	].
+	
+<#level_dos>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Dossier$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType;
+		rr:objectMap [
+			rr:constant stabs-rst:Dossier
+		]
+	].
+	
+<#level_abt_ser_dos>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -168,7 +284,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_fonds>
+<#level_fon_bes>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -200,7 +316,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_dokument>
+<#level_dok>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
