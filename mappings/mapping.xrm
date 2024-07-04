@@ -17,7 +17,7 @@ map rr_stabs from stabs_ogd.rr_base {
     rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
     rico.isAssociatedWithDate template dateURI with ID_NR; // @todo: Präzisere Object Properties verfügbar, jedoch kompliziert
     rico.generalDescription from ANMERKUNGEN with language-tag ger;
-    rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15, geht aber nicht mit dynamischen Werten
+//    rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15, geht aber nicht mit dynamischen Werten
     dct.isReferencedBy template dlsURI with ID_NR;
     // stabsdata.ID_NR from ID_NR with datatype xsd.string;
 // stabsdata.PHYSISCHE_BESCHAFFENHEIT from PHYSISCHE_BESCHAFFENHEIT with datatype xsd.string;
@@ -35,9 +35,45 @@ map level_archive from stabs_ogd.rr_arc {
 
   properties
     rico.history from ARCHIVGESCHICHTE with language-tag ger; // @todo: use rico.Event class later
+    rico.hasRecordSetType constant stabsrst.Archiv;
 }
 
-map level_abt from stabs_ogd.rr_abt_ser_dos {
+map level_abt from stabs_ogd.rr_abt {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasRecordSetType constant stabsrst.Abteilung;
+}
+
+map level_fon from stabs_ogd.rr_fon {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasRecordSetType constant stabsrst.Fonds;
+}
+
+map level_bes from stabs_ogd.rr_bes {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasRecordSetType constant stabsrst.Bestand;
+}
+
+map level_ser from stabs_ogd.rr_ser {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasRecordSetType constant stabsrst.Serie;
+}
+
+map level_dos from stabs_ogd.rr_dos {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasRecordSetType constant stabsrst.Dossier;
+}
+
+map level_abt_ser_dos from stabs_ogd.rr_abt_ser_dos {
   subject template rrURI with ID_NR;
 
   types
@@ -48,7 +84,7 @@ map level_abt from stabs_ogd.rr_abt_ser_dos {
     rico.history from BESTANDSGESCHICHTE with language-tag ger;
 }
 
-map level_fonds from stabs_ogd.rr_fon_bes {
+map level_fon_bes from stabs_ogd.rr_fon_bes {
   subject template rrURI with ID_NR;
 
   types
@@ -60,7 +96,7 @@ map level_fonds from stabs_ogd.rr_fon_bes {
     rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
 }
 
-map level_dokument from stabs_ogd.rr_dok {
+map level_dok from stabs_ogd.rr_dok {
   subject template rrURI with ID_NR;
 
   types
