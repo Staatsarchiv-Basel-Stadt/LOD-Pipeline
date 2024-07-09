@@ -234,6 +234,14 @@ source-group stabs_ogd {
       FRUEHERE_STABS_SIGNATUR
   }
 
+  logical-source rr_date {
+    iterator "$..[?(@.ENTSTEHUNGSZEITRAUM)]"
+
+    referenceables
+      ID_NR
+      ENTSTEHUNGSZEITRAUM
+  }
+
   logical-source rr_extent {
     iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
 

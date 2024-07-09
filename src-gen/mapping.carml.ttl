@@ -84,13 +84,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isAssociatedWithDate;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date"
-		]
-	];
-	
-	rr:predicateObjectMap [
 		rr:predicate rico:generalDescription;
 		rr:objectMap [
 			rml:reference "ANMERKUNGEN";
@@ -349,12 +342,19 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$.*"
+		rml:iterator "$..[?(@.ENTSTEHUNGSZEITRAUM)]"
 	];
 	
 	rr:subjectMap [
 		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date";
 		rr:class rico:Date
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isDateAssociatedWith;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
 	];
 	
 	rr:predicateObjectMap [
@@ -368,6 +368,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:normalizedDateValue;
 		rr:objectMap [
 			rml:reference "ENTSTEHUNGSZEITRAUM"
+		]
+	].
+	
+<#date_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ENTSTEHUNGSZEITRAUM)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
+		rr:class rico:RecordResource
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isAssociatedWithDate;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	].
 	
