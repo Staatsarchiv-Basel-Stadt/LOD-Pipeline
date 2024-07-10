@@ -126,11 +126,8 @@ map date_01 from stabs_ogd.rr_date {
 map date_02 from stabs_ogd.rr_date {
   subject template rrURI with ID_NR;
 
-  types
-    rico.RecordResource
-
   properties
-    rico.isAssociatedWithDate template rrURI with ID_NR;
+    rico.isAssociatedWithDate template dateURI with ID_NR;
 }
 
 //    created_start created_end
