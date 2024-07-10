@@ -384,14 +384,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
-		rr:class rico:RecordResource
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isAssociatedWithDate;
 		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date"
 		]
 	].
 	
