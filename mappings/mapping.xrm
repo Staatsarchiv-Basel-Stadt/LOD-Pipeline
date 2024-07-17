@@ -315,6 +315,8 @@ map hgb_records from stabs_ogd.rr_hgb {
     rico.generalDescription from description with language-tag ger;
     skos.prefLabel from title with language-tag ger;
     skos.altLabel from alternative_title with language-tag ger;
+    skos.related template agURI with related_agent_id;
+    rico.isAgentAssociatedWithAgent template agURI with related_agent_id;
 //    rico.hasOrHadAgentName template Instanz von rico.AgentName // komplex in RiC-O
     skos.note from description with language-tag ger;
     skos.inScheme constant stabstht.Personenbegriffe;
@@ -332,6 +334,8 @@ map hgb_records from stabs_ogd.rr_hgb {
     rico.name from title with language-tag ger;
     rico.generalDescription from description with language-tag ger;
     skos.prefLabel from title with language-tag ger;
+    skos.related template plURI with related_place_id;
+    rico.isAssociatedWithPlace template plURI with related_place_id;
     skos.altLabel from alternative_title with language-tag ger;
     skos.note from description with language-tag ger;
     skos.inScheme constant stabstht.Ortsbegriffe;
