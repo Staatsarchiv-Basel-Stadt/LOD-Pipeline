@@ -273,6 +273,8 @@ source-group stabs_ogd {
       title
       description
       related_record_id "descriptor_record_relations[*].record.identifier"
+      alternative_title "related_descriptor_set[?(@.role == 'benutzt für')].to_descriptor.title"
+      related_agent_id "related_descriptor_set[?(@.role == 'siehe auch')].to_descriptor.identifier"
   }
 
   logical-source pl_desc {
@@ -283,6 +285,8 @@ source-group stabs_ogd {
       title
       description
       related_record_id "descriptor_record_relations[*].record.identifier"
+      alternative_title "related_descriptor_set[?(@.role == 'benutzt für')].to_descriptor.title"
+      related_place_id "related_descriptor_set[?(@.role == 'siehe auch')].to_descriptor.identifier"
   }
 
 // logical-source rr_at_akte {

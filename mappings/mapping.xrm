@@ -299,9 +299,6 @@ map hgb_records from stabs_ogd.rr_hgb {
 
 /* Descriptors (scope Concept)
  * --------------------------
- * * Erstelle Auth-Records / Thesaurus-Records in skos
- * * Erstelle Agent-/ und Place-Subjects (optional)
- * * Verbinde mit RiC-R020
  */
  map thes_pers from stabs_ogd.ag_desc {
   subject template agURI with identifier;
@@ -311,12 +308,16 @@ map hgb_records from stabs_ogd.rr_hgb {
     skos.Concept
 
   properties
-    rico.name from title with language-tag ger;
     rico.generalDescription from description with language-tag ger;
-    skos.prefLabel from title with language-tag ger;
-    skos.note from description with language-tag ger;
-    skos.inScheme constant stabstht.Personenbegriffe;
+    rico.isAgentAssociatedWithAgent template agURI with related_agent_id;
     rico.isOrWasMainSubjectOf template rrURI with related_record_id;
+    rico.name from title with language-tag ger;
+    skos.altLabel from alternative_title with language-tag ger;
+    skos.inScheme constant stabstht.Personenbegriffe;
+    skos.note from description with language-tag ger;
+    skos.prefLabel from title with language-tag ger;
+    skos.related template agURI with related_agent_id;
+//    rico.hasOrHadAgentName template Instanz von rico.AgentName // komplex in RiC-O
   }
 
  map thes_ort from stabs_ogd.pl_desc {
@@ -327,12 +328,15 @@ map hgb_records from stabs_ogd.rr_hgb {
     skos.Concept
 
   properties
-    rico.name from title with language-tag ger;
     rico.generalDescription from description with language-tag ger;
-    skos.prefLabel from title with language-tag ger;
-    skos.note from description with language-tag ger;
-    skos.inScheme constant stabstht.Ortsbegriffe;
+    rico.isAssociatedWithPlace template plURI with related_place_id;
     rico.isOrWasMainSubjectOf template rrURI with related_record_id;
+    rico.name from title with language-tag ger;
+    skos.altLabel from alternative_title with language-tag ger;
+    skos.inScheme constant stabstht.Ortsbegriffe;
+    skos.note from description with language-tag ger;
+    skos.prefLabel from title with language-tag ger;
+    skos.related template plURI with related_place_id;
   }
 
 /* Ablieferungen

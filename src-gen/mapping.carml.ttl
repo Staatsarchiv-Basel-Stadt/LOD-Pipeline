@@ -769,6 +769,28 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
+		rr:predicate rico:generalDescription;
+		rr:objectMap [
+			rml:reference "description";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isAgentAssociatedWithAgent;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Agent/{related_descriptor_set[?(@.role == 'siehe auch')].to_descriptor.identifier}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasMainSubjectOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{descriptor_record_relations[*].record.identifier}"
+		]
+	];
+	
+	rr:predicateObjectMap [
 		rr:predicate rico:name;
 		rr:objectMap [
 			rml:reference "title";
@@ -777,7 +799,22 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:generalDescription;
+		rr:predicate skos:altLabel;
+		rr:objectMap [
+			rml:reference "related_descriptor_set[?(@.role == 'benutzt für')].to_descriptor.title";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme;
+		rr:objectMap [
+			rr:constant stabs-tht:Personenbegriffe
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:note;
 		rr:objectMap [
 			rml:reference "description";
 			rr:language "ger"
@@ -793,24 +830,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate skos:note;
+		rr:predicate skos:related;
 		rr:objectMap [
-			rml:reference "description";
-			rr:language "ger"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate skos:inScheme;
-		rr:objectMap [
-			rr:constant stabs-tht:Personenbegriffe
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasMainSubjectOf;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{descriptor_record_relations[*].record.identifier}"
+			rr:template "https://ld.bs.ch/ais/Agent/{related_descriptor_set[?(@.role == 'siehe auch')].to_descriptor.identifier}"
 		]
 	].
 	
@@ -833,6 +855,28 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
+		rr:predicate rico:generalDescription;
+		rr:objectMap [
+			rml:reference "description";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isAssociatedWithPlace;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Place/{related_descriptor_set[?(@.role == 'siehe auch')].to_descriptor.identifier}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasMainSubjectOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{descriptor_record_relations[*].record.identifier}"
+		]
+	];
+	
+	rr:predicateObjectMap [
 		rr:predicate rico:name;
 		rr:objectMap [
 			rml:reference "title";
@@ -841,7 +885,22 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:generalDescription;
+		rr:predicate skos:altLabel;
+		rr:objectMap [
+			rml:reference "related_descriptor_set[?(@.role == 'benutzt für')].to_descriptor.title";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme;
+		rr:objectMap [
+			rr:constant stabs-tht:Ortsbegriffe
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:note;
 		rr:objectMap [
 			rml:reference "description";
 			rr:language "ger"
@@ -857,24 +916,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate skos:note;
+		rr:predicate skos:related;
 		rr:objectMap [
-			rml:reference "description";
-			rr:language "ger"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate skos:inScheme;
-		rr:objectMap [
-			rr:constant stabs-tht:Ortsbegriffe
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasMainSubjectOf;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{descriptor_record_relations[*].record.identifier}"
+			rr:template "https://ld.bs.ch/ais/Place/{related_descriptor_set[?(@.role == 'siehe auch')].to_descriptor.identifier}"
 		]
 	].
 	
