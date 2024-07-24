@@ -265,6 +265,15 @@ source-group stabs_ogd {
       HAUSNAME
   }
 
+  logical-source rr_biblio {
+    iterator "$..[?(@.VEROEFFENTLICHUNGEN || @.LITERATUR_BEST_INSG)]"
+
+    referenceables
+      ID_NR
+      LITERATUR_BEST_INSG
+      VEROEFFENTLICHUNGEN
+  }
+
   logical-source ag_desc {
     iterator "$..[?(@.thesaurus == 'Personenbegriffe')]"
 

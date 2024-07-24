@@ -750,6 +750,37 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
+<#bib_records>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.VEROEFFENTLICHUNGEN || @.LITERATUR_BEST_INSG)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/BibliographicResource";
+		rr:class dcterms:BibliographicResource
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate dcterms:bibliographicCitation;
+		rr:objectMap [
+			rml:reference "VEROEFFENTLICHUNGEN"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate dcterms:bibliographicCitation;
+		rr:objectMap [
+			rml:reference "LITERATUR_BEST_INSG"
+		]
+	].
+	
 <#thes_pers>
 	a rr:TriplesMap;
 	
