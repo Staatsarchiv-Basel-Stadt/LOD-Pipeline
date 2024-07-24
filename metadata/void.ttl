@@ -82,10 +82,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     rdfs:seeAlso wd:Q2260520
     .
 
-<sys/DLS> a schema:SoftwareApplication ;
-    schema:name "Digitaler Lesesaal (DLS)"@de ;
-    schema:description "Der digitale Lesesaal DLS ermöglicht Archiven und Gedächtnisinstitutionen die moderne Präsentation von digitalen, digitalisierten und analogen Archivbeständen."@de ;
-    schema:url <https://www.4teamwork.ch/de/produkte/digitaler-lesesaal>
+<sys/DLS> owl:sameAs <sys/agora>
+    .
+
+<sys/agora> a schema:SoftwareApplication ;
+    schema:name "histify agora"@de ;
+    schema:description "histify agora ist eine hoch konfigurierbare, webbasierte Lösung für Archive, Museen und Sammlungen zur Veröffentlichung ihrer Bestände. Sie umfasst ein Bestellsystem sowie eine Datendrehscheibe (ETL-Plattform) für den Import von Daten aus jedem erdenklichen Quellsystem."@de ;
+    schema:url <https://www.histify.com/agora>
     .
 
 <sys/LOD-Pipeline> a doap:GitRepository ;
@@ -116,7 +119,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:creator <org/staatsarchiv> ;
     dcterms:publisher <org/fachstelle-ogd> ;
     dcterms:source <sys/scopeArchiv> ;
-    dcterms:source <sys/DLS> ;
+    dcterms:source <sys/agora>, <sys/DLS> ;
     dcterms:licence <https://creativecommons.org/publicdomain/zero/1.0/> ;
     dcterms:created "1999"^^xsd:gYear ;
     dcterms:temporal <Date/1098/2023> ;
