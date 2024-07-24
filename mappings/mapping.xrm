@@ -297,6 +297,21 @@ map hgb_records from stabs_ogd.rr_hgb {
     stabsrico.owner1862 from EIGENTUEMER_1862 with language-tag ger;
 }
 
+/* Literatur (Bibliografie)
+/ -------------------------
+*/
+
+map bib_records from stabs_ogd.rr_biblio {
+  subject template bibURI with ID_NR;
+
+  types
+    dct.BibliographicResource
+
+  properties
+    dct.bibliographicCitation from VEROEFFENTLICHUNGEN;
+    dct.bibliographicCitation from LITERATUR_BEST_INSG;
+}
+
 /* Descriptors (scope Concept)
  * --------------------------
  */
