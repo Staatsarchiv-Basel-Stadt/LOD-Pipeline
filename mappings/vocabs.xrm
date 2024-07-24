@@ -18,9 +18,85 @@ vocabulary dct {
 	prefix "dcterms" "http://purl.org/dc/terms/"
 
 	classes
+		Agent
+		AgentClass
+		BibliographicResource
+		FileFormat
+		Frequency
+		Jurisdiction
+		LicenseDocument
+		LinguisticSystem
+		Location
+		LocationPeriodOrJurisdiction
+		MediaType
+		MediaTypeOrExtent
+		MethodOfAccrual
+		MethodOfInstruction
+		PeriodOfTime
+		PhysicalMedium
+		PhysicalResource
+		Policy
+		ProvenanceStatement
+		RightsStatement
+		SizeOrDuration
+		Standard
 
 	properties
+		abstract
+		accessRights
+		accrualMethod
+		accrualPeriodicity
+		accrualPolicy
+		alternative
+		audience
+		available
+		bibliographicCitation
+		conformsTo
+		contributor
+		coverage
+		created
+		creator
+		date
+		dateAccepted
+		dateCopyrighted
+		dateSubmitted
+		description
+		educationLevel
+		extent
+		format
+		hasFormat
+		hasPart
+		hasVersion
+		identifier
+		instructionalMethod
+		isFormatOf
+		isPartOf
 		isReferencedBy
+		isReplacedBy
+		isRequiredBy
+		issued
+		isVersionOf
+		language
+		license
+		mediator
+		medium
+		modified
+		provenance
+		publisher
+		references
+		relation
+		replaces
+		requires
+		rights
+		rightsHolder
+		^source
+		spatial
+		^subject
+		tableOfContents
+		temporal
+		title
+		^type
+		valid
 }
 
 vocabulary owl {
