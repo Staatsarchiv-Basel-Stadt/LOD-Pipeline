@@ -18,8 +18,6 @@ map rr_stabs from stabs_ogd.rr_base {
     rico.generalDescription from ANMERKUNGEN with language-tag ger;
 //    rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15, geht aber nicht mit dynamischen Werten
     dct.isReferencedBy template dlsURI with ID_NR;
-    // stabsdata.ID_NR from ID_NR with datatype xsd.string;
-// stabsdata.PHYSISCHE_BESCHAFFENHEIT from PHYSISCHE_BESCHAFFENHEIT with datatype xsd.string;
 }
 
 /* Description Level Classes
@@ -116,7 +114,7 @@ map date_01 from stabs_ogd.rr_date {
     rico.Date
 
   properties
-    rico.isDateAssociatedWith template rrURI with ID_NR; // eigentlich obsolet
+    rico.isDateAssociatedWith template rrURI with ID_NR;
     rico.expressedDate from ENTSTEHUNGSZEITRAUM; // @todo: mit Datumsoperatoren könnte eine bessere Textrepräsentation erreicht werden.
     rico.normalizedDateValue from ENTSTEHUNGSZEITRAUM; // @todo: XML Date types für Typisierung
 //    rico.hasDateType // Definiert in RiC-O 1.0 für Klassen `DateSet`, `DateRange` oder `SingleDate`, oder Subklassen. Bei Bedarf implementieren
@@ -306,10 +304,24 @@ map bib_records from stabs_ogd.rr_biblio {
 
   types
     dct.BibliographicResource
+    rico.RecordSet
 
   properties
-    dct.bibliographicCitation from VEROEFFENTLICHUNGEN;
     dct.bibliographicCitation from LITERATUR_BEST_INSG;
+    dct.bibliographicCitation from VEROEFFENTLICHUNGEN;
+    rico.isOrWasSubjectOf template rrURI with ID_NR;
+    rico.hasRecordSetType constant stabsrst.BibRes;
+    rico.name template  "Bibliografische Ressourcen zu {0}" with SIGNATUR as Literal;
+    rico.scopeAndContent from VEROEFFENTLICHUNGEN;
+    rico.scopeAndContent from LITERATUR_BEST_INSG;
+}
+
+map records_bib from stabs_ogd.rr_biblio {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasOrHadSubject template bibURI with ID_NR;
+    dct.^subject template bibURI with ID_NR;
 }
 
 /* Descriptors (scope Concept)

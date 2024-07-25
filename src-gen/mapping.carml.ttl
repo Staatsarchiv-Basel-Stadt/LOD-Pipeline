@@ -764,7 +764,15 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	
 	rr:subjectMap [
 		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/BibliographicResource";
-		rr:class dcterms:BibliographicResource
+		rr:class dcterms:BibliographicResource;
+		rr:class rico:RecordSet
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate dcterms:bibliographicCitation;
+		rr:objectMap [
+			rml:reference "LITERATUR_BEST_INSG"
+		]
 	];
 	
 	rr:predicateObjectMap [
@@ -775,9 +783,68 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate dcterms:bibliographicCitation;
+		rr:predicate rico:isOrWasSubjectOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType;
+		rr:objectMap [
+			rr:constant stabs-rst:BibRes
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:name;
+		rr:objectMap [
+			rr:template "Bibliografische Ressourcen zu {SIGNATUR}";
+			rr:termType rr:Literal
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:scopeAndContent;
+		rr:objectMap [
+			rml:reference "VEROEFFENTLICHUNGEN"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:scopeAndContent;
 		rr:objectMap [
 			rml:reference "LITERATUR_BEST_INSG"
+		]
+	].
+	
+<#records_bib>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.VEROEFFENTLICHUNGEN || @.LITERATUR_BEST_INSG)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadSubject;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/BibliographicResource"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate dcterms:subject;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/BibliographicResource"
 		]
 	].
 	

@@ -270,6 +270,7 @@ source-group stabs_ogd {
 
     referenceables
       ID_NR
+      SIGNATUR
       LITERATUR_BEST_INSG
       VEROEFFENTLICHUNGEN
   }
