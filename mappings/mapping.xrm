@@ -309,6 +309,7 @@ map bib_records from stabs_ogd.rr_biblio {
   properties
     dct.bibliographicCitation from LITERATUR_BEST_INSG;
     dct.bibliographicCitation from VEROEFFENTLICHUNGEN;
+    dct.^subject template rrURI with ID_NR;
     rico.hasOrHadSubject template rrURI with ID_NR;
     rico.hasRecordSetType constant stabsrst.BibRes;
     rico.name template  "Bibliografische Ressourcen zu {0}" with SIGNATUR as Literal;
@@ -321,7 +322,6 @@ map records_bib from stabs_ogd.rr_biblio {
 
   properties
     rico.isOrWasSubjectOf template bibURI with ID_NR;
-    dct.^subject template bibURI with ID_NR;
 }
 
 /* Descriptors (scope Concept)
