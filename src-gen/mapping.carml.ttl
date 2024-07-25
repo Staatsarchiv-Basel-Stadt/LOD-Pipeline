@@ -783,7 +783,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasSubjectOf;
+		rr:predicate rico:hasOrHadSubject;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
@@ -835,7 +835,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:hasOrHadSubject;
+		rr:predicate rico:isOrWasSubjectOf;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/BibliographicResource"
 		]

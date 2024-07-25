@@ -309,7 +309,7 @@ map bib_records from stabs_ogd.rr_biblio {
   properties
     dct.bibliographicCitation from LITERATUR_BEST_INSG;
     dct.bibliographicCitation from VEROEFFENTLICHUNGEN;
-    rico.isOrWasSubjectOf template rrURI with ID_NR;
+    rico.hasOrHadSubject template rrURI with ID_NR;
     rico.hasRecordSetType constant stabsrst.BibRes;
     rico.name template  "Bibliografische Ressourcen zu {0}" with SIGNATUR as Literal;
     rico.scopeAndContent from VEROEFFENTLICHUNGEN;
@@ -320,7 +320,7 @@ map records_bib from stabs_ogd.rr_biblio {
   subject template rrURI with ID_NR;
 
   properties
-    rico.hasOrHadSubject template bibURI with ID_NR;
+    rico.isOrWasSubjectOf template bibURI with ID_NR;
     dct.^subject template bibURI with ID_NR;
 }
 
