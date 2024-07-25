@@ -742,12 +742,13 @@ vocabulary stabsrst {
 	prefix "stabs-rst" "https://ld.bs.ch/RiC/vocabularies/recordSetTypes/"
 
 	classes
-		Archiv
 		Abteilung
-		Fonds
+		Archiv
 		Bestand
-		Serie
+		BibRes
 		Dossier
+		Fonds
+		Serie
 }
 
 vocabulary stabstht {
