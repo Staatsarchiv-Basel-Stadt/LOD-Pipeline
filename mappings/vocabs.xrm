@@ -108,6 +108,27 @@ vocabulary owl {
 		sameAs
 }
 
+vocabulary rdfs {
+	prefix "rdfs" "http://www.w3.org/2000/01/rdf-schema#"
+
+	classes
+		Class
+		Datatype
+		langString
+		^Literal
+		Property
+		Resource
+	
+	properties
+		comment
+		domain
+		isDefinedBy
+		label
+		range
+		seeAlso
+		subClassOf
+		subPropertyOf
+}
 vocabulary rico {
 	prefix "rico" "https://www.ica.org/standards/RiC/ontology#"
 
@@ -698,20 +719,6 @@ vocabulary ricrst {
 		File
 		Fonds
 		Series
-}
-
-vocabulary stabsdata {
-	prefix "stabs-d" "stabs:scope:data/"
-
-	classes
-		Verzeichnungseinheiten
-		Deskriptoren
-		Partner
-		Ablieferungen
-
-	properties
-		ID_NR
-		PHYSISCHE_BESCHAFFENHEIT
 }
 
 vocabulary stabsact {
