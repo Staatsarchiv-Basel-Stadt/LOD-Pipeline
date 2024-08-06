@@ -3,6 +3,7 @@ PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
 PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
 PREFIX carml: <http://carml.taxonic.com/carml/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
@@ -93,6 +94,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	
 	rr:predicateObjectMap [
 		rr:predicate dcterms:isReferencedBy;
+		rr:objectMap [
+			rr:template "https://dls.staatsarchiv.bs.ch/records/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdfs:seeAlso;
 		rr:objectMap [
 			rr:template "https://dls.staatsarchiv.bs.ch/records/{ID_NR}"
 		]
