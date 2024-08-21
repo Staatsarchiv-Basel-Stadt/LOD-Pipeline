@@ -66,7 +66,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <org/staatsarchiv> a schema:GovernmentOrganization, schema:ArchiveOrganization ;
     schema:name "Staatsarchiv Basel-Stadt"@de , "State Archives of Basel-Stadt"@en ;
     schema:alternateName "StABS" ;
-    schema:url <https://www.staatsarchiv.bs.ch> , <https://staatskalender.bs.ch/organization/regierung-und-verwaltung/praesidialdepartement/abteilung-kultur/staatsarchiv> ;
+    schema:url <https://www.bs.ch/staatsarchiv> , <https://staatskalender.bs.ch/organization/regierung-und-verwaltung/praesidialdepartement/abteilung-kultur/staatsarchiv> ;
     schema:identifier <https://culture.ld.admin.ch/isil/CH-000027-1> ;
     rdfs:seeAlso wd:Q56219654
     .
