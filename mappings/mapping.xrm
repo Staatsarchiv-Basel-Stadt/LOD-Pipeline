@@ -298,7 +298,7 @@ map hgb_records from stabs_ogd.rr_hgb {
 }
 
 /* Literatur (Bibliografie)
-/ -------------------------
+/  ------------------------
 */
 
 map bib_records from stabs_ogd.rr_biblio {
@@ -324,6 +324,21 @@ map records_bib from stabs_ogd.rr_biblio {
 
   properties
     rico.isOrWasSubjectOf template bibURI with ID_NR;
+}
+
+/* Instantiationen
+/  ---------------
+*/
+
+map inst_01 from stabs_ogd.free_inst {
+  subject template instURI with ID_NR;
+
+  types
+    rico.Instantiation
+
+  properties
+    rico.isOrWasDigitalInstantiationOf template rrURI with ID_NR;
+    rico.hasOrHadLegalStatus from STATUS_URHEBER_RECHT;
 }
 
 /* Descriptors (scope Concept)

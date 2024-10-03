@@ -299,6 +299,15 @@ source-group stabs_ogd {
       related_place_id "related_descriptor_set[?(@.role == 'siehe auch')].to_descriptor.identifier"
   }
 
+  logical-source free_inst {
+    iterator "$..[?(@.files_are_public == true && @.STATUS_URHEBER_RECHT =~ /^Staatsarchiv|^Gemeinfrei/)] "
+
+    referenceables
+      ID_NR
+      SIGNATUR
+      STATUS_URHEBER_RECHT
+  }
+
 // logical-source rr_at_akte {
 // iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
 // referenceables

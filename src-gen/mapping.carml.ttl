@@ -863,6 +863,37 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
+<#inst_01>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.files_are_public == true && @.STATUS_URHEBER_RECHT =~ /^Staatsarchiv|^Gemeinfrei/)] "
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-i";
+		rr:class rico:Instantiation
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasDigitalInstantiationOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadLegalStatus;
+		rr:objectMap [
+			rml:reference "STATUS_URHEBER_RECHT"
+		]
+	].
+	
 <#thes_pers>
 	a rr:TriplesMap;
 	
