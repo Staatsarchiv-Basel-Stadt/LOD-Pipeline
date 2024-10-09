@@ -7,6 +7,7 @@ PREFIX formats: <https://www.w3.org/ns/formats/>
 PREFIX freq: <http://purl.org/cld/freq/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX schema: <http://schema.org/>
 PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
 PREFIX void: <http://rdfs.org/ns/void#>
@@ -63,7 +64,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 ## Organizations
 ##
 
-<org/staatsarchiv> a schema:GovernmentOrganization, schema:ArchiveOrganization ;
+<org/staatsarchiv> a schema:GovernmentOrganization, schema:ArchiveOrganization, rico:CorporateBody ;
     schema:name "Staatsarchiv Basel-Stadt"@de , "State Archives of Basel-Stadt"@en ;
     schema:alternateName "StABS" ;
     schema:url <https://www.bs.ch/staatsarchiv> , <https://staatskalender.bs.ch/organization/regierung-und-verwaltung/praesidialdepartement/abteilung-kultur/staatsarchiv> ;
@@ -75,7 +76,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 ## Information systems (Software)
 ##
 
-<sys/scopeArchiv> a schema:SoftwareApplication ;
+<sys/scopeArchiv> a schema:SoftwareApplication, rico:Mechanism ;
     schema:name "scopeArchiv" ;
     schema:description "scopeArchiv™ ist eine umfassende Archivsoftware für öffentliche und private Archive."@de ;
     schema:url <https://www.scope.ch> ;
@@ -85,13 +86,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <sys/DLS> owl:sameAs <sys/agora>
     .
 
-<sys/agora> a schema:SoftwareApplication ;
+<sys/agora> a schema:SoftwareApplication, rico:Mechanism ;
     schema:name "histify agora"@de ;
     schema:description "histify agora ist eine hoch konfigurierbare, webbasierte Lösung für Archive, Museen und Sammlungen zur Veröffentlichung ihrer Bestände. Sie umfasst ein Bestellsystem sowie eine Datendrehscheibe (ETL-Plattform) für den Import von Daten aus jedem erdenklichen Quellsystem."@de ;
     schema:url <https://www.histify.com/agora>
     .
 
-<sys/LOD-Pipeline> a doap:GitRepository ;
+<sys/LOD-Pipeline> a doap:GitRepository, rico:Mechanism ;
     schema:name "LOD-Pipeline" ;
     schema:description "Die LOD-Pipeline des Staatsarchivs Basel-Stadt transformiert öffentliche Daten des Archivinformationssystem nach RDF und erstellt damit die Grundlage für archivische Linked Open Data."@de ;
     doap:browse <https://github.com/Staatsarchiv-Basel-Stadt/LOD-Pipeline> ;
