@@ -876,7 +876,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-i";
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-di01";
 		rr:class rico:Instantiation
 	];
 	
@@ -888,9 +888,75 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
+		rr:predicate rico:identifier;
+		rr:objectMap [
+			rr:template "{ID_NR}-di01";
+			rr:termType rr:Literal
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:conditionsOfAccess;
+		rr:objectMap [
+			rml:reference "ZUGAENGLICHKEIT_NM"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasCarrierType;
+		rr:objectMap [
+			rr:constant <http://rdaregistry.info/termList/RDACarrierType/1018>
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasProductionTechniqueType;
+		rr:objectMap [
+			rr:constant "rico:ProductionTechniqueType"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRepresentationType;
+		rr:objectMap [
+			rr:constant <http://rdaregistry.info/termList/RDAMediaType/1003>
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:instantiationExtent;
+		rr:objectMap [
+			rr:constant "anzahl dateien"
+		]
+	];
+	
+	rr:predicateObjectMap [
 		rr:predicate rico:hasOrHadLegalStatus;
 		rr:objectMap [
 			rml:reference "STATUS_URHEBER_RECHT"
+		]
+	].
+	
+<#inst_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.files_are_public == true && @.STATUS_URHEBER_RECHT =~ /^Staatsarchiv/)] "
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-di01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadIntellectualPropertyRightsHolder;
+		rr:objectMap [
+			rr:constant <https://ld.bs.ch/org/staatsarchiv>
 		]
 	].
 	

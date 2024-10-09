@@ -314,7 +314,7 @@ map bib_records from stabs_ogd.rr_biblio {
     dct.^subject template rrURI with ID_NR;
     rico.hasOrHadSubject template rrURI with ID_NR;
     rico.hasRecordSetType constant stabsrst.BibRes;
-    rico.name template  "Bibliografische Ressourcen zu {0}" with SIGNATUR as Literal;
+    rico.name template "Bibliografische Ressourcen zu {0}" with SIGNATUR as Literal;
     rico.scopeAndContent from VEROEFFENTLICHUNGEN;
     rico.scopeAndContent from LITERATUR_BEST_INSG;
 }
@@ -330,15 +330,28 @@ map records_bib from stabs_ogd.rr_biblio {
 /  ---------------
 */
 
-map inst_01 from stabs_ogd.free_inst {
-  subject template instURI with ID_NR;
+map inst_01 from stabs_ogd.free_digital_inst {
+  subject template digiinstURI with ID_NR;
 
   types
     rico.Instantiation
 
   properties
     rico.isOrWasDigitalInstantiationOf template rrURI with ID_NR;
+    rico.identifier template "{0}-di01" with ID_NR as Literal;
+    rico.conditionsOfAccess from ZUGAENGLICHKEIT_NM;
+    rico.hasCarrierType constant "http://rdaregistry.info/termList/RDACarrierType/1018";  // @todo mit https://www.rdaregistry.info/termList/RDACarrierType/
+    rico.hasProductionTechniqueType constant "rico:ProductionTechniqueType"; // @todo rico:ProductionTechniqueType
+    rico.hasRepresentationType constant "http://rdaregistry.info/termList/RDAMediaType/1003"; // @todo, genauer mit mediatype auf files-Ebene
+    rico.instantiationExtent constant "anzahl dateien"; // @todo wenn möglich
     rico.hasOrHadLegalStatus from STATUS_URHEBER_RECHT;
+}
+
+map inst_02 from stabs_ogd.crstabs_digital_inst {
+  subject template digiinstURI with ID_NR;
+
+  properties
+    rico.hasOrHadIntellectualPropertyRightsHolder constant "https://ld.bs.ch/org/staatsarchiv";
 }
 
 /* Descriptors (scope Concept)
