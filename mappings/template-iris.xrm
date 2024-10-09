@@ -18,7 +18,8 @@ template exnumfileURI "https://ld.bs.ch/ais/Record/{0}/Extent/number-of-files"
 template exapproxURI "https://ld.bs.ch/ais/Record/{0}/Extent/extent-approximative"
 template exdvURI "https://ld.bs.ch/ais/Record/{0}/Extent/volume-of-data"
 template bibURI "https://ld.bs.ch/ais/Record/{0}/BibliographicResource"
-template instURI "https://ld.bs.ch/ais/Instantiation/{0}-01"
+template digiinstURI "https://ld.bs.ch/ais/Instantiation/{0}-d01"
+template anainstURI "https://ld.bs.ch/ais/Instantiation/{0}-a01"
 
 /* Backlink DLS */
 template dlsURI "https://dls.staatsarchiv.bs.ch/records/{0}"
