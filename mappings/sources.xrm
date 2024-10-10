@@ -315,6 +315,16 @@ source-group stabs_ogd {
   //   referenceables
   //     ID_NR
   // }
+
+  logical-source file_inst_01 {
+    iterator "$..[?(@.s3_path)]"
+
+    referenceables
+      s3_path
+      media_type
+      original_filename
+      ID_NR "record.identifier"
+  }
 // logical-source rr_at_akte {
 // iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
 // referenceables

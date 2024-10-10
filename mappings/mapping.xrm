@@ -355,6 +355,16 @@ map inst_01 from stabs_ogd.free_digital_inst {
 //     rico.hasOrHadIntellectualPropertyRightsHolder constant "https://ld.bs.ch/org/staatsarchiv";
 // }
 
+ map inst_03 from stabs_ogd.file_inst_01 {
+  subject template digiinstURI with ID_NR;
+
+  types
+    rico.Instantiation
+  
+  properties
+    rico.location template "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{0}{1}" with s3_path original_filename as Literal;
+ } 
+
 /* Descriptors (scope Concept)
  * --------------------------
  */
