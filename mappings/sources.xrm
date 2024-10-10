@@ -323,6 +323,7 @@ source-group stabs_ogd {
       s3_path
       media_type
       original_filename
+      identifier
       ID_NR "record.identifier"
   }
 // logical-source rr_at_akte {

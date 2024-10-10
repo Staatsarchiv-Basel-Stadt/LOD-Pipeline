@@ -20,6 +20,7 @@ template exdvURI "https://ld.bs.ch/ais/Record/{0}/Extent/volume-of-data"
 template bibURI "https://ld.bs.ch/ais/Record/{0}/BibliographicResource"
 template digiinstURI "https://ld.bs.ch/ais/Instantiation/{0}-d01"
 template anainstURI "https://ld.bs.ch/ais/Instantiation/{0}-a01"
+template fileURI "https://ld.bs.ch/ais/Instantiation/{0}-d01"
 
 /* Backlink DLS */
 template dlsURI "https://dls.staatsarchiv.bs.ch/records/{0}"

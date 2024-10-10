@@ -3,7 +3,9 @@ PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
 PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
 PREFIX carml: <http://carml.taxonic.com/carml/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
@@ -877,7 +879,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	
 	rr:subjectMap [
 		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-d01";
-		rr:class rico:Instantiation
+		rr:class rico:Instantiation;
+		rr:class premis:Representation
 	];
 	
 	rr:predicateObjectMap [
@@ -936,12 +939,20 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Instantiation/{record.identifier}-d01";
-		rr:class rico:Instantiation
+		rr:template "https://ld.bs.ch/ais/Instantiation/{identifier}-d01";
+		rr:class rico:Instantiation;
+		rr:class premis:File
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:location;
+		rr:predicate relSubType:isp;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Instantiation/{record.identifier}-d01"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate premis:storedAt;
 		rr:objectMap [
 			rr:template "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{s3_path}{original_filename}";
 			rr:termType rr:Literal

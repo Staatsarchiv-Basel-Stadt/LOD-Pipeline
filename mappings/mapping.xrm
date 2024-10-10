@@ -335,6 +335,7 @@ map inst_01 from stabs_ogd.free_digital_inst {
 
   types
     rico.Instantiation
+    premis.Representation
 
   properties
     rico.isOrWasDigitalInstantiationOf template rrURI with ID_NR;
@@ -356,13 +357,15 @@ map inst_01 from stabs_ogd.free_digital_inst {
 // }
 
  map inst_03 from stabs_ogd.file_inst_01 {
-  subject template digiinstURI with ID_NR;
+  subject template fileURI with identifier;
 
   types
     rico.Instantiation
+    premis.File
   
   properties
-    rico.location template "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{0}{1}" with s3_path original_filename as Literal;
+    relSubType.isp template digiinstURI with ID_NR;
+    premis.storedAt template "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{0}{1}" with s3_path original_filename as Literal;
  } 
 
 /* Descriptors (scope Concept)
