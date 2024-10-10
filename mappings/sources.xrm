@@ -305,16 +305,16 @@ source-group stabs_ogd {
     referenceables
       ID_NR
       SIGNATUR
-      STATUS_URHEBER_RECHT
+      PHYSISCHE_BESCHAFFENHEIT
       ZUGAENGLICHKEIT_NM
   }
 
-  logical-source crstabs_digital_inst {
-    iterator "$..[?(@.files_are_public == true && @.STATUS_URHEBER_RECHT =~ /^Staatsarchiv/)] "
+  // logical-source crstabs_digital_inst {
+  //   iterator "$..[?(@.files_are_public == true && @.STATUS_URHEBER_RECHT =~ /^Staatsarchiv/)] "
 
-    referenceables
-      ID_NR
-  }
+  //   referenceables
+  //     ID_NR
+  // }
 // logical-source rr_at_akte {
 // iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
 // referenceables
