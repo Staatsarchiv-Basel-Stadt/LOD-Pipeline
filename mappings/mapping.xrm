@@ -360,12 +360,22 @@ map inst_01 from stabs_ogd.free_digital_inst {
   subject template fileURI with identifier;
 
   types
-    rico.Instantiation
     premis.File
   
   properties
     relSubType.isp template digiinstURI with ID_NR;
-    premis.storedAt template "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{0}{1}" with s3_path original_filename as Literal;
+    premis.storedAt template storageURI with identifier;
+ }
+
+ map storage from stabs_ogd.file_inst_01 {
+  subject template storageURI with identifier;
+
+  types
+    premis.StorageLocation
+  
+  properties
+    premis.medium constant "http://id.loc.gov/vocabulary/preservation/contentLocationType/uri";
+    rdf.value template "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{0}{1}" with s3_path original_filename as Literal;
  } 
 
 /* Descriptors (scope Concept)

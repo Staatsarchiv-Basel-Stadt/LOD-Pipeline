@@ -4,6 +4,7 @@ PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
 PREFIX carml: <http://carml.taxonic.com/carml/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
@@ -939,8 +940,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Instantiation/{identifier}-d01";
-		rr:class rico:Instantiation;
+		rr:template "https://ld.bs.ch/ais/File/{identifier}";
 		rr:class premis:File
 	];
 	
@@ -953,6 +953,37 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	
 	rr:predicateObjectMap [
 		rr:predicate premis:storedAt;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/File/{identifier}/Location"
+		]
+	].
+	
+<#storage>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.s3_path)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/File/{identifier}/Location";
+		rr:class premis:StorageLocation
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate premis:medium;
+		rr:objectMap [
+			rr:constant <http://id.loc.gov/vocabulary/preservation/contentLocationType/uri>
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdf:value;
 		rr:objectMap [
 			rr:template "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{s3_path}{original_filename}";
 			rr:termType rr:Literal
