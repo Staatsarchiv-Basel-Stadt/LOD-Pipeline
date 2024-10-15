@@ -196,7 +196,7 @@ map extent_lm from stabs_ogd.rr_extent {
     rico.isExtentOf template rrURI with ID_NR;
     rico.hasExtentType constant stabsext.Laufmeter;
     rico.quantity from LAUFMETER with datatype xsd.decimal;
-    rico.hasUnitOfMeasurement constant "http://qudt.org/vocab/unit/M"; // @todo: als rico:UnitOfMeasurement
+    rico.hasUnitOfMeasurement constant unit.M;
 }
 
 map extent_num from stabs_ogd.rr_extent {
@@ -356,6 +356,10 @@ map inst_01 from stabs_ogd.free_digital_inst {
 //     rico.hasOrHadIntellectualPropertyRightsHolder constant "https://ld.bs.ch/org/staatsarchiv";
 // }
 
+/* Dateien & Objekte
+/  -----------------
+*/
+
  map inst_03 from stabs_ogd.file_inst_01 {
   subject template fileURI with identifier;
 
@@ -365,6 +369,7 @@ map inst_01 from stabs_ogd.free_digital_inst {
   properties
     relSubType.isp template digiinstURI with ID_NR;
     premis.storedAt template storageURI with identifier;
+    schema.contentUrl template contentLocationURI with s3_path original_filename as Literal;
  }
 
  map storage from stabs_ogd.file_inst_01 {
@@ -374,8 +379,8 @@ map inst_01 from stabs_ogd.free_digital_inst {
     premis.StorageLocation
   
   properties
-    premis.medium constant "http://id.loc.gov/vocabulary/preservation/contentLocationType/uri";
-    rdf.value template "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{0}{1}" with s3_path original_filename as Literal;
+    premis.medium constant contentLocationType.uri;
+    rdf.value template contentLocationURI with s3_path original_filename as Literal;
  } 
 
 /* Descriptors (scope Concept)

@@ -2,18 +2,21 @@ PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
 PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
 PREFIX carml: <http://carml.taxonic.com/carml/>
+PREFIX contentLocationType: <http://id.loc.gov/vocabulary/preservation/contentLocationType>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX schema: <http://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
 PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+PREFIX unit: <http://qudt.org/vocab/unit/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <#rr_stabs>
@@ -568,7 +571,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasUnitOfMeasurement;
 		rr:objectMap [
-			rr:constant <http://qudt.org/vocab/unit/M>
+			rr:constant unit:M
 		]
 	].
 	
@@ -956,6 +959,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/File/{identifier}/Location"
 		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate schema:contentUrl;
+		rr:objectMap [
+			rr:template "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{s3_path}{original_filename}";
+			rr:termType rr:Literal
+		]
 	].
 	
 <#storage>
@@ -978,7 +989,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate premis:medium;
 		rr:objectMap [
-			rr:constant <http://id.loc.gov/vocabulary/preservation/contentLocationType/uri>
+			rr:constant contentLocationType:uri
 		]
 	];
 	

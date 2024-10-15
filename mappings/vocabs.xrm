@@ -894,12 +894,20 @@ vocabulary schema {
 
 	classes
 		ArchiveOrganization
+		AudioObject
+		DataDownload
+		ImageObject
+		MediaObject
 		Organization
+		TextObject
 		Thing
+		VideoObject
 
 	properties
 		address
+		contentUrl
 		email
+		encodingFormat
 		foundingDate
 		foundingLocation
 		funder
@@ -907,6 +915,7 @@ vocabulary schema {
 		location
 		sameAs
 		telephone
+		thumbnail
 		url
 }
 
