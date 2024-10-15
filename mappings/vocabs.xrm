@@ -14,6 +14,15 @@ vocabulary admin {
 		valid
 }
 
+vocabulary contentLocationType {
+	prefix "contentLocationType" "http://id.loc.gov/vocabulary/preservation/contentLocationType"
+
+	classes
+		psl // physical storage location: Location of an object is not on a computer but in a physical space.
+		smk // Shelf Mark: Physical location, such as a call number or a special shelf/location indicator.
+		uri // Uniform Resource Identifier: A Uniform Resource Identifier (URI) is a string of characters used to identify a name or a resource on the Internet.
+}
+
 vocabulary dct {
 	prefix "dcterms" "http://purl.org/dc/terms/"
 
@@ -925,6 +934,14 @@ vocabulary skos {
 		changeNote
 		inScheme
 		hasTopConcept
+}
+
+vocabulary unit {
+	prefix "unit" "http://qudt.org/vocab/unit/"
+
+	classes
+		CentiM // centimetre
+		M      // metre
 }
 
 // === Codes and Datatypes ===
