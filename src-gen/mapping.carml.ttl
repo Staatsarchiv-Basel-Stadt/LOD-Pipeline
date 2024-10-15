@@ -2,7 +2,7 @@ PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
 PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
 PREFIX carml: <http://carml.taxonic.com/carml/>
-PREFIX contentLocationType: <http://id.loc.gov/vocabulary/preservation/contentLocationType>
+PREFIX contentLocationType: <http://id.loc.gov/vocabulary/preservation/contentLocationType/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -903,23 +903,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:conditionsOfAccess;
-		rr:objectMap [
-			rml:reference "ZUGAENGLICHKEIT_NM"
-		]
-	];
-	
-	rr:predicateObjectMap [
 		rr:predicate rico:hasCarrierType;
 		rr:objectMap [
 			rr:constant <http://rdaregistry.info/termList/RDACarrierType/1018>
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasProductionTechniqueType;
-		rr:objectMap [
-			rr:constant "rico:ProductionTechniqueType"
 		]
 	];
 	
@@ -930,7 +916,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#inst_03>
+<#file_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -944,7 +930,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	
 	rr:subjectMap [
 		rr:template "https://ld.bs.ch/ais/File/{identifier}";
-		rr:class premis:File
+		rr:class premis:File;
+		rr:class schema:MediaObject
 	];
 	
 	rr:predicateObjectMap [
@@ -967,6 +954,91 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			rr:template "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{s3_path}{original_filename}";
 			rr:termType rr:Literal
 		]
+	].
+	
+<#file_audio>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.media_type == 'audio')]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/File/{identifier}";
+		rr:class schema:AudioObject
+	].
+	
+<#file_image>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.media_type == 'image')]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/File/{identifier}";
+		rr:class schema:ImageObject
+	].
+	
+<#file_txt>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.media_type == 'txt')]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/File/{identifier}";
+		rr:class schema:TextObject
+	].
+	
+<#file_video>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.media_type == 'video')]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/File/{identifier}";
+		rr:class schema:VideoObject
+	].
+	
+<#file_warc>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.media_type == 'warc')]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/File/{identifier}";
+		rr:class schema:MediaObject
 	].
 	
 <#storage>

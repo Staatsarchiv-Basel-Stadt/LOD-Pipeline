@@ -326,6 +326,47 @@ source-group stabs_ogd {
       identifier
       ID_NR "record.identifier"
   }
+
+  logical-source media_type_audio {
+    iterator "$..[?(@.media_type == 'audio')]"
+
+    referenceables
+      identifier
+      media_type
+  }  
+
+  logical-source media_type_image {
+    iterator "$..[?(@.media_type == 'image')]"
+
+    referenceables
+      identifier
+      media_type
+  }
+
+  logical-source media_type_txt {
+    iterator "$..[?(@.media_type == 'txt')]"
+
+    referenceables
+      identifier
+      media_type
+  }
+
+  logical-source media_type_video {
+    iterator "$..[?(@.media_type == 'video')]"
+
+    referenceables
+      identifier
+      media_type
+  }
+
+  logical-source media_type_warc {
+    iterator "$..[?(@.media_type == 'warc')]"
+
+    referenceables
+      identifier
+      media_type
+  }
+
 // logical-source rr_at_akte {
 // iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
 // referenceables

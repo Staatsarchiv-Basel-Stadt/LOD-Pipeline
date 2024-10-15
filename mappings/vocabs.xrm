@@ -15,7 +15,7 @@ vocabulary admin {
 }
 
 vocabulary contentLocationType {
-	prefix "contentLocationType" "http://id.loc.gov/vocabulary/preservation/contentLocationType"
+	prefix "contentLocationType" "http://id.loc.gov/vocabulary/preservation/contentLocationType/"
 
 	classes
 		psl // physical storage location: Location of an object is not on a computer but in a physical space.
