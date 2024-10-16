@@ -339,7 +339,7 @@ map inst_01 from stabs_ogd.free_digital_inst {
   properties
     rico.isOrWasDigitalInstantiationOf template rrURI with ID_NR;
     rico.identifier template "{0}-di01" with ID_NR as Literal;
-    rico.hasCarrierType constant "http://rdaregistry.info/termList/RDACarrierType/1018"; // @todo mit https://www.rdaregistry.info/termList/RDACarrierType/
+    rico.hasCarrierType constant rdact._1018;
 //    rico.hasProductionTechniqueType constant "rico:ProductionTechniqueType"; // @todo rico:ProductionTechniqueType
 //    rico.hasRepresentationType constant "http://rdaregistry.info/termList/RDAMediaType/1003"; // @todo, genauer mit mediatype auf files-Ebene, siehe auch rico:RepresentationType
 //    rico.instantiationExtent constant "anzahl dateien"; // @todo wenn möglich, Anzahl Dateien oder Dateigrösse(n). Kaum umsetzbar

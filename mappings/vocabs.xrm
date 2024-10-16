@@ -193,6 +193,15 @@ vocabulary owl {
 		sameAs
 }
 
+vocabulary rdact {
+	prefix "rdact" "http://rdaregistry.info/termList/RDACarrierType/"
+
+	classes
+		_1018 "1018"
+
+	properties
+}
+
 vocabulary rdf {
 	prefix "rdf" "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 
