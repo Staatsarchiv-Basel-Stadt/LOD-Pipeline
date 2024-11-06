@@ -285,7 +285,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isIncludedInTransitive;
+		rr:predicate rico:isDirectlyIncludedIn;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
@@ -317,7 +317,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isIncludedInTransitive;
+		rr:predicate rico:isDirectlyIncludedIn;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]
@@ -349,7 +349,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isIncludedInTransitive;
+		rr:predicate rico:isDirectlyIncludedIn;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
 		]

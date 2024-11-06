@@ -79,7 +79,7 @@ map level_abt_ser_dos from stabs_ogd.rr_abt_ser_dos {
     rico.RecordSet
 
   properties
-    rico.isIncludedInTransitive template rrURI with PARENT_ID_NR;
+    rico.isDirectlyIncludedIn template rrURI with PARENT_ID_NR;
     rico.history from BESTANDSGESCHICHTE with language-tag ger;
 }
 
@@ -90,7 +90,7 @@ map level_fon_bes from stabs_ogd.rr_fon_bes {
     rico.RecordSet
 
   properties
-    rico.isIncludedInTransitive template rrURI with PARENT_ID_NR;
+    rico.isDirectlyIncludedIn template rrURI with PARENT_ID_NR;
 //    rico.hasOrganicProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger; kann nicht als datatype property verwendet werden
     rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
 }
@@ -102,7 +102,7 @@ map level_dok from stabs_ogd.rr_dok {
     rico.Record
 
   properties
-    rico.isIncludedInTransitive template rrURI with PARENT_ID_NR;
+    rico.isDirectlyIncludedIn template rrURI with PARENT_ID_NR;
 }
 
 /* Date Maps
