@@ -240,7 +240,7 @@ vocabulary rdfs {
 }
 
 vocabulary relSubType {
-	prefix "relSubType" "http://id.loc.gov/vocabulary/preservation/relationshipSubType"
+	prefix "relSubType" "http://id.loc.gov/vocabulary/preservation/relationshipSubType/"
 
 	properties
 		inc // includes
