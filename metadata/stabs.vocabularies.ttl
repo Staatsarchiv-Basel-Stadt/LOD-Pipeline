@@ -97,7 +97,7 @@ stabs-rpt:IiifType a rico:RepresentationType , skos:Concept , owl:NamedIndividua
 stabs-rpt:FcType a rico:RepresentationType , skos:Concept , owl:NamedIndividual ;
 	rdfs:label "Dateisammlungs-Typ"@de, "File Collection-Type"@en ;
 	skos:prefLabel "Dateisammlungs-Typ"@de, "File Collection-Type"@en ;
-	skos:definition "Präsentation von digitalen Objekten als Sammlung ohne spezifische Ordnung" ;
+	skos:definition "Präsentation von digitalen Objekten als Dateisammlung ohne spezifische Ordnung" ;
 	skos:topConceptOf <https://ld.bs.ch/RiC/vocabularies/representationTypes>
 	.
 

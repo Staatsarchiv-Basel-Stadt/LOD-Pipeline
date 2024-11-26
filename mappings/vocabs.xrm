@@ -865,6 +865,14 @@ vocabulary stabsidt {
 		Fruehere_StABS_Signatur
 }
 
+vocabulary stabsrpt {
+	prefix "stabs-rpt" "https://ld.bs.ch/RiC/vocabularies/representationTypes/"
+
+	classes
+		IiifType
+		FcType
+}
+
 vocabulary stabsrst {
 	prefix "stabs-rst" "https://ld.bs.ch/RiC/vocabularies/recordSetTypes/"
 
