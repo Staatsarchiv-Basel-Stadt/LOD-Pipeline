@@ -363,7 +363,7 @@ map inst_01 from stabs_ogd.free_digital_inst {
 
   types
     premis.File
-    schema.MediaObject // obsolet, unten präziser
+    schema.MediaObject
 
   properties
     relSubType.isp template digiinstURI with ID_NR;
@@ -371,40 +371,35 @@ map inst_01 from stabs_ogd.free_digital_inst {
     schema.contentUrl template contentLocationURI with s3_path original_filename as Literal;
  }
 
- map file_audio from stabs_ogd.media_type_audio {
-  subject template fileURI with identifier;
+//  map file_audio from stabs_ogd.media_type_audio {
+//   subject template fileURI with identifier;
 
-  types
-    schema.AudioObject
- }
+//   types
+//     schema.AudioObject
+//  }
 
- map file_image from stabs_ogd.media_type_image {
-  subject template fileURI with identifier;
+//  map file_txt from stabs_ogd.media_type_txt {
+//   subject template fileURI with identifier;
 
-  types
-    schema.ImageObject
- }
+//   types
+//     schema.TextObject
+//  }
 
- map file_txt from stabs_ogd.media_type_txt {
-  subject template fileURI with identifier;
+//  map file_video from stabs_ogd.media_type_video {
+//   subject template fileURI with identifier;
 
-  types
-    schema.TextObject
- }
+//   types
+//     schema.VideoObject
+//  }
 
- map file_video from stabs_ogd.media_type_video {
-  subject template fileURI with identifier;
+//  map file_warc from stabs_ogd.media_type_warc {
+//   subject template fileURI with identifier;
 
-  types
-    schema.VideoObject
- }
+//   types
+//     schema.MediaObject
+//  }
 
- map file_warc from stabs_ogd.media_type_warc {
-  subject template fileURI with identifier;
-
-  types
-    schema.MediaObject
- }
+ /* Storage */
 
  map storage from stabs_ogd.file_inst_01 {
   subject template storageURI with identifier;

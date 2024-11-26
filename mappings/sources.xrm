@@ -317,7 +317,7 @@ source-group stabs_ogd {
   // }
 
   logical-source file_inst_01 {
-    iterator "$..[?(@.s3_path)]"
+    iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^txt$|^video$|^warc$/)]"
 
     referenceables
       s3_path
@@ -327,45 +327,56 @@ source-group stabs_ogd {
       ID_NR "record.identifier"
   }
 
-  logical-source media_type_audio {
-    iterator "$..[?(@.media_type == 'audio')]"
+  // logical-source media_type_audio {
+  //   iterator "$..[?(@.media_type == 'audio')]"
 
-    referenceables
-      identifier
-      media_type
-  }  
+  //   referenceables
+  //     identifier
+  //     media_type
+  // }  
 
-  logical-source media_type_image {
-    iterator "$..[?(@.media_type == 'image')]"
+  // logical-source media_type_image {
+  //   iterator "$..[?(@.media_type == 'image')]"
 
-    referenceables
-      identifier
-      media_type
-  }
+  //   referenceables
+  //     identifier
+  //     media_type
+  // }
 
-  logical-source media_type_txt {
-    iterator "$..[?(@.media_type == 'txt')]"
+  // logical-source media_type_book {
+  //   iterator "$..[?(@.media_type == 'book')]"
 
-    referenceables
-      identifier
-      media_type
-  }
+  //   referenceables
+  //     ID_NR "record.identifier"
+  //     identifier
+  //     media_type
+  // }
 
-  logical-source media_type_video {
-    iterator "$..[?(@.media_type == 'video')]"
+  // logical-source media_type_txt {
+  //   iterator "$..[?(@.media_type == 'txt')]"
 
-    referenceables
-      identifier
-      media_type
-  }
+  //   referenceables
+  //     identifier
+  //     media_type
+  // }
 
-  logical-source media_type_warc {
-    iterator "$..[?(@.media_type == 'warc')]"
+  // logical-source media_type_video {
+  //   iterator "$..[?(@.media_type == 'video')]"
 
-    referenceables
-      identifier
-      media_type
-  }
+  //   referenceables
+  //     ID_NR "record.identifier"
+  //     identifier
+  //     media_type
+
+  // }
+
+  // logical-source media_type_warc {
+  //   iterator "$..[?(@.media_type == 'warc')]"
+
+  //   referenceables
+  //     identifier
+  //     media_type
+  // }
 
 // logical-source rr_at_akte {
 // iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
