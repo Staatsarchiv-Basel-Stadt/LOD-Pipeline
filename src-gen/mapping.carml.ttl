@@ -911,9 +911,18 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
+		rr:predicate rico:title;
+		rr:objectMap [
+			rml:reference "TITEL";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
 		rr:predicate rico:physicalCharacteristicsNote;
 		rr:objectMap [
-			rml:reference "PHYSISCHE_BESCHAFFENHEIT"
+			rml:reference "PHYSISCHE_BESCHAFFENHEIT";
+			rr:language "ger"
 		]
 	].
 	
