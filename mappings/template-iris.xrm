@@ -13,6 +13,7 @@ template frmstabsrefURI "https://ld.bs.ch/ais/Record/{0}/Former-StABS-Reference/
 template dateURI "https://ld.bs.ch/ais/Record/{0}/Date"
 template exURI "https://ld.bs.ch/ais/Extent/{0}"
 template exlmURI "https://ld.bs.ch/ais/Record/{0}/Extent/linear-meters"
+template exdurURI "https://ld.bs.ch/ais/Record/{0}/Extent/duration"
 template exnumURI "https://ld.bs.ch/ais/Record/{0}/Extent/number-of-units"
 template exnumfileURI "https://ld.bs.ch/ais/Record/{0}/Extent/number-of-files"
 template exapproxURI "https://ld.bs.ch/ais/Record/{0}/Extent/extent-approximative"

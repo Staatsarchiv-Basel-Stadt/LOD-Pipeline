@@ -544,7 +544,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/linear-meters";
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/duration";
 		rr:class rico:RecordResourceExtent
 	];
 	
@@ -558,7 +558,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType;
 		rr:objectMap [
-			rr:constant stabs-ext:Abspieldauer
+			rr:constant stabs-ext:Dauer
 		]
 	];
 	

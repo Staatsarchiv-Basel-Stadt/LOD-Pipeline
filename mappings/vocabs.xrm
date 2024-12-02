@@ -849,10 +849,10 @@ vocabulary stabsext {
 	prefix "stabs-ext" "https://ld.bs.ch/RiC/vocabularies/extentTypes/"
 
 	classes
-		Abspieldauer
 		Anzahl
 		Anzahl_Dateien
 		Datenvolumen_MB
+		Dauer
 		Laufmeter
 		Umfang_approximativ
 }
