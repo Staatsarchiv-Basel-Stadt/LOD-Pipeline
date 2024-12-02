@@ -243,10 +243,11 @@ source-group stabs_ogd {
   }
 
   logical-source rr_extent {
-    iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+    iterator "$..[?(@.ABSPIELDAUER || @.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
 
     referenceables
       ID_NR
+      ABSPIELDAUER
       ANZAHL
       ANZAHL_DATEIEN
       DATENVOLUMEN_MB

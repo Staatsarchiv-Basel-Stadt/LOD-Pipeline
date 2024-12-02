@@ -183,8 +183,21 @@ map ident_03 from stabs_ogd.rr_signaturen {
 }
 /* Extent Maps
  * -----------
- * DE: LAUFMETER, ANZAHL, ANZAHL_DATEIEN, UMFANG_GESCHAETZT, KOMMENTAR_ZUM_UMFANG, DATENVOLUMEN_MB
+ * DE: LAUFMETER, ANZAHL, ANZAHL_DATEIEN, UMFANG_GESCHAETZT, KOMMENTAR_ZUM_UMFANG, DATENVOLUMEN_MB, ABSPIELDAUER
  */
+
+map extent_as from stabs_ogd.rr_extent {
+  subject template exlmURI with ID_NR;
+
+  types
+    rico.RecordResourceExtent
+
+  properties
+    rico.isExtentOf template rrURI with ID_NR;
+    rico.hasExtentType constant stabsext.Abspieldauer;
+    rico.quantity from ABSPIELDAUER with datatype xsd.string;
+    rico.hasUnitOfMeasurement constant quanitity.Time;
+}
 
 map extent_lm from stabs_ogd.rr_extent {
   subject template exlmURI with ID_NR;

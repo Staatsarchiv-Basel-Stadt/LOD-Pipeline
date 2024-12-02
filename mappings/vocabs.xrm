@@ -849,10 +849,11 @@ vocabulary stabsext {
 	prefix "stabs-ext" "https://ld.bs.ch/RiC/vocabularies/extentTypes/"
 
 	classes
-		Laufmeter
+		Abspieldauer
 		Anzahl
 		Anzahl_Dateien
 		Datenvolumen_MB
+		Laufmeter
 		Umfang_approximativ
 }
 
@@ -968,6 +969,13 @@ vocabulary unit {
 	classes
 		CentiM // centimetre
 		M      // metre
+}
+
+vocabulary quanitity {
+	prefix "quantity" "http://qudt.org/vocab/quantitykind/"
+
+	classes
+		Time // Zeitdauer (z.B. Abspieldauer Video)
 }
 
 // === Codes and Datatypes ===

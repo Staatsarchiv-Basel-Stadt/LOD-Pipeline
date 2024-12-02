@@ -5,6 +5,7 @@ PREFIX carml: <http://carml.taxonic.com/carml/>
 PREFIX contentLocationType: <http://id.loc.gov/vocabulary/preservation/contentLocationType/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
+PREFIX quantity: <http://qudt.org/vocab/quantitykind/>
 PREFIX rdact: <http://rdaregistry.info/termList/RDACarrierType/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -530,6 +531,52 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
+<#extent_as>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ABSPIELDAUER || @.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Extent/linear-meters";
+		rr:class rico:RecordResourceExtent
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isExtentOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasExtentType;
+		rr:objectMap [
+			rr:constant stabs-ext:Abspieldauer
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:quantity;
+		rr:objectMap [
+			rml:reference "ABSPIELDAUER";
+			rr:datatype xsd:string
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasUnitOfMeasurement;
+		rr:objectMap [
+			rr:constant quantity:Time
+		]
+	].
+	
 <#extent_lm>
 	a rr:TriplesMap;
 	
@@ -539,7 +586,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+		rml:iterator "$..[?(@.ABSPIELDAUER || @.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
 	];
 	
 	rr:subjectMap [
@@ -585,7 +632,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+		rml:iterator "$..[?(@.ABSPIELDAUER || @.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
 	];
 	
 	rr:subjectMap [
@@ -624,7 +671,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+		rml:iterator "$..[?(@.ABSPIELDAUER || @.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
 	];
 	
 	rr:subjectMap [
@@ -663,7 +710,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+		rml:iterator "$..[?(@.ABSPIELDAUER || @.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
 	];
 	
 	rr:subjectMap [
@@ -702,7 +749,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			carml:streamName "stdin"
 		];
 		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+		rml:iterator "$..[?(@.ABSPIELDAUER || @.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
 	];
 	
 	rr:subjectMap [

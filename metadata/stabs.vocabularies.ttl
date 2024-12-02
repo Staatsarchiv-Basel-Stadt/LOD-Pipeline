@@ -226,6 +226,13 @@ stabs-ext:Anzahl a rico:ExtentType, skos:Concept ;
 	skos:inScheme <https://ld.bs.ch/RiC/vocabularies/extentTypes>
 	.
 
+stabs-ext:Abspieldauer a rico:ExtentType, skos:Concept ;
+	rdfs:label "Abspieldauer"@de ;
+	skos:prefLabel "Abspieldauer"@de ;
+	skos:definition "Abspieldauer (Video,Film) in hh:mm:ss"@de ;
+	skos:inScheme <https://ld.bs.ch/RiC/vocabularies/extentTypes>	
+	.
+
 stabs-ext:Anzahl-Dateien a rico:ExtentType, skos:Concept ;
 	rdfs:label "Anzahl Dateien"@de, "Number of files"@en ;
 	skos:prefLabel "Anzahl Dateien"@de, "Number of files"@en ;
