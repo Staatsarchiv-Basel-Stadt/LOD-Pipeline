@@ -187,14 +187,14 @@ map ident_03 from stabs_ogd.rr_signaturen {
  */
 
 map extent_as from stabs_ogd.rr_extent {
-  subject template exlmURI with ID_NR;
+  subject template exdurURI with ID_NR;
 
   types
     rico.RecordResourceExtent
 
   properties
     rico.isExtentOf template rrURI with ID_NR;
-    rico.hasExtentType constant stabsext.Abspieldauer;
+    rico.hasExtentType constant stabsext.Dauer;
     rico.quantity from ABSPIELDAUER with datatype xsd.string;
     rico.hasUnitOfMeasurement constant quanitity.Time;
 }
