@@ -288,6 +288,14 @@ source-group stabs_ogd {
       related_agent_id "related_descriptor_set[?(@.role == 'siehe auch')].to_descriptor.identifier"
   }
 
+  logical-source ag_rr_pers {
+    iterator "$..[?(@.PERSON)]"
+
+    referenceables
+      ID_NR
+      PERSON
+  }
+
   logical-source pl_desc {
     iterator "$..[?(@.thesaurus == 'Ortsbegriffe')]"
 
