@@ -23,7 +23,7 @@ template digiinstURI "https://ld.bs.ch/ais/Instantiation/{0}-di01"
 template anainstURI "https://ld.bs.ch/ais/Instantiation/{0}-an01"
 template fileURI "https://ld.bs.ch/ais/File/{0}"
 template storageURI "https://ld.bs.ch/ais/File/{0}/Location"
-template contentLocationURI "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{0}{1}"
+template contentLocationURI "https://sos-ch-dk-2.exo.io/hfp-stabs-dls/{0}{1}"
 
 /* Backlink DLS */
 template dlsURI "https://dls.staatsarchiv.bs.ch/records/{0}"
