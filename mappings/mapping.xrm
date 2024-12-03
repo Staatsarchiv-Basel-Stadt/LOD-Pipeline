@@ -468,6 +468,16 @@ map inst_01 from stabs_ogd.free_digital_inst {
     skos.related template plURI with related_place_id;
   }
 
+  map ag_rr_pers from stabs_ogd.ag_rr_pers {
+    subject template agURI with ID_NR;
+
+    types
+      rico.Agent
+    
+    properties
+      rico.title from PERSON;
+  }
+
 /* Ablieferungen
  * ------------
  * sind rico:Activity-Instanzen
