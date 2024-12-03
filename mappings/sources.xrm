@@ -330,11 +330,12 @@ source-group stabs_ogd {
     iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^txt$|^video$|^warc$/)]"
 
     referenceables
-      s3_path
+      ID_NR
+      identifier
       media_type
       original_filename
-      identifier
-      ID_NR "record.identifier"
+      s3_path
+      SIGNATUR
   }
 
   // logical-source media_type_audio {

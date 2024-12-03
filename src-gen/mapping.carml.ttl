@@ -930,7 +930,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-d01";
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-di01";
 		rr:class rico:Instantiation;
 		rr:class premis:Representation
 	];
@@ -994,7 +994,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate relSubType:isp;
 		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Instantiation/{record.identifier}-d01"
+			rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-di01"
 		]
 	];
 	
