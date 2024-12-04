@@ -1,0 +1,8 @@
+[
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX void: <http://rdfs.org/ns/void#>\r\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\nPREFIX schema: <http://schema.org/>\r\nPREFIX dcterms: <http://purl.org/dc/terms/>\r\nPREFIX rico: <https://www.ica.org/standards/RiC/ontology#>\r\nPREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>\r\nPREFIX premis: <http://www.loc.gov/premis/rdf/v3/>\r\n\r\nSELECT ?records ?Stufe ?Signatur ?Titel ?fileURI\r\nWHERE {\r\n  GRAPH <https://ld.bs.ch/graph/ais-metadata> {\r\n    <https://ld.bs.ch/ais/Record/1645848> ^rico:isDirectlyIncludedIn* ?records .\r\n      ?records rico:hasRecordSetType ?Stufe ;\r\n               rico:identifier ?Signatur ;\r\n               rico:title ?Titel\r\n      .\r\n      OPTIONAL { ?inst rico:isOrWasDigitalInstantiationOf ?records ;\r\n                      ^relSubType:isp/premis:storedAt/rdf:value ?fileURI\r\n                      .\r\n      }\r\n  }\r\n}",
+    "metadata": {}
+  }
+]
