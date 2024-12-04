@@ -1008,7 +1008,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate schema:contentUrl;
 		rr:objectMap [
-			rr:template "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{s3_path}{original_filename}";
+			rr:template "https://sos-ch-dk-2.exo.io/hfp-stabs-dls/{s3_path}{original_filename}";
 			rr:termType rr:Literal
 		]
 	].
@@ -1040,7 +1040,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rdf:value;
 		rr:objectMap [
-			rr:template "https://sos-ch-dk-2.exo.io/hft-stabs-dls-test/{s3_path}{original_filename}";
+			rr:template "https://sos-ch-dk-2.exo.io/hfp-stabs-dls/{s3_path}{original_filename}";
 			rr:termType rr:Literal
 		]
 	].
