@@ -1,0 +1,29 @@
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
+PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
+PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
+
+SELECT ?records ?DLS_Link ?Stufe ?Signatur ?Titel ?Datum ?Abspieldauer ?fileURI
+WHERE {
+  GRAPH <https://ld.bs.ch/graph/ais-metadata> {
+    <https://ld.bs.ch/ais/Record/1645848> ^rico:isDirectlyIncludedIn* ?records .
+      ?records rico:hasRecordSetType ?Stufe ;
+              rico:identifier ?Signatur ;
+              rico:title ?Titel ;
+              dcterms:isReferencedBy ?DLS_Link
+              .
+      OPTIONAL { ?records rico:isAssociatedWithDate/rico:expressedDate ?Datum . }
+      OPTIONAL { ?records ^rico:isExtentOf ?extent .
+                 ?extent rico:hasExtentType stabs-ext:Dauer ;
+                        rico:quantity ?Abspieldauer 
+                        . }
+      OPTIONAL { ?inst rico:isOrWasDigitalInstantiationOf ?records ;
+                      ^relSubType:isp/premis:storedAt/rdf:value ?fileURI
+                      . }
+  }
+}

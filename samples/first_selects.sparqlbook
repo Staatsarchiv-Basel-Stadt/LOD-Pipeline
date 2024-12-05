@@ -1,0 +1,16 @@
+[
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# Telebasel\n\nSELECT aller Datenelemente, die zum Import des Archivs von Telebasel in die [Memobase](https://memobase.ch/) benötigt werden, inkl. der Links auf die digitalen Benutzungskopien für Streaming:\n\n*  Ausgangspunkt ist der Record des [Fonds **StABS PÖA-REG 17**](https://dls.staatsarchiv.bs.ch/records/1645848)\n* Umfasst alle inkludierten (untergeordneten) Records\n* Soweit benötigt weitere Metadaten wie Umfang (Abspieldauer der Videos), Datum, Titel, Signatur, etc.\n* gibt die URI der verlinkten digitalen Objekte aus",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# from file queries/select_telebasel.rq\nPREFIX void: <http://rdfs.org/ns/void#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX schema: <http://schema.org/>\nPREFIX dcterms: <http://purl.org/dc/terms/>\nPREFIX rico: <https://www.ica.org/standards/RiC/ontology#>\nPREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>\nPREFIX premis: <http://www.loc.gov/premis/rdf/v3/>\nPREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>\n\nSELECT ?records ?DLS_Link ?Stufe ?Signatur ?Titel ?Datum ?Abspieldauer ?fileURI\nWHERE {\n  GRAPH <https://ld.bs.ch/graph/ais-metadata> {\n    <https://ld.bs.ch/ais/Record/1645848> ^rico:isDirectlyIncludedIn* ?records .\n      ?records rico:hasRecordSetType ?Stufe ;\n              rico:identifier ?Signatur ;\n              rico:title ?Titel ;\n              dcterms:isReferencedBy ?DLS_Link\n              .\n      OPTIONAL { ?records rico:isAssociatedWithDate/rico:expressedDate ?Datum . }\n      OPTIONAL { ?records ^rico:isExtentOf ?extent .\n                 ?extent rico:hasExtentType stabs-ext:Dauer ;\n                        rico:quantity ?Abspieldauer \n                        . }\n      OPTIONAL { ?inst rico:isOrWasDigitalInstantiationOf ?records ;\n                      ^relSubType:isp/premis:storedAt/rdf:value ?fileURI\n                      . }\n  }\n}",
+    "metadata": {
+      "file": "queries/select_telebasel.rq"
+    }
+  }
+]
