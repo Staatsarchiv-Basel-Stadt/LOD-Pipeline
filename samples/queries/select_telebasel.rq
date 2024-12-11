@@ -1,3 +1,5 @@
+
+
 PREFIX void: <http://rdfs.org/ns/void#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -8,22 +10,90 @@ PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubTyp
 PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 
-SELECT ?records ?DLS_Link ?Stufe ?Signatur ?Titel ?Datum ?Abspieldauer ?fileURI
+SELECT ?ID ?record ?Signatur ?Titel ?DLS_Link (GROUP_CONCAT(?Serie; separator="|") as ?Serien) (GROUP_CONCAT(?SerieTitel; separator="|") as ?SerienTitel) (GROUP_CONCAT(?SerieID; separator="|") as ?SerienID) (GROUP_CONCAT(?SerieDatum; separator="|") as ?SerienDatum) ?Datum ?finalDate ?Abspieldauer ?fileURI ?conditionsOfAccess ?conditionsOfUse ?accessType ?description ?subject ?scopeAndContent
+
 WHERE {
   GRAPH <https://ld.bs.ch/graph/ais-metadata> {
-    <https://ld.bs.ch/ais/Record/1645848> ^rico:isDirectlyIncludedIn* ?records .
-      ?records rico:hasRecordSetType ?Stufe ;
-              rico:identifier ?Signatur ;
+    <https://ld.bs.ch/ais/Record/1645848> ^rico:isDirectlyIncludedIn* ?record .
+    
+    # Exclude recordSet types Fonds, Bestand and Serie
+    FILTER NOT EXISTS { ?record rico:hasRecordSetType <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/Fonds> .}
+    FILTER NOT EXISTS { ?record rico:hasRecordSetType <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/Bestand> .}
+    FILTER NOT EXISTS { ?record rico:hasRecordSetType <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/Serie> .}
+    
+     ?record rico:hasRecordSetType ?Stufe ;
+              rico:identifier ?Signatur  ;
               rico:title ?Titel ;
-              dcterms:isReferencedBy ?DLS_Link
-              .
-      OPTIONAL { ?records rico:isAssociatedWithDate/rico:expressedDate ?Datum . }
-      OPTIONAL { ?records ^rico:isExtentOf ?extent .
-                 ?extent rico:hasExtentType stabs-ext:Dauer ;
-                        rico:quantity ?Abspieldauer 
-                        . }
-      OPTIONAL { ?inst rico:isOrWasDigitalInstantiationOf ?records ;
-                      ^relSubType:isp/premis:storedAt/rdf:value ?fileURI
-                      . }
+              dcterms:isReferencedBy ?DLS_Link.
+    
+    BIND ( substr(str(?record),29) AS ?ID)
+    
+    ?record rico:isDirectlyIncludedIn* ?Serie .
+    ?Serie rico:hasRecordSetType <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/Serie> ;
+           rico:identifier ?SerieID;
+           rico:title ?SerieTitel .
+    OPTIONAL { ?Serie rico:isAssociatedWithDate/rico:expressedDate ?SerieDatum . } # doesn't work, no date for <https://ld.bs.ch/ais/Record/1646847> => to check
+    
+    OPTIONAL { ?record rico:isAssociatedWithDate/rico:expressedDate ?Datum . 
+      # Two options: single date or date range
+      BIND (IF(contains(?Datum, "-"), ?Datum, "Null") AS ?DateRange)
+      BIND (IF(contains(?Datum, "-"), "Null", ?Datum) AS ?SingleDate)
+      # Single date => extract year, month and day
+      BIND (replace(?SingleDate,"(\\d{4}).?(\\d{1,2})?.?(\\d{1,2})?", "$1") AS ?SingleDateYear)
+      BIND (replace(?SingleDate,"(\\d{4}).?(\\d{1,2})?.?(\\d{1,2})?", "$2") AS ?SingleDateMonth)
+      BIND (replace(?SingleDate,"(\\d{4}).?(\\d{1,2})?.?(\\d{1,2})?", "$3") AS ?SingleDateDay)
+      # Single date => normalize month and day
+      BIND (IF(strlen(?SingleDateMonth) < 2, concat("0",?SingleDateMonth), ?SingleDateMonth) AS ?SingleDateMonth1)
+      BIND (IF(strlen(?SingleDateDay) < 2, concat("0",?SingleDateDay), ?SingleDateDay) AS ?SingleDateDay1)
+      # Date range
+      BIND (strbefore(?DateRange,"-") AS ?fromDate)
+      BIND (strafter(?DateRange,"-") AS ?toDate)
+      # Date range => extract year, month, day from first date
+      BIND (replace(?fromDate,"(\\d{4}).?(\\d{1,2})?.?(\\d{1,2})?", "$1") AS ?fromDateYear)
+      BIND (replace(?fromDate,"(\\d{4}).?(\\d{1,2})?.?(\\d{1,2})?", "$2") AS ?fromDateMonth)
+      BIND (replace(?fromDate,"(\\d{4}).?(\\d{1,2})?.?(\\d{1,2})?", "$3") AS ?fromDateDay)
+      # Date range => normalize month and day of first date
+      BIND (IF(strlen(?fromDateMonth) < 2, concat("0",?fromDateMonth), ?fromDateMonth) AS ?fromDateMonth1)
+      BIND (IF(strlen(?fromDateDay) < 2, concat("0",?fromDateDay), ?fromDateDay) AS ?fromDateDay1)
+      # Date range => extract year, month, day from second date
+      BIND (replace(?toDate,"(\\d{4}).?(\\d{1,2})?.?(\\d{1,2})?", "$1") AS ?toDateYear)
+      BIND (replace(?toDate,"(\\d{4}).?(\\d{1,2})?.?(\\d{1,2})?", "$2") AS ?toDateMonth)
+      BIND (replace(?toDate,"(\\d{4}).?(\\d{1,2})?.?(\\d{1,2})?", "$3") AS ?toDateDay)
+      # Date range => normalize month and day of second date
+      BIND (IF(strlen(?toDateMonth) < 2, concat("0",?toDateMonth), ?toDateMonth) AS ?toDateMonth1)
+      BIND (IF(strlen(?toDateDay) < 2, concat("0",?toDateDay), ?toDateDay) AS ?toDateDay1)
+      # Cases
+      BIND ( 
+        COALESCE(
+          IF(contains(?Datum, "-"),
+            COALESCE(
+          		IF(strlen(?fromDateDay) = 0 && strlen(?fromDateMonth) = 0, concat(?fromDateYear,"-",?toDateYear), 1/0),
+            	concat(?fromDateDay1,".",?fromDateMonth1,".",?fromDateYear,"-",?toDateDay1,".",?toDateMonth1,".",?toDateYear) ), 
+            COALESCE(
+    			IF(strlen(?SingleDateDay) = 0 && strlen(?SingleDateMonth) = 0, ?SingleDateYear, 1/0),
+          		IF(strlen(?SingleDateDay) = 0, concat(?SingleDateMonth1, ".", ?SingleDateYear), 1/0),
+            	concat(?SingleDateDay1,  ".", ?SingleDateMonth1, ".", ?SingleDateYear) ))
+        ) AS ?finalDate)      
+    }
+    OPTIONAL { 
+      ?record ^rico:isExtentOf ?extent .
+      ?extent rico:hasExtentType stabs-ext:Dauer ;
+              rico:quantity ?Abspieldauer . }
+    OPTIONAL { ?inst rico:isOrWasDigitalInstantiationOf ?record ;
+                     ^relSubType:isp/premis:storedAt/rdf:value ?fileURI. }
+    
+    OPTIONAL {?record rico:conditionsOfAccess ?conditionsOfAccess .}
+    OPTIONAL {?record rico:conditionsOfUse ?conditionsOfUse .
+      BIND(
+      COALESCE (
+        IF(regex(str(?conditionsOfUse), "Oeffentlich"), "public", 1/0),
+        IF(regex(str(?conditionsOfUse), "Freigegeben für Online-Zugänglichkeit"), "public", 1/0),
+        "private" ) as ?accessType)
+    }
+    OPTIONAL {?record rico:generalDescription ?description .}
+    OPTIONAL {?record rico:hasOrHadMainSubject ?subject .}
+    OPTIONAL {?record rico:scopeAndContent ?scopeAndContent .}
+    
   }
 }
+GROUP BY ?ID ?record ?Signatur ?Titel ?DLS_Link ?Datum ?finalDate ?Abspieldauer ?fileURI ?conditionsOfAccess ?conditionsOfUse ?accessType ?description ?subject ?scopeAndContent
