@@ -1,5 +1,4 @@
 
-
 PREFIX void: <http://rdfs.org/ns/void#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -9,30 +8,34 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
 PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
+PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
 
-SELECT ?ID ?record ?Signatur ?Titel ?DLS_Link (GROUP_CONCAT(?Serie; separator="|") as ?Serien) (GROUP_CONCAT(?SerieTitel; separator="|") as ?SerienTitel) (GROUP_CONCAT(?SerieID; separator="|") as ?SerienID) (GROUP_CONCAT(?SerieDatum; separator="|") as ?SerienDatum) ?Datum ?finalDate ?Abspieldauer ?fileURI ?conditionsOfAccess ?conditionsOfUse ?accessType ?description ?subject ?scopeAndContent
+SELECT ?ID ?record ?Signatur ?Titel ?DLS_Link (GROUP_CONCAT(?Serie; separator="|") as ?Serien) (GROUP_CONCAT(?SerieTitel; separator="|") as ?SerienTitel) (GROUP_CONCAT(?Seriesignatur; separator="|") as ?SerienID) (GROUP_CONCAT(?SerieDatum; separator="|") as ?SerienDatum) ?Datum ?finalDate ?Abspieldauer ?fileURI ?conditionsOfAccess ?conditionsOfUse ?accessType ?description ?subject ?scopeAndContent
 
 WHERE {
   GRAPH <https://ld.bs.ch/graph/ais-metadata> {
     <https://ld.bs.ch/ais/Record/1645848> ^rico:isDirectlyIncludedIn* ?record .
     
     # Exclude recordSet types Fonds, Bestand and Serie
-    FILTER NOT EXISTS { ?record rico:hasRecordSetType <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/Fonds> .}
-    FILTER NOT EXISTS { ?record rico:hasRecordSetType <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/Bestand> .}
-    FILTER NOT EXISTS { ?record rico:hasRecordSetType <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/Serie> .}
+    FILTER NOT EXISTS { ?record rico:hasRecordSetType stabs-rst:Fonds . }
+    FILTER NOT EXISTS { ?record rico:hasRecordSetType stabs-rst:Bestand . }
+    FILTER NOT EXISTS { ?record rico:hasRecordSetType stabs-rst:Serie . }
     
-     ?record rico:hasRecordSetType ?Stufe ;
-              rico:identifier ?Signatur  ;
-              rico:title ?Titel ;
-              dcterms:isReferencedBy ?DLS_Link.
+    ?record rico:hasRecordSetType ?Stufe ;
+            rico:identifier ?Signatur  ;
+            rico:title ?Titel ;
+            dcterms:isReferencedBy ?DLS_Link .
     
     BIND ( substr(str(?record),29) AS ?ID)
     
-    ?record rico:isDirectlyIncludedIn* ?Serie .
-    ?Serie rico:hasRecordSetType <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/Serie> ;
-           rico:identifier ?SerieID;
-           rico:title ?SerieTitel .
-    OPTIONAL { ?Serie rico:isAssociatedWithDate/rico:expressedDate ?SerieDatum . } # doesn't work, no date for <https://ld.bs.ch/ais/Record/1646847> => to check
+    # Get information on series (filter by Type=Serie, Signatur containing a '()')
+    ?record rico:isDirectlyIncludedIn+ ?Serie .
+    ?Serie  rico:hasRecordSetType ?Serietyp ;
+    		    rico:identifier ?Seriesignatur .
+    FILTER (?Serietyp IN ( stabs-rst:Serie )) .
+    FILTER (contains(?Seriesignatur , '(')) .
+    ?Serie rico:title ?SerieTitel ;
+           rico:isAssociatedWithDate/rico:expressedDate ?SerieDatum . 
     
     OPTIONAL { ?record rico:isAssociatedWithDate/rico:expressedDate ?Datum . 
       # Two options: single date or date range
