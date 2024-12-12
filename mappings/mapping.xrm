@@ -19,7 +19,6 @@ map rr_stabs from stabs_ogd.rr_base {
     rico.generalDescription from ANMERKUNGEN with language-tag ger;
 //    rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15, geht aber nicht mit dynamischen Werten
     dct.isReferencedBy template dlsURI with ID_NR;
-    rdfs.seeAlso template dlsURI with ID_NR;
 }
 
 /* Description Level Classes
@@ -377,41 +376,11 @@ map inst_01 from stabs_ogd.free_digital_inst {
 
   types
     premis.File
-    schema.MediaObject
 
   properties
     relSubType.isp template digiinstURI with ID_NR;
     premis.storedAt template storageURI with identifier;
-    schema.contentUrl template contentLocationURI with s3_path original_filename as Literal;
  }
-
-//  map file_audio from stabs_ogd.media_type_audio {
-//   subject template fileURI with identifier;
-
-//   types
-//     schema.AudioObject
-//  }
-
-//  map file_txt from stabs_ogd.media_type_txt {
-//   subject template fileURI with identifier;
-
-//   types
-//     schema.TextObject
-//  }
-
-//  map file_video from stabs_ogd.media_type_video {
-//   subject template fileURI with identifier;
-
-//   types
-//     schema.VideoObject
-//  }
-
-//  map file_warc from stabs_ogd.media_type_warc {
-//   subject template fileURI with identifier;
-
-//   types
-//     schema.MediaObject
-//  }
 
  /* Storage */
 
