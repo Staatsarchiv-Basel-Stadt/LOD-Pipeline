@@ -35,6 +35,8 @@ DST_DIR="input"
 # IFS=$OLD_IFS
 
 # TODO: Remove this line
-mc cp "bucket/${S3_BUCKET}/prod/files_large-1-20241211-142941.json" "${DST_DIR}/StABS_files.json"
+echo "List files that are on prod"
+mc ls "bucket/${S3_BUCKET}/prod"
+# mc cp "bucket/${S3_BUCKET}/prod/files_large-1-20241211-142941.json" "${DST_DIR}/StABS_files.json"
 
 exit 0
