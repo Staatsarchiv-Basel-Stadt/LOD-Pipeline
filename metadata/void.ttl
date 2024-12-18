@@ -69,7 +69,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     schema:alternateName "StABS" ;
     schema:url <https://www.bs.ch/staatsarchiv> , <https://staatskalender.bs.ch/organization/regierung-und-verwaltung/praesidialdepartement/abteilung-kultur/staatsarchiv> ;
     schema:identifier <https://culture.ld.admin.ch/isil/CH-000027-1> ;
-    rdfs:seeAlso wd:Q56219654
+    owl:sameAs wd:Q56219654
     .
 
 ##
@@ -80,7 +80,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     schema:name "scopeArchiv" ;
     schema:description "scopeArchiv™ ist eine umfassende Archivsoftware für öffentliche und private Archive."@de ;
     schema:url <https://www.scope.ch> ;
-    rdfs:seeAlso wd:Q2260520
+    owl:sameAs wd:Q2260520
     .
 
 <sys/DLS> owl:sameAs <sys/agora>
@@ -120,7 +120,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:creator <org/staatsarchiv> ;
     dcterms:publisher <org/fachstelle-ogd> ;
     dcterms:source <sys/scopeArchiv> ;
-    dcterms:source <sys/agora>, <sys/DLS> ;
+    dcterms:source <sys/agora> ;
     dcterms:licence <https://creativecommons.org/publicdomain/zero/1.0/> ;
     dcterms:created "1999"^^xsd:gYear ;
     dcterms:temporal <Date/1098/2023> ;
