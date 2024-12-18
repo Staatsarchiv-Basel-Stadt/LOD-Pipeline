@@ -35,6 +35,8 @@ github:
 # fetch the latest full import from the S3 bucket
 fetch-test:
   stage: fetch
+  resource_group: test
+  interruptible: true
   image:
     name: docker.io/bitnami/minio-client:latest
   artifacts:
@@ -50,6 +52,8 @@ fetch-test:
     - main
 fetch-prod:
   stage: fetch
+  resource_group: prod
+  interruptible: true
   image:
     name: docker.io/bitnami/minio-client:latest
   artifacts:
@@ -85,6 +89,8 @@ metadata:
 # run the pipeline on each splitted part that are generated within this step
 process-test:
   stage: process
+  resource_group: test
+  interruptible: true
   dependencies:
     - fetch-test
   artifacts:
@@ -104,6 +110,8 @@ process-test:
     - main
 process-prod:
   stage: process
+  resource_group: prod
+  interruptible: true
   dependencies:
     - fetch-prod
   artifacts:
@@ -127,6 +135,8 @@ process-prod:
 # store triples in the triplestore
 store-test:
   stage: store
+  resource_group: test
+  interruptible: true
   dependencies:
     - metadata
     - process-test
@@ -139,6 +149,8 @@ store-test:
     - develop
 store-prod:
   stage: store
+  resource_group: prod
+  interruptible: true
   dependencies:
     - metadata
     - process-prod

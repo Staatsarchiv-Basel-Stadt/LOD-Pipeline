@@ -12,7 +12,7 @@ DST_DIR="output"
 generate_one_entry_per_line () {
   local file_name="$1"
 
-  jq -cM '.[]' "${file_name}" > "${file_name}.tmp"
+  jq --stream -cM 'fromstream(1|truncate_stream(inputs))' "${file_name}" > "${file_name}.tmp"
   rm -f "${file_name}"
   mv "${file_name}.tmp" "${file_name}"
 }
