@@ -37,6 +37,8 @@ DST_DIR="input"
 # TODO: Remove this line
 echo "List files that are on prod"
 mc ls "bucket/${S3_BUCKET}/prod"
+echo "List files that are at the root of the bucket"
+mc ls "bucket/${S3_BUCKET}"
 # mc cp "bucket/${S3_BUCKET}/prod/files_large-1-20241211-142941.json" "${DST_DIR}/StABS_files.json"
 
 exit 0
