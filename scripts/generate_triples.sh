@@ -1,13 +1,13 @@
 #!/bin/sh
 
-# Make the script crash in case of issue
-set -eu
-
 if [ -z "${CARML_SERVICE}" ]; then
   CARML_SERVICE="https://carml.zazukoians.org/"
   # CARML_SERVICE="http://localhost:8080/"
 fi
 export CARML_SERVICE
+
+# Make the script crash in case of issue
+set -eu
 
 # Make sure the output directory exists
 mkdir -p output
