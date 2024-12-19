@@ -72,6 +72,7 @@ fetch-prod:
 npm-deps:
   stage: fetch
   timeout: 5 minutes
+  image: docker.io/library/node:22
   retry: 2
   artifacts:
     expire_in: 1 day
