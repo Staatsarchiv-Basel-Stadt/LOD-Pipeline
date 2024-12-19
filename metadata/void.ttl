@@ -115,9 +115,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 ## Time span (Temporal Coverage)
 ##
 
-<Date/1098/2022> a dcterms:PeriodOfTime ;
+<Date/1098/2024> a dcterms:PeriodOfTime ;
     schema:startDate "1098"^^xsd:gYear ;
-    schema:endDate "2023"^^xsd:gYear
+    schema:endDate "2024"^^xsd:gYear
     .
 
 ##
@@ -135,7 +135,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:source <sys/agora> ;
     dcterms:licence <https://creativecommons.org/publicdomain/zero/1.0/> ;
     dcterms:created "1999"^^xsd:gYear ;
-    dcterms:temporal <Date/1098/2023> ;
+    dcterms:temporal <Date/1098/2024> ;
     dcterms:accrualPeriodicity freq:irregular ;
     dcterms:subject wd:Q30216914, wd:Q178376, wd:Q5146094, wd:Q180160 ;
     doap:repository <sys/LOD-Pipeline> ;
