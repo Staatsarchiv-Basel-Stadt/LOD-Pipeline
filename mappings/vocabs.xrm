@@ -917,12 +917,16 @@ vocabulary schema {
 		ImageObject
 		MediaObject
 		Organization
+		PostalAddress
 		TextObject
 		Thing
 		VideoObject
 
 	properties
 		address
+		addressCountry
+		addressLocality
+		addressRegion
 		contentUrl
 		email
 		encodingFormat
@@ -931,7 +935,9 @@ vocabulary schema {
 		funder
 		identifier
 		location
+		postalCode
 		sameAs
+		streetAddress
 		telephone
 		thumbnail
 		url

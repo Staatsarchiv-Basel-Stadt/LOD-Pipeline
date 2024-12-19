@@ -65,11 +65,23 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 ##
 
 <org/staatsarchiv> a schema:GovernmentOrganization, schema:ArchiveOrganization, rico:CorporateBody ;
-    schema:name "Staatsarchiv Basel-Stadt"@de , "State Archives of Basel-Stadt"@en ;
+    schema:name "Staatsarchiv Basel-Stadt"@de , "State Archives of Basel-Stadt"@en, "Archives de l'État de Bâle-Ville"@fr ;
+    schema:address <org/staatsarchiv/address> ;
     schema:alternateName "StABS" ;
-    schema:url <https://www.bs.ch/staatsarchiv> , <https://staatskalender.bs.ch/organization/regierung-und-verwaltung/praesidialdepartement/abteilung-kultur/staatsarchiv> ;
+    schema:email "stabs@bs.ch" ;
+    schema:telephone "+41 61 267 86 01" ;
+    schema:url <https://www.bs.ch/pd/kultur/museen-und-andere-dienststellen/staatsarchiv> , <https://staatskalender.bs.ch/organization/regierung-und-verwaltung/praesidialdepartement/abteilung-kultur/staatsarchiv>, <https://www.isil.nb.admin.ch/isil/CH-000027-1> ;
     schema:identifier <https://culture.ld.admin.ch/isil/CH-000027-1> ;
-    owl:sameAs wd:Q56219654
+    owl:sameAs wd:Q56219654 , <https://culture.ld.admin.ch/isil/CH-000027-1/organization>
+    .
+
+<org/staatsarchiv/address> a schema:PostalAddress ;
+    schema:addressCountry "CH" ;
+    schema:addressLocality "Basel"@de , "Basel"@en , "Bâle"@fr  ;
+    schema:addressRegion "BS" ;
+    schema:postalCode "CH-4001" ;
+    schema:streetAddress "Martinsgasse 2" ;
+    owl:sameAs <https://culture.ld.admin.ch/isil/CH-000027-1/address>
     .
 
 ##
