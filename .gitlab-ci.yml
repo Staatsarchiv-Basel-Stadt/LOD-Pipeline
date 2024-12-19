@@ -71,6 +71,8 @@ fetch-prod:
 # Install npm dependencies
 npm-deps:
   stage: fetch
+  timeout: 5 minutes
+  retry: 2
   artifacts:
     expire_in: 1 day
     paths:
