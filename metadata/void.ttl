@@ -31,7 +31,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sd:supportedLanguage sd:SPARQL11Query ;
     sd:feature sd:DereferencesURIs , sd:UnionDefaultGraph ;
     sd:availableGraphs <graphs> ;
-    sd:resultFormat formats:Turtle, formats:JSON-LD , formats:N3 , formats:RDF_XML , formats:SPARQL_Results_JSON , formats:SPARQL_Results_CSV ;
+    sd:resultFormat formats:Turtle , formats:JSON-LD , formats:N3 , formats:RDF_XML , formats:SPARQL_Results_JSON , formats:SPARQL_Results_CSV ;
     .
 
 <graphs> a sd:Dataset ;
@@ -64,8 +64,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 ## Organizations
 ##
 
-<org/staatsarchiv> a schema:GovernmentOrganization, schema:ArchiveOrganization, rico:CorporateBody ;
-    schema:name "Staatsarchiv Basel-Stadt"@de , "State Archives of Basel-Stadt"@en, "Archives de l'État de Bâle-Ville"@fr ;
+<org/staatsarchiv> a schema:GovernmentOrganization , schema:ArchiveOrganization , rico:CorporateBody ;
+    schema:name "Staatsarchiv Basel-Stadt"@de , "State Archives of Basel-Stadt"@en , "Archives de l'État de Bâle-Ville"@fr ;
     schema:address <org/staatsarchiv/address> ;
     schema:alternateName "StABS" ;
     schema:email "stabs@bs.ch" ;
@@ -88,7 +88,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 ## Information systems (Software)
 ##
 
-<sys/scopeArchiv> a schema:SoftwareApplication, rico:Mechanism ;
+<sys/scopeArchiv> a schema:SoftwareApplication , rico:Mechanism ;
     schema:name "scopeArchiv" ;
     schema:description "scopeArchiv™ ist eine umfassende Archivsoftware für öffentliche und private Archive."@de ;
     schema:url <https://www.scope.ch> ;
@@ -104,7 +104,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     schema:url <https://www.histify.com/agora>
     .
 
-<sys/LOD-Pipeline> a doap:GitRepository, rico:Mechanism ;
+<sys/LOD-Pipeline> a doap:GitRepository , rico:Mechanism ;
     schema:name "LOD-Pipeline" ;
     schema:description "Die LOD-Pipeline des Staatsarchivs Basel-Stadt transformiert öffentliche Daten des Archivinformationssystem nach RDF und erstellt damit die Grundlage für archivische Linked Open Data."@de ;
     doap:browse <https://github.com/Staatsarchiv-Basel-Stadt/LOD-Pipeline> ;
@@ -137,18 +137,25 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:created "1999"^^xsd:gYear ;
     dcterms:temporal <date/coverage> ;
     dcterms:accrualPeriodicity freq:irregular ;
-    dcterms:subject wd:Q30216914, wd:Q178376, wd:Q5146094, wd:Q180160 ;
+    dcterms:subject wd:Q30216914 , wd:Q178376 , wd:Q5146094 , wd:Q180160 ;
     doap:repository <sys/LOD-Pipeline> ;
     void:sparqlEndpoint <sparql> ;
     void:vocabulary
-        <https://www.ica.org/standards/RiC/ontology>,
-        <http://www.w3.org/2004/02/skos/core> ;
+        <https://www.ica.org/standards/RiC/ontology> ,
+        <http://www.w3.org/2004/02/skos/core> ,
+        <http://schema.org/> ,
+        <http://www.loc.gov/premis/rdf/v3/> ,
+        <http://purl.org/dc/terms/> 
+        ;
     void:uriSpace
-        "https://ld.bs.ch/ais/Record/",
-        "https://ld.bs.ch/ais/Agent/",
-        "https://ld.bs.ch/ais/Event/",
-        "https://ld.bs.ch/ais/Place/" ;
-    void:triples "13623081"^^xsd:integer ;
+        "https://ld.bs.ch/ais/Record/" ,
+        "https://ld.bs.ch/ais/Agent/" ,
+        "https://ld.bs.ch/ais/Event/" ,
+        "https://ld.bs.ch/ais/Place/" ,
+        "https://ld.bs.ch/ais/Instantiation/" ,
+        "https://ld.bs.ch/ais/File/"
+         ;
+    void:triples "14947597"^^xsd:integer ;
     void:distinctSubjects "3000000"^^xsd:integer ;
     void:properties "120"^^xsd:integer
     .
