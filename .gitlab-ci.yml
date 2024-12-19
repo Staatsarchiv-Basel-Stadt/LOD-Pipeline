@@ -71,6 +71,9 @@ fetch-prod:
 # Install npm dependencies
 npm-deps:
   stage: fetch
+  timeout: 5 minutes
+  image: docker.io/library/node:22
+  retry: 2
   artifacts:
     expire_in: 1 day
     paths:
@@ -112,7 +115,6 @@ process-test:
     CARML_SERVICE: "http://carml-service:8080/"
   script:
     - ./scripts/splitter.sh
-    - npm ci
     - ./scripts/generate_triples.sh
   except:
     - main
@@ -133,7 +135,6 @@ process-prod:
     CARML_SERVICE: "http://carml-service:8080/"
   script:
     - ./scripts/splitter.sh
-    - npm ci
     - ./scripts/generate_triples.sh
   environment:
     name: prod
