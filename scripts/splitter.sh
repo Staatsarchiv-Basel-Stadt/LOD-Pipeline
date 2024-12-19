@@ -12,7 +12,13 @@ DST_DIR="output"
 generate_one_entry_per_line () {
   local file_name="$1"
 
-  jq --stream -cM 'fromstream(1|truncate_stream(inputs))' "${file_name}" > "${file_name}.tmp"
+  {
+    # The '[[0,"debug"],"debug"]' is a workaround
+    # to avoid an issue where the first entry of the first object is missing
+    # so we add a dummy entry at the beginning
+    echo '[[0,"debug"],"debug"]'
+    jq --stream -cM '.' "${file_name}"
+  } | jq -cM 'fromstream(1|truncate_stream(inputs))' > "${file_name}.tmp"
   rm -f "${file_name}"
   mv "${file_name}.tmp" "${file_name}"
 }
