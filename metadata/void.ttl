@@ -141,8 +141,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     doap:repository <sys/LOD-Pipeline> ;
     void:sparqlEndpoint <sparql> ;
     void:vocabulary
-        <https://www.ica.org/standards/RiC/ontology> ,
-        <http://www.w3.org/2004/02/skos/core> ,
+        <https://www.ica.org/standards/RiC/ontology#> ,
+        <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#> ,
+        <http://www.w3.org/2004/02/skos/core#> ,
         <http://schema.org/> ,
         <http://www.loc.gov/premis/rdf/v3/> ,
         <http://purl.org/dc/terms/> 
