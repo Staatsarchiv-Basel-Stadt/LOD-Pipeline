@@ -370,11 +370,21 @@ map inst_02 from stabs_ogd.video_inst {
 
   types
     rico.Instantiation
+    ebucore.MediaResource
+    ebucoreplus.MediaResource
 
   properties
     rico.isOrWasAnalogueInstantiationOf template rrURI with ID_NR;
     rico.identifier template "{0}-vi01" with ID_NR as Literal;
     rico.hasCarrierType constant rdact._1052;
+    ebucore.hasFormat from FORMAT_VIDEO;
+    ebucoreplus.hasFormat from FORMAT_VIDEO;
+    ebucore.hasVideoCodec from CODIERUNG;
+    ebucoreplus.hasVideoCodec from CODIERUNG;
+    ebucore.hasColourSpace from FARBE_BILDBEARBEITUNG;
+    ebucoreplus.hasColourSpace from FARBE_BILDBEARBEITUNG;
+    ebucore.aspectRatio from BILDFORMAT_FILM;
+    ebucoreplus.aspectRatio from BILDFORMAT_FILM;
 }
 
 // map inst_02 from stabs_ogd.crstabs_digital_inst { // @todo: erstelle rico:Rule und verbinde RR und INST damit

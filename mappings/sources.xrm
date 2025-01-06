@@ -323,10 +323,11 @@ source-group stabs_ogd {
     iterator "$..[?(@.FORMAT_VIDEO)]"
 
     referenceables
-      ID_NR
-      FORMAT_VIDEO
-      CODIERUNG
       BILDFORMAT_FILM
+      CODIERUNG
+      FARBE_BILDBEARBEITUNG
+      FORMAT_VIDEO
+      ID_NR
   }
 
   // logical-source crstabs_digital_inst {

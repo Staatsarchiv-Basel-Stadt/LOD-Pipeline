@@ -1100,6 +1100,9 @@ vocabulary ebucoreplus {
 
 	properties
 		hasFormat
+		hasVideoCodec
+		hasColourSpace
+		aspectRatio
 }
 vocabulary premis {
 	prefix "premis" "http://www.loc.gov/premis/rdf/v3/"
