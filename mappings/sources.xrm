@@ -319,6 +319,16 @@ source-group stabs_ogd {
       ZUGAENGLICHKEIT_NM
   }
 
+  logical-source video_inst {
+    iterator "$..[?(@.FORMAT_VIDEO)]"
+
+    referenceables
+      ID_NR
+      FORMAT_VIDEO
+      CODIERUNG
+      BILDFORMAT_FILM
+  }
+
   // logical-source crstabs_digital_inst {
   //   iterator "$..[?(@.files_are_public == true && @.STATUS_URHEBER_RECHT =~ /^Staatsarchiv/)] "
 

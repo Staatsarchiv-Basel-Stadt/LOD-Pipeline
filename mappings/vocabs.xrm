@@ -197,7 +197,8 @@ vocabulary rdact {
 	prefix "rdact" "http://rdaregistry.info/termList/RDACarrierType/"
 
 	classes
-		_1018 "1018"
+		_1018 "1018" // online resource
+		_1052 "1052" // videocassette
 
 	properties
 }

@@ -341,8 +341,12 @@ map records_bib from stabs_ogd.rr_biblio {
 /  ---------------
 */
 
+/* freie digitale Instantiationen
+/
+*/
+
 map inst_01 from stabs_ogd.free_digital_inst {
-  subject template digiinstURI with ID_NR;
+  subject template freedigiinstURI with ID_NR;
 
   types
     rico.Instantiation
@@ -350,9 +354,8 @@ map inst_01 from stabs_ogd.free_digital_inst {
 
   properties
     rico.isOrWasDigitalInstantiationOf template rrURI with ID_NR;
-    rico.identifier template "{0}-di01" with ID_NR as Literal;
+    rico.identifier template "{0}-fr01" with ID_NR as Literal;
     rico.hasCarrierType constant rdact._1018;
-    rico.title from TITEL with language-tag ger;
 //    rico.hasProductionTechniqueType constant "rico:ProductionTechniqueType"; // @todo rico:ProductionTechniqueType
 //    rico.hasRepresentationType constant "http://rdaregistry.info/termList/RDAMediaType/1003"; // @todo, genauer mit mediatype auf files-Ebene, siehe auch rico:RepresentationType
 //    rico.instantiationExtent constant "anzahl dateien"; // @todo wenn möglich, Anzahl Dateien oder Dateigrösse(n). Kaum umsetzbar
@@ -360,8 +363,22 @@ map inst_01 from stabs_ogd.free_digital_inst {
 //    rico.hasOrHadLegalStatus from STATUS_URHEBER_RECHT with language-tag ger; // @todo: erstelle rico:Rule und verbinde RR und INST damit
 }
 
+/* Videoinstantiationen */
+
+map inst_02 from stabs_ogd.video_inst {
+  subject template videoinstURI with ID_NR;
+
+  types
+    rico.Instantiation
+
+  properties
+    rico.isOrWasAnalogueInstantiationOf template rrURI with ID_NR;
+    rico.identifier template "{0}-vi01" with ID_NR as Literal;
+    rico.hasCarrierType constant rdact._1052;
+}
+
 // map inst_02 from stabs_ogd.crstabs_digital_inst { // @todo: erstelle rico:Rule und verbinde RR und INST damit
-//   subject template digiinstURI with ID_NR;
+//   subject template freedigiinstURI with ID_NR;
 
 //   properties
 //     rico.hasOrHadIntellectualPropertyRightsHolder constant "https://ld.bs.ch/org/staatsarchiv";
@@ -378,7 +395,7 @@ map inst_01 from stabs_ogd.free_digital_inst {
     premis.File
 
   properties
-    relSubType.isp template digiinstURI with ID_NR;
+    relSubType.isp template freedigiinstURI with ID_NR;
     premis.storedAt template storageURI with identifier;
  }
 

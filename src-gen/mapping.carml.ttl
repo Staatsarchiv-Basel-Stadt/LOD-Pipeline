@@ -921,7 +921,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-di01";
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fr01";
 		rr:class rico:Instantiation;
 		rr:class premis:Representation
 	];
@@ -936,7 +936,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:identifier;
 		rr:objectMap [
-			rr:template "{ID_NR}-di01";
+			rr:template "{ID_NR}-fr01";
 			rr:termType rr:Literal
 		]
 	];
@@ -949,18 +949,49 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:title;
-		rr:objectMap [
-			rml:reference "TITEL";
-			rr:language "ger"
-		]
-	];
-	
-	rr:predicateObjectMap [
 		rr:predicate rico:physicalCharacteristicsNote;
 		rr:objectMap [
 			rml:reference "PHYSISCHE_BESCHAFFENHEIT";
 			rr:language "ger"
+		]
+	].
+	
+<#inst_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FORMAT_VIDEO)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-vi01";
+		rr:class rico:Instantiation
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasAnalogueInstantiationOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:identifier;
+		rr:objectMap [
+			rr:template "{ID_NR}-vi01";
+			rr:termType rr:Literal
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasCarrierType;
+		rr:objectMap [
+			rr:constant rdact:1052
 		]
 	].
 	
@@ -984,7 +1015,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate relSubType:isp;
 		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-di01"
+			rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fr01"
 		]
 	];
 	
