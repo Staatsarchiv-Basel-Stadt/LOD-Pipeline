@@ -53,13 +53,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:date;
-		rr:objectMap [
-			rml:reference "ENTSTEHUNGSZEITRAUM"
-		]
-	];
-	
-	rr:predicateObjectMap [
 		rr:predicate rico:scopeAndContent;
 		rr:objectMap [
 			rml:reference "DARIN";

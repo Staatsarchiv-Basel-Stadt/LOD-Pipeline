@@ -10,7 +10,6 @@ map rr_stabs from stabs_ogd.rr_base {
   properties
     rico.title from TITEL with language-tag ger;
     rico.identifier from SIGNATUR;
-    rico.date from ENTSTEHUNGSZEITRAUM;
     rico.scopeAndContent from DARIN with language-tag ger; // Hervorzuhebende Inhalte von 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
     rico.scopeAndContent from ENTHAELT with language-tag ger; // Hauptgegenstand von isadg 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
     rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
