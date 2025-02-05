@@ -1,5 +1,4 @@
 
-
 PREFIX void: <http://rdfs.org/ns/void#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -11,16 +10,21 @@ PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
 
-SELECT ?ID ?record ?Signatur ?Titel ?DLS_Link (GROUP_CONCAT(?Serie; separator="|") as ?Serien) (GROUP_CONCAT(?SerieTitel; separator="|") as ?SerienTitel) (GROUP_CONCAT(?Seriesignatur; separator="|") as ?SerienID) (GROUP_CONCAT(?SerieDatum; separator="|") as ?SerienDatum) ?Datum ?finalDate ?Abspieldauer ?fileURI ?conditionsOfAccess ?conditionsOfUse ?accessType ?description ?subject ?scopeAndContent
+SELECT ?ID ?record ?recordSetType ?Signatur ?Titel ?DLS_Link (GROUP_CONCAT(?Serie; separator="|") as ?Serien) (GROUP_CONCAT(?SerieTitel; separator="|") as ?SerienTitel) (GROUP_CONCAT(?Seriesignatur; separator="|") as ?SerienID) (GROUP_CONCAT(?SerieDatum; separator="|") as ?SerienDatum) ?Datum ?finalDate ?Abspieldauer ?fileURI ?conditionsOfAccess ?conditionsOfUse ?accessType ?description ?subject ?scopeAndContent ?genre ?keywords ?comments ?support
 
 WHERE {
   GRAPH <https://ld.bs.ch/graph/ais-metadata> {
     <https://ld.bs.ch/ais/Record/1645848> ^rico:isDirectlyIncludedIn* ?record .
     
+    # To test with just one record
+    #BIND (<https://ld.bs.ch/ais/Record/1875656> as ?record) .
+    
     # Exclude recordSet types Fonds, Bestand and Serie
     FILTER NOT EXISTS { ?record rico:hasRecordSetType stabs-rst:Fonds . }
     FILTER NOT EXISTS { ?record rico:hasRecordSetType stabs-rst:Bestand . }
     FILTER NOT EXISTS { ?record rico:hasRecordSetType stabs-rst:Serie . }
+    
+    OPTIONAL { ?record rico:hasRecordSetType ?recordSetType. }
     
     ?record rico:identifier ?Signatur  ;
             rico:title ?Titel ;
@@ -31,7 +35,7 @@ WHERE {
     # Get information on series (filter by Type=Serie, Signatur containing a '()')
     ?record rico:isDirectlyIncludedIn+ ?Serie .
     ?Serie  rico:hasRecordSetType ?Serietyp ;
-    		    rico:identifier ?Seriesignatur .
+            rico:identifier ?Seriesignatur .
     FILTER (?Serietyp IN ( stabs-rst:Serie )) .
     FILTER (contains(?Seriesignatur , '(')) .
     ?Serie rico:title ?SerieTitel ;
@@ -70,12 +74,12 @@ WHERE {
         COALESCE(
           IF(contains(?Datum, "-"),
             COALESCE(
-          		IF(strlen(?fromDateDay) = 0 && strlen(?fromDateMonth) = 0, concat(?fromDateYear,"-",?toDateYear), 1/0),
-            	concat(?fromDateDay1,".",?fromDateMonth1,".",?fromDateYear,"-",?toDateDay1,".",?toDateMonth1,".",?toDateYear) ), 
+              IF(strlen(?fromDateDay) = 0 && strlen(?fromDateMonth) = 0, concat(?fromDateYear,"-",?toDateYear), 1/0),
+              concat(?fromDateDay1,".",?fromDateMonth1,".",?fromDateYear,"-",?toDateDay1,".",?toDateMonth1,".",?toDateYear) ), 
             COALESCE(
-    			IF(strlen(?SingleDateDay) = 0 && strlen(?SingleDateMonth) = 0, ?SingleDateYear, 1/0),
-          		IF(strlen(?SingleDateDay) = 0, concat(?SingleDateMonth1, ".", ?SingleDateYear), 1/0),
-            	concat(?SingleDateDay1,  ".", ?SingleDateMonth1, ".", ?SingleDateYear) ))
+          IF(strlen(?SingleDateDay) = 0 && strlen(?SingleDateMonth) = 0, ?SingleDateYear, 1/0),
+              IF(strlen(?SingleDateDay) = 0, concat(?SingleDateMonth1, ".", ?SingleDateYear), 1/0),
+              concat(?SingleDateDay1,  ".", ?SingleDateMonth1, ".", ?SingleDateYear) ))
         ) AS ?finalDate)      
     }
     OPTIONAL { 
@@ -93,10 +97,17 @@ WHERE {
         IF(regex(str(?conditionsOfUse), "Freigegeben für Online-Zugänglichkeit"), "public", 1/0),
         "private" ) as ?accessType)
     }
-    OPTIONAL {?record rico:generalDescription ?description .}
+    OPTIONAL {?record rico:generalDescription ?description .
+    
+      BIND(STRBEFORE(STRAFTER(?description, "- Genre: "), "\n") AS ?genre)
+      BIND(STRBEFORE(STRAFTER(?description, "- Schlagworte: "), "\n") AS ?keywords)
+      BIND(STRBEFORE(STRAFTER(?description, "- Kommentare: "), "\n") AS ?comments)
+      BIND(STRAFTER(?description, "- Unterstützung bei der Erhaltung: ") AS ?support)
+    
+    }
     OPTIONAL {?record rico:hasOrHadMainSubject ?subject .}
     OPTIONAL {?record rico:scopeAndContent ?scopeAndContent .}
     
   }
 }
-GROUP BY ?ID ?record ?Signatur ?Titel ?DLS_Link ?Datum ?finalDate ?Abspieldauer ?fileURI ?conditionsOfAccess ?conditionsOfUse ?accessType ?description ?subject ?scopeAndContent
+GROUP BY ?ID ?record ?recordSetType ?Signatur ?Titel ?DLS_Link ?Datum ?finalDate ?Abspieldauer ?fileURI ?conditionsOfAccess ?conditionsOfUse ?accessType ?description ?subject ?scopeAndContent ?genre ?keywords ?comments ?support
