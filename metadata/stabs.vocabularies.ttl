@@ -9,6 +9,7 @@ PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-act: <https://ld.bs.ch/RiC/vocabularies/activityTypes/>
+PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crstatusTypes>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
@@ -279,6 +280,38 @@ stabs-tht:Ortsbegriffe a owl:NamedIndividual, skos:Concept ;
 	skos:definition "Thesaurus des Staatsarchivs Basel-Stadt zu Ortsnamen, die in den Verzeichnisinformationen enthalten sind."@de ;
 	skos:topConceptOf <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes>
 	.
+
+# Urheberrechtsstatus des StABS
+# -------------------------------
+# Definiert die im StABS verwendeten fünf Status für Urheberrechte auf Ebene Verzeichnungseinheit
+
+<https://ld.bs.ch/RiC/vocabularies/crstatusTypes> a owl:NamedIndividual, skos:ConceptScheme ;
+	dcterms:creator <https://ld.bs.ch/org/staatsarchiv> ;
+	dcterms:title "Urheberrechtsstatus"@de, "Copyright Status"@en ;
+	rdfs:label "Urheberrechtsstatus"@de, "Copyright Status"@en ;
+	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Urhberrechtsstatus"@de ;
+	skos:hasTopConcept stabs-crs:public-domain, stabs-crs:state-archives-bs, stabs-crs:unknown, stabs-crs:creator, stabs-crs:orphaned
+	.
+
+stabs-tht:public-domain a owl:NamedIndividual, skos:Concept ;
+	rdfs:label "Personenbegriffe"@de ;
+	skos:prefLabel "Personenbegriffe"@de ;
+	skos:definition "Thesaurus des Staatsarchivs Basel-Stadt zu natürlichen und juristischen Personen, die in den Verzeichnisinformationen enthalten sind."@de ;
+	skos:topConceptOf <https://ld.bs.ch/RiC/vocabularies/crstatusTypes>
+	.
+
+stabs-crs:state-archives-bs
+stabs-crs:unknown
+
+stabs-crs:creator
+
+stabs-crs:orphaned
+stabs-tht:Ortsbegriffe a owl:NamedIndividual, skos:Concept ;
+	rdfs:label "Ortsbegriffe"@de ;
+	skos:prefLabel "Ortsbegriffe"@de ;
+	skos:definition "Thesaurus des Staatsarchivs Basel-Stadt zu Ortsnamen, die in den Verzeichnisinformationen enthalten sind."@de ;
+	skos:topConceptOf <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes>
+	.	
 # ActivityTypes des StABS
 # -----------------------
 # Definiert die im StABS verwendeten Typen von Aktivitäten
