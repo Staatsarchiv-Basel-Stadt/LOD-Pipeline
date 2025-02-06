@@ -1,3 +1,4 @@
+PREFIX cc: <https://creativecommons.org/ns#>
 PREFIX dc11: <http://purl.org/dc/elements/1.1/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -294,24 +295,41 @@ stabs-tht:Ortsbegriffe a owl:NamedIndividual, skos:Concept ;
 	.
 
 stabs-tht:public-domain a owl:NamedIndividual, skos:Concept ;
-	rdfs:label "Personenbegriffe"@de ;
-	skos:prefLabel "Personenbegriffe"@de ;
-	skos:definition "Thesaurus des Staatsarchivs Basel-Stadt zu natürlichen und juristischen Personen, die in den Verzeichnisinformationen enthalten sind."@de ;
+	rdfs:label "Gemeinfrei: Das Werk darf frei verwendet werden."@de ;
+	skos:prefLabel "Gemeinfrei: Das Werk darf frei verwendet werden."@de ;
+	skos:definition "[ausstehend]"@de ;
+	owl:sameAs <https://creativecommons.org/publicdomain/mark/1.0/> ;
 	skos:topConceptOf <https://ld.bs.ch/RiC/vocabularies/crstatusTypes>
 	.
 
-stabs-crs:state-archives-bs
-stabs-crs:unknown
+stabs-crs:state-archives-bs a owl:NamedIndividual, skos:Concept ;
+	rdfs:label "Staatsarchiv Basel-Stadt: Die urheberrechtlichen Nutzungsrechte liegen beim Staatsarchiv Basel-Stadt. Es gilt das Reglement betreffend die Veröffentlichung von Reproduktionen."@de ;
+	skos:prefLabel "Staatsarchiv Basel-Stadt: Die urheberrechtlichen Nutzungsrechte liegen beim Staatsarchiv Basel-Stadt. Es gilt das Reglement betreffend die Veröffentlichung von Reproduktionen."@de ;
+	skos:definition "[ausstehend]"@de ;
+	skos:topConceptOf <https://ld.bs.ch/RiC/vocabularies/crstatusTypes>
+	.
 
-stabs-crs:creator
+stabs-crs:unknown a owl:NamedIndividual, skos:Concept ;
+	rdfs:label "Ungeklärt: Die urheberrechtlichen Nutzungsrechte sind ungeklärt und müssen durch Benutzerin/Benutzer abgeklärt werden."@de ;
+	skos:prefLabel "Ungeklärt: Die urheberrechtlichen Nutzungsrechte sind ungeklärt und müssen durch Benutzerin/Benutzer abgeklärt werden."@de ;
+	skos:definition "Dieser Wert wird bei jeglichen Unklarheiten gesetzt. Das betrifft zum Beispiel ganze Dossiers mit unterschiedlichen VerfertigerInnen, nicht abgeklärte Fälle oder nicht verzeichnete Metadaten."@de ;
+	skos:topConceptOf <https://ld.bs.ch/RiC/vocabularies/crstatusTypes>
+	.
 
-stabs-crs:orphaned
-stabs-tht:Ortsbegriffe a owl:NamedIndividual, skos:Concept ;
-	rdfs:label "Ortsbegriffe"@de ;
-	skos:prefLabel "Ortsbegriffe"@de ;
-	skos:definition "Thesaurus des Staatsarchivs Basel-Stadt zu Ortsnamen, die in den Verzeichnisinformationen enthalten sind."@de ;
-	skos:topConceptOf <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes>
-	.	
+stabs-crs:creator a owl:NamedIndividual, skos:Concept ;
+	rdfs:label "VerfertigerIn: Die urheberrechtlichen Nutzungsrechte liegen bei VerfertigerIn respektive Inhaberin/Inhaber der urheberechtlichen Nutzungsrechte."@de ;
+	skos:prefLabel "VerfertigerIn: Die urheberrechtlichen Nutzungsrechte liegen bei VerfertigerIn respektive Inhaberin/Inhaber der urheberechtlichen Nutzungsrechte."@de ;
+	skos:definition "Dieser Wert wird nur vergeben, wenn Abklärungen des Staatsarchivs ergeben haben, dass die Rechte bei der VerfertigerIn liegen und nicht im Staatsarchiv."@de ;
+	skos:topConceptOf <https://ld.bs.ch/RiC/vocabularies/crstatusTypes>
+	.
+
+stabs-crs:orphaned a owl:NamedIndividual, skos:Concept ;
+	rdfs:label "Verwaist: Es handelt sich um ein verwaistes Werk. Nutzungsbedingungen sind mit der entsprechenden Verwertungsgesellschaft zu klären."@de ;
+	skos:prefLabel "Verwaist: Es handelt sich um ein verwaistes Werk. Nutzungsbedingungen sind mit der entsprechenden Verwertungsgesellschaft zu klären."@de ;
+	skos:definition "Dieser Wert wird gesetzt, wenn die Inhaberinnen und Inhaber der Rechte an dem Werk nach einer mit verhältnismässigem Aufwand durchgeführten, gründlichen und dokumentierten Recherche unbekannt oder unauffindbar sind."@de ;
+	skos:topConceptOf <https://ld.bs.ch/RiC/vocabularies/crstatusTypes>
+	.
+
 # ActivityTypes des StABS
 # -----------------------
 # Definiert die im StABS verwendeten Typen von Aktivitäten
