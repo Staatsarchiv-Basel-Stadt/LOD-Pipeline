@@ -1842,6 +1842,17 @@ vocabulary stabsact {
 	prefix "stabs-act" "https://ld.bs.ch/RiC/vocabularies/activityTypes/"
 }
 
+vocabulary stabscrs {
+	prefix "stabs-crs" "https://ld.bs.ch/RiC/vocabularies/crStatusTypes/"
+
+	classes
+		pd "public-domain"
+		sa "state-archives-bs"
+		un "unknown"
+		cr "creator"
+		or "orphaned"
+}
+
 vocabulary stabsext {
 	prefix "stabs-ext" "https://ld.bs.ch/RiC/vocabularies/extentTypes/"
 
