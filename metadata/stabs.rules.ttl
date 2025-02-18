@@ -6,12 +6,12 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType>
+PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
 PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-act: <https://ld.bs.ch/RiC/vocabularies/activityTypes/>
-PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatusTypes>
+PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatusTypes/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
