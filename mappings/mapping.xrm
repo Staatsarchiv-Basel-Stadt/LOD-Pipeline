@@ -336,6 +336,47 @@ map records_bib from stabs_ogd.rr_biblio {
     rico.isOrWasSubjectOf template bibURI with ID_NR;
 }
 
+/* Nutzungs und Zugang (Regeln)
+/  ----------------------------
+/  - Urheberrechtsstatus
+/  - [weitere]
+*/
+
+map cr_pd from stabs_ogd.rr_cr_pd {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.isAssociatedWithRule constant stabscrs.pd ;
+}
+
+map cr_sa from stabs_ogd.rr_cr_sa {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.isAssociatedWithRule constant stabscrs.sa ;
+}
+
+map cr_un from stabs_ogd.rr_cr_un {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.isAssociatedWithRule constant stabscrs.un ;
+}
+
+map cr_cr from stabs_ogd.rr_cr_cr {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.isAssociatedWithRule constant stabscrs.cr ;
+}
+
+map cr_or from stabs_ogd.rr_cr_or {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.isAssociatedWithRule constant stabscrs.or ;
+}
+
 /* Instantiationen
 /  ---------------
 */

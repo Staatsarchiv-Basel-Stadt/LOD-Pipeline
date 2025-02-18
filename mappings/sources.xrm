@@ -276,6 +276,41 @@ source-group stabs_ogd {
       VEROEFFENTLICHUNGEN
   }
 
+  logical-source rr_cr_pd {
+     iterator "$..[?(@.STATUS_URHEBER_RECHT =~ /^Gemeinfrei/)] "
+
+     referenceables
+       ID_NR
+   }
+
+  logical-source rr_cr_sa {
+     iterator "$..[?(@.STATUS_URHEBER_RECHT =~ /^Staatsarchiv/)] "
+
+     referenceables
+       ID_NR
+   }    
+
+  logical-source rr_cr_un {
+     iterator "$..[?(@.STATUS_URHEBER_RECHT =~ /^Ungeklärt/)] "
+
+     referenceables
+       ID_NR
+   }
+
+  logical-source rr_cr_cr {
+     iterator "$..[?(@.STATUS_URHEBER_RECHT =~ /^VerfertigerIn/)] "
+
+     referenceables
+       ID_NR
+   }
+
+  logical-source rr_cr_or {
+     iterator "$..[?(@.STATUS_URHEBER_RECHT =~ /^Verwaist/)] "
+
+     referenceables
+       ID_NR
+   }
+
   logical-source ag_desc {
     iterator "$..[?(@.thesaurus == 'Personenbegriffe')]"
 
@@ -329,13 +364,6 @@ source-group stabs_ogd {
       FORMAT_VIDEO
       ID_NR
   }
-
-  // logical-source crstabs_digital_inst {
-  //   iterator "$..[?(@.files_are_public == true && @.STATUS_URHEBER_RECHT =~ /^Staatsarchiv/)] "
-
-  //   referenceables
-  //     ID_NR
-  // }
 
   logical-source file_inst_01 {
     iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^txt$|^video$|^warc$/)]"
