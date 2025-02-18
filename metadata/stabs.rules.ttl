@@ -24,8 +24,6 @@ PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 # Definiert die im StABS verwendeten fünf Status für Urheberrechte auf Ebene Verzeichnungseinheit
 
 <RiC/vocabularies/crstatusTypes> a owl:NamedIndividual, skos:ConceptScheme, rico:RuleType ;
-	dcterms:creator <org/staatsarchiv> ;
-	dcterms:title "Urheberrechtsstatus"@de, "Copyright Status"@en ;
 	rico:title "Urheberrechtsstatus"@de, "Copyright Status"@en ;
 	rdfs:label "Urheberrechtsstatus"@de, "Copyright Status"@en ;
 	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Urhberrechtsstatus"@de ;
