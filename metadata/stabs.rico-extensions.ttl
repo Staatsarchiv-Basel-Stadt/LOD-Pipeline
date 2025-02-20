@@ -1,0 +1,79 @@
+BASE <https://ld.bs.ch/>
+PREFIX cc: <https://creativecommons.org/ns#>
+PREFIX dc11: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
+PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX stabs-act: <https://ld.bs.ch/RiC/vocabularies/activityTypes/>
+PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crstatusTypes/>
+PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
+PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
+PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
+PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
+PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
+PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+
+# StABS-spezifische Erweiterungen von RiC-O
+# -----------------------------------------
+#
+
+stabs-rico:RecordHGB a owl:Class ;
+	rdfs:subClassOf rico:RecordSet, [
+		rdf:type owl:Restriction ;
+		owl:onProperty rico:hasRecordSetType ;
+		owl:hasValue stabs-rst:Dossier ;
+	] ;
+	rdfs:comment "Einer oder mehrere Records, die das Historische Grundbuch (HGB) beschreiben."@de ;
+	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
+	rdfs:label "HGB-Record"@en, "HGB-Record"@de ;
+	skos:changeNote [
+		dc11:date "2022-10-03" ;
+		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs."@de ;
+	] ;
+	skos:scopeNote "HGB-Record ist eine spezifische Subklasse von Record Set mit dem StABS-Recordset-Typen \"Dossier\". Entsprechende Instanzen beinhalten zusätzliche Eigenschaften, die aus den speziellen Inhalten des Historischen Grundbuchs herrühren und sonst in der Erschliessung nicht vorkommen."@de ;
+	.
+
+stabs-rico:oldHousenumber a owl:DatatypeProperty ;
+	rdfs:domain stabs-rico:RecordHGB ;
+	rdfs:range rdfs:Literal ;
+	rdfs:comment "Old House Number"@en, "Alte Hausnummer"@de ;
+	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
+	rdfs:label "Old House Number"@en, "Alte Hausnummer"@de ;
+	skos:changeNote [
+		dc11:date "2022-10-03" ;
+		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@en ;
+	] ;
+	skos:scopeNote "Ein kurzer Text und Zahlen, der die Hausnummer per ??? angibt."@de ;
+	.
+
+stabs-rico:houseNameBS a owl:DatatypeProperty ;
+	rdfs:domain stabs-rico:RecordHGB ;
+	rdfs:range rdfs:Literal ;
+	rdfs:comment "Hausname Basel-Stadt"@de, "House Name Basel-Stadt"@en ;
+	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
+	rdfs:label "Hausname Basel-Stadt"@de, "House Name Basel-Stadt"@en ;
+	skos:changeNote [
+		dc11:date "2022-10-03" ;
+		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@en ;
+	] ;
+	skos:scopeNote "Ein kurzer Text und Zahlen, der den alten Hausnamen in Basel-Stadt per ??? angibt."@de ;
+	.
+
+stabs-rico:owner1862 a owl:DatatypeProperty ;
+	rdfs:domain stabs-rico:RecordHGB ;
+	rdfs:range rdfs:Literal ;
+	rdfs:comment "Der Eigentümer der Liegenschaft im Jahr 1862"@de, "Owner of the house in the year 1862"@en ;
+	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
+	rdfs:label "Eigentümer 1862"@de, "Owner 1862"@en ;
+	skos:changeNote [
+		dc11:date "2022-10-03" ;
+		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@en ;
+	] ;
+	skos:scopeNote "Ein kurzer Text mit dem Namen von Personen, Familien, Firmen oder Korporationen, der den Eigentümer im Jahr 1862 bezeichnet."@de ;
+	.

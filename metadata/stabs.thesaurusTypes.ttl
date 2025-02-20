@@ -1,0 +1,46 @@
+BASE <https://ld.bs.ch/>
+PREFIX cc: <https://creativecommons.org/ns#>
+PREFIX dc11: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
+PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX stabs-act: <https://ld.bs.ch/RiC/vocabularies/activityTypes/>
+PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crstatusTypes/>
+PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
+PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
+PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
+PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
+PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
+PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+
+# ThesaurusTypes des StABS
+# ------------------------
+# Definiert die im StABS verwendeten Thesauri des öffentlichen Datensets (Orte und Personen)
+
+<RiC/vocabularies/thesaurusTypes> a owl:NamedIndividual, skos:ConceptScheme ;
+	dcterms:creator <org/staatsarchiv> ;
+	dcterms:title "Typen von Thesauri"@de, "Thesauri Types"@en ;
+	rdfs:label "Typen von Thesauri"@de, "Thesauri Types"@en ;
+	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Thesauri"@de ;
+	skos:hasTopConcept stabs-tht:Personenbegriffe, stabs-tht:Ortsbegriffe
+	.
+
+stabs-tht:Personenbegriffe a owl:NamedIndividual, skos:Concept ;
+	rdfs:label "Personenbegriffe"@de ;
+	skos:prefLabel "Personenbegriffe"@de ;
+	skos:definition "Thesaurus des Staatsarchivs Basel-Stadt zu natürlichen und juristischen Personen, die in den Verzeichnisinformationen enthalten sind."@de ;
+	skos:topConceptOf <RiC/vocabularies/thesaurusTypes>
+	.
+
+stabs-tht:Ortsbegriffe a owl:NamedIndividual, skos:Concept ;
+	rdfs:label "Ortsbegriffe"@de ;
+	skos:prefLabel "Ortsbegriffe"@de ;
+	skos:definition "Thesaurus des Staatsarchivs Basel-Stadt zu Ortsnamen, die in den Verzeichnisinformationen enthalten sind."@de ;
+	skos:topConceptOf <RiC/vocabularies/thesaurusTypes>
+	.

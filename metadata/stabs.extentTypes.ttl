@@ -1,0 +1,73 @@
+BASE <https://ld.bs.ch/>
+PREFIX cc: <https://creativecommons.org/ns#>
+PREFIX dc11: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
+PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX stabs-act: <https://ld.bs.ch/RiC/vocabularies/activityTypes/>
+PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crstatusTypes/>
+PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
+PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
+PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
+PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
+PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
+PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+
+# ExtentTypes des StABS
+# ---------------------
+# Definiert die im StABS verwendeten Typen für Umfangsangaben (Laufmeter, Anzahl, Grösse, etc.)
+
+<RiC/vocabularies/extentTypes> a owl:NamedIndividual, skos:ConceptScheme ;
+	dcterms:creator <org/staatsarchiv> ;
+	dcterms:title "Typen von Umfangsangaben"@de, "Extent Types"@en ;
+	rdfs:label "Typen von Umfangsangaben"@de, "Extent Types"@en ;
+	skos:definition "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Typen von Umfangsangaben"@de
+	.
+
+stabs-ext:Laufmeter a rico:ExtentType, skos:Concept ;
+	rdfs:label "Laufmeter"@de ;
+	skos:prefLabel "Laufmeter"@de ;
+	skos:definition "Belegung von Regalen im Metermass"@de ;
+	skos:inScheme <RiC/vocabularies/extentTypes>
+	.
+
+stabs-ext:Anzahl a rico:ExtentType, skos:Concept ;
+	rdfs:label "Anzahl"@de ;
+	skos:prefLabel "Anzahl"@de ;
+	skos:definition "Anzahl der physischen Einheiten"@de ;
+	skos:inScheme <RiC/vocabularies/extentTypes>
+	.
+
+stabs-ext:Abspieldauer a rico:ExtentType, skos:Concept ;
+	rdfs:label "Abspieldauer"@de ;
+	skos:prefLabel "Abspieldauer"@de ;
+	skos:definition "Abspieldauer (Video,Film) in hh:mm:ss"@de ;
+	skos:inScheme <RiC/vocabularies/extentTypes>	
+	.
+
+stabs-ext:Anzahl-Dateien a rico:ExtentType, skos:Concept ;
+	rdfs:label "Anzahl Dateien"@de, "Number of files"@en ;
+	skos:prefLabel "Anzahl Dateien"@de, "Number of files"@en ;
+	skos:definition "Anzahl einzelner Dateien"@de, "Number of single files"@en ;
+	skos:inScheme <RiC/vocabularies/extentTypes>
+	.
+
+stabs-ext:Datenvolumen-MB a rico:ExtentType, skos:Concept ;
+	rdfs:label "Datenvolumen in MB"@de ;
+	skos:prefLabel "Datenvolumen in MB"@de ;
+	skos:definition "Datenvolumen in Megabyte"@de ;
+	skos:inScheme <RiC/vocabularies/extentTypes>
+	.
+
+stabs-ext:Umfang-approximativ a rico:ExtentType, skos:Concept ;
+	rdfs:label "Umfang geschätzt"@de ;
+	skos:prefLabel "Umfang geschätzt"@de ;
+	skos:definition "Schätzung des Umfangs"@de ;
+	skos:inScheme <RiC/vocabularies/extentTypes>
+	.

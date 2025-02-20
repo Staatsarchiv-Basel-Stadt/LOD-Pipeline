@@ -1,0 +1,46 @@
+BASE <https://ld.bs.ch/>
+PREFIX cc: <https://creativecommons.org/ns#>
+PREFIX dc11: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
+PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX stabs-act: <https://ld.bs.ch/RiC/vocabularies/activityTypes/>
+PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crstatusTypes/>
+PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
+PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
+PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
+PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
+PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
+PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+
+# RepresentationTypes des StABS
+# -----------------------------
+# Definiert die im DLS des StABS verwendeten RepresentationTypes
+
+<RiC/vocabularies/representationTypes> a owl:NamedIndividual , skos:ConceptScheme ;
+	dcterms:creator <org/staatsarchiv> ;
+	dcterms:title "Vokabular der im StABS und dem Digitalen Lesesaal (DLS) verwendeten Representation Types für digitale Instantiationen"@de ;
+	rdfs:label: "Repräsentations-Typen"@de , "Representation Types"@en ;
+	skos:definition "Vokabular der im StABS und dem Digitalen Lesesaal (DLS) verwendeten Representation Types für digitale Instantiationen"@de ;
+	skos:hasTopConcept stabs-rpt:IiifType , stabs-rpt:FileType , stabs-rpt:PdfType
+	.
+
+stabs-rpt:IiifType a rico:RepresentationType , skos:Concept , owl:NamedIndividual ;
+	rdfs:label "IIIF-Typ"@de, "IIIF-Type"@en ;
+	skos:prefLabel "IIIF-Typ"@de, "IIIF-Type"@en ;
+	skos:definition "Präsentation von digitalen Objekten (primär Bilder) gemäss IIIF-Standard" ;
+	skos:topConceptOf <RiC/vocabularies/representationTypes>
+	.
+
+stabs-rpt:FcType a rico:RepresentationType , skos:Concept , owl:NamedIndividual ;
+	rdfs:label "Dateisammlungs-Typ"@de, "File Collection-Type"@en ;
+	skos:prefLabel "Dateisammlungs-Typ"@de, "File Collection-Type"@en ;
+	skos:definition "Präsentation von digitalen Objekten als Dateisammlung ohne spezifische Ordnung" ;
+	skos:topConceptOf <RiC/vocabularies/representationTypes>
+	.

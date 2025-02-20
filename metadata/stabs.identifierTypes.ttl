@@ -1,0 +1,52 @@
+BASE <https://ld.bs.ch/>
+PREFIX cc: <https://creativecommons.org/ns#>
+PREFIX dc11: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
+PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX stabs-act: <https://ld.bs.ch/RiC/vocabularies/activityTypes/>
+PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crstatusTypes/>
+PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
+PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
+PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
+PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
+PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
+PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+
+# IdentifierTypes des StABS
+# -------------------------
+# Definiert die Typen der im StABS verwendeten Identifier (d.h. Signaturen und ev. weitere Identifier)
+
+<RiC/vocabularies/identifierTypes> a owl:NamedIndividual, skos:ConceptScheme ;
+	dcterms:creator <org/staatsarchiv> ;
+	dcterms:title "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Typen von Identifikatoren"@de ;
+	rdfs:label "Identifier Types"@en ;
+	skos:definition "Vokabular lokal verwendeter Identifikatoren"@de
+	.
+
+stabs-idt:Alte-Signatur a rico:IdentifierType, skos:Concept, owl:NamedIndividual ;
+	rdfs:label "Alte Signatur"@de ;
+	skos:prefLabel "Alte Signatur"@de ;
+	skos:definition "Gibt allfällig vorhandene alte Signaturen an"@de ;
+	skos:inScheme <RiC/vocabularies/identifierTypes>
+	.
+
+stabs-idt:Fruehere-Signatur a rico:IdentifierType, skos:Concept, owl:NamedIndividual ;
+	rdfs:label "Frühere Signatur"@de ;
+	skos:prefLabel "Frühere Signatur"@de ;
+	skos:definition "Von der Provenienzstelle verwendete Signatur oder identifizierende Bezeichnung"@de ;
+	skos:inScheme <RiC/vocabularies/identifierTypes>
+	.
+
+stabs-idt:Fruehere-StABS-Signatur a rico:IdentifierType, skos:Concept, owl:NamedIndividual ;
+	rdfs:label "Frühere StABS-Signatur"@de ;
+	skos:prefLabel "Frühere StABS-Signatur"@de ;
+	skos:definition "Signatur, die früher im Staatsarchiv Basel-Stadt im Gebrauch war. Bei einer Mutation der Signatur wird im Archivinformationssystem die ursprüngliche Signatur automatisch hierher übertragen."@de ;
+	skos:inScheme <RiC/vocabularies/identifierTypes>
+	.
