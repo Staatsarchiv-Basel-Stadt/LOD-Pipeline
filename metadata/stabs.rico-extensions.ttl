@@ -11,7 +11,7 @@ PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-act: <https://ld.bs.ch/RiC/vocabularies/activityTypes/>
-PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crstatusTypes/>
+PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatus/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>

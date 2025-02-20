@@ -14,7 +14,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatusTypes/>
+PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatus/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>

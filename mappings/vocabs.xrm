@@ -1843,7 +1843,7 @@ vocabulary stabsact {
 }
 
 vocabulary stabscrs {
-	prefix "stabs-crs" "https://ld.bs.ch/RiC/vocabularies/crStatusTypes/"
+	prefix "stabs-crs" "https://ld.bs.ch/RiC/vocabularies/crStatus/"
 
 	classes
 		pd "public-domain"
