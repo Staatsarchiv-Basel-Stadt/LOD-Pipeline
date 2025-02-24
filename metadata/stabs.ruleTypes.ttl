@@ -31,3 +31,7 @@ stabs-rut:usage a rico:RuleType, skos:Concept , owl:NamedIndividual ;
 stabs-rut:access a rico:RuleType, skos:Concept , owl:NamedIndividual ;
     rdfs:label: "Zugangsregel"@de
     .
+
+stabs-rut:description a rico:RuleType, skos:Concept, owl:NamedIndividual ;
+    rdfs:label "Erschliessungsregel"@de
+    .

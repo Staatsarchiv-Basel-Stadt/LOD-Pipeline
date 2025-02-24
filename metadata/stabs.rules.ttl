@@ -16,6 +16,7 @@ PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
 PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
+PREFIX stabs-rule: <https://ld.bs.ch/RiC/vocabularies/rule/>
 PREFIX stabs-rut: <https://ld.bs.ch/RiC/vocabularies/ruleTypes/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
@@ -24,7 +25,7 @@ PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 # -------------------------------
 # Definiert die im StABS verwendeten fünf Status für Urheberrechte auf Ebene Verzeichnungseinheit
 
-<RiC/vocabularies/crStatus> a owl:NamedIndividual, skos:ConceptScheme, rico:RuleType ;
+stabs-crs: a owl:NamedIndividual, skos:ConceptScheme ;
 	rico:title "Urheberrechtsstatus"@de, "Copyright Status"@en ;
 	rdfs:label "Urheberrechtsstatus"@de, "Copyright Status"@en ;
 	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Urhberrechtsstatus"@de ;
@@ -40,7 +41,7 @@ stabs-crs:public-domain a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	rico:issuedBy <org/staatsarchiv> ;
 	skos:prefLabel "Gemeinfrei: Das Werk darf frei verwendet werden."@de ;
 	skos:definition "\"StABS gemeinfrei\" bedeutet, dass gemäss Einschätzung des Staatsarchivs kein urheberrechtlicher Schutz besteht. Es gilt das Nutzungsreglement."@de ;
-	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://creativecommons.org/publicdomain/mark/1.0/> ;
+	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/> ;
 	skos:topConceptOf <RiC/vocabularies/crStatus>
 	.
 
@@ -96,10 +97,22 @@ stabs-crs:orphaned a owl:NamedIndividual, skos:Concept, rico:Rule  ;
 # ----------------------------
 # Im StABS aktiv verwendete Erschliessungsregeln
 
-stabs-rule:isad-g a rico:Rule ;
+stabs-rule:isadg a rico:Rule ;
 	rdfs:label "ICA ISAD(G)"@de ;
 	rico:title "ISAD(G) - Internationale Grundsätze für die archivische Verzeichnung - zweite, überarbeitete Ausgabe (2002)"@de ;
   	rico:identifier "ICA ISAD(G)" ;
+	rico:issuedBy <org/ica> ;
+	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/description> ;
   	rdfs:seeAlso <https://www.ica.org/app/uploads/2024/01/CBPS_2000_Guidelines_ISADG_Second-edition_DE.pdf> ;
 	owl:sameAs <http://data.archives-nationales.culture.gouv.fr/rule/rl009> ;
+	.
+
+stabs-rule:handbuch-erschliessung a rico:Rule ;
+	rdfs:label "Handbuch Erschliessung"@de ;
+	rico:title "Handbuch Erschliessung"@de ;
+	rico:identifier "StABS 9.3 / 6.6 / 207697" ;
+	rico:issuedBy <org/staatsarchiv> ;
+	rico:publicationDate "02.04.2024" ;
+	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/description> ;
+	rdfs:seeAlso <https://media.bs.ch/original_file/71c56c53a9c0b4536c322696bf9b9a267e77a67d/handbuch-erschliessung-staatsarchiv-basel-stadt-2024.pdf> ;
 	.
