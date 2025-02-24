@@ -22,6 +22,8 @@ PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 # StABS-spezifische Erweiterungen von RiC-O
 # -----------------------------------------
 #
+# Erweiterungen für Historisches Grundbuch
+# ----------------------------------------
 
 stabs-rico:RecordHGB a owl:Class ;
 	rdfs:subClassOf rico:RecordSet, [

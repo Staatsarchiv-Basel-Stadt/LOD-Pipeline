@@ -16,8 +16,8 @@ PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
 PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
+PREFIX stabs-rut: <https://ld.bs.ch/RiC/vocabularies/ruleTypes/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
-PREFIX stabs-rule: <https://ld.bs.ch/RiC/rule/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 
 # Urheberrechtsstatus des StABS

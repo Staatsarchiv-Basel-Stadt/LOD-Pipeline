@@ -20,20 +20,14 @@ PREFIX stabs-rut: <https://ld.bs.ch/RiC/vocabularies/ruleTypes/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 
-# ActivityTypes des StABS
-# -----------------------
-# Definiert die im StABS verwendeten Typen von Aktivitäten
+# RuleTypes des StABS
+# -------------------
+# Definiert Typen von Regeln, die im StABS verwendet werden
 
-# <RiC/vocabularies/activityTypes> a skos:ConceptScheme ;
-# 	dcterms:creator <org/staatsarchiv> ;
-# 	dcterms:title "Typen von Aktivitäten"@de, "Activity Types"@en ;
-# 	rdfs:label "Typen von Aktivitäten"@de, "Activity Types"@en ;
-# 	skos:definition "Typen von Aktivitäten des Staatsarchivs Basel-Stadt"@de
-# 	.
+stabs-rut:usage a rico:RuleType, skos:Concept , owl:NamedIndividual ;
+    rdfs:label "Benutzungsregel"@de
+    .
 
-# stabs-act:Ablieferung a rico:ActivityType, skos:Concept ;
-# 	rdfs:label "Ablieferung"@de ;
-# 	skos:prefLabel "Ablieferung"@de ;
-# 	skos:definition "Die Ablieferung umfasst sämtliche Tätigkeiten, die zur Übernahme von Archivgut durch das Archiv führen. Abgeliefert werden können sowohl physische wie auch elektronische Akten und Dokumente."@de ;
-# 	skos:inScheme <RiC/vocabularies/activityTypes>
-# 	.
+stabs-rut:access a rico:RuleType, skos:Concept , owl:NamedIndividual ;
+    rdfs:label: "Zugangsregel"@de
+    .
