@@ -84,6 +84,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     owl:sameAs <https://culture.ld.admin.ch/isil/CH-000027-1/address>
     .
 
+<org/ica a schema:NGO ;
+    schema:name "International Council on Archives (ICA)"@en, "Conseil international des archives (ICA)"@fr, "Internationaler Archivrat"@de ;
+    schema:url <https://www.ica.org/> ;
+    owl:sameAs wd:Q1421986
+    .
 ##
 ## Information systems (Software)
 ##
