@@ -1913,6 +1913,7 @@ vocabulary stabsrico {
 		houseNameBS
 		oldHousenumber
 		owner1862
+		person
 }
 
 vocabulary schema {

@@ -103,6 +103,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
+		rr:predicate stabs-rico:person;
+		rr:objectMap [
+			rml:reference "PERSON";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
 		rr:predicate rdfs:seeAlso;
 		rr:objectMap [
 			rr:template "https://dls.staatsarchiv.bs.ch/records/{ID_NR}"
@@ -1397,6 +1405,38 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate skos:related;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Place/{related_descriptor_set[?(@.role == 'siehe auch')].to_descriptor.identifier}"
+		]
+	].
+	
+<#rr_principal>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.AUFTRAGGEBERIN)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Agent/{AUFTRAGGEBERIN}";
+		rr:class rico:Agent
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrganicOrFunctionalProvenanceOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:name;
+		rr:objectMap [
+			rml:reference "AUFTRAGGEBERIN";
+			rr:language "ger"
 		]
 	].
 	
