@@ -49,7 +49,7 @@ stabs-rico:oldHousenumber a owl:DatatypeProperty ;
 	rdfs:label "Old House Number"@en, "Alte Hausnummer"@de ;
 	skos:changeNote [
 		dc11:date "2022-10-03" ;
-		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@en ;
+		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@de ;
 	] ;
 	skos:scopeNote "Ein kurzer Text und Zahlen, der die Hausnummer per ??? angibt."@de ;
 	.
@@ -62,7 +62,7 @@ stabs-rico:houseNameBS a owl:DatatypeProperty ;
 	rdfs:label "Hausname Basel-Stadt"@de, "House Name Basel-Stadt"@en ;
 	skos:changeNote [
 		dc11:date "2022-10-03" ;
-		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@en ;
+		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@de ;
 	] ;
 	skos:scopeNote "Ein kurzer Text und Zahlen, der den alten Hausnamen in Basel-Stadt per ??? angibt."@de ;
 	.
@@ -75,7 +75,24 @@ stabs-rico:owner1862 a owl:DatatypeProperty ;
 	rdfs:label "Eigentümer 1862"@de, "Owner 1862"@en ;
 	skos:changeNote [
 		dc11:date "2022-10-03" ;
-		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@en ;
+		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@de ;
 	] ;
 	skos:scopeNote "Ein kurzer Text mit dem Namen von Personen, Familien, Firmen oder Korporationen, der den Eigentümer im Jahr 1862 bezeichnet."@de ;
+	.
+
+# Erweiterungen aus der Erschliessung TeleBasel
+# ---------------------------------------------
+# erstellt mehrere owl:DatatypeProperty, die als eigene Entitäten rico:Agent / rico:Person / rico:Place gefasst werden sollten
+
+stabs-rico:person a owl:DatatypeProperty ;
+	rdfs:domain rico:RecordResource ;
+	rdfs:range rdfs:Literal ;
+	rdfs:comment "Personen, die direkt mit der Verzeichnungseinheit verbunden sind und für die keine eigene Entität (Deskriptor) vorhanden ist."@de ;
+	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
+	rdfs:label "Person"@de ;
+	skos:changeNote [
+		"2025-03-05" ;
+		rdf:value "Kommentar: Erstellt für das Datenelement <PERSON> in Verzeichnungseinheiten. Sollte später mit eigenen Entitäten (rico:Person) gelöst werden."@de
+	] ;
+	skos:scopeNote "Einträge mit Namen von Personen und in Klammern, Zusatzbezeichnungen und ihrer Funktion in Bezug auf die Verzeichnungseinheit."@de
 	.
