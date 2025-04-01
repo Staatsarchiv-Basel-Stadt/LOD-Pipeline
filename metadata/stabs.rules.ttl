@@ -26,15 +26,13 @@ PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 # Definiert die im StABS verwendeten fünf Status für Urheberrechte auf Ebene Verzeichnungseinheit
 
 stabs-crs: a owl:NamedIndividual, skos:ConceptScheme ;
-	rico:title "Urheberrechtsstatus"@de, "Copyright Status"@en ;
-	rdfs:label "Urheberrechtsstatus"@de, "Copyright Status"@en ;
+	skos:prefLabel "Urheberrechtsstatus"@de, "Copyright Status"@en ;
 	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Urhberrechtsstatus"@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/> ;	
 	skos:hasTopConcept stabs-crs:public-domain, stabs-crs:state-archives-bs, stabs-crs:unknown, stabs-crs:creator, stabs-crs:orphaned
 	.
 
 stabs-crs:public-domain a owl:NamedIndividual, skos:Concept, rico:Rule ;
-	rdfs:label "Gemeinfrei: Das Werk darf frei verwendet werden."@de ;
 	rico:title "Gemeinfrei: Das Werk darf frei verwendet werden."@de ;
 	rico:identifier "StABS-gemeinfrei" ;
 	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/usage> ;
@@ -46,7 +44,6 @@ stabs-crs:public-domain a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	.
 
 stabs-crs:state-archives-bs a owl:NamedIndividual, skos:Concept, rico:Rule ;
-	rdfs:label "Staatsarchiv Basel-Stadt: Die urheberrechtlichen Nutzungsrechte liegen beim Staatsarchiv Basel-Stadt. Es gilt das Reglement betreffend die Veröffentlichung von Reproduktionen."@de ;
 	rico:title "Staatsarchiv Basel-Stadt: Die urheberrechtlichen Nutzungsrechte liegen beim Staatsarchiv Basel-Stadt. Es gilt das Reglement betreffend die Veröffentlichung von Reproduktionen."@de ;
 	rico:identifier "StABS-Nutzungsrechte" ;
 	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/usage> ;
@@ -58,7 +55,6 @@ stabs-crs:state-archives-bs a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	.
 
 stabs-crs:unknown a owl:NamedIndividual, skos:Concept, rico:Rule  ;
-	rdfs:label "Ungeklärt: Die urheberrechtlichen Nutzungsrechte sind ungeklärt und müssen durch Benutzerin/Benutzer abgeklärt werden."@de ;
 	rico:title "Ungeklärt: Die urheberrechtlichen Nutzungsrechte sind ungeklärt und müssen durch Benutzerin/Benutzer abgeklärt werden."@de ;
 	rico:identifier "StABS-Ungeklärt" ;
 	rico:issuedBy <org/staatsarchiv> ;	
@@ -70,7 +66,6 @@ stabs-crs:unknown a owl:NamedIndividual, skos:Concept, rico:Rule  ;
 	.
 
 stabs-crs:creator a owl:NamedIndividual, skos:Concept, rico:Rule  ;
-	rdfs:label "VerfertigerIn: Die urheberrechtlichen Nutzungsrechte liegen bei VerfertigerIn respektive Inhaberin/Inhaber der urheberechtlichen Nutzungsrechte."@de ;
 	rico:title "VerfertigerIn: Die urheberrechtlichen Nutzungsrechte liegen bei VerfertigerIn respektive Inhaberin/Inhaber der urheberechtlichen Nutzungsrechte."@de ;
 	rico:identifier "StABS-VerfertigerIn" ;
 	rico:issuedBy <org/staatsarchiv> ;	
@@ -82,7 +77,6 @@ stabs-crs:creator a owl:NamedIndividual, skos:Concept, rico:Rule  ;
 	.
 
 stabs-crs:orphaned a owl:NamedIndividual, skos:Concept, rico:Rule  ;
-	rdfs:label "Verwaist: Es handelt sich um ein verwaistes Werk. Nutzungsbedingungen sind mit der entsprechenden Verwertungsgesellschaft zu klären."@de ;
 	rico:title "Verwaist: Es handelt sich um ein verwaistes Werk. Nutzungsbedingungen sind mit der entsprechenden Verwertungsgesellschaft zu klären."@de ;
 	rico:identifier "StABS-Verwaist" ;
 	rico:issuedBy <org/staatsarchiv> ;	
@@ -98,7 +92,6 @@ stabs-crs:orphaned a owl:NamedIndividual, skos:Concept, rico:Rule  ;
 # Im StABS aktiv verwendete Erschliessungsregeln
 
 stabs-rule:isadg a rico:Rule ;
-	rdfs:label "ICA ISAD(G)"@de ;
 	rico:title "ISAD(G) - Internationale Grundsätze für die archivische Verzeichnung - zweite, überarbeitete Ausgabe (2002)"@de ;
   	rico:identifier "ICA ISAD(G)" ;
 	rico:issuedBy <org/ica> ;
@@ -108,7 +101,6 @@ stabs-rule:isadg a rico:Rule ;
 	.
 
 stabs-rule:handbuch-erschliessung a rico:Rule ;
-	rdfs:label "Handbuch Erschliessung"@de ;
 	rico:title "Handbuch Erschliessung"@de ;
 	rico:identifier "StABS 9.3 / 6.6 / 207697" ;
 	rico:issuedBy <org/staatsarchiv> ;
