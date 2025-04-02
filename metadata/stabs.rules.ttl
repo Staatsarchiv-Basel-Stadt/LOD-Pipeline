@@ -11,6 +11,7 @@ PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-act: <https://ld.bs.ch/RiC/vocabularies/activityTypes/>
+PREFIX stabs-acr: <https://ld.bs.ch/RiC/vocabularies/acRules/>
 PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatus/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
@@ -21,13 +22,64 @@ PREFIX stabs-rut: <https://ld.bs.ch/RiC/vocabularies/ruleTypes/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 
+# Zugangsregeln von Archivgut im StABS
+# ------------------------------------
+# Definiert die im StABS verfügbaren Zugangsregeln je Einheit
+
+stabs-acr: a owl:NamedIndividual, skos:ConceptScheme ;
+	skos:prefLabel "Zugangsregeln"@de, "Access rules"@en ;
+	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Zugangsregeln"@de ;
+	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
+	skos:hasTopConcept stabs-acr:protected, stabs-acr:free-online, stabs-acr:orderable-rr, stabs-acr:orderable-rp
+	.
+
+stabs-acr:protected a owl:NamedIndividual, skos:Concept, rico:Rule ;
+	rico:title "Unterlagen unter Schutzfristen"@de, "Documents in protection period"@en ;
+	rico:identifier "StABS-protected" ;
+	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
+	rico:issuedBy <org/staatsarchiv> ;
+	rico:generalDescription "Für die Unterlagen gilt die genannte Schutzfrist. Zur Einsicht bedarf es eines Einsichtsgesuchs." ;
+	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
+	skos:topConceptOf <RiC/vocabularies/acRules>
+	.
+
+stabs-acr:orderable-rr a owl:NamedIndividual, skos:Concept, rico:Rule ;
+	rico:title "Unterlagen bestellbar zur Archiveinsicht"@de, "Documents orderable for review"@en ;
+	rico:identifier "StABS-orderable-rr" ;
+	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
+	rico:issuedBy <org/staatsarchiv> ;
+	rico:generalDescription "Die Unterlagen können frei zur Einsicht in den Lesesaal des Staatsarchivs Basel-Stadt bestellt werden."@de ;
+	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
+	skos:topConceptOf <RiC/vocabularies/acRules>
+	.
+
+stabs-acr:orderable-rp a owl:NamedIndividual, skos:Concept, rico:Rule ;
+	rico:title "Unterlagen bestellbar zur Reproduktion"@de, "Documents orderable for reproduction"@en ;
+	rico:identifier "StABS-orderable-rp" ;
+	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
+	rico:issuedBy <org/staatsarchiv> ;
+	rico:generalDescription "Die Unterlagen können zur als kostenpflichtige Reproduktion bestellt werden."@de ;
+	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
+	skos:topConceptOf <RiC/vocabularies/acRules>
+	.
+
+stabs-acr:free-online a owl:NamedIndividual, skos:Concept, rico:Rule ;
+	rico:title "Unterlagen online zur freien Einsicht"@de, "Documents free online"@en ;
+	rico:identifier "StABS-free-online" ;
+	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
+	rico:issuedBy <org/staatsarchiv> ;
+	rico:generalDescription "Die Unterlagen stehen zur freien Ansicht und Download online zur Verfügung."@de ;
+	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
+	skos:topConceptOf <RiC/vocabularies/acRules>
+	.
+
 # Urheberrechtsstatus des StABS
 # -------------------------------
 # Definiert die im StABS verwendeten fünf Status für Urheberrechte auf Ebene Verzeichnungseinheit
 
 stabs-crs: a owl:NamedIndividual, skos:ConceptScheme ;
 	skos:prefLabel "Urheberrechtsstatus"@de, "Copyright Status"@en ;
-	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Urhberrechtsstatus"@de ;
+	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Urheberrechtsstatus"@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/> ;	
 	skos:hasTopConcept stabs-crs:public-domain, stabs-crs:state-archives-bs, stabs-crs:unknown, stabs-crs:creator, stabs-crs:orphaned
 	.

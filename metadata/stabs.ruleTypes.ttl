@@ -25,13 +25,16 @@ PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 # Definiert Typen von Regeln, die im StABS verwendet werden
 
 stabs-rut:usage a rico:RuleType, skos:Concept , owl:NamedIndividual ;
-    rdfs:label "Benutzungsregel"@de
+    rico:name "Benutzungsregel"@de, "Usage rule"@en ;
+    skos:prefLabel "Benutzungsregel"@de, "Usage rule"@en
     .
 
 stabs-rut:access a rico:RuleType, skos:Concept , owl:NamedIndividual ;
-    rdfs:label: "Zugangsregel"@de
+    rico:name: "Zugangsregel"@de, "Access rule"@en ;
+    skos:prefLabel "Zugangsregel"@de, "Access rule"@en
     .
 
 stabs-rut:description a rico:RuleType, skos:Concept, owl:NamedIndividual ;
-    rdfs:label "Erschliessungsregel"@de
+    rico:name "Erschliessungsregel"@de, "Description rule"@en ;
+    skos:prefLabel "Erschliessungsregel"@de, "Description rule"@en
     .
