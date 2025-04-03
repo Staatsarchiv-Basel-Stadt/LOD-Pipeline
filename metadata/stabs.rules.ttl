@@ -38,7 +38,7 @@ stabs-acr:protected a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	rico:identifier "StABS-protected" ;
 	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
 	rico:issuedBy <org/staatsarchiv> ;
-	rico:generalDescription "Für das Archivgut gilt die genannte Schutzfrist. Zur Einsicht bedarf es eines Einsichtsgesuchs." ;
+	rico:generalDescription "Für das Archivgut gilt die genannte Schutzfrist. Zur Einsicht bedarf es Bestellung mit einem Einsichtsgesuchs." ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
 	skos:topConceptOf <RiC/vocabularies/acRules>
 	.
