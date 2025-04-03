@@ -34,41 +34,41 @@ stabs-acr: a owl:NamedIndividual, skos:ConceptScheme ;
 	.
 
 stabs-acr:protected a owl:NamedIndividual, skos:Concept, rico:Rule ;
-	rico:title "Unterlagen unter Schutzfristen"@de, "Documents in protection period"@en ;
+	rico:title "Archivgut unter Schutzfristen"@de, "Documents in protection period"@en ;
 	rico:identifier "StABS-protected" ;
 	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
 	rico:issuedBy <org/staatsarchiv> ;
-	rico:generalDescription "Für die Unterlagen gilt die genannte Schutzfrist. Zur Einsicht bedarf es eines Einsichtsgesuchs." ;
+	rico:generalDescription "Für das Archivgut gilt die genannte Schutzfrist. Zur Einsicht bedarf es eines Einsichtsgesuchs." ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
 	skos:topConceptOf <RiC/vocabularies/acRules>
 	.
 
 stabs-acr:orderable-rr a owl:NamedIndividual, skos:Concept, rico:Rule ;
-	rico:title "Unterlagen bestellbar zur Archiveinsicht"@de, "Documents orderable for review"@en ;
+	rico:title "Archivgut bestellbar zur Archiveinsicht"@de, "Documents orderable for review"@en ;
 	rico:identifier "StABS-orderable-rr" ;
 	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
 	rico:issuedBy <org/staatsarchiv> ;
-	rico:generalDescription "Die Unterlagen können frei zur Einsicht in den Lesesaal des Staatsarchivs Basel-Stadt bestellt werden."@de ;
+	rico:generalDescription "Das Archivgut kann frei zur Einsicht in den Lesesaal des Staatsarchivs Basel-Stadt bestellt werden."@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
 	skos:topConceptOf <RiC/vocabularies/acRules>
 	.
 
 stabs-acr:orderable-rp a owl:NamedIndividual, skos:Concept, rico:Rule ;
-	rico:title "Unterlagen bestellbar zur Reproduktion"@de, "Documents orderable for reproduction"@en ;
+	rico:title "Archivgut bestellbar zur Reproduktion"@de, "Documents orderable for reproduction"@en ;
 	rico:identifier "StABS-orderable-rp" ;
 	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
 	rico:issuedBy <org/staatsarchiv> ;
-	rico:generalDescription "Die Unterlagen können zur als kostenpflichtige Reproduktion bestellt werden."@de ;
+	rico:generalDescription "Das Archivgut kann kostenpflichtig als Reproduktion bestellt werden."@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
 	skos:topConceptOf <RiC/vocabularies/acRules>
 	.
 
 stabs-acr:free-online a owl:NamedIndividual, skos:Concept, rico:Rule ;
-	rico:title "Unterlagen online zur freien Einsicht"@de, "Documents free online"@en ;
+	rico:title "Archivgut online zur freien Einsicht"@de, "Documents free online"@en ;
 	rico:identifier "StABS-free-online" ;
 	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
 	rico:issuedBy <org/staatsarchiv> ;
-	rico:generalDescription "Die Unterlagen stehen zur freien Ansicht und Download online zur Verfügung."@de ;
+	rico:generalDescription "Das Archivgut steht zur freien Ansicht und Download online zur Verfügung."@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
 	skos:topConceptOf <RiC/vocabularies/acRules>
 	.
