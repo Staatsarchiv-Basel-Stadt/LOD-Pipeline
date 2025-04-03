@@ -343,6 +343,34 @@ map records_bib from stabs_ogd.rr_biblio {
 /  - [weitere]
 */
 
+map ar_freeonline from stabs_ogd.rr_ar_freeonline {
+  subject template rrURI with ID_NR ;
+
+  properties
+    rico.isAssociatedWithRule constant stabsacr.freeonline ;
+}
+
+map ar_orderablerr from stabs_ogd.rr_ar_orderablerr {
+  subject template rrURI with ID_NR ;
+
+  properties
+    rico.isAssociatedWithRule constant stabsacr.orderablerr ;
+}
+
+map ar_orderablerp from stabs_ogd.rr_ar_orderablerp {
+  subject template rrURI with ID_NR ;
+
+  properties
+    rico.isAssociatedWithRule constant stabsacr.orderablerp ;
+}
+
+map ar_protected from stabs_ogd.rr_ar_protected {
+  subject template rrURI with ID_NR ;
+
+  properties
+    rico.isAssociatedWithRule constant stabsacr.protected ;
+}
+
 map cr_pd from stabs_ogd.rr_cr_pd {
   subject template rrURI with ID_NR;
 
@@ -395,6 +423,7 @@ map inst_01 from stabs_ogd.free_digital_inst {
 
   properties
     rico.isOrWasDigitalInstantiationOf template rrURI with ID_NR;
+    rico.isAssociatedWithRule constant stabsacr.freeonline ;
     rico.identifier template "{0}-fr01" with ID_NR as Literal;
     rico.hasCarrierType constant rdact._1018;
 //    rico.hasProductionTechniqueType constant "rico:ProductionTechniqueType"; // @todo rico:ProductionTechniqueType

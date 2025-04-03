@@ -1842,6 +1842,16 @@ vocabulary stabsact {
 	prefix "stabs-act" "https://ld.bs.ch/RiC/vocabularies/activityTypes/"
 }
 
+vocabulary stabsacr {
+	prefix "stabs-acr" "https://ld.bs.ch/RiC/vocabularies/acRules/"
+
+	classes
+		protected
+		freeonline "free-online"
+		orderablerr "orderable-readingroom"
+		orderablerp "orderable-reproduction"
+}
+
 vocabulary stabscrs {
 	prefix "stabs-crs" "https://ld.bs.ch/RiC/vocabularies/crStatus/"
 

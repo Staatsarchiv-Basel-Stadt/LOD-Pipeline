@@ -276,6 +276,34 @@ source-group stabs_ogd {
       VEROEFFENTLICHUNGEN
   }
 
+  logical-source rr_ar_freeonline {
+    iterator "$..[?(@.files_are_public == true && @.STATUS_URHEBER_RECHT =~ /(^Gemeinfrei)|(^Staatsarchiv)/)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source rr_ar_orderablerr {
+    iterator "$..[?(@.is_approval_required == false && @.is_orderable_for_inspection == true)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source rr_ar_orderablerp {
+    iterator "$..[?(@.is_approval_required == false && @.is_orderable_for_reproduction == true)]"
+    
+    referenceables
+      ID_NR
+  }  
+
+  logical-source rr_ar_protected {
+    iterator "$..[?(@.is_approval_required == true && @.is_orderable_for_inspection == true || @.is_approval_required == true && @.is_orderable_for_reproduction == true)]"
+    
+    referenceables
+      ID_NR
+  }
+
   logical-source rr_cr_pd {
      iterator "$..[?(@.STATUS_URHEBER_RECHT =~ /^Gemeinfrei/)] "
 

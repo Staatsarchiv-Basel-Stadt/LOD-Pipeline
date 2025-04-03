@@ -14,6 +14,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX stabs-acr: <https://ld.bs.ch/RiC/vocabularies/acRules/>
 PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatus/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
@@ -913,6 +914,98 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
+<#ar_freeonline>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.files_are_public == true && @.STATUS_URHEBER_RECHT =~ /(^Gemeinfrei)|(^Staatsarchiv)/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isAssociatedWithRule;
+		rr:objectMap [
+			rr:constant stabs-acr:free-online
+		]
+	].
+	
+<#ar_orderablerr>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.is_approval_required == false && @.is_orderable_for_inspection == true)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isAssociatedWithRule;
+		rr:objectMap [
+			rr:constant stabs-acr:orderable-readingroom
+		]
+	].
+	
+<#ar_orderablerp>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.is_approval_required == false && @.is_orderable_for_reproduction == true)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isAssociatedWithRule;
+		rr:objectMap [
+			rr:constant stabs-acr:orderable-reproduction
+		]
+	].
+	
+<#ar_protected>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.is_approval_required == true && @.is_orderable_for_inspection == true || @.is_approval_required == true && @.is_orderable_for_reproduction == true)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isAssociatedWithRule;
+		rr:objectMap [
+			rr:constant stabs-acr:protected
+		]
+	].
+	
 <#cr_pd>
 	a rr:TriplesMap;
 	
@@ -1050,6 +1143,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:isOrWasDigitalInstantiationOf;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isAssociatedWithRule;
+		rr:objectMap [
+			rr:constant stabs-acr:free-online
 		]
 	];
 	
