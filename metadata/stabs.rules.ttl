@@ -30,7 +30,7 @@ stabs-acr: a owl:NamedIndividual, skos:ConceptScheme ;
 	skos:prefLabel "Zugangsregeln"@de, "Access rules"@en ;
 	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Zugangsregeln"@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
-	skos:hasTopConcept stabs-acr:protected, stabs-acr:free-online, stabs-acr:orderable-rr, stabs-acr:orderable-rp
+	skos:hasTopConcept stabs-acr:protected, stabs-acr:free-online, stabs-acr:orderable-readingroom, stabs-acr:orderable-reproduction
 	.
 
 stabs-acr:protected a owl:NamedIndividual, skos:Concept, rico:Rule ;
@@ -43,9 +43,9 @@ stabs-acr:protected a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	skos:topConceptOf <RiC/vocabularies/acRules>
 	.
 
-stabs-acr:orderable-rr a owl:NamedIndividual, skos:Concept, rico:Rule ;
+stabs-acr:orderable-readingroom a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	rico:title "Archivgut bestellbar zur Archiveinsicht"@de, "Documents orderable for review"@en ;
-	rico:identifier "StABS-orderable-rr" ;
+	rico:identifier "StABS-orderable-readingroom" ;
 	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
 	rico:issuedBy <org/staatsarchiv> ;
 	rico:generalDescription "Das Archivgut kann frei zur Einsicht in den Lesesaal des Staatsarchivs Basel-Stadt bestellt werden."@de ;
@@ -53,9 +53,9 @@ stabs-acr:orderable-rr a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	skos:topConceptOf <RiC/vocabularies/acRules>
 	.
 
-stabs-acr:orderable-rp a owl:NamedIndividual, skos:Concept, rico:Rule ;
+stabs-acr:orderable-reproduction a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	rico:title "Archivgut bestellbar zur Reproduktion"@de, "Documents orderable for reproduction"@en ;
-	rico:identifier "StABS-orderable-rp" ;
+	rico:identifier "StABS-orderable-reproduction" ;
 	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
 	rico:issuedBy <org/staatsarchiv> ;
 	rico:generalDescription "Das Archivgut kann kostenpflichtig als Reproduktion bestellt werden."@de ;
