@@ -24,7 +24,7 @@ PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 # -----------------------------
 # Definiert die im DLS des StABS verwendeten RepresentationTypes
 
-<RiC/vocabularies/representationTypes> a owl:NamedIndividual , skos:ConceptScheme ;
+stabs-rpt: a owl:NamedIndividual , skos:ConceptScheme ;
 	dcterms:creator <org/staatsarchiv> ;
 	dcterms:title "Vokabular der im StABS und dem Digitalen Lesesaal (DLS) verwendeten Representation Types für digitale Instantiationen"@de ;
 	rdfs:label: "Repräsentations-Typen"@de , "Representation Types"@en ;
@@ -36,12 +36,12 @@ stabs-rpt:IiifType a rico:RepresentationType , skos:Concept , owl:NamedIndividua
 	rdfs:label "IIIF-Typ"@de, "IIIF-Type"@en ;
 	skos:prefLabel "IIIF-Typ"@de, "IIIF-Type"@en ;
 	skos:definition "Präsentation von digitalen Objekten (primär Bilder) gemäss IIIF-Standard" ;
-	skos:topConceptOf <RiC/vocabularies/representationTypes>
+	skos:topConceptOf stabs-rpt:
 	.
 
 stabs-rpt:FcType a rico:RepresentationType , skos:Concept , owl:NamedIndividual ;
 	rdfs:label "Dateisammlungs-Typ"@de, "File Collection-Type"@en ;
 	skos:prefLabel "Dateisammlungs-Typ"@de, "File Collection-Type"@en ;
 	skos:definition "Präsentation von digitalen Objekten als Dateisammlung ohne spezifische Ordnung" ;
-	skos:topConceptOf <RiC/vocabularies/representationTypes>
+	skos:topConceptOf stabs-rpt:
 	.

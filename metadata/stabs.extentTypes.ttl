@@ -24,7 +24,7 @@ PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 # ---------------------
 # Definiert die im StABS verwendeten Typen für Umfangsangaben (Laufmeter, Anzahl, Grösse, etc.)
 
-<RiC/vocabularies/extentTypes> a owl:NamedIndividual, skos:ConceptScheme ;
+stabs-ext: a owl:NamedIndividual, skos:ConceptScheme ;
 	dcterms:creator <org/staatsarchiv> ;
 	dcterms:title "Typen von Umfangsangaben"@de, "Extent Types"@en ;
 	rdfs:label "Typen von Umfangsangaben"@de, "Extent Types"@en ;
@@ -35,40 +35,40 @@ stabs-ext:Laufmeter a rico:ExtentType, skos:Concept ;
 	rdfs:label "Laufmeter"@de ;
 	skos:prefLabel "Laufmeter"@de ;
 	skos:definition "Belegung von Regalen im Metermass"@de ;
-	skos:inScheme <RiC/vocabularies/extentTypes>
+	skos:inScheme stabs-ext:
 	.
 
 stabs-ext:Anzahl a rico:ExtentType, skos:Concept ;
 	rdfs:label "Anzahl"@de ;
 	skos:prefLabel "Anzahl"@de ;
 	skos:definition "Anzahl der physischen Einheiten"@de ;
-	skos:inScheme <RiC/vocabularies/extentTypes>
+	skos:inScheme stabs-ext:
 	.
 
 stabs-ext:Abspieldauer a rico:ExtentType, skos:Concept ;
 	rdfs:label "Abspieldauer"@de ;
 	skos:prefLabel "Abspieldauer"@de ;
 	skos:definition "Abspieldauer (Video,Film) in hh:mm:ss"@de ;
-	skos:inScheme <RiC/vocabularies/extentTypes>	
+	skos:inScheme stabs-ext:	
 	.
 
 stabs-ext:Anzahl-Dateien a rico:ExtentType, skos:Concept ;
 	rdfs:label "Anzahl Dateien"@de, "Number of files"@en ;
 	skos:prefLabel "Anzahl Dateien"@de, "Number of files"@en ;
 	skos:definition "Anzahl einzelner Dateien"@de, "Number of single files"@en ;
-	skos:inScheme <RiC/vocabularies/extentTypes>
+	skos:inScheme stabs-ext:
 	.
 
 stabs-ext:Datenvolumen-MB a rico:ExtentType, skos:Concept ;
 	rdfs:label "Datenvolumen in MB"@de ;
 	skos:prefLabel "Datenvolumen in MB"@de ;
 	skos:definition "Datenvolumen in Megabyte"@de ;
-	skos:inScheme <RiC/vocabularies/extentTypes>
+	skos:inScheme stabs-ext:
 	.
 
 stabs-ext:Umfang-approximativ a rico:ExtentType, skos:Concept ;
 	rdfs:label "Umfang geschätzt"@de ;
 	skos:prefLabel "Umfang geschätzt"@de ;
 	skos:definition "Schätzung des Umfangs"@de ;
-	skos:inScheme <RiC/vocabularies/extentTypes>
+	skos:inScheme stabs-ext:
 	.
