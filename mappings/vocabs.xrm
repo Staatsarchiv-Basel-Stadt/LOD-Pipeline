@@ -1104,6 +1104,7 @@ vocabulary ebucoreplus {
 		hasColourSpace
 		aspectRatio
 }
+
 vocabulary premis {
 	prefix "premis" "http://www.loc.gov/premis/rdf/v3/"
 
@@ -1247,9 +1248,9 @@ vocabulary relSubType {
 }
 
 vocabulary rico {
-	prefix "rico" "https://www.ica.org/standards/RiC/ontology#"
+prefix "rico" "https://www.ica.org/standards/RiC/ontology#"
 
-	classes
+classes
 		AccumulationRelation
 		Activity
 		ActivityDocumentationRelation
@@ -1346,10 +1347,12 @@ vocabulary rico {
 		SequentialRelation
 		SiblingRelation
 		SpouseRelation
+		StudyAtRelation
 		TeachingRelation
 		TemporalRelation
 		Thing
 		Title
+		TitleType
 		Type
 		TypeRelation
 		UnitOfMeasurement
@@ -1359,6 +1362,7 @@ vocabulary rico {
 	properties
 		accruals
 		accrualsStatus
+		accumulationDate
 		accumulationRelation_role
 		activityDocumentationRelation_role
 		activityIsContextOfRelation
@@ -1368,6 +1372,8 @@ vocabulary rico {
 		agentHierarchicalRelation_role
 		agentTemporalRelation_role
 		agentToAgentRelation_role
+		allMembersWithAccumulationDate
+		allMembersWithCreationDate
 		altimetricSystem
 		altitude
 		appellationRelation_role
@@ -1396,14 +1402,18 @@ vocabulary rico {
 		date
 		dateQualifier
 		deathDate
+		derivationDate
 		derivationRelation_role
 		descendanceRelation_role
 		describesOrDescribed
 		destructionDate
 		directlyContains
 		directlyFollowsInSequence
+		directlyFollowsProxyInSequence
 		directlyIncludes
+		directlyIncludesProxy
 		directlyPrecedesInSequence
+		directlyPrecedesProxyInSequence
 		documentedBy
 		documents
 		endDate
@@ -1417,6 +1427,7 @@ vocabulary rico {
 		followsInSequenceTransitive
 		followsInTime
 		followsOrFollowed
+		followsProxyInSequence
 		functionalEquivalenceRelation_role
 		generalDescription
 		geodesicSystem
@@ -1428,6 +1439,7 @@ vocabulary rico {
 		hadSubdivision
 		hadSubevent
 		hadSubordinate
+		hasAccumulationDate
 		hasAccumulator
 		hasActivityType
 		hasAddressee
@@ -1440,18 +1452,23 @@ vocabulary rico {
 		hasChild
 		hasCollector
 		hasComponentTransitive
+		hasConstituentProxy
 		hasConstituentTransitive
 		hasContentOfType
+		hasContentWhichMainlyRepresents
+		hasContentWhichRepresents
 		hasCopy
 		hasCreationDate
 		hasCreator
 		hasDateType
 		hasDeathDate
 		hasDeathPlace
+		hasDerivationDate
 		hasDescendant
 		hasDestructionDate
 		hasDirectComponent
 		hasDirectConstituent
+		hasDirectConstituentProxy
 		hasDirectPart
 		hasDirectSubdivision
 		hasDirectSubevent
@@ -1466,21 +1483,25 @@ vocabulary rico {
 		hasFamilyType
 		hasGeneticLinkToRecordResource
 		hasIdentifierType
+		hasMigrationDate
 		hasModificationDate
 		hasOrganicOrFunctionalProvenance
 		hasOrganicProvenance
+		hasOrganicProvenanceDate
 		hasOrHadAgentName
-		hasOrHadAllMembersWithCategory
+		hasOrHadAllMembersWithAccumulationDate
 		hasOrHadAllMembersWithContentType
 		hasOrHadAllMembersWithCreationDate
 		hasOrHadAllMembersWithDocumentaryFormType
 		hasOrHadAllMembersWithLanguage
 		hasOrHadAllMembersWithLegalStatus
+		hasOrHadAllMembersWithMainSubject
 		hasOrHadAllMembersWithRecordState
+		hasOrHadAllMembersWithSubject
+		hasOrHadAllMembersWithType
 		hasOrHadAnalogueInstantiation
 		hasOrHadAppellation
 		hasOrHadAuthorityOver
-		hasOrHadCategory
 		hasOrHadComponent
 		hasOrHadConstituent
 		hasOrHadController
@@ -1504,6 +1525,7 @@ vocabulary rico {
 		hasOrHadManager
 		hasOrHadMandateType
 		hasOrHadMember
+		hasOrHadMostMembersWithAccumulationDate
 		hasOrHadMostMembersWithCreationDate
 		hasOrHadName
 		hasOrHadOccupationOfType
@@ -1515,13 +1537,18 @@ vocabulary rico {
 		hasOrHadPlaceType
 		hasOrHadPosition
 		hasOrHadRuleType
-		hasOrHadSomeMembersWithCategory
+		hasOrHadSomeMembersWhoseContentMainlyRepresents
+		hasOrHadSomeMembersWhoseContentRepresents
+		hasOrHadSomeMembersWithAccumulationDate
 		hasOrHadSomeMembersWithContentType
 		hasOrHadSomeMembersWithCreationDate
 		hasOrHadSomeMembersWithDocumentaryFormType
 		hasOrHadSomeMembersWithLanguage
 		hasOrHadSomeMembersWithLegalStatus
+		hasOrHadSomeMembersWithMainSubject
 		hasOrHadSomeMembersWithRecordState
+		hasOrHadSomeMembersWithSubject
+		hasOrHadSomeMembersWithType
 		hasOrHadSpouse
 		hasOrHadStudent
 		hasOrHadSubdivision
@@ -1530,10 +1557,12 @@ vocabulary rico {
 		hasOrHadSubordinate
 		hasOrHadTeacher
 		hasOrHadTitle
+		hasOrHadType
 		hasOrHadWorkRelationWith
 		hasOriginal
 		hasPartTransitive
 		hasProductionTechniqueType
+		hasProxy
 		hasPublicationDate
 		hasPublisher
 		hasReceiver
@@ -1547,6 +1576,7 @@ vocabulary rico {
 		hasSubeventTransitive
 		hasSubordinateTransitive
 		hasSuccessor
+		hasTitleType
 		hasUnitOfMeasurement
 		hasWithin
 		height
@@ -1554,6 +1584,7 @@ vocabulary rico {
 		identifier
 		included
 		includesOrIncluded
+		includesProxy
 		includesTransitive
 		instantiationExtent
 		instantiationStructure
@@ -1561,6 +1592,7 @@ vocabulary rico {
 		integrityNote
 		intellectualPropertyRightsRelation_role
 		intersects
+		isAccumulationDateOf
 		isAccumulatorOf
 		isActivityTypeOf
 		isAddresseeOf
@@ -1579,6 +1611,7 @@ vocabulary rico {
 		isChildOf
 		isCollectorOf
 		isComponentOfTransitive
+		isConstituentOfProxy
 		isConstituentOfTransitive
 		isContainedByTransitive
 		isContentTypeOf
@@ -1586,15 +1619,19 @@ vocabulary rico {
 		isCreationDateOf
 		isCreatorOf
 		isDateAssociatedWith
+		isDateAssociatedWithRelation
 		isDateOfOccurrenceOf
 		isDateTypeOf
 		isDeathDateOf
 		isDeathPlaceOf
+		isDerivationDateOf
 		isDestructionDateOf
 		isDirectComponentOf
 		isDirectConstituentOf
+		isDirectConstituentOfProxy
 		isDirectlyContainedBy
 		isDirectlyIncludedIn
+		isDirectlyIncludedInProxy
 		isDirectPartOf
 		isDirectSubdivisionOf
 		isDirectSubeventOf
@@ -1612,21 +1649,28 @@ vocabulary rico {
 		isFromUseDateOf
 		isFunctionallyEquivalentTo
 		isIdentifierTypeOf
+		isIncludedInProxy
 		isIncludedInTransitive
 		isInstantiationAssociatedWithInstantiation
 		isLastUpdateDateOf
+		isMainThingRepresentedByContentOf
+		isMigrationDateOf
 		isModificationDateOf
 		isOrganicOrFunctionalProvenanceOf
+		isOrganicProvenanceDateOf
 		isOrganicProvenanceOf
 		isOriginalOf
+		isOrWasAccumulationDateOfAllMembersOf
+		isOrWasAccumulationDateOfMostMembersOf
+		isOrWasAccumulationDateOfSomeMembersOf
+		isOrWasActiveAtDate
+		isOrWasActivityDateOf
 		isOrWasAdjacentTo
 		isOrWasAffectedBy
 		isOrWasAgentNameOf
 		isOrWasAnalogueInstantiationOf
 		isOrWasAppellationOf
-		isOrWasCategoryOf
-		isOrWasCategoryOfAllMembersOf
-		isOrWasCategoryOfSomeMembersOf
+		isOrWasAttendedByStudent
 		isOrWasComponentOf
 		isOrWasConstituentOf
 		isOrWasContainedBy
@@ -1663,6 +1707,9 @@ vocabulary rico {
 		isOrWasLocationOf
 		isOrWasLocationOfAgent
 		isOrWasMainSubjectOf
+		isOrWasMainSubjectOfAllMembersOf
+		isOrWasMainSubjectOfSomeMembersOf
+		isOrWasMainThingRepresentedByContentOfSomeMembersOf
 		isOrWasManagerOf
 		isOrWasMandateTypeOf
 		isOrWasMemberOf
@@ -1679,13 +1726,19 @@ vocabulary rico {
 		isOrWasRecordStateOfAllMembersOf
 		isOrWasRecordStateOfSomeMembersOf
 		isOrWasRegulatedBy
+		isOrWasRepresentedByContentOfSomeMembersOf
 		isOrWasResponsibleForEnforcing
 		isOrWasRuleTypeOf
 		isOrWasSubdivisionOf
 		isOrWasSubeventOf
 		isOrWasSubjectOf
+		isOrWasSubjectOfAllMembersOf
+		isOrWasSubjectOfSomeMembersOf
 		isOrWasSubordinateTo
 		isOrWasTitleOf
+		isOrWasTypeOf
+		isOrWasTypeOfAllMembersOf
+		isOrWasTypeOfSomeMembersOf
 		isOrWasUnderAuthorityOf
 		isPartOfTransitive
 		isPlaceAssociatedWith
@@ -1700,14 +1753,17 @@ vocabulary rico {
 		isRelatedTo
 		isReplyTo
 		isRepresentationTypeOf
+		isRepresentedByContentOf
 		isResponsibleForIssuing
 		isRuleAssociatedWith
 		isSenderOf
+		isSourceOfInformationOfRecordResource
 		isSubdivisionOfTransitive
 		isSubeventOfTransitive
 		isSubordinateToTransitive
 		isSuccessorOf
 		issuedBy
+		isTitleTypeOf
 		isToUseDateOf
 		isUnitOfMeasurementOf
 		isWithin
@@ -1730,11 +1786,15 @@ vocabulary rico {
 		membershipWithPosition
 		migratedFrom
 		migratedInto
+		migrationDate
 		migrationRelation_role
 		modificationDate
+		mostMembersWithAccumulationDate
+		mostMembersWithCreationDate
 		name
 		normalizedDateValue
 		normalizedValue
+		note
 		occupiesOrOccupied
 		occurredAtDate
 		organicOrFunctionalProvenanceRelation_role
@@ -1754,15 +1814,46 @@ vocabulary rico {
 		precedesInSequenceTransitive
 		precedesInTime
 		precedesOrPreceded
+		precedesProxyInSequence
 		productionTechnique
+		proxyDirectlyFollowsInSequence
+		proxyDirectlyFollowsProxyInSequence
+		proxyDirectlyIncludes
+		proxyDirectlyIncludesProxy
+		proxyDirectlyPrecedesInSequence
+		proxyDirectlyPrecedesProxyInSequence
+		proxyFollowsInSequence
+		proxyFollowsProxyInSequenceTransitive
 		proxyFor
+		proxyHasConstituent
+		proxyHasConstituentProxyTransitive
+		proxyHasDirectConstituent
+		proxyHasDirectConstituentProxy
 		proxyIn
+		proxyIncludes
+		proxyIncludesProxyTransitive
+		proxyInRecord
+		proxyInRecordSet
+		proxyIsConstituentOf
+		proxyIsConstituentOfProxyTransitive
+		proxyIsDirectConstituentOf
+		proxyIsDirectConstituentOfProxy
+		proxyIsDirectlyIncludedIn
+		proxyIsDirectlyIncludedInProxy
+		proxyIsIncludedIn
+		proxyIsIncludedInProxyTransitive
+		proxyPrecedesInSequence
+		proxyPrecedesProxyInSequenceTransitive
 		publicationDate
 		qualityOfRepresentationNote
 		quantity
+		rankInHierarchy
+		rankInSequence
 		recordResourceExtent
 		recordResourceGeneticRelation_role
+		recordResourceHasSourceOfInformation
 		recordResourceHoldingRelation_role
+		recordResourceSourceOfInformation
 		recordResourceStructure
 		recordResourceToInstantiationRelation_role
 		recordResourceToRecordResourceRelation_role
@@ -1772,6 +1863,7 @@ vocabulary rico {
 		relationCertainty
 		relationConnects
 		relationHasContext
+		relationHasDate
 		relationHasSource
 		relationHasTarget
 		relationSource
@@ -1784,10 +1876,15 @@ vocabulary rico {
 		ruleFollowed
 		ruleRelation_role
 		scopeAndContent
+		sentimentOrEmotionExpressed
 		sequentialRelation_role
 		siblingRelation_role
+		someMembersWithAccumulationDate
+		someMembersWithCreationDate
 		spouseRelation_role
 		structure
+		studiesOrStudiedAt
+		studyAtRelation_role
 		teachingRelation_role
 		technicalCharacteristics
 		temporalRelation_role
