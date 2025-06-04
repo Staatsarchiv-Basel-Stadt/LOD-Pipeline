@@ -115,7 +115,7 @@ map date_01 from stabs_ogd.rr_date {
     rico.Date
 
   properties
-    rico.isDateAssociatedWith template rrURI with ID_NR;
+    rico.isOrWasAccumulationDateOfAllMembersOf template rrURI with ID_NR;
     rico.expressedDate from ENTSTEHUNGSZEITRAUM; // @todo: mit Datumsoperatoren könnte eine bessere Textrepräsentation erreicht werden.
     rico.normalizedDateValue from ENTSTEHUNGSZEITRAUM; // @todo: XML Date types für Typisierung
 //    rico.hasDateType // Definiert in RiC-O 1.0 für Klassen `DateSet`, `DateRange` oder `SingleDate`, oder Subklassen. Bei Bedarf implementieren
@@ -126,7 +126,7 @@ map date_02 from stabs_ogd.rr_date {
   subject template rrURI with ID_NR;
 
   properties
-    rico.isAssociatedWithDate template dateURI with ID_NR;
+    rico.hasOrHadAllMembersWithAccumulationDate template dateURI with ID_NR;
 }
 
 //    created_start created_end

@@ -371,7 +371,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isDateAssociatedWith;
+		rr:predicate rico:isOrWasAccumulationDateOfAllMembersOf;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
@@ -408,7 +408,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isAssociatedWithDate;
+		rr:predicate rico:hasOrHadAllMembersWithAccumulationDate;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date"
 		]
