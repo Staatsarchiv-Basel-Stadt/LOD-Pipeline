@@ -15,7 +15,7 @@ map rr_stabs from stabs_ogd.rr_base {
     rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
     rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
     rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
-    rico.generalDescription from ANMERKUNGEN with language-tag ger;
+    rico.note from ANMERKUNGEN with language-tag ger;
     stabsrico.person from PERSON with language-tag ger; // besser als Klasse zu lösen (rico:Agent / rico:Person)
 //    rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15, geht aber nicht mit dynamischen Werten
     rdfs.seeAlso template dlsURI with ID_NR;
@@ -503,7 +503,7 @@ map inst_02 from stabs_ogd.video_inst {
     skos.Concept
 
   properties
-    rico.generalDescription from description with language-tag ger;
+    rico.note from description with language-tag ger;
     rico.isAgentAssociatedWithAgent template agURI with related_agent_id;
     rico.isOrWasMainSubjectOf template rrURI with related_record_id;
     rico.name from title with language-tag ger;
@@ -523,7 +523,7 @@ map inst_02 from stabs_ogd.video_inst {
     skos.Concept
 
   properties
-    rico.generalDescription from description with language-tag ger;
+    rico.note from description with language-tag ger;
     rico.isAssociatedWithPlace template plURI with related_place_id;
     rico.isOrWasMainSubjectOf template rrURI with related_record_id;
     rico.name from title with language-tag ger;

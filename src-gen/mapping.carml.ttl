@@ -96,7 +96,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:generalDescription;
+		rr:predicate rico:note;
 		rr:objectMap [
 			rml:reference "ANMERKUNGEN";
 			rr:language "ger"
@@ -1355,7 +1355,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:generalDescription;
+		rr:predicate rico:note;
 		rr:objectMap [
 			rml:reference "description";
 			rr:language "ger"
@@ -1441,7 +1441,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:generalDescription;
+		rr:predicate rico:note;
 		rr:objectMap [
 			rml:reference "description";
 			rr:language "ger"
