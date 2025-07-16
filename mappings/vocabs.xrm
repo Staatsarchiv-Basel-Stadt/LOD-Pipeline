@@ -1923,6 +1923,7 @@ vocabulary ricdft {
 	classes
 		AuthorityRecord
 		FindingAid
+		IIIFManifest
 }
 
 vocabulary ricrst {
