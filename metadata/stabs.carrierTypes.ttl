@@ -1,0 +1,68 @@
+BASE <https://ld.bs.ch/>
+PREFIX cc: <https://creativecommons.org/ns#>
+PREFIX dc11: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
+PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX stabs-act: <https://ld.bs.ch/RiC/vocabularies/activityTypes/>
+PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatus/>
+PREFIX stabs-crt: <https://ld.bs.ch/RiC/vocabularies/carrierTypes/>
+PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
+PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
+PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
+PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
+PREFIX stabs-rut: <https://ld.bs.ch/RiC/vocabularies/ruleTypes/>
+PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
+PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+
+# CarrierTypes des StABS
+# ----------------------
+# Definiert die im StABS verwendeten Trägermaterialien (Film, Ton)
+
+stabs-crt: a owl:NamedIndividual, skos:ConceptScheme ;
+	dcterms:creator <org/staatsarchiv> ;
+	dcterms:title "Typen von Trägern (Film, Ton)"@de, "Carrier Types (Film, Sound)"@en ;
+	rdfs:label "Typen von Trägern (Film, Ton)"@de, "Carrier Types (Film, Sound)"@en ;
+	skos:definition "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Typen von Trägermaterialien (Film, Ton)"@de
+	.
+
+stabs-crt:13029 a rico:CarrierType, skos:Concept ;
+    rdfs:label "Cellulosenitrat"@de ;
+	skos:prefLabel "Cellulosenitrat"@de ;
+	skos:definition "Träger aus Cellulosenitrat"@de ;
+	skos:inScheme stabs-crt:
+    .
+
+stabs-crt:13030 a rico:CarrierType, skos:Concept ;
+    rdfs:label "Celluloseacetat"@de ;
+	skos:prefLabel "Celluloseacetat"@de ;
+	skos:definition "Träger aus Celluloseacetat"@de ;
+	skos:inScheme stabs-crt:
+    .
+
+stabs-crt:13031 a rico:CarrierType, skos:Concept ;
+    rdfs:label "Polyester (PET)"@de ;
+	skos:prefLabel "Polyester (PET)"@de ;
+	skos:definition "Träger aus Polyester (PET)"@de ;
+	skos:inScheme stabs-crt:
+    .
+
+stabs-crt:13042 a rico:CarrierType, skos:Concept ;
+    rdfs:label "Acetat"@de ;
+	skos:prefLabel "Acetat"@de ;
+	skos:definition "Träger aus Acetat"@de ;
+	skos:inScheme stabs-crt:
+    .
+
+stabs-crt:13043 a rico:CarrierType, skos:Concept ;
+    rdfs:label "Nitrat"@de ;
+	skos:prefLabel "Nitrat"@de ;
+	skos:definition "Träger aus Nitrat"@de ;
+	skos:inScheme stabs-crt:
+    .
