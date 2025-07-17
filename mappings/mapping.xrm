@@ -471,6 +471,14 @@ map inst_03 from stabs_ogd.film_inst {
   properties
     rico.isOrWasAnalogueInstantiationOf template rrURI with ID_NR;
     rico.identifier template "{0}-fi01" with ID_NR as Literal;
+    ebucore.hasFormat from FORMAT_FILM;
+    ebucoreplus.hasFormat from FORMAT_FILM;
+    ebucore.hasColourSpace from FARBE_BILDBEARBEITUNG;
+    ebucoreplus.hasColourSpace from FARBE_BILDBEARBEITUNG;
+    ebucore.aspectRatio from BILDFORMAT_FILM;
+    ebucoreplus.aspectRatio from BILDFORMAT_FILM;
+    // from FORMAT_TON;
+    // from FILMELEMENT;
   }
 
 /* Trägertypen (Film, Ton) */

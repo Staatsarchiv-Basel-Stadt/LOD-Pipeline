@@ -1314,6 +1314,48 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			rr:template "{ID_NR}-fi01";
 			rr:termType rr:Literal
 		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ebucore:hasFormat;
+		rr:objectMap [
+			rml:reference "FORMAT_FILM"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ec:hasFormat;
+		rr:objectMap [
+			rml:reference "FORMAT_FILM"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ebucore:hasColourSpace;
+		rr:objectMap [
+			rml:reference "FARBE_BILDBEARBEITUNG"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ec:hasColourSpace;
+		rr:objectMap [
+			rml:reference "FARBE_BILDBEARBEITUNG"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ebucore:aspectRatio;
+		rr:objectMap [
+			rml:reference "BILDFORMAT_FILM"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ec:aspectRatio;
+		rr:objectMap [
+			rml:reference "BILDFORMAT_FILM"
+		]
 	].
 	
 <#crt_13029>
