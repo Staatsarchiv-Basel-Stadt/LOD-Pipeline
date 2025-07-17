@@ -72,6 +72,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
+		rr:predicate rico:scopeAndContent;
+		rr:objectMap [
+			rml:reference "INHALT";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
 		rr:predicate rico:type;
 		rr:objectMap [
 			rml:reference "ARCHIVALIENART";
