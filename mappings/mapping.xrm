@@ -473,6 +473,43 @@ map inst_03 from stabs_ogd.film_inst {
     rico.identifier template "{0}-fi01" with ID_NR as Literal;
   }
 
+/* Trägertypen (Film, Ton) */
+
+map crt_13029 from stabs_ogd.crt_13029 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    rico.hasCarrierType constant stabscrt._13029;
+}
+
+map crt_13030 from stabs_ogd.crt_13030 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    rico.hasCarrierType constant stabscrt._13030;
+}
+
+map crt_13031 from stabs_ogd.crt_13031 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    rico.hasCarrierType constant stabscrt._13031;
+}
+
+map crt_13042 from stabs_ogd.crt_13042 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    rico.hasCarrierType constant stabscrt._13042;
+}
+
+map crt_13043 from stabs_ogd.crt_13043 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    rico.hasCarrierType constant stabscrt._13043;
+}
+
 // map inst_02 from stabs_ogd.crstabs_digital_inst { // @todo: erstelle rico:Rule und verbinde RR und INST damit
 //   subject template freedigiinstURI with ID_NR;
 

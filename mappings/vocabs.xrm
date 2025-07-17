@@ -1961,6 +1961,17 @@ vocabulary stabscrs {
 		or "orphaned"
 }
 
+vocabulary stabscrt {
+	prefix "stabs-crt" "https://ld.bs.ch/RiC/vocabularies/carrierTypes/"
+
+	classes
+		_13029 "13029"
+		_13030 "13030"
+		_13031 "13031"
+		_13042 "13042"
+		_13043 "13043"
+}
+
 vocabulary stabsext {
 	prefix "stabs-ext" "https://ld.bs.ch/RiC/vocabularies/extentTypes/"
 

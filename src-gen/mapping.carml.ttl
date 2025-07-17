@@ -16,6 +16,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-acr: <https://ld.bs.ch/RiC/vocabularies/acRules/>
 PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatus/>
+PREFIX stabs-crt: <https://ld.bs.ch/RiC/vocabularies/carrierTypes/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
@@ -1312,6 +1313,121 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rr:template "{ID_NR}-fi01";
 			rr:termType rr:Literal
+		]
+	].
+	
+<#crt_13029>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.TRAEGERMATERIAL =~/^Cellulosenitrat$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasCarrierType;
+		rr:objectMap [
+			rr:constant stabs-crt:13029
+		]
+	].
+	
+<#crt_13030>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.TRAEGERMATERIAL =~/^Celluloseacetat$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasCarrierType;
+		rr:objectMap [
+			rr:constant stabs-crt:13030
+		]
+	].
+	
+<#crt_13031>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.TRAEGERMATERIAL =~/^Polyester/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasCarrierType;
+		rr:objectMap [
+			rr:constant stabs-crt:13031
+		]
+	].
+	
+<#crt_13042>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.TRAEGERMATERIAL =~/^Acetat$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasCarrierType;
+		rr:objectMap [
+			rr:constant stabs-crt:13042
+		]
+	].
+	
+<#crt_13043>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.TRAEGERMATERIAL =~/^Nitrat$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasCarrierType;
+		rr:objectMap [
+			rr:constant stabs-crt:13043
 		]
 	].
 	

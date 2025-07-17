@@ -405,8 +405,42 @@ source-group stabs_ogd {
       FORMAT_TON
       ID_NR
       PHYSISCHE_BESCHAFFENHEIT
-      TRAEGERMATERIAL
-  }  
+  }
+
+  logical-source crt_13029 {
+    iterator "$..[?(@.TRAEGERMATERIAL =~/^Cellulosenitrat$/)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source crt_13030 {
+    iterator "$..[?(@.TRAEGERMATERIAL =~/^Celluloseacetat$/)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source crt_13031 {
+    iterator "$..[?(@.TRAEGERMATERIAL =~/^Polyester/)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source crt_13042 {
+    iterator "$..[?(@.TRAEGERMATERIAL =~/^Acetat$/)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source crt_13043 {
+    iterator "$..[?(@.TRAEGERMATERIAL =~/^Nitrat$/)]"
+
+    referenceables
+      ID_NR
+  }
 
   logical-source file_inst_01 {
     iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^txt$|^video$|^warc$/)]"
