@@ -1,0 +1,171 @@
+BASE <https://ld.bs.ch/>
+PREFIX cc: <https://creativecommons.org/ns#>
+PREFIX dc11: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
+PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX stabs-act: <https://ld.bs.ch/RiC/vocabularies/activityTypes/>
+PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatus/>
+PREFIX stabs-crt: <https://ld.bs.ch/RiC/vocabularies/carrierTypes/>
+PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
+PREFIX stabs-fit: <https://ld.bs.ch/RiC/vocabularies/filmTypes/>
+PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
+PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
+PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
+PREFIX stabs-rut: <https://ld.bs.ch/RiC/vocabularies/ruleTypes/>
+PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
+PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+
+# Filmelemente des StABS
+# ----------------------
+# StABS-spezifischen Angaben zur Art des Filmes
+
+stabs-fit: a owl:NamedIndividual, skos:ConceptScheme ;
+	dcterms:creator <org/staatsarchiv> ;
+	dcterms:title "Filmelement (Filmtypen)"@de, "Film Type"@en ;
+	rdfs:label "Filmelement (Filmtypen)"@de, "Film Type"@en ;
+	skos:definition "StABS-spezifischen Angaben zur Art des Filmes"@de
+	.
+
+stabs-fit:13018 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Vorführkopie"@de ;
+    rdfs:label "Vorführkopie"@de
+    .
+
+stabs-fit:13019 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Umkehroriginal (Positiv)"@de ;
+    rdfs:label "Umkehroriginal (Positiv)"@de 
+    .
+
+stabs-fit:13020 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "A/B-Rollen (Negative)"@de ;
+    rdfs:label "A/B-Rollen (Negative)"@de 
+    .
+
+stabs-fit:13021 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Internegativ"@de ;
+    rdfs:label "Internegativ"@de 
+    .
+
+stabs-fit:13022 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Interpositiv"@de ;
+    rdfs:label "Interpositiv"@de 
+    .
+
+stabs-fit:13023 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Dub-Negativ"@de ;
+    rdfs:label "Dub-Negativ"@de 
+    .
+
+stabs-fit:13024 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Dub-Positiv"@de ;
+    rdfs:label "Dub-Positiv"@de 
+    .
+
+stabs-fit:13025 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Intermedpositiv"@de ;
+    rdfs:label "Intermedpositiv"@de 
+    .
+
+stabs-fit:13026 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Arbeitskopie"@de ;
+    rdfs:label "Arbeitskopie"@de 
+    .
+
+stabs-fit:13027 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Nullkopie"@de ;
+    rdfs:label "Nullkopie"@de 
+    .
+
+stabs-fit:13028 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "CRI"@de ;
+    rdfs:label "CRI"@de 
+    .
+
+stabs-fit:13044 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Positiv"@de ;
+    rdfs:label "Positiv"@de 
+    .
+
+stabs-fit:13045 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Umkehrpositiv"@de ;
+    rdfs:label "Umkehrpositiv"@de 
+    .
+
+stabs-fit:13046 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Negativ"@de ;
+    rdfs:label "Negativ"@de 
+    .
+stabs-fit:13047 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Umkehrnegativ"@de ;
+    rdfs:label "Umkehrnegativ"@de 
+    .
+
+stabs-fit:13050 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Positivkopie von einem 35mm-Film"@de ;
+    rdfs:label "Positivkopie von einem 35mm-Film"@de 
+    .
+
+stabs-fit:13051 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "IntermediatePositiv"@de ;
+    rdfs:label "IntermediatePositiv"@de 
+    .
+
+stabs-fit:13052 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Positivkopie"@de ;
+    rdfs:label "Positivkopie"@de 
+    .
+
+stabs-fit:13053 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Umkehrpositiv (kurzer Teil in der Mitte Positiv)"@de ;
+    rdfs:label "Umkehrpositiv (kurzer Teil in der Mitte Positiv)"@de 
+    .
+
+stabs-fit:13054 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Verschiedene"@de ;
+    rdfs:label "Verschiedene"@de 
+    .
+
+stabs-fit:13055 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Umkehrpositiv (nicht ganz sicher)"@de ;
+    rdfs:label "Umkehrpositiv (nicht ganz sicher)"@de 
+    .
+
+stabs-fit:13056 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Original Tonpositiv"@de ;
+    rdfs:label "Original Tonpositiv"@de 
+    .
+
+stabs-fit:13057 a rico:Type, skos:Concept ;
+    dcterms:creator <org/staatsarchiv> ;
+    dcterms:title "Positiv (Kopie)"@de ;
+    rdfs:label "Positiv (Kopie)"@de 
+    .
