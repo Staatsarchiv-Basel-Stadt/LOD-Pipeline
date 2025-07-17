@@ -458,6 +458,21 @@ map inst_02 from stabs_ogd.video_inst {
     ebucoreplus.aspectRatio from BILDFORMAT_FILM;
 }
 
+/* Filminstantiation */
+
+map inst_03 from stabs_ogd.film_inst {
+  subject template filminstURI with ID_NR;
+
+  types
+    rico.Instantiation
+    ebucore.MediaResource
+    ebucoreplus.MediaResource
+  
+  properties
+    rico.isOrWasAnalogueInstantiationOf template rrURI with ID_NR;
+    rico.identifier template "{0}-fi01" with ID_NR as Literal;
+  }
+
 // map inst_02 from stabs_ogd.crstabs_digital_inst { // @todo: erstelle rico:Rule und verbinde RR und INST damit
 //   subject template freedigiinstURI with ID_NR;
 

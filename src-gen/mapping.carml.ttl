@@ -1281,6 +1281,40 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
+<#inst_03>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FORMAT_FILM)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01";
+		rr:class rico:Instantiation;
+		rr:class ebucore:MediaResource;
+		rr:class ec:MediaResource
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasAnalogueInstantiationOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:identifier;
+		rr:objectMap [
+			rr:template "{ID_NR}-fi01";
+			rr:termType rr:Literal
+		]
+	].
+	
 <#file_01>
 	a rr:TriplesMap;
 	

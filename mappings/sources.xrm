@@ -393,6 +393,21 @@ source-group stabs_ogd {
       ID_NR
   }
 
+  logical-source film_inst {
+    iterator "$..[?(@.FORMAT_FILM)]"
+
+    referenceables
+      ABSPIELGESCHWINDIGKEIT
+      BILDFORMAT_FILM
+      FARBE_BILDBEARBEITUNG
+      FILMELEMENT
+      FORMAT_FILM
+      FORMAT_TON
+      ID_NR
+      PHYSISCHE_BESCHAFFENHEIT
+      TRAEGERMATERIAL
+  }  
+
   logical-source file_inst_01 {
     iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^txt$|^video$|^warc$/)]"
 
