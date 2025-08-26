@@ -2029,7 +2029,10 @@ vocabulary stabsrico {
 		RecordHGB
 
 	properties
+		contains
+		content
 		houseNameBS
+		includes
 		oldHousenumber
 		owner1862
 		person

@@ -96,3 +96,46 @@ stabs-rico:person a owl:DatatypeProperty ;
 	] ;
 	skos:scopeNote "Einträge mit Namen von Personen und in Klammern, Zusatzbezeichnungen und ihrer Funktion in Bezug auf die Verzeichnungseinheit."@de
 	.
+
+# Erweiterungen der Property rico:scopeAndContent
+# -----------------------------------------------
+# fasst die im StABS verwendeten Datenelemente <darin>, <enthält> und <Inhalt> in eigene Properties
+
+stabs-rico:includes a owl:DatatypeProperty ;
+	rdfs:domain rico:RecordResource ;
+	rdfs:subPropertyOf rico:scopeAndContent ;
+	rdfs:range rdfs:Literal ;
+	rdfs:comment "In einem Darin-Vermerk werden Inhalte einer Verzeichnungseinheit erfasst, die aufgrund des Titels nicht in dieser VE erwartet werden können. Das gilt ebenso für besonders wichtige, aussergewöhnliche, spezielle Unterlagen, die auf diese Weise hervorgehoben werden sollen."@de ;
+	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
+	rdfs:label "Darin"@de ;
+	skos:changeNote [
+		"2025-08-26" ;
+		rdf:value "Kommentar: Erstellt für das Datenelement <DARIN> in Verzeichnungseinheiten."@de
+	] ;
+	.
+
+stabs-rico:contains a owl:DatatypeProperty ;
+	rdfs:domain rico:RecordResource ;
+	rdfs:subPropertyOf rico:scopeAndContent ;
+	rdfs:range rdfs:Literal ;
+	rdfs:comment "Im Enthält-Vermerk wird der Inhalt einer Verzeichnungseinheit mit allgemein gehaltenem Titel bzw. bei summarischer Erschliessung festgehalten. Im Gegensatz zum Darin-Vermerk, der für Spezielles und Unerwartetes verwendet wird, sind im Enthält-Vermerk alle wesentlichen Inhalte einer Verzeichnungseinheit festzuhalten."@de ;
+	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
+	rdfs:label "Enthält"@de ;
+	skos:changeNote [
+		"2025-08-26" ;
+		rdf:value "Kommentar: Erstellt für das Datenelement <ENTHAELT> in Verzeichnungseinheiten."@de
+	] ;
+	.
+
+stabs-rico:content a owl:DatatypeProperty ;
+	rdfs:domain rico:RecordResource ;
+	rdfs:subPropertyOf rico:scopeAndContent ;
+	rdfs:range rdfs:Literal ;
+	rdfs:comment "Im Datenelement "Inhalt" wird eine kurze Beschreibung des Inhalts von Bildern, Plänen und AV-Medien erfasst."@de ;
+	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
+	rdfs:label "Inhalt"@de ;
+	skos:changeNote [
+		"2025-08-26" ;
+		rdf:value "Kommentar: Erstellt für das Datenelement <INHALT> in Verzeichnungseinheiten."@de
+	] ;
+	.
