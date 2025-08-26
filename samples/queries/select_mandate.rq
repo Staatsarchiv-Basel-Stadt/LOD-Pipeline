@@ -1,0 +1,25 @@
+
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+
+SELECT ?Signatur ?Titel ?Entstehungszeitraum ?Archivalienart ?enthält ?DLS_Link (?record as ?URI)
+WHERE {
+  GRAPH <https://ld.bs.ch/graph/ais-metadata> {
+    <https://ld.bs.ch/ais/Record/1107046> ^rico:isDirectlyIncludedIn* ?record
+    .
+    FILTER EXISTS { ?record a rico:Record }
+    FILTER REGEX(?Signatur, '^STA Bf 1 A [1-6]-.*')    
+    ?record rico:identifier ?Signatur  ;
+            rico:title ?Titel ;
+            rico:type ?Archivalienart ;
+            rdfs:seeAlso ?DLS_Link
+    .
+    OPTIONAL { ?record rico:scopeAndContent ?enthält ;
+                       rico:hasOrHadAllMembersWithAccumulationDate/rico:expressedDate ?Entstehungszeitraum
+    . }
+  }
+}
