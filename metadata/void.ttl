@@ -123,7 +123,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <date/coverage> a dcterms:PeriodOfTime ;
     schema:startDate "1098"^^xsd:gYear ;
-    schema:endDate "2024"^^xsd:gYear
+    schema:endDate "2025"^^xsd:gYear
     .
 
 ##
@@ -136,7 +136,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:description "Dieser Datensatz enthält die frei zugänglichen Inhalte des Archivkatalogs des Staatsarchiv Basel-Stadt in RDF (Ontologie: Records in Context)"@de ;
     dcterms:contributor <https://register.ld.admin.ch/zefix/company/1198554> ;
     dcterms:creator <org/staatsarchiv> ;
-    dcterms:publisher <org/fachstelle-ogd> ;
+    dcterms:publisher <org/DCC.BS> ;
     dcterms:source <sys/scopeArchiv> ;
     dcterms:source <sys/agora> ;
     dcterms:licence <https://creativecommons.org/publicdomain/zero/1.0/> ;
@@ -166,5 +166,3 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     void:distinctSubjects "3000000"^^xsd:integer ;
     void:properties "120"^^xsd:integer
     .
-#    dcterms:created "%%DATECREATED%%"^^xsd:date;
-#    dcterms:modified "%%DATEMODIFIED%%"^^xsd:date;
