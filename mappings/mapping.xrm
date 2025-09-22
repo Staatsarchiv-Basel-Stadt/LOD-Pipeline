@@ -10,11 +10,8 @@ map rr_stabs from stabs_ogd.rr_base {
   properties
     rico.title from TITEL with language-tag ger;
     rico.identifier from SIGNATUR;
-    rico.scopeAndContent from DARIN with language-tag ger;
     stabsrico.includes from DARIN with language-tag ger;
-    rico.scopeAndContent from ENTHAELT with language-tag ger;
     stabsrico.contains from ENTHAELT with language-tag ger;
-    rico.scopeAndContent from INHALT with language-tag ger;
     stabsrico.content from INHALT with language-tag ger;
     rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
     rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
