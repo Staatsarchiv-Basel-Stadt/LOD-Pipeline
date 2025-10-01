@@ -1504,6 +1504,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
+<#inst2file>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^txt$|^video$|^warc$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fr01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate relSubType:hsp;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/File/{identifier}"
+		]
+	].
+	
 <#storage>
 	a rr:TriplesMap;
 	

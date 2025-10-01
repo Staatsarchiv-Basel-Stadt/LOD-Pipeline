@@ -1244,6 +1244,7 @@ vocabulary relSubType {
 		inc // includes
 		iso // is Source Of
 		isp // is Part Of
+		hsp // has Part
 		hss // has Source
 }
 

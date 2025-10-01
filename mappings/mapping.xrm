@@ -540,6 +540,13 @@ map crt_13043 from stabs_ogd.crt_13043 {
     premis.storedAt template storageURI with identifier;
  }
 
+ map inst2file from stabs_ogd.file_inst_01 {
+  subject template freedigiinstURI with ID_NR;
+
+  properties
+    relSubType.hsp template fileURI with identifier;
+ }
+
  /* Storage */
 
  map storage from stabs_ogd.file_inst_01 {
