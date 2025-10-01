@@ -11,7 +11,8 @@ stages:
 github:
   stage: github
   image:
-    name: docker.io/bitnami/git:2
+    name: docker.io/alpine/git:v2.49.1
+    entrypoint: [""]
   script:
     # Some SSH configuration
     - mkdir -p /root/.ssh
@@ -37,7 +38,8 @@ fetch-test:
   stage: fetch
   interruptible: true
   image:
-    name: docker.io/bitnamilegacy/minio-client:latest
+    name: docker.io/minio/mc:latest
+    entrypoint: [""]
   artifacts:
     expire_in: 1 day
     paths:
@@ -53,7 +55,8 @@ fetch-prod:
   stage: fetch
   interruptible: true
   image:
-    name: docker.io/bitnamilegacy/minio-client:latest
+    name: docker.io/minio/mc:latest
+    entrypoint: [""]
   artifacts:
     expire_in: 1 day
     paths:

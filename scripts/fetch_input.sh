@@ -14,7 +14,7 @@ get_file_by_prefix () {
   local prefix="$1"
   echo "[$(date)] Get the last file matching the prefix '${prefix}'…"
 
-  local file_name=$(mc ls "bucket/${S3_BUCKET}/${S3_PATH}/${prefix}" | awk '{ print $NF }' | sort | tail -n1)
+  local file_name=$(mc ls "bucket/${S3_BUCKET}/${S3_PATH}/${prefix}" | while IFS= read -r line; do [[ "$line" == *"$prefix"* ]] && echo "$prefix${line#*$prefix}"; done | sort | tail -n1)
   if [ -z "${file_name}" ]; then
     echo "ERROR: No input file was found that has this prefix '${prefix}'" >&2
     exit 1
