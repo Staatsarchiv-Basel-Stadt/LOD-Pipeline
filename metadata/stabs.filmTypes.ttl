@@ -24,7 +24,7 @@ PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 
 # Filmelemente des StABS
 # ----------------------
-# StABS-spezifischen Angaben zur Art des Filmes
+# StABS-spezifischen Angaben zur Art des Films
 
 stabs-fit: a owl:NamedIndividual, skos:ConceptScheme ;
 	dcterms:creator <org/staatsarchiv> ;
