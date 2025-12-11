@@ -110,8 +110,8 @@ map level_dok from stabs_ogd.rr_dok {
  * ---------
  * - Entstehungszeitraum
  */
-map date_01 from stabs_ogd.rr_date {
-  subject template dateURI with ID_NR;
+map date_01 from stabs_ogd.rr_full_date {
+  subject template rrdateURI with ID_NR;
 
   types
     rico.Date
@@ -119,16 +119,38 @@ map date_01 from stabs_ogd.rr_date {
   properties
     rico.isDateAssociatedWith template rrURI with ID_NR;
     rico.expressedDate from ENTSTEHUNGSZEITRAUM; // @todo: mit Datumsoperatoren könnte eine bessere Textrepräsentation erreicht werden.
-    rico.normalizedDateValue from ENTSTEHUNGSZEITRAUM; // @todo: XML Date types für Typisierung
+//    rico.normalizedDateValue from ENTSTEHUNGSZEITRAUM; // @todo: XML Date types für Typisierung
 //    rico.hasDateType // Definiert in RiC-O 1.0 für Klassen `DateSet`, `DateRange` oder `SingleDate`, oder Subklassen. Bei Bedarf implementieren
 //    rico.qualifier kann für "certainty" und "precision" verwendet werden, Implementierung bei Bedarf
 }
 
-map date_02 from stabs_ogd.rr_date {
+map date_02 from stabs_ogd.rr_full_date {
   subject template rrURI with ID_NR;
 
   properties
-    rico.isAssociatedWithDate template dateURI with ID_NR;
+    rico.isAssociatedWithDate template rrdateURI with ID_NR;
+}
+
+map date_03 from stabs_ogd.rr_crea_date {
+  subject template dateURI with created_start;
+
+  types
+    rico.Date
+  
+  properties
+    rico.isBeginningDateOf template rrURI with ID_NR;
+    rico.normalizedDateValue from created_start;
+}
+
+map date_04 from stabs_ogd.rr_end_date {
+  subject template dateURI with created_end;
+
+  types
+    rico.Date
+  
+  properties
+    rico.isEndDateOf template rrURI with ID_NR;
+    rico.normalizedDateValue from created_end;
 }
 
 //    created_start created_end

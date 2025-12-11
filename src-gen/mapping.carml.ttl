@@ -401,13 +401,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rml:reference "ENTSTEHUNGSZEITRAUM"
 		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:normalizedDateValue;
-		rr:objectMap [
-			rml:reference "ENTSTEHUNGSZEITRAUM"
-		]
 	].
 	
 <#date_02>
@@ -430,6 +423,68 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:isAssociatedWithDate;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date"
+		]
+	].
+	
+<#date_03>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.created_start)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Date/{created_start}";
+		rr:class rico:Date
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isBeginningDateOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:normalizedDateValue;
+		rr:objectMap [
+			rml:reference "created_start"
+		]
+	].
+	
+<#date_04>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.created_end)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Date/{created_end}";
+		rr:class rico:Date
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isEndDateOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:normalizedDateValue;
+		rr:objectMap [
+			rml:reference "created_end"
 		]
 	].
 	
