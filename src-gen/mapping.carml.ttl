@@ -6,6 +6,7 @@ PREFIX contentLocationType: <http://id.loc.gov/vocabulary/preservation/contentLo
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#>
 PREFIX ec: <http://www.ebu.ch/metadata/ontologies/ebucoreplus#>
+PREFIX iiif: <http://iiif.io/api/presentation/3#>
 PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
 PREFIX quantity: <http://qudt.org/vocab/quantitykind/>
 PREFIX rdact: <http://rdaregistry.info/termList/RDACarrierType/>
@@ -13,6 +14,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX schema: <http://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-acr: <https://ld.bs.ch/RiC/vocabularies/acRules/>
 PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatus/>
@@ -1185,6 +1187,131 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
+<#iiif_01>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.s3_path && @.manifest_url)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fr01";
+		rr:class iiif:Manifest
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate schema:url;
+		rr:objectMap [
+			rr:template "https://dls.staatsarchiv.bs.ch/api/records/manifest/?identifier={identifier}";
+			rr:termType rr:Literal
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdfs:seeAlso;
+		rr:objectMap [
+			rml:reference "viewer_url"
+		]
+	].
+	
+<#inst2file>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^pdf$|^txt$|^video$|^warc$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fr01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate relSubType:hsp;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/File/{identifier}"
+		]
+	].
+	
+<#file_01>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^pdf$|^txt$|^video$|^warc$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/File/{identifier}";
+		rr:class premis:File
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate relSubType:isp;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fr01"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate premis:storedAt;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/File/{identifier}/Location"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdfs:seeAlso;
+		rr:objectMap [
+			rml:reference "viewer_url"
+		]
+	].
+	
+<#storage>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^pdf$|^txt$|^video$|^warc$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/File/{identifier}/Location";
+		rr:class premis:StorageLocation
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate premis:medium;
+		rr:objectMap [
+			rr:constant contentLocationType:uri
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdf:value;
+		rr:objectMap [
+			rr:template "https://sos-ch-dk-2.exo.io/hfp-stabs-dls/{s3_path}{original_filename}";
+			rr:termType rr:Literal
+		]
+	].
+	
 <#inst_02>
 	a rr:TriplesMap;
 	
@@ -1470,92 +1597,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:hasCarrierType;
 		rr:objectMap [
 			rr:constant stabs-crt:13043
-		]
-	].
-	
-<#file_01>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^txt$|^video$|^warc$/)]"
-	];
-	
-	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/File/{identifier}";
-		rr:class premis:File
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate relSubType:isp;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fr01"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate premis:storedAt;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/File/{identifier}/Location"
-		]
-	].
-	
-<#inst2file>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^txt$|^video$|^warc$/)]"
-	];
-	
-	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fr01"
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate relSubType:hsp;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/File/{identifier}"
-		]
-	].
-	
-<#storage>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^txt$|^video$|^warc$/)]"
-	];
-	
-	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/File/{identifier}/Location";
-		rr:class premis:StorageLocation
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate premis:medium;
-		rr:objectMap [
-			rr:constant contentLocationType:uri
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rdf:value;
-		rr:objectMap [
-			rr:template "https://sos-ch-dk-2.exo.io/hfp-stabs-dls/{s3_path}{original_filename}";
-			rr:termType rr:Literal
 		]
 	].
 	

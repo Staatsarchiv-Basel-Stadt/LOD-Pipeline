@@ -442,68 +442,25 @@ source-group stabs_ogd {
       ID_NR
   }
 
-  logical-source file_inst_01 {
-    iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^txt$|^video$|^warc$/)]"
+  logical-source  iiif_01 {
+    iterator "$..[?(@.s3_path && @.manifest_url)]"
 
     referenceables
       ID_NR
       identifier
-      media_type
-      original_filename
-      s3_path
-      SIGNATUR
+      viewer_url
   }
 
-  // logical-source media_type_audio {
-  //   iterator "$..[?(@.media_type == 'audio')]"
+  logical-source file_collection_01 {
+    iterator "$..[?(@.s3_path && @.media_type =~/^audio$|^pdf$|^txt$|^video$|^warc$/)]"
 
-  //   referenceables
-  //     identifier
-  //     media_type
-  // }  
-
-  // logical-source media_type_image {
-  //   iterator "$..[?(@.media_type == 'image')]"
-
-  //   referenceables
-  //     identifier
-  //     media_type
-  // }
-
-  // logical-source media_type_book {
-  //   iterator "$..[?(@.media_type == 'book')]"
-
-  //   referenceables
-  //     ID_NR "record.identifier"
-  //     identifier
-  //     media_type
-  // }
-
-  // logical-source media_type_txt {
-  //   iterator "$..[?(@.media_type == 'txt')]"
-
-  //   referenceables
-  //     identifier
-  //     media_type
-  // }
-
-  // logical-source media_type_video {
-  //   iterator "$..[?(@.media_type == 'video')]"
-
-  //   referenceables
-  //     ID_NR "record.identifier"
-  //     identifier
-  //     media_type
-
-  // }
-
-  // logical-source media_type_warc {
-  //   iterator "$..[?(@.media_type == 'warc')]"
-
-  //   referenceables
-  //     identifier
-  //     media_type
-  // }
+    referenceables
+      ID_NR
+      identifier
+      original_filename
+      s3_path
+      viewer_url
+  }
 
 // logical-source rr_at_akte {
 // iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"

@@ -345,66 +345,66 @@ map records_bib from stabs_ogd.rr_biblio {
 */
 
 map ar_freeonline from stabs_ogd.rr_ar_freeonline {
-  subject template rrURI with ID_NR ;
+  subject template rrURI with ID_NR;
 
   properties
-    rico.isAssociatedWithRule constant stabsacr.freeonline ;
+    rico.isAssociatedWithRule constant stabsacr.freeonline;
 }
 
 map ar_orderablerr from stabs_ogd.rr_ar_orderablerr {
-  subject template rrURI with ID_NR ;
+  subject template rrURI with ID_NR;
 
   properties
-    rico.isAssociatedWithRule constant stabsacr.orderablerr ;
+    rico.isAssociatedWithRule constant stabsacr.orderablerr;
 }
 
 map ar_orderablerp from stabs_ogd.rr_ar_orderablerp {
-  subject template rrURI with ID_NR ;
+  subject template rrURI with ID_NR;
 
   properties
-    rico.isAssociatedWithRule constant stabsacr.orderablerp ;
+    rico.isAssociatedWithRule constant stabsacr.orderablerp;
 }
 
 map ar_protected from stabs_ogd.rr_ar_protected {
-  subject template rrURI with ID_NR ;
+  subject template rrURI with ID_NR;
 
   properties
-    rico.isAssociatedWithRule constant stabsacr.protected ;
+    rico.isAssociatedWithRule constant stabsacr.protected;
 }
 
 map cr_pd from stabs_ogd.rr_cr_pd {
   subject template rrURI with ID_NR;
 
   properties
-    rico.isAssociatedWithRule constant stabscrs.pd ;
+    rico.isAssociatedWithRule constant stabscrs.pd;
 }
 
 map cr_sa from stabs_ogd.rr_cr_sa {
   subject template rrURI with ID_NR;
 
   properties
-    rico.isAssociatedWithRule constant stabscrs.sa ;
+    rico.isAssociatedWithRule constant stabscrs.sa;
 }
 
 map cr_un from stabs_ogd.rr_cr_un {
   subject template rrURI with ID_NR;
 
   properties
-    rico.isAssociatedWithRule constant stabscrs.un ;
+    rico.isAssociatedWithRule constant stabscrs.un;
 }
 
 map cr_cr from stabs_ogd.rr_cr_cr {
   subject template rrURI with ID_NR;
 
   properties
-    rico.isAssociatedWithRule constant stabscrs.cr ;
+    rico.isAssociatedWithRule constant stabscrs.cr;
 }
 
 map cr_or from stabs_ogd.rr_cr_or {
   subject template rrURI with ID_NR;
 
   properties
-    rico.isAssociatedWithRule constant stabscrs.or ;
+    rico.isAssociatedWithRule constant stabscrs.or;
 }
 
 /* Instantiationen
@@ -412,7 +412,7 @@ map cr_or from stabs_ogd.rr_cr_or {
 */
 
 /* freie digitale Instantiationen
-/
+/  als IIIF-Manifest oder File-Collection
 */
 
 map inst_01 from stabs_ogd.free_digital_inst {
@@ -424,16 +424,61 @@ map inst_01 from stabs_ogd.free_digital_inst {
 
   properties
     rico.isOrWasDigitalInstantiationOf template rrURI with ID_NR;
-    rico.isAssociatedWithRule constant stabsacr.freeonline ;
+    rico.isAssociatedWithRule constant stabsacr.freeonline;
     rico.identifier template "{0}-fr01" with ID_NR as Literal;
     rico.hasCarrierType constant rdact._1018;
 //    rico.hasProductionTechniqueType constant "rico:ProductionTechniqueType"; // @todo rico:ProductionTechniqueType
 //    rico.hasRepresentationType constant "http://rdaregistry.info/termList/RDAMediaType/1003"; // @todo, genauer mit mediatype auf files-Ebene, siehe auch rico:RepresentationType
 //    rico.instantiationExtent constant "anzahl dateien"; // @todo wenn möglich, Anzahl Dateien oder Dateigrösse(n). Kaum umsetzbar
     rico.physicalCharacteristicsNote from PHYSISCHE_BESCHAFFENHEIT with language-tag ger;
-//    rico.hasOrHadLegalStatus from STATUS_URHEBER_RECHT with language-tag ger; // @todo: erstelle rico:Rule und verbinde RR und INST damit
 }
 
+/* Instatiiert als IIIF-Manifest */
+map iiif_01 from stabs_ogd.iiif_01 {
+  subject template freedigiinstURI with ID_NR;
+
+  types
+    iiif.Manifest
+
+  properties
+    schema.url template manifestURI with identifier as Literal;
+    rdfs.seeAlso from viewer_url; // template viewerURI with ID_NR identifier as Literal (funktioniert nicht, da `/` encoded sein muss)
+}
+
+/* Instatiiert als File-Collection */
+map inst2file from stabs_ogd.file_collection_01 {
+  subject template freedigiinstURI with ID_NR;
+
+  properties
+    relSubType.hsp template fileURI with identifier;
+}
+
+map file_01 from stabs_ogd.file_collection_01 {
+  subject template fileURI with identifier;
+
+  types
+    premis.File
+
+  properties
+    relSubType.isp template freedigiinstURI with ID_NR;
+    premis.storedAt template storageURI with identifier;
+    rdfs.seeAlso from viewer_url; // template viewerURI with ID_NR identifier as Literal (funktioniert nicht, da `/` encoded sein muss)
+ }
+
+ /* Public Storage (bei File-Collection) */
+
+ map storage from stabs_ogd.file_collection_01 {
+  subject template storageURI with identifier;
+
+  types
+    premis.StorageLocation
+
+  properties
+    premis.medium constant contentLocationType.uri;
+    rdf.value template contentLocationURI with s3_path original_filename as Literal;
+ } 
+
+/* Analoge Instantiationen */
 /* Videoinstantiationen */
 
 map inst_02 from stabs_ogd.video_inst {
@@ -524,41 +569,6 @@ map crt_13043 from stabs_ogd.crt_13043 {
 //   properties
 //     rico.hasOrHadIntellectualPropertyRightsHolder constant "https://ld.bs.ch/org/staatsarchiv";
 // }
-
-/* Dateien & Objekte
-/  -----------------
-*/
-
- map file_01 from stabs_ogd.file_inst_01 {
-  subject template fileURI with identifier;
-
-  types
-    premis.File
-
-  properties
-    relSubType.isp template freedigiinstURI with ID_NR;
-    premis.storedAt template storageURI with identifier;
- }
-
- map inst2file from stabs_ogd.file_inst_01 {
-  subject template freedigiinstURI with ID_NR;
-
-  properties
-    relSubType.hsp template fileURI with identifier;
- }
-
- /* Storage */
-
- map storage from stabs_ogd.file_inst_01 {
-  subject template storageURI with identifier;
-
-  types
-    premis.StorageLocation
-
-  properties
-    premis.medium constant contentLocationType.uri;
-    rdf.value template contentLocationURI with s3_path original_filename as Literal;
- } 
 
 /* Descriptors (scope Concept)
  * --------------------------

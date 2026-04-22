@@ -29,6 +29,8 @@ template contentLocationURI "https://sos-ch-dk-2.exo.io/hfp-stabs-dls/{0}{1}"
 
 /* Backlink DLS */
 template dlsURI "https://dls.staatsarchiv.bs.ch/records/{0}"
+template manifestURI "https://dls.staatsarchiv.bs.ch/api/records/manifest/?identifier={0}"
+template viewerURI "https://dls.staatsarchiv.bs.ch/records/{0}/{1}/preview"
 
 /* URI templates für Agent, Event, Rule, Place, Date (ohne Record) */
 template agURI "https://ld.bs.ch/ais/Agent/{0}"
