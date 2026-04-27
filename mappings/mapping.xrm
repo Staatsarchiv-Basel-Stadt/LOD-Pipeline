@@ -442,7 +442,7 @@ map iiif_01 from stabs_ogd.iiif_01 {
 
   properties
     schema.url template manifestURI with identifier as Literal;
-    rdfs.seeAlso from viewer_url; // template viewerURI with ID_NR identifier as Literal (funktioniert nicht, da `/` encoded sein muss)
+    rdfs.seeAlso from viewer_url with datatype xsd.anyURI; // template viewerURI with ID_NR identifier as Literal (funktioniert nicht, da `/` encoded sein muss)
 }
 
 /* Instatiiert als File-Collection */
@@ -462,7 +462,7 @@ map file_01 from stabs_ogd.file_collection_01 {
   properties
     relSubType.isp template freedigiinstURI with ID_NR;
     premis.storedAt template storageURI with identifier;
-    rdfs.seeAlso from viewer_url; // template viewerURI with ID_NR identifier as Literal (funktioniert nicht, da `/` encoded sein muss)
+    rdfs.seeAlso from viewer_url with datatype xsd.anyURI; // template viewerURI with ID_NR identifier as Literal (funktioniert nicht, da `/` encoded sein muss)
  }
 
  /* Public Storage (bei File-Collection) */

@@ -1215,7 +1215,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rdfs:seeAlso;
 		rr:objectMap [
-			rml:reference "viewer_url"
+			rml:reference "viewer_url";
+			rr:datatype xsd:anyURI
 		]
 	].
 	
@@ -1276,7 +1277,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rdfs:seeAlso;
 		rr:objectMap [
-			rml:reference "viewer_url"
+			rml:reference "viewer_url";
+			rr:datatype xsd:anyURI
 		]
 	].
 	
