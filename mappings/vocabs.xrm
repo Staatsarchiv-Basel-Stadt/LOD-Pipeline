@@ -2045,6 +2045,7 @@ vocabulary stabsrico {
 		houseNameBS
 		includes
 		oldHousenumber
+		ort
 		owner1862
 		person
 }
