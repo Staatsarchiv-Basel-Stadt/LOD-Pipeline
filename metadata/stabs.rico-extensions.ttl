@@ -91,7 +91,7 @@ stabs-rico:person a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Person"@de ;
 	skos:changeNote [
-		"2025-03-05" ;
+		dc11:date "2025-03-05" ;
 		rdf:value "Kommentar: Erstellt für das Datenelement <PERSON> in Verzeichnungseinheiten. Sollte später mit eigenen Entitäten (rico:Person) gelöst werden."@de
 	] ;
 	skos:scopeNote "Einträge mit Namen von Personen und in Klammern, Zusatzbezeichnungen und ihrer Funktion in Bezug auf die Verzeichnungseinheit."@de
@@ -104,7 +104,7 @@ stabs-rico:ort a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Ort"@de, "Place"@en, "Lieu"@fr ;
 	skos:changeNote [
-		"2025-03-05" ;
+		dc11:date "2026-05-12" ;
 		rdf:value "Kommentar: Erstellt für das Datenelement <ORT> in Verzeichnungseinheiten. Sollte später mit eigenen Entitäten (rico:Place) gelöst werden."@de
 	] ;
 	skos:scopeNote "Einträge mit Namen von Orten in Bezug auf die Verzeichnungseinheit."@de
@@ -122,7 +122,7 @@ stabs-rico:includes a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Darin"@de ;
 	skos:changeNote [
-		"2025-08-26" ;
+		dc11:date "2025-08-26" ;
 		rdf:value "Kommentar: Erstellt für das Datenelement <DARIN> in Verzeichnungseinheiten."@de
 	] ;
 	.
@@ -135,7 +135,7 @@ stabs-rico:contains a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Enthält"@de ;
 	skos:changeNote [
-		"2025-08-26" ;
+		dc11:date "2025-08-26" ;
 		rdf:value "Kommentar: Erstellt für das Datenelement <ENTHAELT> in Verzeichnungseinheiten."@de
 	] ;
 	.
@@ -144,11 +144,11 @@ stabs-rico:content a owl:DatatypeProperty ;
 	rdfs:domain rico:RecordResource ;
 	rdfs:subPropertyOf rico:scopeAndContent ;
 	rdfs:range rdfs:Literal ;
-	rdfs:comment "Im Datenelement "Inhalt" wird eine kurze Beschreibung des Inhalts von Bildern, Plänen und AV-Medien erfasst."@de ;
+	rdfs:comment "Im Datenelement <Inhalt> wird eine kurze Beschreibung des Inhalts von Bildern, Plänen und AV-Medien erfasst."@de ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Inhalt"@de ;
 	skos:changeNote [
-		"2025-08-26" ;
+		dc11:date "2025-08-26" ;
 		rdf:value "Kommentar: Erstellt für das Datenelement <INHALT> in Verzeichnungseinheiten."@de
 	] ;
 	.
