@@ -29,7 +29,8 @@ stabs-crt: a owl:NamedIndividual, skos:ConceptScheme ;
 	dcterms:creator <org/staatsarchiv> ;
 	dcterms:title "Typen von Trägern (Film, Ton)"@de, "Carrier Types (Film, Sound)"@en ;
 	rdfs:label "Typen von Trägern (Film, Ton)"@de, "Carrier Types (Film, Sound)"@en ;
-	skos:definition "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Typen von Trägermaterialien (Film, Ton)"@de
+	skos:definition "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Typen von Trägermaterialien (Film, Ton)"@de ;
+	skos:hasTopConcept stabs-crt:13029, stabs-crt:13030, stabs-crt:13031, stabs-crt:13042, stabs-crt:13043
 	.
 
 stabs-crt:13029 a rico:CarrierType, skos:Concept ;

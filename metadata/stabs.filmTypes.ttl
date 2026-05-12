@@ -30,7 +30,8 @@ stabs-fit: a owl:NamedIndividual, skos:ConceptScheme ;
 	dcterms:creator <org/staatsarchiv> ;
 	dcterms:title "Filmelement (Filmtypen)"@de, "Film Type"@en ;
 	rdfs:label "Filmelement (Filmtypen)"@de, "Film Type"@en ;
-	skos:definition "StABS-spezifischen Angaben zur Art des Filmes"@de
+	skos:definition "StABS-spezifischen Angaben zur Art des Filmes"@de ;
+    skos:hasTopConcept stabs-fit:13018, stabs-fit:13019, stabs-fit:13020, stabs-fit:13021, stabs-fit:13022, stabs-fit:13023, stabs-fit:13024, stabs-fit:13025, stabs-fit:13026, stabs-fit:13027, stabs-fit:13028, stabs-fit:13044, stabs-fit:13045, stabs-fit:13046, stabs-fit:13047, stabs-fit:13050, stabs-fit:13051, stabs-fit:13052, stabs-fit:13053, stabs-fit:13054, stabs-fit:13055
 	.
 
 stabs-fit:13018 a rico:Type, skos:Concept ;
