@@ -18,10 +18,29 @@ PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
 PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+PREFIX vann: <http://purl.org/vocab/vann/>
+PREFIX voaf: <http://purl.org/vocommons/voaf#>
 
 # StABS-spezifische Erweiterungen von RiC-O
 # -----------------------------------------
 #
+
+<ontologies/StABS-RiC/> a voaf:Vocabulary, owl:NamedIndividual, owl:Ontology ;
+    cc:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dc11:contributor "Oliver Schihin (State Archives of Basel-Stadt, Switzerland)"@en, "Oliver Schihin (Staatsarchiv Basel-Stadt, Schweiz)"@de ;
+    dc11:creator "Staatsarchiv Basel-Stadt"@de ;
+    dc11:publisher "Staatsarchiv Basel-Stadt"@de ;
+    dc11:rights "Copyright 2019-, International Council on Archives (ICA)"@en ;
+	dcterms:abstract "-"@de ;
+	dcterms:contributor "https://orcid.org/0000-0003-3008-2281" ;
+	dcterms:description "-"@de ;
+	dcterms:publisher <org/staatsarchiv> ;
+	dcterms:title "StABS-RiCo. Erweiterungen von Records in Context für die Nutzung im Staatsarchiv Basel-Stadt"@de ;
+	vann:preferredNamespacePrefix "stabs-rico" ;
+    vann:preferredNamespaceUri "https://ld.bs.ch/ontologies/StABS-RiC/" ;
+	skos:historyNote "-"@de
+	.
+
 # Erweiterungen für Historisches Grundbuch
 # ----------------------------------------
 
