@@ -434,6 +434,13 @@ map inst_01 from stabs_ogd.free_digital_inst {
     rico.physicalCharacteristicsNote from PHYSISCHE_BESCHAFFENHEIT with language-tag ger;
 }
 
+map inst_rr_01 from stabs_ogd.free_digital_inst {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasOrHadDigitalInstantiation template freedigiinstURI with ID_NR;
+}
+
 /* Instatiiert als IIIF-Manifest */
 map iiif_01 from stabs_ogd.iiif_01 {
   subject template freedigiinstURI with ID_NR;
@@ -504,6 +511,13 @@ map inst_02 from stabs_ogd.video_inst {
     ebucoreplus.aspectRatio from BILDFORMAT_FILM;
 }
 
+map inst_rr_02 from stabs_ogd.video_inst {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasOrHadAnalogueInstantiation template videoinstURI with ID_NR;
+}
+
 /* Filminstantiation */
 
 map inst_03 from stabs_ogd.film_inst {
@@ -526,6 +540,13 @@ map inst_03 from stabs_ogd.film_inst {
     // from FORMAT_TON;
     // from FILMELEMENT;
   }
+
+map inst_rr_03 from stabs_ogd.film_inst {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasOrHadAnalogueInstantiation template filminstURI with ID_NR;
+}
 
 /* Trägertypen (Film, Ton) */
 

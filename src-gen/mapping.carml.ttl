@@ -1195,6 +1195,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
+<#inst_rr_01>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.files_are_public == true && @.STATUS_URHEBER_RECHT =~ /^Staatsarchiv|^Gemeinfrei/)] "
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadDigitalInstantiation;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fr01"
+		]
+	].
+	
 <#iiif_01>
 	a rr:TriplesMap;
 	
@@ -1419,6 +1442,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
+<#inst_rr_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FORMAT_VIDEO)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadAnalogueInstantiation;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-vi01"
+		]
+	].
+	
 <#inst_03>
 	a rr:TriplesMap;
 	
@@ -1492,6 +1538,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate ec:aspectRatio;
 		rr:objectMap [
 			rml:reference "BILDFORMAT_FILM"
+		]
+	].
+	
+<#inst_rr_03>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FORMAT_FILM)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadAnalogueInstantiation;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
 		]
 	].
 	
