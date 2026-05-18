@@ -1,6 +1,5 @@
 BASE <https://ld.bs.ch/>
 PREFIX cc: <https://creativecommons.org/ns#>
-PREFIX dc11: <http://purl.org/dc/elements/1.1/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
