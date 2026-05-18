@@ -1,6 +1,5 @@
 BASE <https://ld.bs.ch/>
 PREFIX cc: <https://creativecommons.org/ns#>
-PREFIX dc11: <http://purl.org/dc/elements/1.1/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
@@ -27,14 +26,12 @@ PREFIX voaf: <http://purl.org/vocommons/voaf#>
 
 <ontologies/StABS-RiC/> a voaf:Vocabulary, owl:NamedIndividual, owl:Ontology ;
     cc:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dc11:contributor "Oliver Schihin (State Archives of Basel-Stadt, Switzerland)"@en, "Oliver Schihin (Staatsarchiv Basel-Stadt, Schweiz)"@de ;
-    dc11:creator "Staatsarchiv Basel-Stadt"@de ;
-    dc11:publisher "Staatsarchiv Basel-Stadt"@de ;
-    dc11:rights "Staatsarchiv Basel-Stadt"@de ;
+    dcterms:creator <org/staatsarchiv> ;
 	dcterms:abstract "-"@de ;
 	dcterms:contributor "https://orcid.org/0000-0003-3008-2281" ;
 	dcterms:description "-"@de ;
 	dcterms:publisher <org/staatsarchiv> ;
+	dcterms:rightsHolder <org/staatsarchiv> ;
 	dcterms:title "StABS-RiCo. Erweiterungen von Records in Context für die Nutzung im Staatsarchiv Basel-Stadt"@de ;
 	vann:preferredNamespacePrefix "stabs-rico" ;
     vann:preferredNamespaceUri "https://ld.bs.ch/ontologies/StABS-RiC/" ;
@@ -54,7 +51,7 @@ stabs-rico:RecordHGB a owl:Class ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "HGB-Record"@en, "HGB-Record"@de ;
 	skos:changeNote [
-		dc11:date "2022-10-03" ;
+		dcterms:date "2022-10-03" ;
 		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs."@de ;
 	] ;
 	skos:scopeNote "HGB-Record ist eine spezifische Subklasse von Record Set mit dem StABS-Recordset-Typen \"Dossier\". Entsprechende Instanzen beinhalten zusätzliche Eigenschaften, die aus den speziellen Inhalten des Historischen Grundbuchs herrühren und sonst in der Erschliessung nicht vorkommen."@de ;
@@ -67,7 +64,7 @@ stabs-rico:oldHousenumber a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Old House Number"@en, "Alte Hausnummer"@de ;
 	skos:changeNote [
-		dc11:date "2022-10-03" ;
+		dcterms:date "2022-10-03" ;
 		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@de ;
 	] ;
 	skos:scopeNote "Ein kurzer Text und Zahlen, der die Hausnummer per ??? angibt."@de ;
@@ -80,7 +77,7 @@ stabs-rico:houseNameBS a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Hausname Basel-Stadt"@de, "House Name Basel-Stadt"@en ;
 	skos:changeNote [
-		dc11:date "2022-10-03" ;
+		dcterms:date "2022-10-03" ;
 		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@de ;
 	] ;
 	skos:scopeNote "Ein kurzer Text und Zahlen, der den alten Hausnamen in Basel-Stadt per ??? angibt."@de ;
@@ -93,7 +90,7 @@ stabs-rico:owner1862 a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Eigentümer 1862"@de, "Owner 1862"@en ;
 	skos:changeNote [
-		dc11:date "2022-10-03" ;
+		dcterms:date "2022-10-03" ;
 		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@de ;
 	] ;
 	skos:scopeNote "Ein kurzer Text mit dem Namen von Personen, Familien, Firmen oder Korporationen, der den Eigentümer im Jahr 1862 bezeichnet."@de ;
@@ -110,7 +107,7 @@ stabs-rico:person a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Person"@de ;
 	skos:changeNote [
-		dc11:date "2025-03-05" ;
+		dcterms:date "2025-03-05" ;
 		rdf:value "Kommentar: Erstellt für das Datenelement <PERSON> in Verzeichnungseinheiten. Sollte später mit eigenen Entitäten (rico:Person) gelöst werden."@de
 	] ;
 	skos:scopeNote "Einträge mit Namen von Personen und in Klammern, Zusatzbezeichnungen und ihrer Funktion in Bezug auf die Verzeichnungseinheit."@de
@@ -123,7 +120,7 @@ stabs-rico:ort a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Ort"@de, "Place"@en, "Lieu"@fr ;
 	skos:changeNote [
-		dc11:date "2026-05-12" ;
+		dcterms:date "2026-05-12" ;
 		rdf:value "Kommentar: Erstellt für das Datenelement <ORT> in Verzeichnungseinheiten. Sollte später mit eigenen Entitäten (rico:Place) gelöst werden."@de
 	] ;
 	skos:scopeNote "Einträge mit Namen von Orten in Bezug auf die Verzeichnungseinheit."@de
@@ -141,7 +138,7 @@ stabs-rico:includes a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Darin"@de ;
 	skos:changeNote [
-		dc11:date "2025-08-26" ;
+		dcterms:date "2025-08-26" ;
 		rdf:value "Kommentar: Erstellt für das Datenelement <DARIN> in Verzeichnungseinheiten."@de
 	] ;
 	.
@@ -154,7 +151,7 @@ stabs-rico:contains a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Enthält"@de ;
 	skos:changeNote [
-		dc11:date "2025-08-26" ;
+		dcterms:date "2025-08-26" ;
 		rdf:value "Kommentar: Erstellt für das Datenelement <ENTHAELT> in Verzeichnungseinheiten."@de
 	] ;
 	.
@@ -167,7 +164,7 @@ stabs-rico:content a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
 	rdfs:label "Inhalt"@de ;
 	skos:changeNote [
-		dc11:date "2025-08-26" ;
+		dcterms:date "2025-08-26" ;
 		rdf:value "Kommentar: Erstellt für das Datenelement <INHALT> in Verzeichnungseinheiten."@de
 	] ;
 	.
