@@ -30,7 +30,7 @@ PREFIX voaf: <http://purl.org/vocommons/voaf#>
     dc11:contributor "Oliver Schihin (State Archives of Basel-Stadt, Switzerland)"@en, "Oliver Schihin (Staatsarchiv Basel-Stadt, Schweiz)"@de ;
     dc11:creator "Staatsarchiv Basel-Stadt"@de ;
     dc11:publisher "Staatsarchiv Basel-Stadt"@de ;
-    dc11:rights "Copyright 2019-, International Council on Archives (ICA)"@en ;
+    dc11:rights "Staatsarchiv Basel-Stadt"@de ;
 	dcterms:abstract "-"@de ;
 	dcterms:contributor "https://orcid.org/0000-0003-3008-2281" ;
 	dcterms:description "-"@de ;
