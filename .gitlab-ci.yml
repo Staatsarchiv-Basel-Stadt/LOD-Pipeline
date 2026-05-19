@@ -6,6 +6,7 @@ stages:
   - fetch
   - process
   - store
+  - trigger
 
 # Push `main` branch to GitHub
 github:
@@ -166,11 +167,29 @@ store-prod:
   dependencies:
     - metadata
     - process-prod
+  image:
+    name: docker.io/minio/mc:latest
+    entrypoint: [""]
   script:
-    # display the list of all files that we will upload in the triplestore
+    # Display all files that we willl upload to the S3 bucket
     - ls -alh output
-    # upload them to the triplestore
-    - ./scripts/upload.sh
+    # Upload them to the S3 bucket
+    - mc alias set bucket "${DST_S3_ENDPOINT}" "${DST_S3_ACCESS_KEY}" "${DST_S3_SECRET_KEY}"
+    - mc cp output/*.nt "bucket/${DST_S3_BUCKET}/${DST_S3_PATH}/"
+  environment:
+    name: prod
+  only:
+    - main
+
+trigger-prod:
+  stage: trigger
+  dependencies:
+    - store-prod
+  script:
+    - echo "Triggering the downstream pipeline..."
+  trigger:
+    project: stabs/update-prod
+    branch: main
   environment:
     name: prod
   only:
