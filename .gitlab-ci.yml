@@ -185,12 +185,8 @@ trigger-prod:
   stage: trigger
   dependencies:
     - store-prod
-  script:
-    - echo "Triggering the downstream pipeline..."
   trigger:
     project: stabs/update-prod
     branch: main
-  environment:
-    name: prod
   only:
     - main
