@@ -183,7 +183,7 @@ store-prod:
 
 trigger-prod:
   stage: trigger
-  dependencies:
+  needs:
     - store-prod
   trigger:
     project: stabs/update-prod
