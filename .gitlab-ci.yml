@@ -1,5 +1,5 @@
 default:
-  image: docker.io/zazukoians/node-java-jena:v5
+  image: docker.io/zazukoians/node-java-jena:v6
 
 stages:
   - github
@@ -75,7 +75,7 @@ fetch-prod:
 npm-deps:
   stage: fetch
   timeout: 5 minutes
-  image: docker.io/library/node:22
+  image: docker.io/library/node:24
   retry: 2
   artifacts:
     expire_in: 1 day
