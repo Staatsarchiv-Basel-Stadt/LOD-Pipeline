@@ -186,7 +186,10 @@ trigger-prod:
   needs:
     - store-prod
   trigger:
-    project: stabs/update-prod
+    project: stabs/indexing-trigger
     branch: main
+  variables:
+    TRIGGERED_BY_PIPELINE: "true"
+    ENVIRONMENT: "prod"
   only:
     - main
