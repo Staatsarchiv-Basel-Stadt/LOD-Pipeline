@@ -22,6 +22,7 @@ PREFIX stabs-crt: <https://ld.bs.ch/RiC/vocabularies/carrierTypes/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
+PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
 PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 PREFIX unit: <http://qudt.org/vocab/unit/>
@@ -1236,18 +1237,25 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate schema:url;
-		rr:objectMap [
-			rr:template "https://dls.staatsarchiv.bs.ch/api/records/manifest/?identifier={identifier}";
-			rr:termType rr:Literal
-		]
-	];
-	
-	rr:predicateObjectMap [
 		rr:predicate rdfs:seeAlso;
 		rr:objectMap [
 			rml:reference "viewer_url";
 			rr:datatype xsd:anyURI
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRepresentationType;
+		rr:objectMap [
+			rr:constant stabs-rpt:IiifType
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate schema:url;
+		rr:objectMap [
+			rr:template "https://dls.staatsarchiv.bs.ch/api/records/manifest/?identifier={identifier}";
+			rr:termType rr:Literal
 		]
 	].
 	
@@ -1271,6 +1279,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate relSubType:hsp;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/File/{identifier}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRepresentationType;
+		rr:objectMap [
+			rr:constant stabs-rpt:FcType
 		]
 	].
 	
