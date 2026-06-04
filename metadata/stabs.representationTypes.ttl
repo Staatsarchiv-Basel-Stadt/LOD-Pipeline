@@ -28,7 +28,7 @@ stabs-rpt: a owl:NamedIndividual , skos:ConceptScheme ;
 	dcterms:title "Vokabular der im StABS und dem Digitalen Lesesaal (DLS) verwendeten Representation Types für digitale Instantiationen"@de ;
 	rdfs:label: "Repräsentations-Typen"@de , "Representation Types"@en ;
 	skos:definition "Vokabular der im StABS und dem Digitalen Lesesaal (DLS) verwendeten Representation Types für digitale Instantiationen"@de ;
-	skos:hasTopConcept stabs-rpt:IiifType , stabs-rpt:FileType , stabs-rpt:PdfType
+	skos:hasTopConcept stabs-rpt:IiifType , stabs-rpt:FcType
 	.
 
 stabs-rpt:IiifType a rico:RepresentationType , skos:Concept , owl:NamedIndividual ;
