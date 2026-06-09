@@ -2158,6 +2158,7 @@ vocabulary xsd {
 	datatypes
 		anyURI
 		boolean
+		date
 		decimal
 		integer
 		string

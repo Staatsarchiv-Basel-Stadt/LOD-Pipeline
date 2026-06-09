@@ -45,10 +45,57 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:title;
+		rr:predicate rdfs:seeAlso;
 		rr:objectMap [
-			rml:reference "TITEL";
+			rr:template "https://dls.staatsarchiv.bs.ch/records/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:type;
+		rr:objectMap [
+			rml:reference "ARCHIVALIENART";
 			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:beginningDate;
+		rr:objectMap [
+			rml:reference "created_start";
+			rr:datatype xsd:date
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:conditionsOfAccess;
+		rr:objectMap [
+			rml:reference "ZUGANGSBESTIMMUNGEN";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:conditionsOfUse;
+		rr:objectMap [
+			rml:reference "ZUGAENGLICHKEIT_NM";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:date;
+		rr:objectMap [
+			rml:reference "ENTSTEHUNGSZEITRAUM";
+			rr:datatype xsd:string
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:endDate;
+		rr:objectMap [
+			rml:reference "created_end";
+			rr:datatype xsd:date
 		]
 	];
 	
@@ -60,9 +107,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate stabs-rico:includes;
+		rr:predicate rico:note;
 		rr:objectMap [
-			rml:reference "DARIN";
+			rml:reference "ANMERKUNGEN";
+			rr:language "ger"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:title;
+		rr:objectMap [
+			rml:reference "TITEL";
 			rr:language "ger"
 		]
 	];
@@ -84,41 +139,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:type;
+		rr:predicate stabs-rico:includes;
 		rr:objectMap [
-			rml:reference "ARCHIVALIENART";
-			rr:language "ger"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:conditionsOfAccess;
-		rr:objectMap [
-			rml:reference "ZUGANGSBESTIMMUNGEN";
-			rr:language "ger"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:conditionsOfUse;
-		rr:objectMap [
-			rml:reference "ZUGAENGLICHKEIT_NM";
-			rr:language "ger"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:note;
-		rr:objectMap [
-			rml:reference "ANMERKUNGEN";
-			rr:language "ger"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate stabs-rico:person;
-		rr:objectMap [
-			rml:reference "PERSON";
+			rml:reference "DARIN";
 			rr:language "ger"
 		]
 	];
@@ -132,9 +155,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rdfs:seeAlso;
+		rr:predicate stabs-rico:person;
 		rr:objectMap [
-			rr:template "https://dls.staatsarchiv.bs.ch/records/{ID_NR}"
+			rml:reference "PERSON";
+			rr:language "ger"
 		]
 	].
 	
@@ -402,13 +426,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rml:reference "ENTSTEHUNGSZEITRAUM"
 		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:normalizedDateValue;
-		rr:objectMap [
-			rml:reference "ENTSTEHUNGSZEITRAUM"
-		]
 	].
 	
 <#date_02>
@@ -431,6 +448,114 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:isAssociatedWithDate;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Date"
+		]
+	].
+	
+<#date_03>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.created_start)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/BDate";
+		rr:class rico:Date
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isBeginningDateOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:normalizedDateValue;
+		rr:objectMap [
+			rml:reference "created_start"
+		]
+	].
+	
+<#date_04>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.created_start)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasBeginningDate;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/BDate"
+		]
+	].
+	
+<#date_05>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.created_end)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/EDate";
+		rr:class rico:Date
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isEndDateOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:normalizedDateValue;
+		rr:objectMap [
+			rml:reference "created_end"
+		]
+	].
+	
+<#date_06>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.created_end)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasEndDate;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/BDate"
 		]
 	].
 	

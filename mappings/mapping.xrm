@@ -8,19 +8,22 @@ map rr_stabs from stabs_ogd.rr_base {
   subject template rrURI with ID_NR;
 
   properties
-    rico.title from TITEL with language-tag ger;
-    rico.identifier from SIGNATUR;
-    stabsrico.includes from DARIN with language-tag ger;
-    stabsrico.contains from ENTHAELT with language-tag ger;
-    stabsrico.content from INHALT with language-tag ger;
+    rdfs.seeAlso template dlsURI with ID_NR;
     rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
+    rico.beginningDate from created_start with datatype xsd.date; // auch als Klasse `rico:Date` erfasst
     rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
     rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
+    rico.date from ENTSTEHUNGSZEITRAUM with datatype xsd.string; // auch als Klasse `rico:Date` erfasst
+    rico.endDate from created_end with datatype xsd.date; // auch als Klasse `rico:Date` erfasst
+    rico.identifier from SIGNATUR;
     rico.note from ANMERKUNGEN with language-tag ger;
-    stabsrico.person from PERSON with language-tag ger; // besser als Klasse zu lösen (rico:Agent / rico:Person)
+    rico.title from TITEL with language-tag ger;
+    stabsrico.contains from ENTHAELT with language-tag ger;
+    stabsrico.content from INHALT with language-tag ger;
+    stabsrico.includes from DARIN with language-tag ger;
     stabsrico.ort from ORT with language-tag ger; // besser als Klasse zu lösen (rico:Place)
+    stabsrico.person from PERSON with language-tag ger; // besser als Klasse zu lösen (rico:Agent / rico:Person)
 //    rico.hasRecordSetType template rstypeURI with STUFE; // @todo https://github.com/zazuko/expressive-rdf-mapper/issues/15, geht aber nicht mit dynamischen Werten
-    rdfs.seeAlso template dlsURI with ID_NR;
 }
 
 /* Description Level Classes
@@ -108,34 +111,63 @@ map level_dok from stabs_ogd.rr_dok {
 
 /* Date Maps
  * ---------
- * - Entstehungszeitraum
+ * erstellt drei Objekte für Textrepräsentation, Start- und Enddatum
+ * Objekte sollten erweitet werden um `rico:qualifier` und weitere
+ * wird auch vereinfacht mit datatype properties abgebildet(`rico:date`, `rico:beginningDate`, `rico:endDate`)
  */
-map date_01 from stabs_ogd.rr_date {
-  subject template dateURI with ID_NR;
+map date_01 from stabs_ogd.rr_full_date {
+  subject template rrdateURI with ID_NR;
 
   types
     rico.Date
 
   properties
     rico.isDateAssociatedWith template rrURI with ID_NR;
-    rico.expressedDate from ENTSTEHUNGSZEITRAUM; // @todo: mit Datumsoperatoren könnte eine bessere Textrepräsentation erreicht werden.
-    rico.normalizedDateValue from ENTSTEHUNGSZEITRAUM; // @todo: XML Date types für Typisierung
-//    rico.hasDateType // Definiert in RiC-O 1.0 für Klassen `DateSet`, `DateRange` oder `SingleDate`, oder Subklassen. Bei Bedarf implementieren
-//    rico.qualifier kann für "certainty" und "precision" verwendet werden, Implementierung bei Bedarf
+    rico.expressedDate from ENTSTEHUNGSZEITRAUM; 
 }
 
-map date_02 from stabs_ogd.rr_date {
+map date_02 from stabs_ogd.rr_full_date {
   subject template rrURI with ID_NR;
 
   properties
-    rico.isAssociatedWithDate template dateURI with ID_NR;
+    rico.isAssociatedWithDate template rrdateURI with ID_NR;
 }
 
-//    created_start created_end
-//    :1999090 a rico:Date
-//    rico.isEndDateOf :rrUri/1234
-//    rico.isCreationDateOf rrUri/1324
-//    rico.dateStandard
+map date_03 from stabs_ogd.rr_crea_date {
+  subject template bDateURI with ID_NR;
+
+  types
+    rico.Date
+  
+  properties
+    rico.isBeginningDateOf template rrURI with ID_NR;
+    rico.normalizedDateValue from created_start;
+}
+
+map date_04 from stabs_ogd.rr_crea_date {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasBeginningDate template bDateURI with ID_NR;
+}
+
+map date_05 from stabs_ogd.rr_end_date {
+  subject template eDateURI with ID_NR;
+
+  types
+    rico.Date
+  
+  properties
+    rico.isEndDateOf template rrURI with ID_NR;
+    rico.normalizedDateValue from created_end;
+}
+
+map date_06 from stabs_ogd.rr_end_date {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasEndDate template bDateURI with ID_NR;
+}
 
 // ais_modified rico:isLastUpdateDateOf rrUri/1234
 // ais_created rico:
