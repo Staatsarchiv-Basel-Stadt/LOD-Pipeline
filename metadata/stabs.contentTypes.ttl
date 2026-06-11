@@ -19,3 +19,33 @@ PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
 PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
 PREFIX stabs-rut: <https://ld.bs.ch/RiC/vocabularies/ruleTypes/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+
+# Content Types (Archivalienart)
+# ------------------------------
+# Formalisiert die im StABS verwendeten Einträge <Archivalienart> als contentTypes
+
+stabs-cnt: a owl:NamedIndividual, skos:ConceptScheme ;
+	dcterms:creator <org/staatsarchiv> ;
+	dcterms:title "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Archivalienarten"@de ;
+	rdfs:label "Archivalienart"@de ;
+	skos:definition "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Archivalienarten"@de ;
+	skos:hasTopConcept stabs-cnt:Mikroform, stabs-cnt:Objekt, stabs-cnt:Akte, stabs-cnt:Urkunde, stabs-cnt:Plan, stabs-cnt:Bewegtbild-Film, stabs-cnt:Tonaufzeichnung, stabs-cnt:Drucksache, stabs-cnt:Digitales-Speichermedium, stabs-cnt:Plakat, stabs-cnt:Datei, stabs-cnt:Netzressource
+	.
+
+stabs-cnt:Mikroform a rico:ContentType, skos:Concept, owl:NamedIndividual ;
+    rdfs:label "Mikroform"@de ;
+ 	skos:prefLabel "Mikroform"@de ;
+ 	skos:topConceptOf stabs-cnt:
+ 	.
+
+# stabs-cnt:Objekt a rico:ContentType, skos:Concept, owl:NamedIndividual ;
+# stabs-cnt:Akte a rico:ContentType, skos:Concept, owl:NamedIndividual ;
+# stabs-cnt:Urkunde a rico:ContentType, skos:Concept, owl:NamedIndividual ;
+# stabs-cnt:Plan a rico:ContentType, skos:Concept, owl:NamedIndividual ;
+# stabs-cnt:Bewegtbild-Film a rico:ContentType, skos:Concept, owl:NamedIndividual ;
+# stabs-cnt:Tonaufzeichnung a rico:ContentType, skos:Concept, owl:NamedIndividual ;
+# stabs-cnt:Drucksache a rico:ContentType, skos:Concept, owl:NamedIndividual ;
+# stabs-cnt:Digitales-Speichermedium a rico:ContentType, skos:Concept, owl:NamedIndividual ;
+# stabs-cnt:Plakat a rico:ContentType, skos:Concept, owl:NamedIndividual ;
+# stabs-cnt:Datei a rico:ContentType, skos:Concept, owl:NamedIndividual ;
+# stabs-cnt:Netzressource a rico:ContentType, skos:Concept, owl:NamedIndividual ;
