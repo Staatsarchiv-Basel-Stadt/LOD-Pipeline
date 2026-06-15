@@ -555,7 +555,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasEndDate;
 		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/BDate"
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/EDate"
 		]
 	].
 	
