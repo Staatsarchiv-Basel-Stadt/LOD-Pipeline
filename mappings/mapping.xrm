@@ -166,7 +166,7 @@ map date_06 from stabs_ogd.rr_end_date {
   subject template rrURI with ID_NR;
 
   properties
-    rico.hasEndDate template bDateURI with ID_NR;
+    rico.hasEndDate template eDateURI with ID_NR;
 }
 
 // ais_modified rico:isLastUpdateDateOf rrUri/1234
