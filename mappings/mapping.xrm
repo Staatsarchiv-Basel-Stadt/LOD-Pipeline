@@ -10,11 +10,8 @@ map rr_stabs from stabs_ogd.rr_base {
   properties
     rdfs.seeAlso template dlsURI with ID_NR;
     rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
-    rico.beginningDate from created_start with datatype xsd.date; // auch als Klasse `rico:Date` erfasst
     rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
     rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
-    rico.date from ENTSTEHUNGSZEITRAUM with datatype xsd.string; // auch als Klasse `rico:Date` erfasst
-    rico.endDate from created_end with datatype xsd.date; // auch als Klasse `rico:Date` erfasst
     rico.identifier from SIGNATUR;
     rico.note from ANMERKUNGEN with language-tag ger;
     rico.title from TITEL with language-tag ger;
@@ -112,8 +109,7 @@ map level_dok from stabs_ogd.rr_dok {
 /* Date Maps
  * ---------
  * erstellt drei Objekte für Textrepräsentation, Start- und Enddatum
- * Objekte sollten erweitet werden um `rico:qualifier` und weitere
- * wird auch vereinfacht mit datatype properties abgebildet(`rico:date`, `rico:beginningDate`, `rico:endDate`)
+ * @todo: Objekte sollten erweitet werden um `rico:qualifier` und `rico:DateType`, ev. weitere
  */
 map date_01 from stabs_ogd.rr_full_date {
   subject template rrdateURI with ID_NR;
@@ -134,43 +130,40 @@ map date_02 from stabs_ogd.rr_full_date {
 }
 
 map date_03 from stabs_ogd.rr_crea_date {
-  subject template bDateURI with ID_NR;
+  subject template isoDateURI with created_start;
 
   types
     rico.Date
   
   properties
-    rico.isBeginningDateOf template rrURI with ID_NR;
+    rico.isBeginningDateOf template rrdateURI with ID_NR;
     rico.normalizedDateValue from created_start;
 }
 
 map date_04 from stabs_ogd.rr_crea_date {
-  subject template rrURI with ID_NR;
+  subject template rrdateURI with ID_NR;
 
   properties
-    rico.hasBeginningDate template bDateURI with ID_NR;
+    rico.hasBeginningDate template isoDateURI with created_start;
 }
 
 map date_05 from stabs_ogd.rr_end_date {
-  subject template eDateURI with ID_NR;
+  subject template isoDateURI with created_end;
 
   types
     rico.Date
   
   properties
-    rico.isEndDateOf template rrURI with ID_NR;
+    rico.isEndDateOf template rrdateURI with ID_NR;
     rico.normalizedDateValue from created_end;
 }
 
 map date_06 from stabs_ogd.rr_end_date {
-  subject template rrURI with ID_NR;
+  subject template rrdateURI with ID_NR;
 
   properties
-    rico.hasEndDate template bDateURI with ID_NR;
+    rico.hasEndDate template isoDateURI with created_end;
 }
-
-// ais_modified rico:isLastUpdateDateOf rrUri/1234
-// ais_created rico:
 
 /* Identity Maps
  * -------------
