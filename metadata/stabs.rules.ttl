@@ -27,6 +27,7 @@ PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 
 stabs-acr: a owl:NamedIndividual, skos:ConceptScheme ;
 	skos:prefLabel "Zugangsregeln"@de, "Access rules"@en ;
+	rdfs:label"Zugangsregeln"@de, "Access rules"@en ;
 	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Zugangsregeln"@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
 	skos:hasTopConcept stabs-acr:protected, stabs-acr:free-online, stabs-acr:orderable-readingroom, stabs-acr:orderable-reproduction
@@ -78,6 +79,7 @@ stabs-acr:free-online a owl:NamedIndividual, skos:Concept, rico:Rule ;
 
 stabs-crs: a owl:NamedIndividual, skos:ConceptScheme ;
 	skos:prefLabel "Urheberrechtsstatus"@de, "Copyright Status"@en ;
+	rdfs:label "Urheberrechtsstatus"@de, "Copyright Status"@en ;
 	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Urheberrechtsstatus"@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/> ;	
 	skos:hasTopConcept stabs-crs:public-domain, stabs-crs:state-archives-bs, stabs-crs:unknown, stabs-crs:creator, stabs-crs:orphaned
