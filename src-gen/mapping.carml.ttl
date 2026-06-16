@@ -454,7 +454,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:normalizedDateValue;
 		rr:objectMap [
-			rml:reference "created_start"
+			rml:reference "created_start";
+			rr:datatype xsd:date
 		]
 	].
 	
@@ -508,7 +509,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:normalizedDateValue;
 		rr:objectMap [
-			rml:reference "created_end"
+			rml:reference "created_end";
+			rr:datatype xsd:date
 		]
 	].
 	

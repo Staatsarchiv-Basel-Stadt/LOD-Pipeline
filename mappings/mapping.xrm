@@ -129,6 +129,7 @@ map date_02 from stabs_ogd.rr_full_date {
     rico.isAssociatedWithDate template rrdateURI with ID_NR;
 }
 
+// Startdatum
 map date_03 from stabs_ogd.rr_crea_date {
   subject template isoDateURI with created_start;
 
@@ -137,7 +138,7 @@ map date_03 from stabs_ogd.rr_crea_date {
   
   properties
     rico.isBeginningDateOf template rrdateURI with ID_NR;
-    rico.normalizedDateValue from created_start;
+    rico.normalizedDateValue from created_start with datatype xsd.date;
 }
 
 map date_04 from stabs_ogd.rr_crea_date {
@@ -147,6 +148,7 @@ map date_04 from stabs_ogd.rr_crea_date {
     rico.hasBeginningDate template isoDateURI with created_start;
 }
 
+// Enddatum
 map date_05 from stabs_ogd.rr_end_date {
   subject template isoDateURI with created_end;
 
@@ -155,7 +157,7 @@ map date_05 from stabs_ogd.rr_end_date {
   
   properties
     rico.isEndDateOf template rrdateURI with ID_NR;
-    rico.normalizedDateValue from created_end;
+    rico.normalizedDateValue from created_end with datatype xsd.date;
 }
 
 map date_06 from stabs_ogd.rr_end_date {
