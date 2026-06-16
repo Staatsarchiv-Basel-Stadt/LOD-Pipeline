@@ -168,6 +168,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rr:constant stabs-rst:Archiv
 		]
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadOwner;
+		rr:objectMap [
+			rr:constant <https://ld.bs.ch/org/staatsarchiv>
+		]
 	].
 	
 <#level_abt>

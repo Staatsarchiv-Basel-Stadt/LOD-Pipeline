@@ -72,7 +72,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     schema:telephone "+41 61 267 86 01" ;
     schema:url <https://www.bs.ch/pd/kultur/museen-und-andere-dienststellen/staatsarchiv> , <https://staatskalender.bs.ch/organization/regierung-und-verwaltung/praesidialdepartement/abteilung-kultur/staatsarchiv>, <https://www.isil.nb.admin.ch/isil/CH-000027-1> ;
     schema:identifier <https://culture.ld.admin.ch/isil/CH-000027-1> ;
-    owl:sameAs wd:Q56219654 , <https://culture.ld.admin.ch/isil/CH-000027-1/organization>, <https://w3id.org/isil/CH-000027-1>, <https://d-nb.info/gnd/2022516-7>, <https://isni.org/isni/0000000119393738>
+    owl:sameAs wd:Q56219654 , <https://culture.ld.admin.ch/isil/CH-000027-1/organization>, <https://w3id.org/isil/CH-000027-1>, <https://d-nb.info/gnd/2022516-7>, <https://isni.org/isni/0000000119393738> ;
+    rico:isOisOrWasOwnerOf <ais/Record/548575>
     .
 
 <org/staatsarchiv/address> a schema:PostalAddress ;
