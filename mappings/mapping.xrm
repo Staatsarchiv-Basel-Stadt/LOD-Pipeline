@@ -36,6 +36,7 @@ map level_archive from stabs_ogd.rr_arc {
   properties
     rico.history from ARCHIVGESCHICHTE with language-tag ger; // @todo: use rico.Event class later
     rico.hasRecordSetType constant stabsrst.Archiv;
+    rico.hasOrHadOwner constant "https://ld.bs.ch/org/staatsarchiv";
 }
 
 map level_abt from stabs_ogd.rr_abt {
