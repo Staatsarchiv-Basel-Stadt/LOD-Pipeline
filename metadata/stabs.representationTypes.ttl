@@ -29,7 +29,7 @@ stabs-rpt: a owl:NamedIndividual , skos:ConceptScheme ;
 	rdfs:label: "Repräsentations-Typen"@de , "Representation Types"@en ;
 	skos:prefLabel: "Repräsentations-Typen"@de , "Representation Types"@en ;
 	skos:definition "Vokabular der im StABS und dem Digitalen Lesesaal (DLS) verwendeten Representation Types für digitale Instantiationen"@de ;
-	skos:hasTopConcept stabs-rpt:IiifType , stabs-rpt:FcType
+	skos:hasTopConcept stabs-rpt:IiifType, stabs-rpt:FcType
 	.
 
 stabs-rpt:IiifType a rico:RepresentationType , skos:Concept , owl:NamedIndividual ;

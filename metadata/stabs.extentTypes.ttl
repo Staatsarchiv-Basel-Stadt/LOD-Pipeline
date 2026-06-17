@@ -27,7 +27,8 @@ stabs-ext: a owl:NamedIndividual, skos:ConceptScheme ;
 	dcterms:creator <org/staatsarchiv> ;
 	dcterms:title "Typen von Umfangsangaben"@de, "Extent Types"@en ;
 	rdfs:label "Typen von Umfangsangaben"@de, "Extent Types"@en ;
-	skos:definition "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Typen von Umfangsangaben"@de
+	skos:definition "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Typen von Umfangsangaben"@de ;
+    skos:hasTopConcept stabs-ext:Laufmeter, stabs-ext:Anzahl, stabs-ext:Abspieldauer, stabs-ext:Anzahl-Dateien, stabs-ext:Datenvolumen-MB,stabs-ext:Umfang-approximativ
 	.
 
 stabs-ext:Laufmeter a rico:ExtentType, skos:Concept ;
