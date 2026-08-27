@@ -68,7 +68,7 @@ stabs-rico:oldHousenumber a owl:DatatypeProperty ;
 		dcterms:date "2022-10-03" ;
 		rdf:value "Kommentar: Erstellt für die spezifische Nutzung des historischen Grundbuchs"@de ;
 	] ;
-	skos:scopeNote "Ein kurzer Text und Zahlen, der die Hausnummer per ??? angibt."@de ;
+	skos:scopeNote "Ein kurzer Text und Zahlen, der die Hausnummer per 1862 angibt."@de ;
 	.
 
 stabs-rico:houseNameBS a owl:DatatypeProperty ;
