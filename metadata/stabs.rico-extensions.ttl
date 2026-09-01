@@ -41,8 +41,9 @@ PREFIX voaf: <http://purl.org/vocommons/voaf#>
 	skos:historyNote "-"@de
 	.
 
-# Erweiterungen für Historisches Grundbuch
-# ----------------------------------------
+# Klassen
+# -------
+# * Erweiterungen für Historisches Grundbuch
 
 stabs-rico:RecordHGB a owl:Class ;
 	rdfs:subClassOf rico:RecordSet, [
@@ -59,6 +60,12 @@ stabs-rico:RecordHGB a owl:Class ;
 	] ;
 	skos:scopeNote "HGB-Record ist eine spezifische Subklasse von Record Set mit dem StABS-Recordset-Typen \"Dossier\". Entsprechende Instanzen beinhalten zusätzliche Eigenschaften, die aus den speziellen Inhalten des Historischen Grundbuchs herrühren und sonst in der Erschliessung nicht vorkommen."@de ;
 	.
+
+# Datatype Properties
+# -------------------
+# * Erweiterungen für das Historische Grundbuch
+# * Erweiterungen aus der Erschliessung TeleBasel: erstellt mehrere owl:DatatypeProperty, die als eigene Entitäten rico:Agent / rico:Person / rico:Place gefasst werden sollten
+# * Erweiterungen der Property rico:scopeAndContent: fasst die im StABS verwendeten Datenelemente <darin>, <enthält> und <Inhalt> in eigene Properties
 
 stabs-rico:oldHousenumber a owl:DatatypeProperty ;
 	rdfs:domain stabs-rico:RecordHGB ;
@@ -99,10 +106,6 @@ stabs-rico:owner1862 a owl:DatatypeProperty ;
 	skos:scopeNote "Ein kurzer Text mit dem Namen von Personen, Familien, Firmen oder Korporationen, der den Eigentümer im Jahr 1862 bezeichnet."@de ;
 	.
 
-# Erweiterungen aus der Erschliessung TeleBasel
-# ---------------------------------------------
-# erstellt mehrere owl:DatatypeProperty, die als eigene Entitäten rico:Agent / rico:Person / rico:Place gefasst werden sollten
-
 stabs-rico:person a owl:DatatypeProperty ;
 	rdfs:domain rico:RecordResource ;
 	rdfs:range rdfs:Literal ;
@@ -128,10 +131,6 @@ stabs-rico:ort a owl:DatatypeProperty ;
 	] ;
 	skos:scopeNote "Einträge mit Namen von Orten in Bezug auf die Verzeichnungseinheit."@de
 	.
-
-# Erweiterungen der Property rico:scopeAndContent
-# -----------------------------------------------
-# fasst die im StABS verwendeten Datenelemente <darin>, <enthält> und <Inhalt> in eigene Properties
 
 stabs-rico:includes a owl:DatatypeProperty ;
 	rdfs:domain rico:RecordResource ;
