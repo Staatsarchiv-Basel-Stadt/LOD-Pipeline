@@ -258,18 +258,52 @@ source-group stabs_ogd {
       created_end
   }
 
-  logical-source rr_extent {
-    iterator "$..[?(@.ABSPIELDAUER || @.ANZAHL || @.ANZAHL_DATEIEN || @.DATENVOLUMEN_MB || @.KOMMENTAR_ZUM_UMFANG || @.LAUFMETER || @.UMFANG_GESCHAETZT)]"
+  logical-source rr_extent_as {
+    iterator "$..[?(@.ABSPIELDAUER)]"
 
     referenceables
       ID_NR
       ABSPIELDAUER
+  }
+
+  logical-source rr_extent_num {
+    iterator "$..[?(@.ANZAHL)]"
+
+    referenceables
+      ID_NR
       ANZAHL
+  }
+
+  logical-source rr_extent_num_files {
+    iterator "$..[?(@.ANZAHL_DATEIEN)]"
+
+    referenceables
+      ID_NR
       ANZAHL_DATEIEN
+  }
+
+  logical-source rr_extent_data_vol {
+    iterator "$..[?(@.DATENVOLUMEN_MB)]"
+
+    referenceables
+      ID_NR
       DATENVOLUMEN_MB
-      KOMMENTAR_ZUM_UMFANG
-      LAUFMETER
+  }
+
+  logical-source rr_extent_approx {
+    iterator "$..[?(@.UMFANG_GESCHAETZT)]"
+
+    referenceables
+      ID_NR
       UMFANG_GESCHAETZT
+  }
+
+  logical-source rr_extent_lm {
+    iterator "$..[?(@.LAUFMETER)]"
+
+    referenceables
+      ID_NR
+      LAUFMETER
   }
 
   logical-source rr_hgb {
