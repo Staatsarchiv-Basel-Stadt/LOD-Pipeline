@@ -20,6 +20,7 @@ PREFIX stabs-acr: <https://ld.bs.ch/RiC/vocabularies/acRules/>
 PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatus/>
 PREFIX stabs-crt: <https://ld.bs.ch/RiC/vocabularies/carrierTypes/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
+PREFIX stabs-fit: <https://ld.bs.ch/RiC/vocabularies/filmTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rico: <https://ld.bs.ch/ontologies/StABS-RiC/>
 PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
@@ -1801,6 +1802,535 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:hasCarrierType;
 		rr:objectMap [
 			rr:constant stabs-crt:13043
+		]
+	].
+	
+<#fit_13018>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Vorführkopie$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13018
+		]
+	].
+	
+<#fit_13019>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Umkehroriginal \\(Positiv\\)$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13019
+		]
+	].
+	
+<#fit_13020>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^A\\/B-Rollen \\(Negative\\)$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13020
+		]
+	].
+	
+<#fit_13021>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Internegativ$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13021
+		]
+	].
+	
+<#fit_13022>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Interpositiv$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13022
+		]
+	].
+	
+<#fit_13023>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Dub-Negativ$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13023
+		]
+	].
+	
+<#fit_13024>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Dub-Positiv$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13024
+		]
+	].
+	
+<#fit_13025>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Intermedpositiv$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13025
+		]
+	].
+	
+<#fit_13026>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Arbeitskopie$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13026
+		]
+	].
+	
+<#fit_13027>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Nullkopie$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13027
+		]
+	].
+	
+<#fit_13028>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^CRI$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13028
+		]
+	].
+	
+<#fit_13044>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Positiv$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13044
+		]
+	].
+	
+<#fit_13045>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Umkehrpositiv$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13045
+		]
+	].
+	
+<#fit_13046>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Negativ$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13046
+		]
+	].
+	
+<#fit_13047>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Umkehrnegativ$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13047
+		]
+	].
+	
+<#fit_13050>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Positivkopie von einem 35mm-Film$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13050
+		]
+	].
+	
+<#fit_13051>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^IntermediatePositiv$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13051
+		]
+	].
+	
+<#fit_13052>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Positivkopie$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13052
+		]
+	].
+	
+<#fit_13053>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Umkehrpositiv \\(kurzer Teil in der Mitte Positiv\\)$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13053
+		]
+	].
+	
+<#fit_13054>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Verschiedene$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13054
+		]
+	].
+	
+<#fit_13055>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Umkehrpositiv \\(nicht ganz sicher\\)$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13055
+		]
+	].
+	
+<#fit_13056>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Original Tonpositiv$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13056
+		]
+	].
+	
+<#fit_13057>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.FILMELEMENT =~/^Positiv \\(Kopie\\)$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Instantiation/{ID_NR}-fi01"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasFilmType;
+		rr:objectMap [
+			rr:constant stabs-fit:13057
 		]
 	].
 	
