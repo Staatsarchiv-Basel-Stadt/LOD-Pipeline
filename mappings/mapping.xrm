@@ -251,7 +251,6 @@ map extent_num from stabs_ogd.rr_extent_num {
     rico.isExtentOf template rrURI with ID_NR;
     rico.hasExtentType constant stabsext.Anzahl;
     rico.quantity from ANZAHL with datatype xsd.integer;
-    // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
 }
 
 map extent_num_files from stabs_ogd.rr_extent_num_files {
@@ -264,7 +263,6 @@ map extent_num_files from stabs_ogd.rr_extent_num_files {
     rico.isExtentOf template rrURI with ID_NR;
     rico.hasExtentType constant stabsext.Anzahl_Dateien;
     rico.quantity from ANZAHL_DATEIEN with datatype xsd.integer;
-    // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
 }
 
 map extent_data_vol from stabs_ogd.rr_extent_data_vol {
@@ -277,7 +275,6 @@ map extent_data_vol from stabs_ogd.rr_extent_data_vol {
     rico.isExtentOf template rrURI with ID_NR;
     rico.hasExtentType constant stabsext.Datenvolumen_MB;
     rico.quantity from DATENVOLUMEN_MB with datatype xsd.decimal;
-    // rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
 }
 
 map extent_approx from stabs_ogd.rr_extent_approx {
