@@ -28,145 +28,146 @@ PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 
 stabs-fit: a owl:NamedIndividual, skos:ConceptScheme ;
 	dcterms:creator <org/staatsarchiv> ;
-	dcterms:title "Filmelement (Filmtypen)"@de, "Film Type"@en ;
+	skos:prefLabel "Filmelement (Filmtypen)"@de, "Film Type"@en ;
 	rdfs:label "Filmelement (Filmtypen)"@de, "Film Type"@en ;
 	skos:definition "Spezifische Angaben des Staatsarchivs Basel-Stadt zur Art des Filmes"@de ;
     skos:hasTopConcept stabs-fit:13018, stabs-fit:13019, stabs-fit:13020, stabs-fit:13021, stabs-fit:13022, stabs-fit:13023, stabs-fit:13024, stabs-fit:13025, stabs-fit:13026, stabs-fit:13027, stabs-fit:13028, stabs-fit:13044, stabs-fit:13045, stabs-fit:13046, stabs-fit:13047, stabs-fit:13050, stabs-fit:13051, stabs-fit:13052, stabs-fit:13053, stabs-fit:13054, stabs-fit:13055
 	.
 
 stabs-fit:13018 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Vorführkopie"@de ;
-    rdfs:label "Vorführkopie"@de
+
+    skos:prefLabel "Vorführkopie"@de ;
+    rdfs:label "Vorführkopie"@de ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13019 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Umkehroriginal (Positiv)"@de ;
-    rdfs:label "Umkehroriginal (Positiv)"@de 
+    skos:prefLabel "Umkehroriginal (Positiv)"@de ;
+    rdfs:label "Umkehroriginal (Positiv)"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13020 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "A/B-Rollen (Negative)"@de ;
-    rdfs:label "A/B-Rollen (Negative)"@de 
+    skos:prefLabel "A/B-Rollen (Negative)"@de ;
+    rdfs:label "A/B-Rollen (Negative)"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13021 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Internegativ"@de ;
-    rdfs:label "Internegativ"@de 
+    skos:prefLabel "Internegativ"@de ;
+    rdfs:label "Internegativ"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13022 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Interpositiv"@de ;
-    rdfs:label "Interpositiv"@de 
+    skos:prefLabel "Interpositiv"@de ;
+    rdfs:label "Interpositiv"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13023 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Dub-Negativ"@de ;
-    rdfs:label "Dub-Negativ"@de 
+    skos:prefLabel "Dub-Negativ"@de ;
+    rdfs:label "Dub-Negativ"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13024 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Dub-Positiv"@de ;
-    rdfs:label "Dub-Positiv"@de 
+    skos:prefLabel "Dub-Positiv"@de ;
+    rdfs:label "Dub-Positiv"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13025 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Intermedpositiv"@de ;
-    rdfs:label "Intermedpositiv"@de 
+    skos:prefLabel "Intermedpositiv"@de ;
+    rdfs:label "Intermedpositiv"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13026 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Arbeitskopie"@de ;
-    rdfs:label "Arbeitskopie"@de 
+    skos:prefLabel "Arbeitskopie"@de ;
+    rdfs:label "Arbeitskopie"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13027 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Nullkopie"@de ;
-    rdfs:label "Nullkopie"@de 
+    skos:prefLabel "Nullkopie"@de ;
+    rdfs:label "Nullkopie"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13028 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "CRI"@de ;
-    rdfs:label "CRI"@de 
+    skos:prefLabel "CRI"@de ;
+    rdfs:label "CRI"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13044 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Positiv"@de ;
-    rdfs:label "Positiv"@de 
+    skos:prefLabel "Positiv"@de ;
+    rdfs:label "Positiv"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13045 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Umkehrpositiv"@de ;
-    rdfs:label "Umkehrpositiv"@de 
+    skos:prefLabel "Umkehrpositiv"@de ;
+    rdfs:label "Umkehrpositiv"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13046 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Negativ"@de ;
-    rdfs:label "Negativ"@de 
+    skos:prefLabel "Negativ"@de ;
+    rdfs:label "Negativ"@de  ;
+	skos:inScheme stabs-fit:
     .
 stabs-fit:13047 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Umkehrnegativ"@de ;
-    rdfs:label "Umkehrnegativ"@de 
+    skos:prefLabel "Umkehrnegativ"@de ;
+    rdfs:label "Umkehrnegativ"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13050 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Positivkopie von einem 35mm-Film"@de ;
-    rdfs:label "Positivkopie von einem 35mm-Film"@de 
+    skos:prefLabel "Positivkopie von einem 35mm-Film"@de ;
+    rdfs:label "Positivkopie von einem 35mm-Film"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13051 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "IntermediatePositiv"@de ;
-    rdfs:label "IntermediatePositiv"@de 
+    skos:prefLabel "IntermediatePositiv"@de ;
+    rdfs:label "IntermediatePositiv"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13052 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Positivkopie"@de ;
-    rdfs:label "Positivkopie"@de 
+    skos:prefLabel "Positivkopie"@de ;
+    rdfs:label "Positivkopie"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13053 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Umkehrpositiv (kurzer Teil in der Mitte Positiv)"@de ;
-    rdfs:label "Umkehrpositiv (kurzer Teil in der Mitte Positiv)"@de 
+    skos:prefLabel "Umkehrpositiv (kurzer Teil in der Mitte Positiv)"@de ;
+    rdfs:label "Umkehrpositiv (kurzer Teil in der Mitte Positiv)"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13054 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Verschiedene"@de ;
-    rdfs:label "Verschiedene"@de 
+    skos:prefLabel "Verschiedene"@de ;
+    rdfs:label "Verschiedene"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13055 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Umkehrpositiv (nicht ganz sicher)"@de ;
-    rdfs:label "Umkehrpositiv (nicht ganz sicher)"@de 
+    skos:prefLabel "Umkehrpositiv (nicht ganz sicher)"@de ;
+    rdfs:label "Umkehrpositiv (nicht ganz sicher)"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13056 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Original Tonpositiv"@de ;
-    rdfs:label "Original Tonpositiv"@de 
+    skos:prefLabel "Original Tonpositiv"@de ;
+    rdfs:label "Original Tonpositiv"@de  ;
+	skos:inScheme stabs-fit:
     .
 
 stabs-fit:13057 a rico:Type, skos:Concept ;
-    dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Positiv (Kopie)"@de ;
-    rdfs:label "Positiv (Kopie)"@de 
+    skos:prefLabel "Positiv (Kopie)"@de ;
+    rdfs:label "Positiv (Kopie)"@de  ;
+	skos:inScheme stabs-fit:
     .
