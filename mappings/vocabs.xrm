@@ -2071,6 +2071,7 @@ vocabulary stabsrico {
 	properties
 		contains
 		content
+		extentNote
 		hasFilmType
 		houseNameBS
 		isFilmTypeOf
