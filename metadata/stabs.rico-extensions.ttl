@@ -172,9 +172,23 @@ stabs-rico:content a owl:DatatypeProperty ;
 	] ;
 	.
 
-# Erweiterungen aus dem Mapping spezifischer Typen (AV-Medien, weitere)
-# ---------------------------------------------------------------------
-#
+stabs-rico:extentNote a owl:DatatypeProperty ;
+	rdfs:domain rico:RecordResource, rico:Instantiation ;
+	rdfs:subPropertyOf rico:note ;
+	rdfs:range rdfs:Literal ;
+	rdfs:comment "Im Datenelement <Kommentar zum Umfang> wird ein Kommentar zu Umfangsangaben erfasst."@de ;
+	rdfs:isDefinedBy <ontologies/StABS-RiC/> ;
+	rdfs:label "Kommentar zum Umfang"@de ;
+	skos:changeNote [
+		dcterms:date "2026-09-01" ;
+		rdf:value "Kommentar: Erstellt für das Datenelement <KOMMENTAR_ZUM_UMFANG> in Verzeichnungseinheiten."@de
+	] ;
+	.
+
+
+# Object Properties
+# -----------------
+# * Erweiterungen aus dem Mapping spezifischer Typen (AV-Medien, weitere)
 
 stabs-rico:hasFilmType a owl:ObjectProperty ;
 	rdfs:comment "Verbindet eine Instantiation mit einem Filmelement (Filmtyp)."@de ;
