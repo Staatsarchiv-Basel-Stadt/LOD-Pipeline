@@ -12,6 +12,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-act: <https://ld.bs.ch/RiC/vocabularies/activityTypes/>
 PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatus/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
+PREFIX stabs-fit: <https://ld.bs.ch/RiC/vocabularies/filmTypes/>
 PREFIX stabs-idt: <https://ld.bs.ch/RiC/vocabularies/identifierTypes/>
 PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
 PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
@@ -167,4 +168,21 @@ stabs-rico:content a owl:DatatypeProperty ;
 		dcterms:date "2025-08-26" ;
 		rdf:value "Kommentar: Erstellt für das Datenelement <INHALT> in Verzeichnungseinheiten."@de
 	] ;
+	.
+
+# Erweiterungen aus dem Mapping spezifischer Typen (AV-Medien, weitere)
+# ---------------------------------------------------------------------
+#
+
+stabs-rico:hasFilmType a owl:ObjectProperty ;
+	rdfs:comment "Verbindet eine Instantiation mit einem Filmelement (Filmtyp)."@de ;
+    rdfs:domain rico:Instantiation ;
+    rdfs:label "hat Filmelement (Typ)"@de, "has film element (type)"@en;
+    rdfs:range stabs-fit: ;
+    rdfs:subPropertyOf rico:hasOrHadType ;
+    owl:inverseOf stabs-rico:isFilmTypeOf ;
+    skos:changeNote [
+        dcterms:date "2026-08-27" ;
+        rdf:value "Erstellt für das Datenelement <FILMELEMENT> in Verzeichnungseinheiten."@de
+    ] ;
 	.
