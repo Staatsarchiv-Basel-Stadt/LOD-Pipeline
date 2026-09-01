@@ -1995,6 +1995,35 @@ vocabulary stabsext {
 		Umfang_approximativ
 }
 
+vocabulary stabsfit {
+	prefix "stabs-fit" "https://ld.bs.ch/RiC/vocabularies/filmTypes/"
+
+	classes
+		_13018 "13018"
+		_13019 "13019"
+		_13020 "13020"
+		_13021 "13021"
+		_13022 "13022"
+		_13023 "13023"
+		_13024 "13024"
+		_13025 "13025"
+		_13026 "13026"
+		_13027 "13027"
+		_13028 "13028"
+		_13044 "13044"
+		_13045 "13045"
+		_13046 "13046"
+		_13047 "13047"
+		_13050 "13050"
+		_13051 "13051"
+		_13052 "13052"
+		_13053 "13053"
+		_13054 "13054"
+		_13055 "13055"
+		_13056 "13056"
+		_13057 "13057"
+}
+
 vocabulary stabsidt {
 	prefix "stabs-idt" "https://ld.bs.ch/RiC/vocabularies/identifierTypes/"
 
@@ -2042,7 +2071,9 @@ vocabulary stabsrico {
 	properties
 		contains
 		content
+		hasFilmType
 		houseNameBS
+		isFilmTypeOf
 		includes
 		oldHousenumber
 		ort

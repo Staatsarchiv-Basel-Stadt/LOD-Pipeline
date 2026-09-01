@@ -615,6 +615,169 @@ map crt_13043 from stabs_ogd.crt_13043 {
     rico.hasCarrierType constant stabscrt._13043;
 }
 
+/* Filmelement (Filmtypen) */
+
+map fit_13018 from stabs_ogd.fit_13018 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13018;
+}
+
+map fit_13019 from stabs_ogd.fit_13019 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13019;
+}
+
+map fit_13020 from stabs_ogd.fit_13020 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13020;
+}
+
+map fit_13021 from stabs_ogd.fit_13021 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13021;
+}
+
+map fit_13022 from stabs_ogd.fit_13022 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13022;
+}
+
+map fit_13023 from stabs_ogd.fit_13023 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13023;
+}
+
+map fit_13024 from stabs_ogd.fit_13024 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13024;
+}
+
+map fit_13025 from stabs_ogd.fit_13025 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13025;
+}
+
+map fit_13026 from stabs_ogd.fit_13026 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13026;
+}
+
+map fit_13027 from stabs_ogd.fit_13027 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13027;
+}
+
+map fit_13028 from stabs_ogd.fit_13028 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13028;
+}
+
+map fit_13044 from stabs_ogd.fit_13044 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13044;
+}
+
+map fit_13045 from stabs_ogd.fit_13045 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13045;
+}
+
+map fit_13046 from stabs_ogd.fit_13046 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13046;
+}
+
+map fit_13047 from stabs_ogd.fit_13047 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13047;
+}
+
+map fit_13050 from stabs_ogd.fit_13050 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13050;
+}
+
+map fit_13051 from stabs_ogd.fit_13051 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13051;
+}
+
+map fit_13052 from stabs_ogd.fit_13052 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13052;
+}
+
+map fit_13053 from stabs_ogd.fit_13053 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13053;
+}
+
+map fit_13054 from stabs_ogd.fit_13054 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13054;
+}
+
+map fit_13055 from stabs_ogd.fit_13055 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13055;
+}
+
+map fit_13056 from stabs_ogd.fit_13056 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13056;
+}
+
+map fit_13057 from stabs_ogd.fit_13057 {
+  subject template filminstURI with ID_NR;
+
+  properties
+    stabsrico.hasFilmType constant stabsfit._13057;
+}
+
 // map inst_02 from stabs_ogd.crstabs_digital_inst { // @todo: erstelle rico:Rule und verbinde RR und INST damit
 //   subject template freedigiinstURI with ID_NR;
 

@@ -458,6 +458,167 @@ source-group stabs_ogd {
       ID_NR
   }
 
+logical-source fit_13018 {
+    iterator "$..[?(@.FILMELEMENT =~/^Vorführkopie$/)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13019 {
+    iterator "$..[?(@.FILMELEMENT =~/^Umkehroriginal \\\\(Positiv\\\\)$/)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13020 {
+    iterator "$..[?(@.FILMELEMENT =~/^A\\\\/B-Rollen \\\\(Negative\\\\)$/)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13021 {
+    iterator "$..[?(@.FILMELEMENT =~/^Internegativ$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13022 {
+    iterator "$..[?(@.FILMELEMENT =~/^Interpositiv$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13023 {
+    iterator "$..[?(@.FILMELEMENT =~/^Dub-Negativ$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13024 {
+    iterator "$..[?(@.FILMELEMENT =~/^Dub-Positiv$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13025 {
+    iterator "$..[?(@.FILMELEMENT =~/^Intermedpositiv$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13026 {
+    iterator "$..[?(@.FILMELEMENT =~/^Arbeitskopie$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13027 {
+    iterator "$..[?(@.FILMELEMENT =~/^Nullkopie$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13028 {
+    iterator "$..[?(@.FILMELEMENT =~/^CRI$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13044 {
+    iterator "$..[?(@.FILMELEMENT =~/^Positiv$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13045 {
+    iterator "$..[?(@.FILMELEMENT =~/^Umkehrpositiv$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13046 {
+    iterator "$..[?(@.FILMELEMENT =~/^Negativ$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13047 {
+    iterator "$..[?(@.FILMELEMENT =~/^Umkehrnegativ$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13050 {
+    iterator "$..[?(@.FILMELEMENT =~/^Positivkopie von einem 35mm-Film$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13051 {
+    iterator "$..[?(@.FILMELEMENT =~/^IntermediatePositiv$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13052 {
+    iterator "$..[?(@.FILMELEMENT =~/^Positivkopie$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13053 {
+    iterator "$..[?(@.FILMELEMENT =~/^Umkehrpositiv \\\\(kurzer Teil in der Mitte Positiv\\\\)$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13054 {
+    iterator "$..[?(@.FILMELEMENT =~/^Verschiedene$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13055 {
+    iterator "$..[?(@.FILMELEMENT =~/^Umkehrpositiv \\\\(nicht ganz sicher\\\\)$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13056 {
+    iterator "$..[?(@.FILMELEMENT =~/^Original Tonpositiv$/)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source fit_13057 {
+    iterator "$..[?(@.FILMELEMENT =~/^Positiv \\\\(Kopie\\\\)$/)]"
+    
+    referenceables
+      ID_NR
+  }  
+
   logical-source  iiif_01 {
     iterator "$..[?(@.s3_path && @.manifest_url)]"
 
