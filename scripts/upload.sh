@@ -23,15 +23,27 @@ for file in output/*.nt; do
   # Do the upload
   # Retry a few times in case of transient errors (timeout, 502, …); this is
   # safe even for POST, as re-uploading the same triples is idempotent.
+  # Stay silent on success; only show the response body if the upload failed.
+  response_body=$(mktemp)
   curl -X "${METHOD}" \
     --fail-with-body \
+    --silent \
+    --show-error \
     --retry 5 \
     --retry-delay 10 \
     --retry-all-errors \
+    --output "${response_body}" \
     -H "Content-Type: application/n-triples" \
     -T "${file}" \
     -H "Authorization: Bearer ${SPARQL_TOKEN}" \
-    "${SPARQL_ENDPOINT}?graph=${GRAPH_NAME}"
+    "${SPARQL_ENDPOINT}?graph=${GRAPH_NAME}" || {
+    status=$?
+    echo "Upload of '${file}' failed, response body:" >&2
+    cat "${response_body}" >&2
+    rm -f "${response_body}"
+    exit "${status}"
+  }
+  rm -f "${response_body}"
 
   # All other uploads will use POST
   if [ "${METHOD}" = "PUT" ]; then
