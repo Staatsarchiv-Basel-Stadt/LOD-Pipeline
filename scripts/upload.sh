@@ -21,8 +21,13 @@ for file in output/*.nt; do
   echo "[$(date)] Uploading '$file' (${METHOD})…"
 
   # Do the upload
+  # Retry a few times in case of transient errors (timeout, 502, …); this is
+  # safe even for POST, as re-uploading the same triples is idempotent.
   curl -X "${METHOD}" \
     --fail-with-body \
+    --retry 5 \
+    --retry-delay 10 \
+    --retry-all-errors \
     -H "Content-Type: application/n-triples" \
     -T "${file}" \
     -H "Authorization: Bearer ${SPARQL_TOKEN}" \
