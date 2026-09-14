@@ -6,7 +6,6 @@ stages:
   - fetch
   - process
   - store
-  - trigger
 
 # Push `main` branch to GitHub
 github:
