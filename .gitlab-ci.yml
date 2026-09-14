@@ -50,6 +50,8 @@ fetch-test:
     AWS_SECRET_ACCESS_KEY: "${S3_SECRET_KEY}"
     S3_ENDPOINT_URL: "${S3_ENDPOINT}"
   script:
+    # the image ships the binary at /s5cmd only, outside of PATH
+    - ln -s /s5cmd /usr/bin/s5cmd
     - mkdir -p input
     - s5cmd ls "s3://${S3_BUCKET}/${S3_PATH}/"
     - ./scripts/fetch_input.sh
@@ -70,6 +72,8 @@ fetch-prod:
     AWS_SECRET_ACCESS_KEY: "${S3_SECRET_KEY}"
     S3_ENDPOINT_URL: "${S3_ENDPOINT}"
   script:
+    # the image ships the binary at /s5cmd only, outside of PATH
+    - ln -s /s5cmd /usr/bin/s5cmd
     - mkdir -p input
     - s5cmd ls "s3://${S3_BUCKET}/${S3_PATH}/"
     - ./scripts/fetch_input.sh
@@ -181,6 +185,8 @@ store-prod:
     AWS_SECRET_ACCESS_KEY: "${DST_S3_SECRET_KEY}"
     S3_ENDPOINT_URL: "${DST_S3_ENDPOINT}"
   script:
+    # the image ships the binary at /s5cmd only, outside of PATH
+    - ln -s /s5cmd /usr/bin/s5cmd
     # Display all files that we willl upload to the S3 bucket
     - ls -alh output
     # Upload them to the S3 bucket
