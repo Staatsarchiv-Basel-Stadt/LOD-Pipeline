@@ -189,16 +189,3 @@ store-prod:
     name: prod
   only:
     - main
-
-trigger-prod:
-  stage: trigger
-  needs:
-    - store-prod
-  trigger:
-    project: stabs/indexing-trigger
-    branch: main
-  variables:
-    TRIGGERED_BY_PIPELINE: "true"
-    ENVIRONMENT: "prod"
-  only:
-    - main
