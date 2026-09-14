@@ -177,20 +177,11 @@ store-prod:
   dependencies:
     - metadata
     - process-prod
-  image:
-    name: docker.io/peakcom/s5cmd:v2.3.0
-    entrypoint: [""]
-  variables:
-    AWS_ACCESS_KEY_ID: "${DST_S3_ACCESS_KEY}"
-    AWS_SECRET_ACCESS_KEY: "${DST_S3_SECRET_KEY}"
-    S3_ENDPOINT_URL: "${DST_S3_ENDPOINT}"
   script:
-    # the image ships the binary at /s5cmd only, outside of PATH
-    - ln -s /s5cmd /usr/bin/s5cmd
-    # Display all files that we willl upload to the S3 bucket
+    # display the list of all files that we will upload in the triplestore
     - ls -alh output
-    # Upload them to the S3 bucket
-    - s5cmd cp "output/*.nt" "s3://${DST_S3_BUCKET}/${DST_S3_PATH}/"
+    # upload them to the triplestore
+    - ./scripts/upload.sh
   environment:
     name: prod
   only:

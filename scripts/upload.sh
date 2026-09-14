@@ -25,7 +25,7 @@ for file in output/*.nt; do
     --fail-with-body \
     -H "Content-Type: application/n-triples" \
     -T "${file}" \
-    -u "${SPARQL_USER}:${SPARQL_PASSWORD}" \
+    -H "Authorization: Bearer ${SPARQL_TOKEN}" \
     "${SPARQL_ENDPOINT}?graph=${GRAPH_NAME}"
 
   # All other uploads will use POST
