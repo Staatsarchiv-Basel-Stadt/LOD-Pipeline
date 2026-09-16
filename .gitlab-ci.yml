@@ -101,6 +101,8 @@ metadata:
     - "[ -f output/metadata.nt ]"
     # make sure it has more than one line
     - '[ "$(wc -l output/metadata.nt | awk ''{ print $1 }'')" -gt 1 ]'
+  only:
+    - main    
 
 # run the pipeline on each splitted part that are generated within this step
 # process-test:
