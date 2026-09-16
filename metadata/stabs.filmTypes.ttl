@@ -35,7 +35,6 @@ stabs-fit: a owl:NamedIndividual, skos:ConceptScheme ;
 	.
 
 stabs-fit:13018 a rico:Type, skos:Concept ;
-
     skos:prefLabel "Vorführkopie"@de ;
     rdfs:label "Vorführkopie"@de ;
 	skos:inScheme stabs-fit:
