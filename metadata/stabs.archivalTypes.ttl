@@ -30,50 +30,60 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 stabs-art: a owl:NamedIndividual, skos:ConceptScheme ;
 	dcterms:creator <org/staatsarchiv> ;
-    dcterms:title "Archivalienart"@de, "Archival Type"@en ;
+    dcterms:title "Archivalienart"@de, "archival type"@en ;
 	skos:definition "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Archivalienarten"@de ;
-    rdfs:label "Archivalienart"@de, "Archival Type"@en ;
+    rdfs:label "Archivalienart"@de, "archival type"@en ;
     skos:hasTopConcept stabs-art:10001, stabs-art:10002, stabs-art:10003, stabs-art:10004, stabs-art:10005, stabs-art:10006, stabs-art:10007, stabs-art:10099, stabs-art:10101, stabs-art:10188, stabs-art:13152, stabs-art:13161, stabs-art:13162
     .
 
 stabs-art:10001 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
     skos:prefLabel "Akte"@de ;
+    skos:exactMatch wd:Q59221146
     .
 
 stabs-art:10002 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
     skos:prefLabel "Urkunde"@de ;
+    skos:closeMatch wd:Q196756
     .
 
 stabs-art:10003 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
     skos:prefLabel "Bild"@de ;
+    skos:exactMatch wd:Q478798
     .
 
 stabs-art:10004 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
     skos:prefLabel "Plan"@de ;
+    skos:exactMatch wd:Q4006 ;
+    skos:closeMatch gnd:4029783-4
     .
 
 stabs-art:10005 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
     skos:prefLabel "Bewegtbild (Film)"@de ;
+    skos:exactMatch wd:Q11424
     .
 
 stabs-art:10006 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
     skos:prefLabel "Tonaufzeichnung"@de ;
+    skos:exactMatch wd:Q3302947
     .
 
 stabs-art:10007 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
-    skos:prefLabel "Drucksache"@de ;
+    skos:prefLabel "Drucksache"@de, "printed matter"@en ;
+    skos:altLabel "Druckerzeugnis"@de ;
+    skos:exactMatch wd:Q1261026
     .
 
 stabs-art:10099 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
     skos:prefLabel "Mikroform"@de ;
+    skos:exactMatch wd:Q830450, gnd:4039216-8
     .
 
 stabs-art:10101 a rico:Type, skos:Concept ;
@@ -87,24 +97,27 @@ stabs-art:10188 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
     skos:prefLabel "Digitales Speichermedium"@de ;
     skos:definition "Wird verwendet für Angabe aller Arten von Trägern digital gespeicherter Informationen."@de ;
+    skos:exactMatch wd:Q66221
     .
 
 stabs-art:13152 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
-    skos:prefLabel "Plakat"@de ;
+    skos:prefLabel "Plakat"@de, "poster"@en ;
     skos:definition "Zur Beschreibung grossformatiger Drucke (Text und Bild) auf Papier, die in der Öffentlichkeit angebracht werden."@de ;
     skos:exactMatch gnd:4046198-1, wd:Q429785 ;
-    skos:closeMatch aat:300027221  # Getty AAT für posters
+    skos:closeMatch aat:300027221
     .
 
 stabs-art:13161 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
-    skos:prefLabel "Datei"@de ;
+    skos:prefLabel "Datei"@de, "computer file"@en ;
     skos:definition "Eine Menge elektronischer Daten, die dauerhaft und in einer bestimmten Form (Dateiformat) gespeichert sind."@de ;
+    skos:exactMatch wd:Q82753
     .
 
 stabs-art:13162 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
-    skos:prefLabel "Netzressource"@de ;
+    skos:prefLabel "Netzressource"@de, "web resource"@en ;
     skos:definition "Generischer Begriff für Website, Online-Ressourcen etc."@de ;
+    skos:exactMatch wd:Q3427877
     .
