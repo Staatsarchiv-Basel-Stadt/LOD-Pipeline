@@ -2072,9 +2072,11 @@ vocabulary stabsrico {
 		contains
 		content
 		extentNote
+		hasOrHadArchivalType
 		hasFilmType
 		houseNameBS
 		isFilmTypeOf
+		isOrWasArchivalTypeOf
 		includes
 		oldHousenumber
 		ort
