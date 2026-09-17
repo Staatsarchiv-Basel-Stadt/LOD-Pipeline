@@ -1,6 +1,8 @@
 BASE <https://ld.bs.ch/>
+PREFIX aat: <http://vocab.getty.edu/aat/>
 PREFIX cc: <https://creativecommons.org/ns#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX gnd: <https://d-nb.info/gnd/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -19,9 +21,8 @@ PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
 PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
 PREFIX stabs-rut: <https://ld.bs.ch/RiC/vocabularies/ruleTypes/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX gnd: <https://d-nb.info/gnd/>
-PREFIX aat: <http://vocab.getty.edu/aat/>
 
 # Content Types (Archivalienart)
 # ------------------------------
@@ -92,7 +93,7 @@ stabs-art:13152 a rico:Type, skos:Concept ;
     skos:inScheme stabs-art: ;
     skos:prefLabel "Plakat"@de ;
     skos:definition "Zur Beschreibung grossformatiger Drucke (Text und Bild) auf Papier, die in der Öffentlichkeit angebracht werden."@de ;
-    skos:exactMatch gnd:4046338-7 ; # GND-Begriff für Plakat
+    skos:exactMatch gnd:4046198-1, wd:Q429785 ;
     skos:closeMatch aat:300027221  # Getty AAT für posters
     .
 
