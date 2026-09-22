@@ -311,7 +311,7 @@ map ident_03 from stabs_ogd.rr_signaturen {
  * DE: LAUFMETER, ANZAHL, ANZAHL_DATEIEN, UMFANG_GESCHAETZT, DATENVOLUMEN_MB, ABSPIELDAUER
  */
 
-map extent_as from stabs_ogd.rr_extent_as {
+map extent_as_01 from stabs_ogd.rr_extent_as {
   subject template exdurURI with ID_NR;
 
   types
@@ -324,7 +324,15 @@ map extent_as from stabs_ogd.rr_extent_as {
     rico.hasUnitOfMeasurement constant quanitity.Time;
 }
 
-map extent_lm from stabs_ogd.rr_extent_lm {
+map extent_as_02 from stabs_ogd.rr_extent_as {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasExtent template exdurURI with ID_NR;
+}
+
+
+map extent_lm_01 from stabs_ogd.rr_extent_lm {
   subject template exlmURI with ID_NR;
 
   types
@@ -337,7 +345,14 @@ map extent_lm from stabs_ogd.rr_extent_lm {
     rico.hasUnitOfMeasurement constant unit.M;
 }
 
-map extent_num from stabs_ogd.rr_extent_num {
+map extent_lm_02 from stabs_ogd.rr_extent_lm {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasExtent template exlmURI with ID_NR;
+}
+
+map extent_num_01 from stabs_ogd.rr_extent_num {
   subject template exnumURI with ID_NR;
 
   types
@@ -349,7 +364,14 @@ map extent_num from stabs_ogd.rr_extent_num {
     rico.quantity from ANZAHL with datatype xsd.integer;
 }
 
-map extent_num_files from stabs_ogd.rr_extent_num_files {
+map extent_num_02 from stabs_ogd.rr_extent_num {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasExtent template exnumURI with ID_NR;
+}
+
+map extent_num_files_01 from stabs_ogd.rr_extent_num_files {
   subject template exnumfileURI with ID_NR;
 
   types
@@ -361,7 +383,14 @@ map extent_num_files from stabs_ogd.rr_extent_num_files {
     rico.quantity from ANZAHL_DATEIEN with datatype xsd.integer;
 }
 
-map extent_data_vol from stabs_ogd.rr_extent_data_vol {
+map extent_num_files_02 from stabs_ogd.rr_extent_num_files {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasExtent template exnumfileURI with ID_NR;
+}
+
+map extent_data_vol_01 from stabs_ogd.rr_extent_data_vol {
   subject template exdvURI with ID_NR;
 
   types
@@ -373,7 +402,14 @@ map extent_data_vol from stabs_ogd.rr_extent_data_vol {
     rico.quantity from DATENVOLUMEN_MB with datatype xsd.decimal;
 }
 
-map extent_approx from stabs_ogd.rr_extent_approx {
+map extent_data_vol_02 from stabs_ogd.rr_extent_data_vol {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasExtent template exdvURI with ID_NR;
+}
+
+map extent_approx_01 from stabs_ogd.rr_extent_approx {
   subject template exapproxURI with ID_NR;
 
   types
@@ -383,6 +419,13 @@ map extent_approx from stabs_ogd.rr_extent_approx {
     rico.isExtentOf template rrURI with ID_NR;
     rico.hasExtentType constant stabsext.Umfang_approximativ;
     rico.textualValue from UMFANG_GESCHAETZT;
+}
+
+map extent_approx_02 from stabs_ogd.rr_extent_approx {
+  subject template rrURI with ID_NR;
+
+  properties
+    rico.hasExtent template exapproxURI with ID_NR;
 }
 
 // /* Provenienz
