@@ -1195,7 +1195,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType;
 		rr:objectMap [
-			rr:constant stabs-ext:Umfang_approximativ
+			rr:constant stabs-ext:Umfang-approximativ
 		]
 	];
 	

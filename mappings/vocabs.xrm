@@ -2007,11 +2007,11 @@ vocabulary stabsext {
 
 	classes
 		Anzahl
-		Anzahl_Dateien
-		Datenvolumen_MB
+		Anzahl_Dateien "Anzahl-Dateien"
+		Datenvolumen_MB "Datenvolumen-MB"
 		Dauer
 		Laufmeter
-		Umfang_approximativ
+		Umfang_approximativ "Umfang-approximativ"
 }
 
 vocabulary stabsfit {
@@ -2047,9 +2047,9 @@ vocabulary stabsidt {
 	prefix "stabs-idt" "https://ld.bs.ch/RiC/vocabularies/identifierTypes/"
 
 	classes
-		Alte_Signatur
-		Fruehere_Signatur
-		Fruehere_StABS_Signatur
+		Alte_Signatur "Alte-Signatur"
+		Fruehere_Signatur "Fruehere-Signatur"
+		Fruehere_StABS_Signatur "Fruehere-StABS-Signatur"
 }
 
 vocabulary stabsrpt {
