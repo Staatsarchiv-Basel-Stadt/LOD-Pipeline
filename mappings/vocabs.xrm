@@ -1961,6 +1961,25 @@ vocabulary stabsacr {
 		orderablerp "orderable-reproduction"
 }
 
+vocabulary stabsart {
+	prefix "stabs-art" "https://ld.bs.ch/RiC/vocabularies/archivalTypes/"
+
+	classes
+		_10001 "10001"
+		_10002 "10002"
+		_10003 "10003"
+		_10004 "10004"
+		_10005 "10005"
+		_10006 "10006"
+		_10007 "10007"
+		_10099 "10099"
+		_10101 "10101"
+		_10188 "10188"
+		_13152 "13152"
+		_13161 "13161"
+		_13162 "13162"
+}
+
 vocabulary stabscrs {
 	prefix "stabs-crs" "https://ld.bs.ch/RiC/vocabularies/crStatus/"
 

@@ -673,10 +673,94 @@ logical-source fit_13018 {
       viewer_url
   }
 
-// logical-source rr_at_akte {
-// iterator "$..[?(@.ARCHIVALIENART contains 'Akte')]"
-// referenceables
-// ID_NR
-// ARCHIVALIENART
-// }
+  logical-source art_10001 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Akte.*/i)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source art_10002 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Urkunde.*/i)]"
+
+    referenceables 
+      ID_NR
+  }
+
+  logical-source art_10003 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Bild.*/i)]"
+
+    referenceables 
+      ID_NR
+  }
+
+  logical-source art_10004 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Plan.*/i)]"
+
+    referenceables 
+      ID_NR
+  }
+
+  logical-source art_10005 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Bewegtbild.*/i)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source art_10006 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Tonaufzeichnung.*/i)]"
+    
+    referenceables
+      ID_NR
+  }
+
+  logical-source art_10007 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Drucksache.*|.*Druckerzeugnis.*/i)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source art_10099 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Mikroform.*/i)]"
+    
+    referenceables 
+      ID_NR
+  }
+
+  logical-source art_10101 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Objekt.*|.*Gegenstand.*/i)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source art_10188 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Digitales Speichermedium.*/i)]"
+    
+    referenceables 
+      ID_NR
+  }
+
+  logical-source art_13152 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Plakat.*/i)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source art_13161 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Datei.*/i)]"
+
+    referenceables
+      ID_NR
+  }
+
+  logical-source art_13162 {
+    iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Netzressource.*/i)]"
+
+    referenceables 
+      ID_NR
+  }
 }
