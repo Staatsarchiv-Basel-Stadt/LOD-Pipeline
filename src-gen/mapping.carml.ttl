@@ -17,6 +17,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX schema: <http://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-acr: <https://ld.bs.ch/RiC/vocabularies/acRules/>
+PREFIX stabs-art: <https://ld.bs.ch/RiC/vocabularies/archivalTypes/>
 PREFIX stabs-crs: <https://ld.bs.ch/RiC/vocabularies/crStatus/>
 PREFIX stabs-crt: <https://ld.bs.ch/RiC/vocabularies/carrierTypes/>
 PREFIX stabs-ext: <https://ld.bs.ch/RiC/vocabularies/extentTypes/>
@@ -49,14 +50,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rdfs:seeAlso;
 		rr:objectMap [
 			rr:template "https://dls.staatsarchiv.bs.ch/records/{ID_NR}"
-		]
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:type;
-		rr:objectMap [
-			rml:reference "ARCHIVALIENART";
-			rr:language "ger"
 		]
 	];
 	
@@ -386,6 +379,305 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:isDirectlyIncludedIn;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
+		]
+	].
+	
+<#art_10001>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Akte.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:10001
+		]
+	].
+	
+<#art_10002>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Urkunde.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:10002
+		]
+	].
+	
+<#art_10003>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Bild.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:10003
+		]
+	].
+	
+<#art_10004>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Plan.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:10004
+		]
+	].
+	
+<#art_10005>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Bewegtbild.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:10005
+		]
+	].
+	
+<#art_10006>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Tonaufzeichnung.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:10006
+		]
+	].
+	
+<#art_10007>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Drucksache.*|.*Druckerzeugnis.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:10007
+		]
+	].
+	
+<#art_10099>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Mikroform.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:10099
+		]
+	].
+	
+<#art_10101>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Objekt.*|.*Gegenstand.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:10101
+		]
+	].
+	
+<#art_10188>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Digitales Speichermedium.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:10188
+		]
+	].
+	
+<#art_13152>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Plakat.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:13152
+		]
+	].
+	
+<#art_13161>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Datei.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:13161
+		]
+	].
+	
+<#art_13162>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ARCHIVALIENART[*] =~ /.*Netzressource.*/i)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:hasOrHadArchivalType;
+		rr:objectMap [
+			rr:constant stabs-art:13162
 		]
 	].
 	

@@ -9,7 +9,6 @@ map rr_stabs from stabs_ogd.rr_base {
 
   properties
     rdfs.seeAlso template dlsURI with ID_NR;
-    rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
     rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
     rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
     rico.identifier from SIGNATUR;
@@ -106,6 +105,102 @@ map level_dok from stabs_ogd.rr_dok {
 
   properties
     rico.isDirectlyIncludedIn template rrURI with PARENT_ID_NR;
+}
+
+
+/* Archivalienart
+*  --------------
+*  Übernimmt Archivalienart als eigene Konzepte
+*/
+map art_10001 from stabs_ogd.art_10001 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._10001;
+}
+
+map art_10002 from stabs_ogd.art_10002 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._10002;
+}
+
+map art_10003 from stabs_ogd.art_10003 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._10003;
+}
+
+map art_10004 from stabs_ogd.art_10004 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._10004;
+}
+
+map art_10005 from stabs_ogd.art_10005 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._10005;
+}
+
+map art_10006 from stabs_ogd.art_10006 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._10006;
+}
+
+map art_10007 from stabs_ogd.art_10007 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._10007;
+}
+
+map art_10099 from stabs_ogd.art_10099 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._10099;
+}
+
+map art_10101 from stabs_ogd.art_10101 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._10101;
+}
+
+map art_10188 from stabs_ogd.art_10188 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._10188;
+}
+
+map art_13152 from stabs_ogd.art_13152 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._13152;
+}
+
+map art_13161 from stabs_ogd.art_13161 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._13161;
+}
+
+map art_13162 from stabs_ogd.art_13162 {
+  subject template rrURI with ID_NR;
+
+  properties
+    stabsrico.hasOrHadArchivalType constant stabsart._13162;
 }
 
 /* Date Maps
