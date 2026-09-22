@@ -11,27 +11,62 @@ set -eu
 # Configuration
 GRAPH_NAME="https://ld.bs.ch/graph/ais-metadata"
 
-# First upload will be done using PUT, then all other using POST (reset the graph)
-METHOD="PUT"
+date
+
+# Drop the graph first, so that the uploads below start from an empty graph.
+# A 404 is fine as well: it just means the graph does not exist yet.
+echo "[$(date)] Dropping the graph <${GRAPH_NAME}>…"
+response_body=$(mktemp)
+http_code=$(curl -X DELETE \
+  --silent \
+  --show-error \
+  --retry 5 \
+  --retry-delay 10 \
+  --retry-all-errors \
+  --output "${response_body}" \
+  --write-out "%{http_code}" \
+  -H "Authorization: Bearer ${SPARQL_TOKEN}" \
+  "${SPARQL_ENDPOINT}?graph=${GRAPH_NAME}") || true
+case "${http_code}" in
+  2??|404) ;;
+  *)
+    echo "Dropping the graph failed (HTTP ${http_code}), response body:" >&2
+    cat "${response_body}" >&2
+    rm -f "${response_body}"
+    exit 1
+    ;;
+esac
+rm -f "${response_body}"
 
 # Iterate over all .nt files that are in the output directory
-date
 echo "Uploading files into the triplestore…"
 for file in output/*.nt; do
-  echo "[$(date)] Uploading '$file' (${METHOD})…"
+  echo "[$(date)] Uploading '$file'…"
 
   # Do the upload
-  curl -X "${METHOD}" \
+  # Retry a few times in case of transient errors (timeout, 502, …); this is
+  # safe, as re-uploading the same triples is idempotent.
+  # Stay silent on success; only show the response body if the upload failed.
+  response_body=$(mktemp)
+  curl -X POST \
     --fail-with-body \
+    --silent \
+    --show-error \
+    --retry 5 \
+    --retry-delay 10 \
+    --retry-all-errors \
+    --output "${response_body}" \
     -H "Content-Type: application/n-triples" \
     -T "${file}" \
-    -u "${SPARQL_USER}:${SPARQL_PASSWORD}" \
-    "${SPARQL_ENDPOINT}?graph=${GRAPH_NAME}"
-
-  # All other uploads will use POST
-  if [ "${METHOD}" = "PUT" ]; then
-    METHOD="POST"
-  fi
+    -H "Authorization: Bearer ${SPARQL_TOKEN}" \
+    "${SPARQL_ENDPOINT}?graph=${GRAPH_NAME}" || {
+    status=$?
+    echo "Upload of '${file}' failed, response body:" >&2
+    cat "${response_body}" >&2
+    rm -f "${response_body}"
+    exit "${status}"
+  }
+  rm -f "${response_body}"
 done
 
 exit 0
