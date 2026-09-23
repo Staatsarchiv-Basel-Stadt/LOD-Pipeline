@@ -7,6 +7,9 @@ output carml
 map rr_stabs from stabs_ogd.rr_base {
   subject template rrURI with ID_NR;
 
+  types
+    rico.RecordResource
+
   properties
     rdfs.seeAlso template dlsURI with ID_NR;
     rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
@@ -484,6 +487,7 @@ map bib_records from stabs_ogd.rr_biblio {
   types
     dct.BibliographicResource
     rico.RecordSet
+    rico.RecordResource
 
   properties
     dct.bibliographicCitation from LITERATUR_BEST_INSG;

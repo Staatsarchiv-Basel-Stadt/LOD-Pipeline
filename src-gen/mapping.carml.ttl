@@ -43,7 +43,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:subjectMap [
-		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}";
+		rr:class rico:RecordResource
 	];
 	
 	rr:predicateObjectMap [
@@ -1400,7 +1401,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:subjectMap [
 		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/BibliographicResource";
 		rr:class dcterms:BibliographicResource;
-		rr:class rico:RecordSet
+		rr:class rico:RecordSet;
+		rr:class rico:RecordResource
 	];
 	
 	rr:predicateObjectMap [
