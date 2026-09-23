@@ -141,7 +141,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_archive>
+<#level_archive_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -180,7 +180,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_abt>
+<#level_archive_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ID_NR == '548575')]"
+	];
+	
+	rr:subjectMap [
+		rr:constant stabs-rst:Archiv
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isRecordSetTypeOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	].
+	
+<#level_abt_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -203,7 +226,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_fon>
+<#level_abt_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Abteilung$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:constant stabs-rst:Abteilung
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isRecordSetTypeOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	].
+	
+<#level_fon_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -226,7 +272,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_bes>
+<#level_fon_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Fonds$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:constant stabs-rst:Fonds
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isRecordSetTypeOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	].
+	
+<#level_bes_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -249,7 +318,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_ser>
+<#level_bes_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Bestand$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:constant stabs-rst:Bestand
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isRecordSetTypeOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	].
+	
+<#level_ser_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -272,7 +364,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_dos>
+<#level_ser_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Serie$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:constant stabs-rst:Serie
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isRecordSetTypeOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	].
+	
+<#level_dos_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -295,7 +410,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_abt_ser_dos>
+<#level_dos_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Dossier$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:constant stabs-rst:Dossier
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isRecordSetTypeOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	].
+	
+<#level_abt_ser_dos_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -327,7 +465,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_fon_bes>
+<#level_abt_ser_dos_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Abteilung$|^Serie$|^Dossier$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:directlyIncludes;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	].
+	
+<#level_fon_bes_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -359,7 +520,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_dok>
+<#level_fon_bes_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /Fonds|Bestand/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:directlyIncludes;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+		]
+	].
+	
+<#level_dok_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -380,6 +564,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:isDirectlyIncludedIn;
 		rr:objectMap [
 			rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
+		]
+	].
+	
+<#level_dok_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.STUFE =~ /^Dokument$/)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{PARENT_ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:directlyIncludes;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	].
 	
@@ -846,7 +1053,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#ident_01>
+<#ident_011>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -884,7 +1091,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#ident_02>
+<#ident_012>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadIdentifier;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Old-Reference/{ALTE_SIGNATUREN}"
+		]
+	].
+	
+<#ident_021>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -922,7 +1152,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#ident_03>
+<#ident_022>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadIdentifier;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Former-Reference/{FRUEHERE_SIGNATUR}"
+		]
+	].
+	
+<#ident_031>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -957,6 +1210,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:textualValue;
 		rr:objectMap [
 			rml:reference "FRUEHERE_STABS_SIGNATUR"
+		]
+	].
+	
+<#ident_032>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.ALTE_SIGNATUREN || @.FRUEHERE_STABS_SIGNATUR || @.FRUEHERE_SIGNATUR)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadIdentifier;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/Former-StABS-Reference/{FRUEHERE_STABS_SIGNATUR}"
 		]
 	].
 	
@@ -1459,6 +1735,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:scopeAndContent;
 		rr:objectMap [
 			rml:reference "LITERATUR_BEST_INSG"
+		]
+	].
+	
+<#bib_records_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.VEROEFFENTLICHUNGEN || @.LITERATUR_BEST_INSG)]"
+	];
+	
+	rr:subjectMap [
+		rr:constant stabs-rst:BibRes
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isRecordSetTypeOf;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/BibliographicResource"
 		]
 	].
 	
@@ -2774,7 +3073,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#thes_pers>
+<#thes_pers_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -2860,7 +3159,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#thes_ort>
+<#thes_pers_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.thesaurus == 'Personenbegriffe')]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{descriptor_record_relations[*].record.identifier}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadMainSubject;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Agent/{identifier}"
+		]
+	].
+	
+<#thes_ort_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -2946,7 +3268,30 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#rr_principal>
+<#thes_ort_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.thesaurus == 'Personenbegriffe')]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{descriptor_record_relations[*].record.identifier}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadMainSubject;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Place/{identifier}"
+		]
+	].
+	
+<#rr_principal_01>
 	a rr:TriplesMap;
 	
 	rml:logicalSource [
@@ -2975,6 +3320,29 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rml:reference "AUFTRAGGEBERIN";
 			rr:language "ger"
+		]
+	].
+	
+<#rr_principal_02>
+	a rr:TriplesMap;
+	
+	rml:logicalSource [
+		rml:source [
+			a carml:Stream;
+			carml:streamName "stdin"
+		];
+		rml:referenceFormulation ql:JSONPath;
+		rml:iterator "$..[?(@.AUFTRAGGEBERIN)]"
+	];
+	
+	rr:subjectMap [
+		rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrganicOrFunctionalProvenance;
+		rr:objectMap [
+			rr:template "https://ld.bs.ch/ais/Agent/{AUFTRAGGEBERIN}"
 		]
 	].
 	
