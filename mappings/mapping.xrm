@@ -41,25 +41,11 @@ map level_archive_01 from stabs_ogd.rr_arc {
     rico.hasOrHadOwner constant "https://ld.bs.ch/org/staatsarchiv";
 }
 
-map level_archive_02 from stabs_ogd.rr_arc {
-  subject constant stabsrst.Archiv;
-
-  properties
-    rico.isRecordSetTypeOf template rrURI with ID_NR;
-}
-
 map level_abt_01 from stabs_ogd.rr_abt {
   subject template rrURI with ID_NR;
 
   properties
     rico.hasRecordSetType constant stabsrst.Abteilung;
-}
-
-map level_abt_02 from stabs_ogd.rr_abt {
-  subject constant stabsrst.Abteilung;
-
-  properties
-    rico.isRecordSetTypeOf template rrURI with ID_NR;
 }
 
 map level_fon_01 from stabs_ogd.rr_fon {
@@ -69,25 +55,11 @@ map level_fon_01 from stabs_ogd.rr_fon {
     rico.hasRecordSetType constant stabsrst.Fonds;
 }
 
-map level_fon_02 from stabs_ogd.rr_fon {
-  subject constant stabsrst.Fonds;
-
-  properties
-    rico.isRecordSetTypeOf template rrURI with ID_NR;
-}
-
 map level_bes_01 from stabs_ogd.rr_bes {
   subject template rrURI with ID_NR;
 
   properties
     rico.hasRecordSetType constant stabsrst.Bestand;
-}
-
-map level_bes_02 from stabs_ogd.rr_bes {
-  subject constant stabsrst.Bestand;
-
-  properties
-    rico.isRecordSetTypeOf template rrURI with ID_NR;
 }
 
 map level_ser_01 from stabs_ogd.rr_ser {
@@ -97,25 +69,11 @@ map level_ser_01 from stabs_ogd.rr_ser {
     rico.hasRecordSetType constant stabsrst.Serie;
 }
 
-map level_ser_02 from stabs_ogd.rr_ser {
-  subject constant stabsrst.Serie;
-
-  properties
-    rico.isRecordSetTypeOf template rrURI with ID_NR;
-}
-
 map level_dos_01 from stabs_ogd.rr_dos {
   subject template rrURI with ID_NR;
 
   properties
     rico.hasRecordSetType constant stabsrst.Dossier;
-}
-
-map level_dos_02 from stabs_ogd.rr_dos {
-  subject constant stabsrst.Dossier;
-
-  properties
-    rico.isRecordSetTypeOf template rrURI with ID_NR;
 }
 
 map level_abt_ser_dos_01 from stabs_ogd.rr_abt_ser_dos {
@@ -584,13 +542,6 @@ map bib_records from stabs_ogd.rr_biblio {
     rico.name template "Bibliografische Ressourcen zu {0}" with SIGNATUR as Literal;
     rico.scopeAndContent from VEROEFFENTLICHUNGEN;
     rico.scopeAndContent from LITERATUR_BEST_INSG;
-}
-
-map bib_records_02 from stabs_ogd.rr_biblio {
-  subject constant stabsrst.BibRes;
-
-  properties
-    rico.isRecordSetTypeOf template bibURI with ID_NR;
 }
 
 map records_bib from stabs_ogd.rr_biblio {

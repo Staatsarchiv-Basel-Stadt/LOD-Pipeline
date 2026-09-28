@@ -180,29 +180,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_archive_02>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.ID_NR == '548575')]"
-	];
-	
-	rr:subjectMap [
-		rr:constant stabs-rst:Archiv
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isRecordSetTypeOf;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
-		]
-	].
-	
 <#level_abt_01>
 	a rr:TriplesMap;
 	
@@ -223,29 +200,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:hasRecordSetType;
 		rr:objectMap [
 			rr:constant stabs-rst:Abteilung
-		]
-	].
-	
-<#level_abt_02>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.STUFE =~ /^Abteilung$/)]"
-	];
-	
-	rr:subjectMap [
-		rr:constant stabs-rst:Abteilung
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isRecordSetTypeOf;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	].
 	
@@ -272,29 +226,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_fon_02>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.STUFE =~ /^Fonds$/)]"
-	];
-	
-	rr:subjectMap [
-		rr:constant stabs-rst:Fonds
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isRecordSetTypeOf;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
-		]
-	].
-	
 <#level_bes_01>
 	a rr:TriplesMap;
 	
@@ -315,29 +246,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:hasRecordSetType;
 		rr:objectMap [
 			rr:constant stabs-rst:Bestand
-		]
-	].
-	
-<#level_bes_02>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.STUFE =~ /^Bestand$/)]"
-	];
-	
-	rr:subjectMap [
-		rr:constant stabs-rst:Bestand
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isRecordSetTypeOf;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	].
 	
@@ -364,29 +272,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		]
 	].
 	
-<#level_ser_02>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.STUFE =~ /^Serie$/)]"
-	];
-	
-	rr:subjectMap [
-		rr:constant stabs-rst:Serie
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isRecordSetTypeOf;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
-		]
-	].
-	
 <#level_dos_01>
 	a rr:TriplesMap;
 	
@@ -407,29 +292,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:hasRecordSetType;
 		rr:objectMap [
 			rr:constant stabs-rst:Dossier
-		]
-	].
-	
-<#level_dos_02>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.STUFE =~ /^Dossier$/)]"
-	];
-	
-	rr:subjectMap [
-		rr:constant stabs-rst:Dossier
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isRecordSetTypeOf;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}"
 		]
 	].
 	
@@ -1735,29 +1597,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:scopeAndContent;
 		rr:objectMap [
 			rml:reference "LITERATUR_BEST_INSG"
-		]
-	].
-	
-<#bib_records_02>
-	a rr:TriplesMap;
-	
-	rml:logicalSource [
-		rml:source [
-			a carml:Stream;
-			carml:streamName "stdin"
-		];
-		rml:referenceFormulation ql:JSONPath;
-		rml:iterator "$..[?(@.VEROEFFENTLICHUNGEN || @.LITERATUR_BEST_INSG)]"
-	];
-	
-	rr:subjectMap [
-		rr:constant stabs-rst:BibRes
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isRecordSetTypeOf;
-		rr:objectMap [
-			rr:template "https://ld.bs.ch/ais/Record/{ID_NR}/BibliographicResource"
 		]
 	].
 	
