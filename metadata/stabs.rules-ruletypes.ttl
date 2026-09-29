@@ -21,6 +21,27 @@ PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
 PREFIX stabs-rule: <https://ld.bs.ch/RiC/vocabularies/rule/>
 PREFIX stabs-rut: <https://ld.bs.ch/RiC/vocabularies/ruleTypes/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+PREFIX stabs-appr: <https://ld.bs.ch/RiC/vocabularies/permission/>
+
+
+# Typen von Regeln des StABS
+# --------------------------
+# Definiert Typen von Regeln, die im StABS verwendet werden
+
+stabs-rut:usage a rico:RuleType, skos:Concept , owl:NamedIndividual ;
+    rico:name "Benutzungsregel"@de, "Usage rule"@en ;
+    skos:prefLabel "Benutzungsregel"@de, "Usage rule"@en
+    .
+
+stabs-rut:access a rico:RuleType, skos:Concept , owl:NamedIndividual ;
+    rico:name: "Zugangsregel"@de, "Access rule"@en ;
+    skos:prefLabel "Zugangsregel"@de, "Access rule"@en
+    .
+
+stabs-rut:description a rico:RuleType, skos:Concept, owl:NamedIndividual ;
+    rico:name "Erschliessungsregel"@de, "Description rule"@en ;
+    skos:prefLabel "Erschliessungsregel"@de, "Description rule"@en
+    .
 
 # Zugangsregeln von Archivgut im StABS
 # ------------------------------------
@@ -37,7 +58,7 @@ stabs-acr: a owl:NamedIndividual, skos:ConceptScheme ;
 stabs-acr:protected a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	rico:title "Archivgut unter Schutzfristen"@de, "Documents in protection period"@en ;
 	rico:identifier "StABS-protected" ;
-	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
+	rico:hasOrHadRuleType stabs-rut:access ;
 	rico:issuedBy <org/staatsarchiv> ;
 	rico:generalDescription "Für das Archivgut gilt die genannte Schutzfrist. Zur Einsicht bedarf es Bestellung mit einem Einsichtsgesuchs." ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
@@ -47,7 +68,7 @@ stabs-acr:protected a owl:NamedIndividual, skos:Concept, rico:Rule ;
 stabs-acr:orderable-readingroom a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	rico:title "Archivgut bestellbar zur Archiveinsicht"@de, "Documents orderable for review"@en ;
 	rico:identifier "StABS-orderable-readingroom" ;
-	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
+	rico:hasOrHadRuleType stabs-rut:access ;
 	rico:issuedBy <org/staatsarchiv> ;
 	rico:generalDescription "Das Archivgut kann frei zur Einsicht in den Lesesaal des Staatsarchivs Basel-Stadt bestellt werden."@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
@@ -57,7 +78,7 @@ stabs-acr:orderable-readingroom a owl:NamedIndividual, skos:Concept, rico:Rule ;
 stabs-acr:orderable-reproduction a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	rico:title "Archivgut bestellbar zur Reproduktion"@de, "Documents orderable for reproduction"@en ;
 	rico:identifier "StABS-orderable-reproduction" ;
-	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
+	rico:hasOrHadRuleType stabs-rut:access ;
 	rico:issuedBy <org/staatsarchiv> ;
 	rico:generalDescription "Das Archivgut kann kostenpflichtig als Reproduktion bestellt werden."@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
@@ -67,11 +88,77 @@ stabs-acr:orderable-reproduction a owl:NamedIndividual, skos:Concept, rico:Rule 
 stabs-acr:free-online a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	rico:title "Archivgut online zur freien Einsicht"@de, "Documents free online"@en ;
 	rico:identifier "StABS-free-online" ;
-	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/access> ;
+	rico:hasOrHadRuleType stabs-rut:access ;
 	rico:issuedBy <org/staatsarchiv> ;
 	rico:generalDescription "Das Archivgut steht zur freien Ansicht und Download online zur Verfügung."@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>, <https://dls.staatsarchiv.bs.ch/de/orientierung/geb%C3%BChren-und-fristen/> ;
 	skos:topConceptOf stabs-acr:
+	.
+
+# Bewilligungen Staatsarchiv
+# --------------------------
+# Liste der möglichen Bewilligungen im Staatsarchiv
+
+stabs-appr: a owl:NamedIndividual, skos:ConceptScheme ;
+	skos:prefLabel "Bewilligung"@de ;
+	skos:definition "Im Staatsarchiv verwendete Bewilligungen. Damit wird festgehalten, ob für die Bestellbarkeit einer Archivalie eine zusätzliche Bewilligung nötig ist oder nicht. Der Standardwert ist «Gemäss Archivgesetz». In Einzelfällen, in der Regel im Bereich der Privatarchive, gelten besondere Benutzungsbestimmungen, die unter anderem eine spezielle Einsichtsgenehmigung erfordern. (Erklärung gekürzt aus StABS, Handbuch Erschliessung, Kap. 6.2.1) "@de ;
+	skos:hasTopConcept stabs-appr:1, stabs-appr:10000, stabs-appr:10001, stabs-appr:10002, stabs-appr:10004, stabs-appr:10005, stabs-appr:10003
+	.
+
+stabs-appr:1 a owl:NamedIndividual, skos:Concept, rico:Rule ;
+	skos:prefLabel "Gemäss Archivgesetz BS" ;
+	skos:definition "Standardwert des Staatsarchivs Basel-Stadt" ;
+	rico:issuedBy <org/staatsarchiv> ;
+	rico:hasOrHadRuleType stabs-rut:access ;
+	skos:topConceptOf stabs-appr:
+	.
+
+stabs-appr:10000 a owl:NamedIndividual, skos:Concept, rico:Rule ;
+	skos:prefLabel "Provenienzstelle" ;
+	skos:definition "-" ;
+	rico:issuedBy <org/staatsarchiv> ;
+	rico:hasOrHadRuleType stabs-rut:access ;
+	skos:topConceptOf stabs-appr:
+	.
+
+stabs-appr:10001 a owl:NamedIndividual, skos:Concept, rico:Rule ;
+	skos:prefLabel "Notariatsaufsicht" ;
+	skos:definition "-" ;
+	rico:issuedBy <org/staatsarchiv> ;
+	rico:hasOrHadRuleType stabs-rut:access ;
+	skos:topConceptOf stabs-appr:
+	.
+
+stabs-appr:10002 a owl:NamedIndividual, skos:Concept, rico:Rule ;
+	skos:prefLabel "Staatsarchivar" ;
+	skos:definition "-" ;
+	rico:issuedBy <org/staatsarchiv> ;
+	rico:hasOrHadRuleType stabs-rut:access ;
+	skos:topConceptOf stabs-appr:
+	.
+
+stabs-appr:10004 a owl:NamedIndividual, skos:Concept, rico:Rule ;
+	skos:prefLabel "StABS-intern" ;
+	skos:definition "-" ;
+	rico:issuedBy <org/staatsarchiv> ;
+	rico:hasOrHadRuleType stabs-rut:access ;
+	skos:topConceptOf stabs-appr:
+	.
+
+stabs-appr:10005 a owl:NamedIndividual, skos:Concept, rico:Rule ;
+	skos:prefLabel "Deponent" ;
+	skos:definition "-" ;
+	rico:issuedBy <org/staatsarchiv> ;
+	rico:hasOrHadRuleType stabs-rut:access ;
+	skos:topConceptOf stabs-appr:
+	.
+
+stabs-appr:10003 a owl:NamedIndividual, skos:Concept, rico:Rule ;
+	skos:prefLabel "Staatsarchivar/Stv" ;
+	skos:definition "-" ;
+	rico:issuedBy <org/staatsarchiv> ;
+	rico:hasOrHadRuleType stabs-rut:access ;
+	skos:topConceptOf stabs-appr:
 	.
 
 # Urheberrechtsstatus des StABS
@@ -89,7 +176,7 @@ stabs-crs: a owl:NamedIndividual, skos:ConceptScheme ;
 stabs-crs:public-domain a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	rico:title "Gemeinfrei: Das Werk darf frei verwendet werden."@de ;
 	rico:identifier "StABS-gemeinfrei" ;
-	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/usage> ;
+	rico:hasOrHadRuleType stabs-rut:usage ;
 	rico:issuedBy <org/staatsarchiv> ;
 	skos:prefLabel "Gemeinfrei: Das Werk darf frei verwendet werden."@de ;
 	skos:definition "\"StABS gemeinfrei\" bedeutet, dass gemäss Einschätzung des Staatsarchivs kein urheberrechtlicher Schutz besteht. Es gilt das Nutzungsreglement."@de ;
@@ -100,7 +187,7 @@ stabs-crs:public-domain a owl:NamedIndividual, skos:Concept, rico:Rule ;
 stabs-crs:state-archives-bs a owl:NamedIndividual, skos:Concept, rico:Rule ;
 	rico:title "Staatsarchiv Basel-Stadt: Die urheberrechtlichen Nutzungsrechte liegen beim Staatsarchiv Basel-Stadt. Es gilt das Reglement betreffend die Veröffentlichung von Reproduktionen."@de ;
 	rico:identifier "StABS-Nutzungsrechte" ;
-	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/usage> ;
+	rico:hasOrHadRuleType stabs-rut:usage ;
 	rico:issuedBy <org/staatsarchiv> ;	
 	skos:prefLabel "Staatsarchiv Basel-Stadt: Die urheberrechtlichen Nutzungsrechte liegen beim Staatsarchiv Basel-Stadt. Es gilt das Reglement betreffend die Veröffentlichung von Reproduktionen."@de ;
 	skos:definition "\"StABS Nutzungsrechte\" bedeutet, dass die urheberrechtlichen Nutzungsrechte beim Staatsarchiv Basel-Stadt liegen. Es gilt das Nutzungsreglement."@de ;
@@ -112,7 +199,7 @@ stabs-crs:unknown a owl:NamedIndividual, skos:Concept, rico:Rule  ;
 	rico:title "Ungeklärt: Die urheberrechtlichen Nutzungsrechte sind ungeklärt und müssen durch Benutzerin/Benutzer abgeklärt werden."@de ;
 	rico:identifier "StABS-Ungeklärt" ;
 	rico:issuedBy <org/staatsarchiv> ;	
-	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/usage> ;
+	rico:hasOrHadRuleType stabs-rut:usage ;
 	skos:prefLabel "Ungeklärt: Die urheberrechtlichen Nutzungsrechte sind ungeklärt und müssen durch Benutzerin/Benutzer abgeklärt werden."@de ;
 	skos:definition "Dieser Wert wird bei jeglichen Unklarheiten gesetzt. Das betrifft zum Beispiel ganze Dossiers mit unterschiedlichen VerfertigerInnen, nicht abgeklärte Fälle oder nicht verzeichnete Metadaten."@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/>	;
@@ -123,7 +210,7 @@ stabs-crs:creator a owl:NamedIndividual, skos:Concept, rico:Rule  ;
 	rico:title "VerfertigerIn: Die urheberrechtlichen Nutzungsrechte liegen bei VerfertigerIn respektive Inhaberin/Inhaber der urheberechtlichen Nutzungsrechte."@de ;
 	rico:identifier "StABS-VerfertigerIn" ;
 	rico:issuedBy <org/staatsarchiv> ;	
-	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/usage> ;
+	rico:hasOrHadRuleType stabs-rut:usage ;
 	skos:prefLabel "VerfertigerIn: Die urheberrechtlichen Nutzungsrechte liegen bei VerfertigerIn respektive Inhaberin/Inhaber der urheberechtlichen Nutzungsrechte."@de ;
 	skos:definition "Dieser Wert wird nur vergeben, wenn Abklärungen des Staatsarchivs ergeben haben, dass die Rechte bei der VerfertigerIn liegen und nicht im Staatsarchiv."@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/> ;	
@@ -134,7 +221,7 @@ stabs-crs:orphaned a owl:NamedIndividual, skos:Concept, rico:Rule  ;
 	rico:title "Verwaist: Es handelt sich um ein verwaistes Werk. Nutzungsbedingungen sind mit der entsprechenden Verwertungsgesellschaft zu klären."@de ;
 	rico:identifier "StABS-Verwaist" ;
 	rico:issuedBy <org/staatsarchiv> ;	
-	rico:hasOrHadRuleType <RiC/vocabularies/ruleTypes/usage> ;
+	rico:hasOrHadRuleType stabs-rut:usage ;
 	skos:prefLabel "Verwaist: Es handelt sich um ein verwaistes Werk. Nutzungsbedingungen sind mit der entsprechenden Verwertungsgesellschaft zu klären."@de ;
 	skos:definition "Dieser Wert wird gesetzt, wenn die Inhaberinnen und Inhaber der Rechte an dem Werk nach einer mit verhältnismässigem Aufwand durchgeführten, gründlichen und dokumentierten Recherche unbekannt oder unauffindbar sind."@de ;
 	rdfs:seeAlso <https://dls.staatsarchiv.bs.ch/de/orientierung/rechtsgrundlagen-und-datenschutz/> ;	
