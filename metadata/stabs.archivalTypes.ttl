@@ -91,6 +91,7 @@ stabs-art:10101 a rico:Type, skos:Concept ;
     skos:prefLabel "Objekt"@de ;
     skos:altLabel "Gegenstand"@de ;
     skos:definition "Wird für dreidimensionale Objekte verwendet. Wurde vom 13.7.2001 bis 15.4.2015 als \"Gegenstand\" bezeichnet."@de ;
+    skos:closeMatch wd:Q337060
     .
 
 stabs-art:10188 a rico:Type, skos:Concept ;
