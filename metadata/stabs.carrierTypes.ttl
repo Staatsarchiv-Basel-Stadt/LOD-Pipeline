@@ -33,7 +33,8 @@ stabs-crt: a owl:NamedIndividual, skos:ConceptScheme ;
 	dcterms:title "Typen von Trägern (Film, Ton)"@de, "Carrier Types (Film, Sound)"@en ;
 	rdfs:label "Typen von Trägern (Film, Ton)"@de, "Carrier Types (Film, Sound)"@en ;
 	skos:definition "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Typen von Trägermaterialien (Film, Ton)"@de ;
-	skos:hasTopConcept stabs-crt:13029, stabs-crt:13030, stabs-crt:13031, stabs-crt:13042, stabs-crt:13043
+	skos:hasTopConcept stabs-crt:13029, stabs-crt:13030, stabs-crt:13031, stabs-crt:13042, stabs-crt:13043 ;
+	dcterms:relation wd:Q5449002
 	.
 
 stabs-crt:13029 a rico:CarrierType, skos:Concept ;
@@ -48,14 +49,16 @@ stabs-crt:13030 a rico:CarrierType, skos:Concept ;
     rdfs:label "Celluloseacetat"@de ;
 	skos:prefLabel "Celluloseacetat"@de ;
 	skos:definition "Träger aus Celluloseacetat"@de ;
-	skos:inScheme stabs-crt:
+	skos:inScheme stabs-crt: ;
+	skos:exactMatch wd:Q481840
     .
 
 stabs-crt:13031 a rico:CarrierType, skos:Concept ;
     rdfs:label "Polyester (PET)"@de ;
 	skos:prefLabel "Polyester (PET)"@de ;
 	skos:definition "Träger aus Polyester (PET)"@de ;
-	skos:inScheme stabs-crt:
+	skos:inScheme stabs-crt: ;
+	skos:closeMatch wd:Q441961
     .
 
 stabs-crt:13042 a rico:CarrierType, skos:Concept ;
