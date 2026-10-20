@@ -22,6 +22,8 @@ PREFIX stabs-rule: <https://ld.bs.ch/RiC/vocabularies/rule/>
 PREFIX stabs-rut: <https://ld.bs.ch/RiC/vocabularies/ruleTypes/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
 PREFIX stabs-appr: <https://ld.bs.ch/RiC/vocabularies/permission/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
 # Typen von Regeln des StABS
@@ -238,14 +240,14 @@ stabs-rule:isadg a rico:Rule ;
 	rico:issuedBy <org/ica> ;
 	rico:hasOrHadRuleType stabs-rut:description ;
   	rdfs:seeAlso <https://www.ica.org/app/uploads/2024/01/CBPS_2000_Guidelines_ISADG_Second-edition_DE.pdf> ;
-	owl:sameAs <http://data.archives-nationales.culture.gouv.fr/rule/rl009> ;
+	owl:sameAs <http://data.archives-nationales.culture.gouv.fr/rule/rl009>, wd:Q1654544 ;
 	.
 
 stabs-rule:handbuch-erschliessung a rico:Rule ;
 	rico:title "Handbuch Erschliessung"@de ;
 	rico:identifier "StABS 9.3 / 6.6 / 207697" ;
 	rico:issuedBy <org/staatsarchiv> ;
-	rico:publicationDate "02.04.2024" ;
+	rico:publicationDate "2024-04-02"^^xsd:Date ;
 	rico:hasOrHadRuleType stabs-rut:description ;
 	rdfs:seeAlso <https://media.bs.ch/original_file/71c56c53a9c0b4536c322696bf9b9a267e77a67d/handbuch-erschliessung-staatsarchiv-basel-stadt-2024.pdf> ;
 	.
