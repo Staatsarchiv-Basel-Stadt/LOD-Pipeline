@@ -3,6 +3,7 @@ PREFIX cc: <https://creativecommons.org/ns#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX premis: <http://www.loc.gov/premis/rdf/v3/>
+PREFIX rdact: <http://rdaregistry.info/termList/RDACarrierType/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX relSubType: <http://id.loc.gov/vocabulary/preservation/relationshipSubType/>
@@ -20,6 +21,8 @@ PREFIX stabs-rpt: <https://ld.bs.ch/RiC/vocabularies/representationTypes/>
 PREFIX stabs-rst: <https://ld.bs.ch/RiC/vocabularies/recordSetTypes/>
 PREFIX stabs-rut: <https://ld.bs.ch/RiC/vocabularies/ruleTypes/>
 PREFIX stabs-tht: <https://ld.bs.ch/RiC/vocabularies/thesaurusTypes/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 # CarrierTypes des StABS
 # ----------------------
@@ -37,7 +40,8 @@ stabs-crt:13029 a rico:CarrierType, skos:Concept ;
     rdfs:label "Cellulosenitrat"@de ;
 	skos:prefLabel "Cellulosenitrat"@de ;
 	skos:definition "Träger aus Cellulosenitrat"@de ;
-	skos:inScheme stabs-crt:
+	skos:inScheme stabs-crt: ;
+	skos:exactMatch wd:Q143874
     .
 
 stabs-crt:13030 a rico:CarrierType, skos:Concept ;
@@ -67,3 +71,25 @@ stabs-crt:13043 a rico:CarrierType, skos:Concept ;
 	skos:definition "Träger aus Nitrat"@de ;
 	skos:inScheme stabs-crt:
     .
+
+# Externe Konzepte
+# ----------------
+#
+
+rdact: a skos:ConceptScheme ;
+    dcterms:title "RDA-Vokabular für Datenträgertypen"@de, "RDA Carrier Type"@en ;
+    dcterms:description "Begriffe für eine Kategorisierung, die das Format des Speichermediums und das Gehäuse eines Datenträgers in Kombination mit der Art des Hilfsmittels widerspiegelt, das benötigt wird, um den Inhalt einer Manifestation anzuschauen, abzuspielen, laufen zu lassen oder anderweitig darauf zuzugreifen."@de, "Concepts for a categorization reflecting the format of the storage medium and housing of a carrier in combination with the type of intermediation device required to view, play, run, or otherwise access the content of a manifestation."@en ;
+	skos:hasTopConcept rdact:1018, rdact:1052
+    .
+
+rdact:1018 a rico:CarrierType, skos:Concept ;
+	rdfs:label "Online-Ressource"@de ;
+	skos:prefLabel "Online-Ressource"@de ;
+	skos:inScheme rdact:
+	.
+
+rdact:1052 a rico:CarrierType, skos:Concept ;
+	rdfs:label "Videokassette"@de ;
+	skos:prefLabel "Videokassette"@de ;
+	skos:inScheme rdact:
+	.
